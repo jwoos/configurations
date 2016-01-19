@@ -85,6 +85,8 @@ export LANG=en_US.UTF-8
 
 alias python=python3
 
-export PATH="$PATH:/usr/bin/python2.7" 
+export PATH="$PATH:/usr/bin/python2.7"
 export NVM_DIR="/home/junwoo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+alias tmux="TERM=screen-256color-bce tmux"
