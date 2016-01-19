@@ -5,7 +5,7 @@ filetype off                  " required
 set t_Co=256
 syntax enable
 set background=dark
-colorscheme hybrid
+colorscheme brogrammer
 set number
 set tabstop=2 softtabstop=2 shiftwidth=2
 set noexpandtab
