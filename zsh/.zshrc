@@ -89,4 +89,4 @@ export PATH="$PATH:/usr/bin/python2.7"
 export NVM_DIR="/home/junwoo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="tmux -2"
