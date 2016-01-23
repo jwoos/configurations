@@ -84,6 +84,7 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias python=python3
+alias pip=pip3
 
 export PATH="$PATH:/usr/bin/python2.7"
 export NVM_DIR="/home/junwoo/.nvm"
