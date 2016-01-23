@@ -17,7 +17,8 @@ plugins=(\
 	'airblade/vim-gitgutter' \
 	'bronson/vim-trailing-whitespace' \
 	'kchmck/vim-coffee-script' \
-	'digitaltoad/vim-jade'
+	'digitaltoad/vim-jade' \
+	'jiangmiao/auto-pairs'
 	)
 
 for plugin in $plugins; do

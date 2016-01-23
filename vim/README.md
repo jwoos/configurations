@@ -6,6 +6,7 @@
 - [vim css color](https://github.com/ap/vim-css-color)
 - [vim git-gutter](https://github.com/airblade/vim-gitgutter)
 - [vim trailing whitespace](https://github.com/bronson/vim-trailing-whitespace)
+- [auto pairs](https://github.com/jiangmiao/auto-pairs)
 
 ### Files support
 - [coffeescript](https://github.com/kchmck/vim-coffee-script)
