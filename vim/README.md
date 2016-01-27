@@ -7,6 +7,8 @@
 - [vim git-gutter](https://github.com/airblade/vim-gitgutter)
 - [vim trailing whitespace](https://github.com/bronson/vim-trailing-whitespace)
 - [auto pairs](https://github.com/jiangmiao/auto-pairs)
+- [ctrlp](https://github.com/ctrlpvim/ctrlp.vim)
+- [snipmate](https://github.com/msanders/snipmate.vim)
 
 ### Files support
 - [coffeescript](https://github.com/kchmck/vim-coffee-script)

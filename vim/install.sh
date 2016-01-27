@@ -18,7 +18,8 @@ plugins=(\
 	'bronson/vim-trailing-whitespace' \
 	'kchmck/vim-coffee-script' \
 	'digitaltoad/vim-jade' \
-	'jiangmiao/auto-pairs'
+	'jiangmiao/auto-pairs' \
+	'ctrlpvim/ctrlp.vim'
 	)
 
 for plugin in $plugins; do
