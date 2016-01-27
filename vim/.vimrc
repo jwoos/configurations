@@ -78,6 +78,9 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-Down> :tabclose<CR>
 nnoremap <C-Up> :tab split <CR>
 
+" disable ex mode
+nnoremap Q <nop>
+
 " hide status
 :set laststatus=0
 
