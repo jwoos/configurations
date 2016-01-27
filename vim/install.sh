@@ -20,7 +20,9 @@ plugins=(\
 	'digitaltoad/vim-jade' \
 	'jiangmiao/auto-pairs' \
 	'ctrlpvim/ctrlp.vim' \
-	'garbas/vim-snipmate'
+	'garbas/vim-snipmate' \
+	'MarcWeber/vim-addon-mw-utils' \
+	'tomtom/tlib_vim'
 	)
 
 for plugin in $plugins; do

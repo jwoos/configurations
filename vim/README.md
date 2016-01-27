@@ -10,6 +10,10 @@
 - [ctrlp](https://github.com/ctrlpvim/ctrlp.vim)
 - [snipmate](https://github.com/garbas/vim-snipmate)
 
+### Dependencies
+- [tlib](https://github.com/tomtom/tlib_vim)
+- [addone-mw-utils](https://github.com/MarcWeber/vim-addon-mw-utils)
+
 ### Files support
 - [coffeescript](https://github.com/kchmck/vim-coffee-script)
 - [jade](https://github.com/digitaltoad/vim-jade)
