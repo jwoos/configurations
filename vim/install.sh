@@ -19,7 +19,8 @@ plugins=(\
 	'kchmck/vim-coffee-script' \
 	'digitaltoad/vim-jade' \
 	'jiangmiao/auto-pairs' \
-	'ctrlpvim/ctrlp.vim'
+	'ctrlpvim/ctrlp.vim' \
+	'garbas/vim-snipmate'
 	)
 
 for plugin in $plugins; do

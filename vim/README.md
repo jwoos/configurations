@@ -8,7 +8,7 @@
 - [vim trailing whitespace](https://github.com/bronson/vim-trailing-whitespace)
 - [auto pairs](https://github.com/jiangmiao/auto-pairs)
 - [ctrlp](https://github.com/ctrlpvim/ctrlp.vim)
-- [snipmate](https://github.com/msanders/snipmate.vim)
+- [snipmate](https://github.com/garbas/vim-snipmate)
 
 ### Files support
 - [coffeescript](https://github.com/kchmck/vim-coffee-script)
