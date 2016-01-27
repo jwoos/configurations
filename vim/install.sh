@@ -22,7 +22,8 @@ plugins=(\
 	'ctrlpvim/ctrlp.vim' \
 	'garbas/vim-snipmate' \
 	'MarcWeber/vim-addon-mw-utils' \
-	'tomtom/tlib_vim'
+	'tomtom/tlib_vim' \
+	'tpope/vim-commentary'
 	)
 
 for plugin in $plugins; do

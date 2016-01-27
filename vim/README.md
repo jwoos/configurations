@@ -9,6 +9,7 @@
 - [auto pairs](https://github.com/jiangmiao/auto-pairs)
 - [ctrlp](https://github.com/ctrlpvim/ctrlp.vim)
 - [snipmate](https://github.com/garbas/vim-snipmate)
+- [commentary](https://github.com/tpope/vim-commentary)
 
 ### Dependencies
 - [tlib](https://github.com/tomtom/tlib_vim)
