@@ -10,6 +10,7 @@
 - [ctrlp](https://github.com/ctrlpvim/ctrlp.vim)
 - [snipmate](https://github.com/garbas/vim-snipmate)
 - [commentary](https://github.com/tpope/vim-commentary)
+- [indexed search](https://github.com/henrik/vim-indexed-search)
 
 ### Dependencies
 - [tlib](https://github.com/tomtom/tlib_vim)
