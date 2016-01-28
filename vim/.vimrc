@@ -72,6 +72,10 @@ set foldlevel=1
 " indent guide
 :set list lcs=tab:\|-
 
+" set c++ compiler
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
+
 " tab switching
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
