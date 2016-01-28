@@ -1,0 +1,7 @@
+[user]
+	email = shin.junwoo97@gmail.com
+	name = Junwoo Shin
+[push]
+	default = simple
+[core]
+	editor = vim
