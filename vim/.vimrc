@@ -84,6 +84,7 @@ nnoremap <C-Up> :tab split <CR>
 
 " disable ex mode
 nnoremap Q <nop>
+nnoremap s <nop>
 
 " hide status
 :set laststatus=0
