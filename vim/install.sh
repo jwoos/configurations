@@ -23,8 +23,8 @@ plugins=(\
 	'garbas/vim-snipmate' \
 	'MarcWeber/vim-addon-mw-utils' \
 	'tomtom/tlib_vim' \
-	'tpope/vim-commentary' \
-	'henrik/vim-indexed-search'
+	'henrik/vim-indexed-search' \
+	'scrooloose/nerdcommenter'
 	)
 
 for plugin in $plugins; do
