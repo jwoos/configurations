@@ -9,8 +9,10 @@
 - [auto pairs](https://github.com/jiangmiao/auto-pairs)
 - [ctrlp](https://github.com/ctrlpvim/ctrlp.vim)
 - [snipmate](https://github.com/garbas/vim-snipmate)
-- [commentary](https://github.com/tpope/vim-commentary)
 - [indexed search](https://github.com/henrik/vim-indexed-search)
+- [youcompleteme](https://github.com/Valloric/YouCompleteMe)
+- [nerd commentary](https://github.com/scrooloose/nerdcommenter)
+- [vim easymotion](https://github.com/easymotion/vim-easymotion)
 
 ### Dependencies
 - [tlib](https://github.com/tomtom/tlib_vim)

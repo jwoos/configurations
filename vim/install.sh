@@ -24,7 +24,9 @@ plugins=(\
 	'MarcWeber/vim-addon-mw-utils' \
 	'tomtom/tlib_vim' \
 	'henrik/vim-indexed-search' \
-	'scrooloose/nerdcommenter'
+	'scrooloose/nerdcommenter' \
+	'Valloric/YouCompleteMe' \
+	'easymotion/vim-easymotion' \
 	)
 
 for plugin in $plugins; do
