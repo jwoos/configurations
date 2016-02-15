@@ -26,8 +26,7 @@ plugins=(\
 	'henrik/vim-indexed-search' \
 	'scrooloose/nerdcommenter' \
 	'Valloric/YouCompleteMe' \
-	'easymotion/vim-easymotion' \
-	'nathanaelkane/vim-indent-guides'
+	'easymotion/vim-easymotion'
 	)
 
 for plugin in $plugins; do

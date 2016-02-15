@@ -43,7 +43,7 @@ set nofoldenable
 set foldlevel=1
 
 " indent guide
-":set list lcs=tab:\|-
+:set list lcs=tab:\|-
 
 " ----- PATHOGEN ----- "
 execute pathogen#infect()

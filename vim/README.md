@@ -13,7 +13,6 @@
 - [youcompleteme](https://github.com/Valloric/YouCompleteMe)
 - [nerd commentary](https://github.com/scrooloose/nerdcommenter)
 - [vim easymotion](https://github.com/easymotion/vim-easymotion)
-- [indent guides](https://github.com/nathanaelkane/vim-indent-guides)
 
 ### Dependencies
 - [tlib](https://github.com/tomtom/tlib_vim)
@@ -22,7 +21,6 @@
 ### Files support
 - [coffeescript](https://github.com/kchmck/vim-coffee-script)
 - [jade](https://github.com/digitaltoad/vim-jade)
-
 
 ### Plugins of interest
 - [you complete me](http://vimawesome.com/plugin/youcompleteme)
