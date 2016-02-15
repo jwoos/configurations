@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" ----- VIM options ----- "
 " Sets colorscheme, color, tab, and line numbers
 set t_Co=256
 syntax enable
@@ -13,9 +14,41 @@ set noet
 
 filetype plugin indent on
 
-" pathogen
+" tab switching
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-Down> :tabclose<CR>
+nnoremap <C-Up> :tab split <CR>
+
+" disable ex mode
+nnoremap Q <nop>
+nnoremap s <nop>
+
+" hide status
+:set laststatus=0
+
+" split to the right and below
+set splitbelow
+set splitright
+
+" highlighting
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+set cursorline
+
+" folding
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+
+" indent guide
+":set list lcs=tab:\|-
+
+" ----- PATHOGEN ----- "
 execute pathogen#infect()
 
+" ----- NERDTREE ----- "
 " Start nerdtree when vim opens
 autocmd vimenter * NERDTree
 
@@ -36,11 +69,7 @@ function! s:CloseIfOnlyNerdTreeLeft()
 	endif
 endfunction
 
-" split to the right and below
-set splitbelow
-set splitright
-
-" syntastic
+" ----- SYNTASTIC ----- "
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -58,36 +87,19 @@ let g:syntastic_disabled_filetypes=['html, xhtml']
 let g:syntastic_html_checkers=['']
 let g:syntastic_xhtml_checkers=['']
 
-" highlighting
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-set cursorline
-
-" folding
-set foldmethod=indent
-set foldnestmax=10
-set nofoldenable
-set foldlevel=1
-
-" indent guide
-:set list lcs=tab:\|-
-
 " set c++ compiler
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
 
-" tab switching
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
-nnoremap <C-Down> :tabclose<CR>
-nnoremap <C-Up> :tab split <CR>
 
-" disable ex mode
-nnoremap Q <nop>
-nnoremap s <nop>
+" ----- YOUCOMPLETEME ----- "
+let g:ycm_filetype_blacklist = {
+			\ 'markdown' : 1,
+			\ 'text' : 1
+			\ }
 
-" hide status
-:set laststatus=0
+" ----- EASYMOTION ----- "
+map <Leader> <Plug>(easymotion-prefix)
 
 " TODO remap toggling syntastic
 " TODO map :FixWhitespace

@@ -13,6 +13,7 @@
 - [youcompleteme](https://github.com/Valloric/YouCompleteMe)
 - [nerd commentary](https://github.com/scrooloose/nerdcommenter)
 - [vim easymotion](https://github.com/easymotion/vim-easymotion)
+- [indent guides](https://github.com/nathanaelkane/vim-indent-guides)
 
 ### Dependencies
 - [tlib](https://github.com/tomtom/tlib_vim)
