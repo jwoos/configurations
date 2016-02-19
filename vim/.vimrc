@@ -101,6 +101,9 @@ let g:ycm_filetype_blacklist = {
 " ----- EASYMOTION ----- "
 map <Leader> <Plug>(easymotion-prefix)
 
+" ----- SNIPMATE ----- "
+let g:ycm_key_list_select_completion = []
+
 " TODO remap toggling syntastic
 " TODO map :FixWhitespace
 " TODO map write and quit
