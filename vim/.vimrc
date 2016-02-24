@@ -97,6 +97,8 @@ let g:ycm_filetype_blacklist = {
 			\ 'markdown' : 1,
 			\ 'text' : 1
 			\ }
+" disabled ycm setting itself as syntastic checker
+let g:ycm_register_as_syntastic_checker = 0
 
 " ----- EASYMOTION ----- "
 map <Leader> <Plug>(easymotion-prefix)
