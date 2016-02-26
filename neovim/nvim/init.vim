@@ -42,6 +42,10 @@ nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-Down> :tabclose<CR>
 nnoremap <C-Up> :tab split <CR>
+tnoremap <C-Left> <C-Bslash><C-n>:tabprevious<CR>
+tnoremap <C-Right> <C-Bslash><C-n>:tabnext<CR>
+tnoremap <C-Down> <C-Bslash><C-n>:tabclose<CR>
+tnoremap <C-Up> <C-Bslash><C-n>:tab split <CR>
 
 " hide status
 set laststatus=0
@@ -71,6 +75,10 @@ nnoremap <A-Left> <C-w><Left>
 nnoremap <A-Right> <C-w><Right>
 nnoremap <A-Down> <C-w><Down>
 nnoremap <A-Up> <C-w><Up>
+tnoremap <A-Left> <C-Bslash><C-n><C-w><Left>
+tnoremap <A-Right> <C-Bslash><C-n><C-w><Right>
+tnoremap <A-Down> <C-Bslash><C-n><C-w><Down>
+tnoremap <A-Up> <C-Bslash><C-n><C-w><Up>
 
 " split to the right and below
 set splitbelow
