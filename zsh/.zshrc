@@ -91,3 +91,5 @@ export NVM_DIR="/home/junwoo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 alias tmux="tmux -2"
+
+alias vim="nvim"
