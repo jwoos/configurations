@@ -21,6 +21,7 @@ set t_Co=256
 :let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " colorscheme
+"colorscheme material
 colorscheme evening
 set background=dark
 
@@ -32,6 +33,9 @@ set number
 
 " don't expand tabs
 set noet
+
+" disable mouse
+set mouse=
 
 " tab switching
 nnoremap <C-Left> :tabprevious<CR>
@@ -60,7 +64,7 @@ set nofoldenable
 set foldlevel=1
 
 " indent guide
-"set list lcs=tab:\|-
+set list lcs=tab:\|\ 
 
 " easy switching between splits
 nnoremap <A-Left> <C-w><Left>
@@ -97,6 +101,8 @@ Plug 'henrik/vim-indexed-search'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Valloric/YouCompleteMe'
 Plug 'easymotion/vim-easymotion'
+Plug 'Valloric/MatchTagAlways'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " ----- NERDTREE ----- "
@@ -155,6 +161,10 @@ map <Leader> <Plug>(easymotion-prefix)
 
 " ----- SNIPMATE ----- "
 inoremap <C-`> <Plug>snipMateNextOrTrigger
+
+" ----- INDENTLINE ----- "
+let g:indentLine_enabled = 1
+let g:indentLine_char = '|'
 
 " TODO remap toggling syntastic
 " TODO map :FixWhitespace

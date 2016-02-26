@@ -1,15 +1,16 @@
 " Vim color file
 "
 " Author: Tomas Restrepo <tomas@winterdom.com>
-" https://github.com/tomasr/molokai
 "
-" Note: Based on the Monokai theme for TextMate
+" Note: Based on the monokai theme for textmate
 " by Wimer Hazenberg and its darker variant
 " by Hamish Stuart Macpherson
-"
+" by Eric Zhang for make it even darker and look
+" cooler
 
 hi clear
 
+set background=dark
 if version > 580
     " no guarantees for version 5.8 and below, but this makes it stop
     " complaining
@@ -20,19 +21,12 @@ if version > 580
 endif
 let g:colors_name="molokai"
 
-if exists("g:molokai_original")
-    let s:molokai_original = g:molokai_original
-else
-    let s:molokai_original = 0
-endif
-
-
-hi Boolean         guifg=#AE81FF
+hi Boolean         guifg=#CC0000               gui=bold
 hi Character       guifg=#E6DB74
 hi Number          guifg=#AE81FF
-hi String          guifg=#E6DB74
+hi String          guifg=#44DD00
 hi Conditional     guifg=#F92672               gui=bold
-hi Constant        guifg=#AE81FF               gui=bold
+hi Constant        guifg=#8302C3	       gui=bold
 hi Cursor          guifg=#000000 guibg=#F8F8F0
 hi iCursor         guifg=#000000 guibg=#F8F8F0
 hi Debug           guifg=#BCA3A3               gui=bold
@@ -51,13 +45,13 @@ hi Float           guifg=#AE81FF
 hi FoldColumn      guifg=#465457 guibg=#000000
 hi Folded          guifg=#465457 guibg=#000000
 hi Function        guifg=#A6E22E
-hi Identifier      guifg=#FD971F
+hi Identifier      guifg=#FD971F               
 hi Ignore          guifg=#808080 guibg=bg
 hi IncSearch       guifg=#C4BE89 guibg=#000000
 
 hi Keyword         guifg=#F92672               gui=bold
-hi Label           guifg=#E6DB74               gui=none
-hi Macro           guifg=#C4BE89               gui=italic
+hi Label           guifg=#E6DB74               gui=bold
+hi Macro           guifg=#D5A102               gui=italic
 hi SpecialKey      guifg=#66D9EF               gui=italic
 
 hi MatchParen      guifg=#000000 guibg=#FD971F gui=bold
@@ -75,10 +69,10 @@ hi PreCondit       guifg=#A6E22E               gui=bold
 hi PreProc         guifg=#A6E22E
 hi Question        guifg=#66D9EF
 hi Repeat          guifg=#F92672               gui=bold
-hi Search          guifg=#000000 guibg=#FFE792
+hi Search          guifg=#FFFFFF guibg=#455354
 " marks
 hi SignColumn      guifg=#A6E22E guibg=#232526
-hi SpecialChar     guifg=#F92672               gui=bold
+hi SpecialChar     guifg=#DC322F	       gui=bold
 hi SpecialComment  guifg=#7E8E91               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
 if has("spell")
@@ -87,17 +81,17 @@ if has("spell")
     hi SpellLocal  guisp=#70F0F0 gui=undercurl
     hi SpellRare   guisp=#FFFFFF gui=undercurl
 endif
-hi Statement       guifg=#F92672               gui=bold
-hi StatusLine      guifg=#455354 guibg=fg
+hi Statement       guifg=#CC0000               gui=bold
+hi StatusLine      guifg=#455354 guibg=fg      gui=bold,reverse
 hi StatusLineNC    guifg=#808080 guibg=#080808
 hi StorageClass    guifg=#FD971F               gui=italic
-hi Structure       guifg=#66D9EF
+hi Structure       guifg=#66D9EF               gui=bold
 hi Tag             guifg=#F92672               gui=italic
 hi Title           guifg=#ef5939
 hi Todo            guifg=#FFFFFF guibg=bg      gui=bold
 
 hi Typedef         guifg=#66D9EF
-hi Type            guifg=#66D9EF               gui=none
+hi Type            guifg=#66D9EF               gui=bold
 hi Underlined      guifg=#808080               gui=underline
 
 hi VertSplit       guifg=#808080 guibg=#080808 gui=bold
@@ -109,41 +103,24 @@ hi WildMenu        guifg=#66D9EF guibg=#000000
 hi TabLineFill     guifg=#1B1D1E guibg=#1B1D1E
 hi TabLine         guibg=#1B1D1E guifg=#808080 gui=none
 
-if s:molokai_original == 1
-   hi Normal          guifg=#F8F8F2 guibg=#272822
-   hi Comment         guifg=#75715E
-   hi CursorLine                    guibg=#3E3D32
-   hi CursorLineNr    guifg=#FD971F               gui=none
-   hi CursorColumn                  guibg=#3E3D32
-   hi ColorColumn                   guibg=#3B3A32
-   hi LineNr          guifg=#BCBCBC guibg=#3B3A32
-   hi NonText         guifg=#75715E
-   hi SpecialKey      guifg=#75715E
-else
-   hi Normal          guifg=#F8F8F2 guibg=#1B1D1E
-   hi Comment         guifg=#7E8E91
-   hi CursorLine                    guibg=#293739
-   hi CursorLineNr    guifg=#FD971F               gui=none
-   hi CursorColumn                  guibg=#293739
-   hi ColorColumn                   guibg=#232526
-   hi LineNr          guifg=#465457 guibg=#232526
-   hi NonText         guifg=#465457
-   hi SpecialKey      guifg=#465457
-end
+
+hi Normal          guifg=#F6F6F0 guibg=#000000
+hi Comment         guifg=#7E8E91
+hi CursorLine                    guibg=#293739
+hi CursorLineNr    guifg=#FD971F               gui=none
+hi CursorColumn                  guibg=#293739
+hi ColorColumn                   guibg=#232526
+hi LineNr          guifg=#465457 guibg=#232526
+hi NonText         guifg=#465457               gui=bold
+hi SpecialKey      guifg=#465457
 
 "
 " Support for 256-color terminal
 "
 if &t_Co > 255
-   if s:molokai_original == 1
-      hi Normal                   ctermbg=234
-      hi CursorLine               ctermbg=235   cterm=none
-      hi CursorLineNr ctermfg=208               cterm=none
-   else
-      hi Normal       ctermfg=252 ctermbg=233
-      hi CursorLine               ctermbg=234   cterm=none
-      hi CursorLineNr ctermfg=208               cterm=none
-   endif
+   hi Normal       ctermfg=252 ctermbg=233
+   hi CursorLine               ctermbg=234   cterm=none
+   hi CursorLineNr ctermfg=208               cterm=none
    hi Boolean         ctermfg=135
    hi Character       ctermfg=144
    hi Number          ctermfg=135
@@ -177,14 +154,14 @@ if &t_Co > 255
    hi Macro           ctermfg=193
    hi SpecialKey      ctermfg=81
 
-   hi MatchParen      ctermfg=233  ctermbg=208 cterm=bold
+   hi MatchParen      ctermfg=208  ctermbg=233 cterm=bold
    hi ModeMsg         ctermfg=229
    hi MoreMsg         ctermfg=229
    hi Operator        ctermfg=161
 
    " complete menu
    hi Pmenu           ctermfg=81  ctermbg=16
-   hi PmenuSel        ctermfg=255 ctermbg=242
+   hi PmenuSel        ctermfg=81  ctermbg=244
    hi PmenuSbar                   ctermbg=232
    hi PmenuThumb      ctermfg=81
 
@@ -192,7 +169,7 @@ if &t_Co > 255
    hi PreProc         ctermfg=118
    hi Question        ctermfg=81
    hi Repeat          ctermfg=161               cterm=bold
-   hi Search          ctermfg=0   ctermbg=222   cterm=NONE
+   hi Search          ctermfg=253 ctermbg=66
 
    " marks column
    hi SignColumn      ctermfg=118 ctermbg=235
@@ -270,7 +247,3 @@ if &t_Co > 255
        hi SpecialKey      ctermfg=239
    endif
 end
-
-" Must be at the end, because of ctermbg=234 bug.
-" https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
-set background=dark
