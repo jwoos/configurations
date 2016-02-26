@@ -164,6 +164,9 @@ let g:ycm_filetype_blacklist = {
 " disabled ycm setting itself as syntastic checker
 let g:ycm_register_as_syntastic_checker = 0
 
+" python interpreter
+let g:ycm_python_binary_path = '/usr/bin/python3'
+
 " ----- EASYMOTION ----- "
 map <Leader> <Plug>(easymotion-prefix)
 
