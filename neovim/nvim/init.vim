@@ -21,7 +21,6 @@ set t_Co=256
 :let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " colorscheme
-"colorscheme material
 colorscheme evening
 set background=dark
 
@@ -33,6 +32,9 @@ set number
 
 " don't expand tabs
 set noet
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
 
 " disable mouse
 set mouse=
