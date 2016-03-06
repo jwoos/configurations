@@ -113,6 +113,8 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'easymotion/vim-easymotion'
 Plug 'Valloric/MatchTagAlways'
 Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 " ----- NERDTREE ----- "
@@ -178,6 +180,13 @@ inoremap <C-`> <Plug>snipMateNextOrTrigger
 " ----- INDENTLINE ----- "
 let g:indentLine_enabled = 1
 let g:indentLine_char = '|'
+
+" ----- MULTIPLECURSOR ----- "
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-m>'
+let g:multi_cursor_prev_key='<C-n>'
+let g:multi_cursor_skip_key='<C-b>'
+let g:multi_cursor_quit_key='<C-c>'
 
 " TODO remap toggling syntastic
 " TODO map :FixWhitespace
