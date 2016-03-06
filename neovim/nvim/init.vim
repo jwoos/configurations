@@ -52,10 +52,11 @@ tnoremap <C-Up> <C-Bslash><C-n>:tab split <CR>
 " hide status
 set laststatus=0
 
-" disable ex mode
-nnoremap Q <nop>
+" remap esc to control-c for ease of use
+inoremap <C-c> <Esc>
 
-" disable s being insert
+" unmap keys
+nnoremap Q <nop>
 nnoremap s <nop>
 
 " highlighting
@@ -104,7 +105,6 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'digitaltoad/vim-jade'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'garbas/vim-snipmate'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'henrik/vim-indexed-search'
@@ -115,6 +115,10 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
+" Plugins of interest
+"Plug 'garbas/vim-snipmate'
+"Plug 'majutsushi/tagbar'
+"Plug 'tpope/vim-repeat'
 call plug#end()
 
 " ----- NERDTREE ----- "
@@ -175,7 +179,8 @@ let g:ycm_python_binary_path = '/usr/bin/python3'
 map <Leader> <Plug>(easymotion-prefix)
 
 " ----- SNIPMATE ----- "
-inoremap <C-`> <Plug>snipMateNextOrTrigger
+"let g:snips_trigger_key = '<C-s>'
+"let g:snips_trigger_key_backwards = '<C-a>'
 
 " ----- INDENTLINE ----- "
 let g:indentLine_enabled = 1
