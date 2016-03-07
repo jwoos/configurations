@@ -60,9 +60,9 @@ nnoremap Q <nop>
 nnoremap s <nop>
 
 " highlighting
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-set cursorline
+"autocmd WinEnter * setlocal cursorline
+"autocmd WinLeave * setlocal nocursorline
+"set cursorline
 
 " folding
 set foldmethod=indent
