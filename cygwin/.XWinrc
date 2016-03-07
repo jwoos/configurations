@@ -1,0 +1,55 @@
+# Menus are defined as...
+# MENU <name> {
+#	<Menu Text>	EXEC	<command>
+#                               ^^ This command will have any "%display%"
+#                                  string replaced with the proper display
+#                                  variable (i.e. 127.0.0.1:<display>.0)
+#                                  (This should only rarely be needed as
+#                                  the DISPLAY environment variable is also
+#                                  set correctly)
+#  or	<Menu Text>	MENU	<name-of-some-prior-defined-menu>
+#  or	<Menu Text>	ALWAYSONTOP
+#                         ^^ Sets the window to display above all others
+#  or   <Menu Text>	RELOAD
+#                         ^^ Causes ~/.XWinrc or the system.XWinrc file
+#                            to be reloaded and icons and menus regenerated
+#  or	SEPARATOR
+#       ...
+# }
+
+# Set the taskmar menu with
+# ROOTMENU <name-of-some-prior-defined-menu>
+
+# If you want a menu to be applied to all popup window's system menu
+# DEFAULTSYSMENU <name-of-some-prior-defined-menu> <atstart|atend>
+
+# To choose a specific menu for a specific WM_CLASS or WM_NAME use ...
+# SYSMENU {
+#	<class-or-name-of-window> <name-of-prior-defined-menu> <atstart|atend>
+#	...
+# }
+
+# To disable exit confirmation dialog add the line containing SilentExit
+
+DPI 282
+
+menu root {
+//	"Applications"	menu	apps
+// Comments fit here, too...
+//	SEPARATOR
+
+	FAQ            EXEC "cygstart http://x.cygwin.com/docs/faq/cygwin-x-faq.html"
+	"User's Guide" EXEC "cygstart http://x.cygwin.com/docs/ug/cygwin-x-ug.html"
+	SEPARATOR
+	"View logfile" EXEC "xterm -title $XWINLOGFILE -e less +F $XWINLOGFILE"
+	SEPARATOR
+
+	"Reload .XWinrc"	RELOAD
+	SEParATOR
+}
+
+RootMenu root
+
+SilentExit
+
+DEBUG "Done parsing the configuration file..."
