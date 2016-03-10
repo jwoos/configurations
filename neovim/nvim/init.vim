@@ -188,9 +188,9 @@ let g:indentLine_char = '|'
 
 " ----- MULTIPLECURSOR ----- "
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-m>'
-let g:multi_cursor_prev_key='<C-n>'
-let g:multi_cursor_skip_key='<C-b>'
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-a>'
+let g:multi_cursor_skip_key='<C-s>'
 let g:multi_cursor_quit_key='<C-c>'
 
 " TODO remap toggling syntastic
