@@ -93,3 +93,6 @@ export NVM_DIR="/home/junwoo/.nvm"
 alias tmux="tmux -2"
 
 alias vim="nvim"
+
+# BAM
+alias remove='bash -c "docker ps -aq | xargs -r docker rm -fv"'
