@@ -91,8 +91,8 @@ export NVM_DIR="/home/junwoo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 alias tmux="tmux -2"
-
 alias vim="nvim"
+alias resetif="sudo ~/resetif.sh"
 
 # BAM
 alias remove='bash -c "docker ps -aq | xargs -r docker rm -fv"'
