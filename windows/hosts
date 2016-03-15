@@ -21,4 +21,4 @@
 #	::1             localhost
 
 # IP address has to match the one used for ubuntu network
-192.168.1.20     api.bam-x.site
+192.168.174.101     api.bam-x.site
