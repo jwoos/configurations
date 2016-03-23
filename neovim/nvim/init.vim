@@ -20,6 +20,9 @@ set t_Co=256
 " true color mode
 :let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+" set python interpreter
+let g:python3_host_prog = '/usr/bin/python3'
+
 " colorscheme
 colorscheme evening
 set background=dark
@@ -111,7 +114,7 @@ Plug 'henrik/vim-indexed-search'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Valloric/YouCompleteMe'
 Plug 'easymotion/vim-easymotion'
-Plug 'Valloric/MatchTagAlways'
+"Plug 'Valloric/MatchTagAlways'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
@@ -161,7 +164,7 @@ let g:syntastic_xhtml_checkers=['']
 
 " set c++ compiler
 let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = '-std=c++11 -Wall'
+let g:syntastic_cpp_compiler_options = '-std=c++14c -Wall -g -I.'
 
 
 " ----- YOUCOMPLETEME ----- "
