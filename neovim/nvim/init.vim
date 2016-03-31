@@ -76,7 +76,7 @@ set nofoldenable
 set foldlevel=1
 
 " indent guide
-set list lcs=tab:\|\ 
+set list lcs=tab:\|\  
 
 " easy switching between splits
 nnoremap <A-Left> <C-w><Left>
