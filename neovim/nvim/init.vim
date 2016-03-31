@@ -58,9 +58,11 @@ set laststatus=0
 " remap esc to control-c for ease of use
 inoremap <C-c> <Esc>
 
-" unmap keys
+" unmap keys (sets to no op)
 nnoremap Q <nop>
 nnoremap s <nop>
+nnoremap <F1> <nop>
+inoremap <F1> <nop>
 
 " highlighting
 "autocmd WinEnter * setlocal cursorline
@@ -91,8 +93,8 @@ set splitbelow
 set splitright
 
 " open/close terminal emulator
-nnoremap <A-Bslash> :te<CR>
-"tnoremap <A-Bslash> <C-d><CR>
+nnoremap <F12> :te<CR>
+"tnoremap <F12> <C-d><CR>
 
 " ----- VIM-PLUG ----- "
 " PlugInstall to install
@@ -100,7 +102,6 @@ nnoremap <A-Bslash> :te<CR>
 call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'scrooloose/syntastic'
 Plug 'ap/vim-css-color'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
@@ -108,21 +109,31 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'digitaltoad/vim-jade'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
 Plug 'henrik/vim-indexed-search'
 Plug 'scrooloose/nerdcommenter'
-Plug 'Valloric/YouCompleteMe'
 Plug 'easymotion/vim-easymotion'
-"Plug 'Valloric/MatchTagAlways'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'majutsushi/tagbar'
+Plug 'Shougo/deoplete.nvim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'benekastah/neomake'
 " Plugins of interest
+"Plug 'MarcWeber/vim-addon-mw-utils'
+"Plug 'tomtom/tlib_vim'
+"Plug 'Valloric/MatchTagAlways'
 "Plug 'garbas/vim-snipmate'
 "Plug 'majutsushi/tagbar'
 "Plug 'tpope/vim-repeat'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'scrooloose/syntastic'
 call plug#end()
+
+
+" ----- VIM TRAILING WHITESPACE ----- "
+nnoremap <F1> :FixWhitespace<CR>
+inoremap <F1> :FixWhitespace<CR>
 
 " ----- NERDTREE ----- "
 autocmd vimenter * NERDTree
@@ -144,46 +155,8 @@ function! s:CloseIfOnlyNerdTreeLeft()
 	endif
 endfunction
 
-" ----- SYNTASTIC ----- "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" ignore some python errors
-let g:syntastic_python_flake8_args = "--ignore=E501,W191"
-
-"disable syntastic for html
-let g:syntastic_disabled_filetypes=['html, xhtml']
-let g:syntastic_html_checkers=['']
-let g:syntastic_xhtml_checkers=['']
-
-" set c++ compiler
-let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = '-std=c++14c -Wall -g -I.'
-
-
-" ----- YOUCOMPLETEME ----- "
-let g:ycm_filetype_blacklist = {
-			\ 'markdown' : 1,
-			\ 'text' : 1
-			\ }
-" disabled ycm setting itself as syntastic checker
-let g:ycm_register_as_syntastic_checker = 0
-
-" python interpreter
-let g:ycm_python_binary_path = '/usr/bin/python3'
-
 " ----- EASYMOTION ----- "
 map <Leader> <Plug>(easymotion-prefix)
-
-" ----- SNIPMATE ----- "
-"let g:snips_trigger_key = '<C-s>'
-"let g:snips_trigger_key_backwards = '<C-a>'
 
 " ----- INDENTLINE ----- "
 let g:indentLine_enabled = 1
@@ -196,6 +169,61 @@ let g:multi_cursor_prev_key='<C-a>'
 let g:multi_cursor_skip_key='<C-s>'
 let g:multi_cursor_quit_key='<C-c>'
 
+" ----- TAGBAR ----- "
+nnoremap <A-\> :TagbarToggle<CR>
+
+" ----- NEOMAKE ----- "
+"autocmd! BufWritePost * Neomake
+
+" ----- DEOPLETE ----- "
+let g:deoplete#enable_at_startup = 1
+" use tab to forward cycle
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" use tab to backward cycle
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
 " TODO remap toggling syntastic
 " TODO map :FixWhitespace
-" TODO map write and quit
+
+" UNUSED PLUGINS
+
+" ----- SNIPMATE ----- "
+"let g:snips_trigger_key = '<C-s>'
+"let g:snips_trigger_key_backwards = '<C-a>'
+
+" ----- YOUCOMPLETEME ----- "
+"let g:ycm_filetype_blacklist = {
+"			\ 'markdown' : 1,
+"			\ 'text' : 1
+"			\ }
+" disabled ycm setting itself as syntastic checker
+"let g:ycm_register_as_syntastic_checker = 0
+
+" python interpreter
+"let g:ycm_python_binary_path = '/usr/bin/python3'
+
+" ----- SYNTASTIC ----- "
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"nnoremap <F12> :SyntasticToggleMode
+"inoremap <F12> :SyntasticToggleMode
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"
+" ignore some python errors
+"let g:syntastic_python_flake8_args = "--ignore=E501,W191"
+"
+"disable syntastic for html
+"let g:syntastic_disabled_filetypes=['html, xhtml']
+"let g:syntastic_html_checkers=['']
+"let g:syntastic_xhtml_checkers=['']
+"
+" set c++ compiler
+"let g:syntastic_cpp_compiler = 'g++'
+"let g:syntastic_cpp_compiler_options = '-std=c++14c -Wall -g -I.'
+
