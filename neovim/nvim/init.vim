@@ -226,8 +226,9 @@ let g:syntastic_disabled_filetypes = ['html, xhtml']
 "javascript
 let g:syntastic_javascript_checkers = ["jshint"]
 "c++
-let g:syntastc_cpp_checkers = ["g++"]
-let g:syntastic_cpp_compiler_args = '-std=c++14c -Wall -g -I.'
+let g:syntastc_cpp_checkers = ["gcc"]
+let g:syntastic_cpp_compiler = 'gcc'
+let g:syntastic_cpp_compiler_options = '-std=c++14 -Wall'
 "python
 let g:syntastic_python_checkers = ["flake8"]
 let g:syntastic_python_flake8_args = "--ignore=E501,W191"
