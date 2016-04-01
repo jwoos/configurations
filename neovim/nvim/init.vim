@@ -237,6 +237,9 @@ let g:syntastic_xhtml_checkers = ['']
 "sass
 let g:syntastic_sass_checks = ['compass']
 
+" TODO: map :nohl
+" TODO: map write
+
 " -------------------------- "
 " |         GUNDO          | "
 " -------------------------- "
