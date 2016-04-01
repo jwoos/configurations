@@ -63,6 +63,7 @@ nnoremap Q <nop>
 nnoremap s <nop>
 nnoremap <F1> <nop>
 inoremap <F1> <nop>
+nnoremap <S-\> <nop>
 
 " highlighting
 "autocmd WinEnter * setlocal cursorline
@@ -76,17 +77,17 @@ set nofoldenable
 set foldlevel=1
 
 " indent guide
-set list lcs=tab:\|\  
+set list lcs=tab:\|\ 
 
 " easy switching between splits
 nnoremap <A-Left> <C-w><Left>
 nnoremap <A-Right> <C-w><Right>
 nnoremap <A-Down> <C-w><Down>
 nnoremap <A-Up> <C-w><Up>
-tnoremap <A-Left> <C-Bslash><C-n><C-w><Left>
-tnoremap <A-Right> <C-Bslash><C-n><C-w><Right>
-tnoremap <A-Down> <C-Bslash><C-n><C-w><Down>
-tnoremap <A-Up> <C-Bslash><C-n><C-w><Up>
+tnoremap <A-Left> <C-\><C-n><C-w><Left>
+tnoremap <A-Right> <C-\><C-n><C-w><Right>
+tnoremap <A-Down> <C-\><C-n><C-w><Down>
+tnoremap <A-Up> <C-\><C-n><C-w><Up>
 
 " split to the right and below
 set splitbelow
@@ -118,8 +119,10 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/deoplete.nvim'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'benekastah/neomake'
+Plug 'scrooloose/syntastic'
+Plug 'sjl/gundo.vim'
 " Plugins of interest
+"Plug 'benekastah/neomake'
 "Plug 'MarcWeber/vim-addon-mw-utils'
 "Plug 'tomtom/tlib_vim'
 "Plug 'Valloric/MatchTagAlways'
@@ -127,63 +130,121 @@ Plug 'benekastah/neomake'
 "Plug 'majutsushi/tagbar'
 "Plug 'tpope/vim-repeat'
 "Plug 'Valloric/YouCompleteMe'
-"Plug 'scrooloose/syntastic'
 call plug#end()
 
+"          _____                    _____            _____                    _____                    _____                    _____                    _____
+"         /\    \                  /\    \          /\    \                  /\    \                  /\    \                  /\    \                  /\    \ 
+"        /::\    \                /::\____\        /::\____\                /::\    \                /::\    \                /::\____\                /::\    \ 
+"       /::::\    \              /:::/    /       /:::/    /               /::::\    \               \:::\    \              /::::|   |               /::::\    \ 
+"      /::::::\    \            /:::/    /       /:::/    /               /::::::\    \               \:::\    \            /:::::|   |              /::::::\    \ 
+"     /:::/\:::\    \          /:::/    /       /:::/    /               /:::/\:::\    \               \:::\    \          /::::::|   |             /:::/\:::\    \ 
+"    /:::/__\:::\    \        /:::/    /       /:::/    /               /:::/  \:::\    \               \:::\    \        /:::/|::|   |            /:::/__\:::\    \ 
+"   /::::\   \:::\    \      /:::/    /       /:::/    /               /:::/    \:::\    \              /::::\    \      /:::/ |::|   |            \:::\   \:::\    \ 
+"  /::::::\   \:::\    \    /:::/    /       /:::/    /      _____    /:::/    / \:::\    \    ____    /::::::\    \    /:::/  |::|   | _____    ___\:::\   \:::\    \ 
+" /:::/\:::\   \:::\____\  /:::/    /       /:::/____/      /\    \  /:::/    /   \:::\ ___\  /\   \  /:::/\:::\    \  /:::/   |::|   |/\    \  /\   \:::\   \:::\    \ 
+"/:::/  \:::\   \:::|    |/:::/____/       |:::|    /      /::\____\/:::/____/  ___\:::|    |/::\   \/:::/  \:::\____\/:: /    |::|   /::\____\/::\   \:::\   \:::\____\
+"\::/    \:::\  /:::|____|\:::\    \       |:::|____\     /:::/    /\:::\    \ /\  /:::|____|\:::\  /:::/    \::/    /\::/    /|::|  /:::/    /\:::\   \:::\   \::/    /
+" \/_____/\:::\/:::/    /  \:::\    \       \:::\    \   /:::/    /  \:::\    /::\ \::/    /  \:::\/:::/    / \/____/  \/____/ |::| /:::/    /  \:::\   \:::\   \/____/
+"          \::::::/    /    \:::\    \       \:::\    \ /:::/    /    \:::\   \:::\ \/____/    \::::::/    /                   |::|/:::/    /    \:::\   \:::\    \ 
+"           \::::/    /      \:::\    \       \:::\    /:::/    /      \:::\   \:::\____\       \::::/____/                    |::::::/    /      \:::\   \:::\____\ 
+"            \::/____/        \:::\    \       \:::\__/:::/    /        \:::\  /:::/    /        \:::\    \                    |:::::/    /        \:::\  /:::/    /
+"             ~~               \:::\    \       \::::::::/    /          \:::\/:::/    /          \:::\    \                   |::::/    /          \:::\/:::/    /
+"                               \:::\    \       \::::::/    /            \::::::/    /            \:::\    \                  /:::/    /            \::::::/    /
+"                                \:::\____\       \::::/    /              \::::/    /              \:::\____\                /:::/    /              \::::/    /
+"                                 \::/    /        \::/____/                \::/____/                \::/    /                \::/    /                \::/    /
+"                                  \/____/          ~~                                                \/____/                  \/____/                  \/____/
+"
 
-" ----- VIM TRAILING WHITESPACE ----- "
+" -------------------------- "
+" |    TRAILING WHITESPACE | "
+" -------------------------- "
 nnoremap <F1> :FixWhitespace<CR>
 inoremap <F1> :FixWhitespace<CR>
 
-" ----- NERDTREE ----- "
+" -------------------------- "
+" |       NERDTREE       | "
+" -------------------------- "
 autocmd vimenter * NERDTree
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 map <C-\> :NERDTreeToggle<CR>
 
-autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
-" Close all open buffers on entering a window if the only buffer that's left is the NERDTree buffer
-function! s:CloseIfOnlyNerdTreeLeft()
-	if exists("t:NERDTreeBufName")
-		if bufwinnr(t:NERDTreeBufName) != -1
-      if winnr("$") == 1
-				q
-			endif
-		endif
-	endif
-endfunction
 
-" ----- EASYMOTION ----- "
+" -------------------------- "
+" |       EASYMOTION       | "
+" -------------------------- "
 map <Leader> <Plug>(easymotion-prefix)
 
-" ----- INDENTLINE ----- "
+" -------------------------- "
+" |       INDENTLINE       | "
+" -------------------------- "
 let g:indentLine_enabled = 1
 let g:indentLine_char = '|'
 
-" ----- MULTIPLECURSOR ----- "
+" -------------------------- "
+" |    MULTIPLECURSOR      | "
+" -------------------------- "
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-d>'
 let g:multi_cursor_prev_key='<C-a>'
 let g:multi_cursor_skip_key='<C-s>'
 let g:multi_cursor_quit_key='<C-c>'
 
-" ----- TAGBAR ----- "
+" -------------------------- "
+" |         TAGBAR         | "
+" -------------------------- "
 nnoremap <A-\> :TagbarToggle<CR>
 
-" ----- NEOMAKE ----- "
-"autocmd! BufWritePost * Neomake
-
-" ----- DEOPLETE ----- "
+" -------------------------- "
+" |       DEOPLETE         | "
+" -------------------------- "
 let g:deoplete#enable_at_startup = 1
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to backward cycle
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
-" TODO remap toggling syntastic
-" TODO map :FixWhitespace
+" -------------------------- "
+" |       SYNTASTIC        | "
+" -------------------------- "
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+nnoremap <F10> :SyntasticToggleMode<CR>
+inoremap <F10> :SyntasticToggleMode<CR>
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_disabled_filetypes = ['html, xhtml']
+
+"javascript
+let g:syntastic_javascript_checkers = ["jshint"]
+"c++
+let g:syntastc_cpp_checkers = ["g++"]
+let g:syntastic_cpp_compiler_args = '-std=c++14c -Wall -g -I.'
+"python
+let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_python_flake8_args = "--ignore=E501,W191"
+"html
+let g:syntastic_html_checkers = ['']
+let g:syntastic_xhtml_checkers = ['']
+"sass
+let g:syntastic_sass_checks = ['compass']
+
+" -------------------------- "
+" |         GUNDO          | "
+" -------------------------- "
+let g:gundo_close_on_revert = 0
+let g:gundo_help = 0
+let g:gundo_right = 1
+let g:gundo_return_on_revert = 0
+nnoremap <F11> :GundoToggle<CR>
 
 " UNUSED PLUGINS
 
@@ -202,28 +263,16 @@ inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 " python interpreter
 "let g:ycm_python_binary_path = '/usr/bin/python3'
 
-" ----- SYNTASTIC ----- "
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"nnoremap <F12> :SyntasticToggleMode
-"inoremap <F12> :SyntasticToggleMode
-"
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"
-" ignore some python errors
-"let g:syntastic_python_flake8_args = "--ignore=E501,W191"
-"
-"disable syntastic for html
-"let g:syntastic_disabled_filetypes=['html, xhtml']
-"let g:syntastic_html_checkers=['']
-"let g:syntastic_xhtml_checkers=['']
-"
-" set c++ compiler
-"let g:syntastic_cpp_compiler = 'g++'
-"let g:syntastic_cpp_compiler_options = '-std=c++14c -Wall -g -I.'
+" ----- NEOMAKE ----- "
+"autocmd! BufWritePost * Neomake
+"noremap <F11> :Neomake<CR>
+
+"let g:neomake_open_list = 1
+"let g:neomake_list_height = 10
+
+" C++
+"let g:neomake_cpp_gcc_make = {
+	"\ 'exe': 'g++',
+	"\ 'args': ['-Wall', '-std=c++14'],
+	"\ }
 
