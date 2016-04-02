@@ -52,6 +52,10 @@ tnoremap <C-Right> <C-Bslash><C-n>:tabnext<CR>
 tnoremap <C-Down> <C-Bslash><C-n>:tabclose<CR>
 tnoremap <C-Up> <C-Bslash><C-n>:tab split <CR>
 
+" tab splitting
+nnoremap <A-[> <C-w>v
+nnoremap <A-]> <C-w>s
+
 " hide status
 set laststatus=0
 
@@ -69,6 +73,9 @@ nnoremap <S-\> <nop>
 "autocmd WinEnter * setlocal cursorline
 "autocmd WinLeave * setlocal nocursorline
 "set cursorline
+
+" get rid of highlighting after search
+noremap <F2> :nohl<CR>
 
 " folding
 set foldmethod=indent
@@ -88,6 +95,12 @@ tnoremap <A-Left> <C-\><C-n><C-w><Left>
 tnoremap <A-Right> <C-\><C-n><C-w><Right>
 tnoremap <A-Down> <C-\><C-n><C-w><Down>
 tnoremap <A-Up> <C-\><C-n><C-w><Up>
+
+" tags
+nnoremap <C-]> g<C-]>
+vnoremap <C-]> g<C-]>
+nnoremap <C-[> <C-t>
+vnoremap <C-[> <C-t>
 
 " split to the right and below
 set splitbelow
@@ -121,6 +134,8 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'wesq3/vim-windowswap'
 " Plugins of interest
 "Plug 'benekastah/neomake'
 "Plug 'MarcWeber/vim-addon-mw-utils'
@@ -249,6 +264,15 @@ let g:gundo_help = 0
 let g:gundo_right = 1
 let g:gundo_return_on_revert = 0
 nnoremap <F11> :GundoToggle<CR>
+
+" -------------------------- "
+" |      GUTENTAG          | "
+" -------------------------- "
+set statusline+=%{gutentags#statusline('[CtagsGenerating...]')}
+let g:gutentags_project_root = ['.roottags', '.subtags']
+let g:gutentags_tagfile = 'tags'
+let g:gutentags_exclude = ['.disabletags']
+let g:gutentags_cache_dir = '~/.tags/'
 
 " UNUSED PLUGINS
 
