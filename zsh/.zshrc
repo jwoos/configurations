@@ -98,6 +98,9 @@ alias resetif="sudo ~/resetif.sh"
 alias remove='bash -c "docker ps -aq | xargs -r docker rm -fv"'
 
 # apcalc
+# TODO chaining
+# maybe keep a logfile
 function \=() {
+	tocalc="${@// /}"
 	calc $@
 }
