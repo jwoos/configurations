@@ -50,7 +50,7 @@ nnoremap <C-Up> :tab split <CR>
 tnoremap <C-Left> <C-Bslash><C-n>:tabprevious<CR>
 tnoremap <C-Right> <C-Bslash><C-n>:tabnext<CR>
 tnoremap <C-Down> <C-Bslash><C-n>:tabclose<CR>
-tnoremap <C-Up> <C-Bslash><C-n>:tab split <CR>
+tnoremap <C-Up> <C-Bslash><C-n>:tab split<CR>
 
 " tab splitting
 nnoremap <A-[> <C-w>v
@@ -60,7 +60,7 @@ nnoremap <A-]> <C-w>s
 set laststatus=0
 
 " remap esc to control-c for ease of use
-inoremap <C-c> <Esc>
+inoremap <C-c> <ESC>
 
 " unmap keys (sets to no op)
 nnoremap Q <nop>
@@ -99,8 +99,8 @@ tnoremap <A-Up> <C-\><C-n><C-w><Up>
 " tags
 nnoremap <C-]> g<C-]>
 vnoremap <C-]> g<C-]>
-nnoremap <C-[> <C-t>
-vnoremap <C-[> <C-t>
+"nnoremap <C-[> <C-t>
+"vnoremap <C-[> <C-t>
 
 " split to the right and below
 set splitbelow
@@ -136,6 +136,7 @@ Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'wesq3/vim-windowswap'
+Plug 'gregsexton/matchtag'
 " Plugins of interest
 "Plug 'benekastah/neomake'
 "Plug 'MarcWeber/vim-addon-mw-utils'
@@ -186,7 +187,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 map <C-\> :NERDTreeToggle<CR>
-
 
 " -------------------------- "
 " |       EASYMOTION       | "
