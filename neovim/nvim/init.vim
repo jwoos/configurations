@@ -18,7 +18,7 @@
 set t_Co=256
 
 " true color mode
-:let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
 
 " set python interpreter
 let g:python3_host_prog = '/usr/bin/python3'
