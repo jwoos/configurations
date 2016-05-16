@@ -1,7 +1,15 @@
 [user]
 	email = shin.junwoo97@gmail.com
-	name = Junwoo Shin
+	name = Jun Woo Shin
 [push]
 	default = simple
 [core]
-	editor = vim
+	editor = nvim
+[alias]
+	branches = branch -a
+	tags = tag
+	stashes = stash list
+	unstage = reset -q HEAD --
+	discard = checkout --
+	uncommit = reset --mixed HEAD~
+	amend = commit --amend
