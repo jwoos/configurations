@@ -101,7 +101,7 @@ alias remove='bash -c "docker ps -aq | xargs -r docker rm -fv"'
 alias less='less -N'
 
 # less with syntax highlighting
-alias lesshi='LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s" less -N '
+alias lesshi='LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s" less '
 
 # apcalc
 # TODO chaining
