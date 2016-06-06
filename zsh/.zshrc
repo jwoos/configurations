@@ -94,8 +94,14 @@ alias tmux="tmux -2"
 alias vim="nvim"
 alias resetif="sudo ~/resetif.sh"
 
-# BAM
+# remove docker containers
 alias remove='bash -c "docker ps -aq | xargs -r docker rm -fv"'
+
+# always show line number
+alias less='less -N'
+
+# less with syntax highlighting
+alias lesshi='LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s" less -N '
 
 # apcalc
 # TODO chaining
