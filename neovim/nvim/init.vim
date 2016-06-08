@@ -30,6 +30,9 @@ set background=dark
 " cursor shape
 ":let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+" disable concealing quotations
+let g:vim_json_syntax_conceal = 0
+
 " set line numbers
 set number
 
@@ -134,8 +137,8 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'wesq3/vim-windowswap'
+"Plug 'ludovicchabant/vim-gutentags'
+"Plug 'wesq3/vim-windowswap'
 Plug 'gregsexton/matchtag'
 " Plugins of interest
 "Plug 'benekastah/neomake'
@@ -256,6 +259,20 @@ let g:syntastic_sass_checks = ['compass']
 " TODO: map :nohl
 " TODO: map write
 
+
+" -------------------------- "
+" |          CTRLP         | "
+" -------------------------- "
+"directories and files to ignore
+let g:ctrlp_custom_ignore = {
+			\ 'dir': '\.git$\|\.tmp$\|bower_components$\|node_modules$',
+			\ 'file': '\.swo$\|\.swp$\|\.pyc$'
+}
+
+"max number of files listed
+let g:ctrlp_max_files = 1000000
+
+
 " -------------------------- "
 " |         GUNDO          | "
 " -------------------------- "
@@ -266,13 +283,13 @@ let g:gundo_return_on_revert = 0
 nnoremap <F11> :GundoToggle<CR>
 
 " -------------------------- "
-" |      GUTENTAG          | "
+" |         GUTENTAG       | "
 " -------------------------- "
-set statusline+=%{gutentags#statusline('[CtagsGenerating...]')}
-let g:gutentags_project_root = ['.roottags', '.subtags']
-let g:gutentags_tagfile = 'tags'
-let g:gutentags_exclude = ['.disabletags']
-let g:gutentags_cache_dir = '~/.tags/'
+"set statusline+=%{gutentags#statusline('[CtagsGenerating...]')}
+"let g:gutentags_project_root = ['.roottags', '.subtags']
+"let g:gutentags_tagfile = 'tags'
+"let g:gutentags_exclude = ['.disabletags']
+"let g:gutentags_cache_dir = '~/.tags/'
 
 " UNUSED PLUGINS
 
