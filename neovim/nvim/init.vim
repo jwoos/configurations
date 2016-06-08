@@ -267,7 +267,7 @@ let g:syntastic_sass_checks = ['compass']
 let g:ctrlp_custom_ignore = {
 			\ 'dir': '\.git$\|\.tmp$\|bower_components$\|node_modules$',
 			\ 'file': '\.swo$\|\.swp$\|\.pyc$'
-}
+			\ }
 
 "max number of files listed
 let g:ctrlp_max_files = 1000000
