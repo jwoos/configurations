@@ -137,6 +137,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
+Plug 'dhruvasagar/vim-table-mode'
 "Plug 'ludovicchabant/vim-gutentags'
 "Plug 'wesq3/vim-windowswap'
 Plug 'gregsexton/matchtag'
@@ -256,7 +257,6 @@ let g:syntastic_xhtml_checkers = ['']
 "sass
 let g:syntastic_sass_checks = ['compass']
 
-" TODO: map :nohl
 " TODO: map write
 
 
@@ -281,6 +281,14 @@ let g:gundo_help = 0
 let g:gundo_right = 1
 let g:gundo_return_on_revert = 0
 nnoremap <F11> :GundoToggle<CR>
+
+
+" -------------------------- "
+" |        TABLEMODE       | "
+" -------------------------- "
+let g:table_mode_corner = "|"
+nnoremap <F3> :TableModeToggle<CR>
+
 
 " -------------------------- "
 " |         GUTENTAG       | "
