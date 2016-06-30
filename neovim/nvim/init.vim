@@ -288,6 +288,7 @@ nnoremap <F11> :GundoToggle<CR>
 " -------------------------- "
 let g:table_mode_corner = "|"
 nnoremap <F3> :TableModeToggle<CR>
+nnoremap <F4> :TableModeRealign<CR>
 
 
 " -------------------------- "
