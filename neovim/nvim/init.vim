@@ -225,6 +225,8 @@ let g:deoplete#enable_at_startup = 1
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to backward cycle
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+nnoremap <F9> :call deoplete#toggle()<CR>
+
 
 " -------------------------- "
 " |       SYNTASTIC        | "
