@@ -141,8 +141,9 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
 Plug 'elzr/vim-json'
-Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
 " Plugins of interest
+"Plug 'pangloss/vim-javascript'
 "Plug 'kchmck/vim-coffee-script'
 "Plug 'jiangmiao/auto-pairs'
 "Plug 'terryma/vim-multiple-cursors'
@@ -156,7 +157,6 @@ Plug 'pangloss/vim-javascript'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'ludovicchabant/vim-gutentags'
 "Plug 'wesq3/vim-windowswap'
-"Plug 'jelera/vim-javascript-syntax'
 "Plug 'klen/python-mode'
 call plug#end()
 
