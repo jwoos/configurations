@@ -113,43 +113,48 @@ set splitright
 nnoremap <F12> :te<CR>
 "tnoremap <F12> <C-d><CR>
 
+" TODO find a better plugin for space indents
+" TODO separate settings into various files and source them here
 " ----- VIM-PLUG ----- "
 " PlugInstall to install
 " PlugUpdate to update
 call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ap/vim-css-color'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'kchmck/vim-coffee-script'
 Plug 'digitaltoad/vim-jade'
-Plug 'jiangmiao/auto-pairs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'henrik/vim-indexed-search'
 Plug 'scrooloose/nerdcommenter'
 Plug 'easymotion/vim-easymotion'
-Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/deoplete.nvim'
-Plug 'jelera/vim-javascript-syntax'
+Plug 'raimondi/delimitmate'
 Plug 'scrooloose/syntastic'
 Plug 'sjl/gundo.vim'
 Plug 'dhruvasagar/vim-table-mode'
-"Plug 'ludovicchabant/vim-gutentags'
-"Plug 'wesq3/vim-windowswap'
 Plug 'gregsexton/matchtag'
+Plug 'Yggdroot/indentLine'
+Plug 'elzr/vim-json'
+Plug 'pangloss/vim-javascript'
 " Plugins of interest
+"Plug 'kchmck/vim-coffee-script'
+"Plug 'jiangmiao/auto-pairs'
+"Plug 'terryma/vim-multiple-cursors'
+"Plug 'ap/vim-css-color'
 "Plug 'benekastah/neomake'
 "Plug 'MarcWeber/vim-addon-mw-utils'
 "Plug 'tomtom/tlib_vim'
 "Plug 'Valloric/MatchTagAlways'
 "Plug 'garbas/vim-snipmate'
-"Plug 'majutsushi/tagbar'
 "Plug 'tpope/vim-repeat'
 "Plug 'Valloric/YouCompleteMe'
+"Plug 'ludovicchabant/vim-gutentags'
+"Plug 'wesq3/vim-windowswap'
+"Plug 'jelera/vim-javascript-syntax'
+"Plug 'klen/python-mode'
 call plug#end()
 
 "          _____                    _____            _____                    _____                    _____                    _____                    _____
@@ -206,11 +211,11 @@ let g:indentLine_char = '|'
 " -------------------------- "
 " |    MULTIPLECURSOR      | "
 " -------------------------- "
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-d>'
-let g:multi_cursor_prev_key='<C-a>'
-let g:multi_cursor_skip_key='<C-s>'
-let g:multi_cursor_quit_key='<C-c>'
+"let g:multi_cursor_use_default_mapping=0
+"let g:multi_cursor_next_key='<C-d>'
+"let g:multi_cursor_prev_key='<C-a>'
+"let g:multi_cursor_skip_key='<C-s>'
+"let g:multi_cursor_quit_key='<C-c>'
 
 " -------------------------- "
 " |         TAGBAR         | "
@@ -236,7 +241,6 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 nnoremap <F10> :SyntasticToggleMode<CR>
-inoremap <F10> :SyntasticToggleMode<CR>
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -259,9 +263,6 @@ let g:syntastic_xhtml_checkers = ['']
 "sass
 let g:syntastic_sass_checks = ['compass']
 
-" TODO: map write
-
-
 " -------------------------- "
 " |          CTRLP         | "
 " -------------------------- "
@@ -272,7 +273,7 @@ let g:ctrlp_custom_ignore = {
 			\ }
 
 "max number of files listed
-let g:ctrlp_max_files = 1000000
+let g:ctrlp_max_files = 10000
 
 
 " -------------------------- "
@@ -331,4 +332,6 @@ nnoremap <F4> :TableModeRealign<CR>
 	"\ 'exe': 'g++',
 	"\ 'args': ['-Wall', '-std=c++14'],
 	"\ }
+
+" TODO: map write
 
