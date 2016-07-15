@@ -113,6 +113,9 @@ set splitright
 nnoremap <F12> :te<CR>
 "tnoremap <F12> <C-d><CR>
 
+" echo current filename
+nnoremap <F5> :!echo %<CR>
+
 " TODO find a better plugin for space indents
 " TODO separate settings into various files and source them here
 " ----- VIM-PLUG ----- "
