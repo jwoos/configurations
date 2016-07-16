@@ -1,3 +1,5 @@
+# DEPRECATED - USE NEOVIM
+
 ### Plugins
 - [pathogen](https://github.com/tpope/vim-pathogen)
 - [nerdtree](https://github.com/scrooloose/nerdtree)
