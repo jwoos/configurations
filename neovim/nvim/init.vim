@@ -142,6 +142,7 @@ Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
 Plug 'elzr/vim-json'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'hynek/vim-python-pep8-indent'
 " Plugins of interest
 "Plug 'pangloss/vim-javascript'
 "Plug 'kchmck/vim-coffee-script'
