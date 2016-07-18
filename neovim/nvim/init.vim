@@ -123,6 +123,7 @@ nnoremap <F5> :!echo %<CR>
 " PlugUpdate to update
 call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree'
+Plug 'wellle/targets.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
@@ -142,9 +143,9 @@ Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
 Plug 'elzr/vim-json'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'hynek/vim-python-pep8-indent'
 " Plugins of interest
 "Plug 'pangloss/vim-javascript'
+"Plug 'kana/vim-textobj-user'
 "Plug 'kchmck/vim-coffee-script'
 "Plug 'jiangmiao/auto-pairs'
 "Plug 'terryma/vim-multiple-cursors'
