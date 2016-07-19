@@ -49,7 +49,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git extract)
+plugins=(git)
 
 # User configuration
 
@@ -92,21 +92,6 @@ export NVM_DIR="/home/junwoo/.nvm"
 
 alias tmux="tmux -2"
 alias vim="nvim"
-alias resetif="sudo ~/resetif.sh"
 
-# remove docker containers
-alias remove='bash -c "docker ps -aq | xargs -r docker rm -fv"'
-
-# always show line number
-alias less='less -N'
-
-# less with syntax highlighting
-alias lesshi='LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s" less '
-
-# apcalc
-# TODO chaining
-# maybe keep a logfile
-function \=() {
-	tocalc="${@// /}"
-	calc $@
-}
+alias resetif="sudo ~/.scripts/resetif.sh"
+alias port-reroute="sudo ~/.scripts/reroute.sh"
