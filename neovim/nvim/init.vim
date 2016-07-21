@@ -144,6 +144,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'elzr/vim-json'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'hynek/vim-python-pep8-indent'
+Plug 'leafgarland/typescript-vim'
 " Plugins of interest
 "Plug 'pangloss/vim-javascript'
 "Plug 'kana/vim-textobj-user'
