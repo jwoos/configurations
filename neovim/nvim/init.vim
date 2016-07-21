@@ -146,6 +146,8 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'leafgarland/typescript-vim'
 " Plugins of interest
+"Plug 'othree/yajs.vim'
+"Plug 'HerringtonDarkholme/yats.vim'
 "Plug 'pangloss/vim-javascript'
 "Plug 'kana/vim-textobj-user'
 "Plug 'kchmck/vim-coffee-script'
