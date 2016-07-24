@@ -127,7 +127,6 @@ Plug 'wellle/targets.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'digitaltoad/vim-jade'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'henrik/vim-indexed-search'
 Plug 'scrooloose/nerdcommenter'
@@ -141,9 +140,10 @@ Plug 'sjl/gundo.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
-Plug 'elzr/vim-json'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'hynek/vim-python-pep8-indent'
+Plug 'digitaltoad/vim-jade', {'for': 'jade'}
+Plug 'elzr/vim-json', {'for': 'json'}
+Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
+Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 " Plugins of interest
 "Plug 'pangloss/vim-javascript'
 "Plug 'kana/vim-textobj-user'
