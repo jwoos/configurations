@@ -144,7 +144,10 @@ Plug 'digitaltoad/vim-jade', {'for': 'jade'}
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
+Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 " Plugins of interest
+"Plug 'othree/yajs.vim'
+"Plug 'HerringtonDarkholme/yats.vim'
 "Plug 'pangloss/vim-javascript'
 "Plug 'kana/vim-textobj-user'
 "Plug 'kchmck/vim-coffee-script'
