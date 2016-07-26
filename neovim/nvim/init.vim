@@ -13,7 +13,6 @@
 "
 " map refers to normal, visual, and insert
 
-" ----- VIM options ----- "
 " set 256 color mode
 set t_Co=256
 
@@ -115,6 +114,19 @@ nnoremap <F12> :te<CR>
 
 " echo current filename
 nnoremap <F5> :!echo %<CR>
+
+" clear macros
+function! ClearRegisters()
+	let regs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+:.#%'
+	let i = 0
+	while (i < strlen(regs))
+		exec 'let @'.regs[i].'=""'
+		let i = i + 1
+	endwhile
+endfunction
+
+command! ClearRegisters call ClearRegisters()
+nnoremap <F6> :ClearRegisters<CR>
 
 " TODO find a better plugin for space indents
 " TODO separate settings into various files and source them here
