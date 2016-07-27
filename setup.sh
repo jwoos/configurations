@@ -88,6 +88,8 @@ sudo bash -c "echo 'deb https://apt.dockerproject.org/repo ubuntu-xenial main' >
 sudo apt update
 sudo apt install docker-engine -y
 
+sudo usermod -aG docker $(whoami)
+
 # install docker compose
 sudo bash -c "curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
 sudo chmod +x /usr/local/bin/docker-compose
