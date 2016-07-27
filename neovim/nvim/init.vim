@@ -21,6 +21,7 @@ set termguicolors
 
 " set python interpreter
 let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python'
 
 " colorscheme
 colorscheme evening
