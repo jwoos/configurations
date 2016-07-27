@@ -6,6 +6,9 @@ sudo apt-get install linux-image-extra-$(uname -r)
 wget https://github.com/jwoos/configurations/archive/master.zip
 unzip master.zip
 
+# TODO move files from configurations to their respective places
+# TODO pull in scripts repository and move scripts tos ~/.scripts
+
 # add another interface
 sudo bash -c "echo -e 'auto enp0s8\niface enp0s8 inet dhcp' >> /etc/network/interfaces"
 
