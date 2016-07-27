@@ -53,9 +53,6 @@ plugins=(git)
 
 # User configuration
 
-#export PATH="/home/junwoo/.rvm/gems/ruby-2.2.1/bin:/home/junwoo/.rvm/gems/ruby-2.2.1@global/bin:/home/junwoo/.rvm/rubies/ruby-2.2.1/bin:/home/junwoo/.nvm/versions/node/v0.12.8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/python2.7:/home/junwoo/.rvm/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -86,12 +83,15 @@ export LANG=en_US.UTF-8
 alias python=python3
 alias pip=pip3
 
-export PATH="$PATH:/usr/bin/python2.7"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
 export NVM_DIR="/home/junwoo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 alias tmux="tmux -2"
 alias vim="nvim"
+alias g++="g++-6"
+alias gcc="gcc-6"
 
 alias resetif="sudo ~/.scripts/resetif.sh"
 alias port-reroute="sudo ~/.scripts/reroute.sh"
