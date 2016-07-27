@@ -80,18 +80,7 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias python=python3
-alias pip=pip3
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export NVM_DIR="/home/junwoo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-alias tmux="tmux -2"
-alias vim="nvim"
-alias g++="g++-6"
-alias gcc="gcc-6"
-
-alias resetif="sudo ~/.scripts/resetif.sh"
-alias port-reroute="sudo ~/.scripts/reroute.sh"

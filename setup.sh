@@ -18,6 +18,8 @@ sudo bash -c "echo -e 'auto enp0s8\niface enp0s8 inet dhcp' >> /etc/network/inte
 # install zsh
 sudo apt install zsh -y
 
+chsh -s /bin/zsh
+
 # install oh-my-zsh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
