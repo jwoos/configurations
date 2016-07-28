@@ -14,17 +14,17 @@
 " map refers to normal, visual, and insert
 
 " set 256 color mode
-set t_Co=256
+"set t_Co=256
 
 " true color mode
 set termguicolors
 
 " set python interpreter
 let g:python3_host_prog = '/usr/bin/python3'
-let g:python_host_prog = '/usr/bin/python'
+let g:python_host_prog = '/usr/bin/python2'
 
 " colorscheme
-colorscheme evening
+colorscheme one
 set background=dark
 
 " cursor shape
