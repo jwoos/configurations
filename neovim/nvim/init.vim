@@ -154,12 +154,13 @@ Plug 'sjl/gundo.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
-Plug 'digitaltoad/vim-jade', {'for': 'jade'}
+Plug 'digitaltoad/vim-pug', {'for': 'pug'}
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 " Plugins of interest
+"Plug 'digitaltoad/vim-jade', {'for': 'jade'}
 "Plug 'othree/yajs.vim'
 "Plug 'HerringtonDarkholme/yats.vim'
 "Plug 'pangloss/vim-javascript'
