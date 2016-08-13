@@ -13,6 +13,79 @@
 "
 " map refers to normal, visual, and insert
 
+"http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
+
+"              __                     _
+"     ____    / /  __  __   ____ _   (_)   ____    _____
+"    / __ \  / /  / / / /  / __ `/  / /   / __ \  / ___/
+"   / /_/ / / /  / /_/ /  / /_/ /  / /   / / / / (__  )
+"  / .___/ /_/   \__,_/   \__, /  /_/   /_/ /_/ /____/
+" /_/                    /____/
+
+" TODO find a better plugin for space indents
+" TODO separate settings into various files and source them here
+" ----- VIM-PLUG ----- "
+" PlugInstall to install
+" PlugUpdate to update
+call plug#begin('~/.config/nvim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'wellle/targets.vim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'henrik/vim-indexed-search'
+Plug 'scrooloose/nerdcommenter'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'Shougo/deoplete.nvim'
+Plug 'raimondi/delimitmate'
+Plug 'scrooloose/syntastic'
+Plug 'sjl/gundo.vim'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'gregsexton/matchtag'
+Plug 'Yggdroot/indentLine'
+Plug 'sheerun/vim-polyglot'
+
+Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-two-firewatch'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'Haron-Prime/evening_vim'
+" Plugins of interest
+"Plug 'digitaltoad/vim-pug', {'for': 'pug'}
+"Plug 'elzr/vim-json', {'for': 'json'}
+"Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
+"Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
+"Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+"Plug 'digitaltoad/vim-jade', {'for': 'jade'}
+"Plug 'othree/yajs.vim'
+"Plug 'HerringtonDarkholme/yats.vim'
+"Plug 'pangloss/vim-javascript'
+"Plug 'kana/vim-textobj-user'
+"Plug 'kchmck/vim-coffee-script'
+"Plug 'jiangmiao/auto-pairs'
+"Plug 'terryma/vim-multiple-cursors'
+"Plug 'ap/vim-css-color'
+"Plug 'benekastah/neomake'
+"Plug 'MarcWeber/vim-addon-mw-utils'
+"Plug 'tomtom/tlib_vim'
+"Plug 'Valloric/MatchTagAlways'
+"Plug 'garbas/vim-snipmate'
+"Plug 'tpope/vim-repeat'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'ludovicchabant/vim-gutentags'
+"Plug 'wesq3/vim-windowswap'
+"Plug 'klen/python-mode'
+call plug#end()
+
+"            _                                              ____    _
+"  _   __   (_)   ____ ___          _____  ____    ____    / __/   (_)   ____ _
+" | | / /  / /   / __ `__ \        / ___/ / __ \  / __ \  / /_    / /   / __ `/
+" | |/ /  / /   / / / / / /       / /__  / /_/ / / / / / / __/   / /   / /_/ /
+" |___/  /_/   /_/ /_/ /_/        \___/  \____/ /_/ /_/ /_/     /_/    \__, /
+"                                                                     /____/
+
 " set 256 color mode
 "set t_Co=256
 
@@ -24,7 +97,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
 " colorscheme
-colorscheme one
+colorscheme onedark
 set background=dark
 
 " cursor shape
@@ -119,7 +192,7 @@ nnoremap <F5> :!echo %<CR>
 " clear macros
 function! ClearRegisters()
 	"let regs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+:.#%'
-    let regs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+	let regs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 	let i = 0
 	while (i < strlen(regs))
 		exec 'let @'.regs[i].'=""'
@@ -130,88 +203,21 @@ endfunction
 command! ClearRegisters call ClearRegisters()
 nnoremap <F6> :ClearRegisters<CR>
 
-" TODO find a better plugin for space indents
-" TODO separate settings into various files and source them here
-" ----- VIM-PLUG ----- "
-" PlugInstall to install
-" PlugUpdate to update
-call plug#begin('~/.config/nvim/plugged')
-Plug 'scrooloose/nerdtree'
-Plug 'wellle/targets.vim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'henrik/vim-indexed-search'
-Plug 'scrooloose/nerdcommenter'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
-Plug 'Shougo/deoplete.nvim'
-Plug 'raimondi/delimitmate'
-Plug 'scrooloose/syntastic'
-Plug 'sjl/gundo.vim'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'gregsexton/matchtag'
-Plug 'Yggdroot/indentLine'
-Plug 'digitaltoad/vim-pug', {'for': 'pug'}
-Plug 'elzr/vim-json', {'for': 'json'}
-Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
-Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
-Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
-" Plugins of interest
-"Plug 'digitaltoad/vim-jade', {'for': 'jade'}
-"Plug 'othree/yajs.vim'
-"Plug 'HerringtonDarkholme/yats.vim'
-"Plug 'pangloss/vim-javascript'
-"Plug 'kana/vim-textobj-user'
-"Plug 'kchmck/vim-coffee-script'
-"Plug 'jiangmiao/auto-pairs'
-"Plug 'terryma/vim-multiple-cursors'
-"Plug 'ap/vim-css-color'
-"Plug 'benekastah/neomake'
-"Plug 'MarcWeber/vim-addon-mw-utils'
-"Plug 'tomtom/tlib_vim'
-"Plug 'Valloric/MatchTagAlways'
-"Plug 'garbas/vim-snipmate'
-"Plug 'tpope/vim-repeat'
-"Plug 'Valloric/YouCompleteMe'
-"Plug 'ludovicchabant/vim-gutentags'
-"Plug 'wesq3/vim-windowswap'
-"Plug 'klen/python-mode'
-call plug#end()
-
-"          _____                    _____            _____                    _____                    _____                    _____                    _____
-"         /\    \                  /\    \          /\    \                  /\    \                  /\    \                  /\    \                  /\    \ 
-"        /::\    \                /::\____\        /::\____\                /::\    \                /::\    \                /::\____\                /::\    \ 
-"       /::::\    \              /:::/    /       /:::/    /               /::::\    \               \:::\    \              /::::|   |               /::::\    \ 
-"      /::::::\    \            /:::/    /       /:::/    /               /::::::\    \               \:::\    \            /:::::|   |              /::::::\    \ 
-"     /:::/\:::\    \          /:::/    /       /:::/    /               /:::/\:::\    \               \:::\    \          /::::::|   |             /:::/\:::\    \ 
-"    /:::/__\:::\    \        /:::/    /       /:::/    /               /:::/  \:::\    \               \:::\    \        /:::/|::|   |            /:::/__\:::\    \ 
-"   /::::\   \:::\    \      /:::/    /       /:::/    /               /:::/    \:::\    \              /::::\    \      /:::/ |::|   |            \:::\   \:::\    \ 
-"  /::::::\   \:::\    \    /:::/    /       /:::/    /      _____    /:::/    / \:::\    \    ____    /::::::\    \    /:::/  |::|   | _____    ___\:::\   \:::\    \ 
-" /:::/\:::\   \:::\____\  /:::/    /       /:::/____/      /\    \  /:::/    /   \:::\ ___\  /\   \  /:::/\:::\    \  /:::/   |::|   |/\    \  /\   \:::\   \:::\    \ 
-"/:::/  \:::\   \:::|    |/:::/____/       |:::|    /      /::\____\/:::/____/  ___\:::|    |/::\   \/:::/  \:::\____\/:: /    |::|   /::\____\/::\   \:::\   \:::\____\
-"\::/    \:::\  /:::|____|\:::\    \       |:::|____\     /:::/    /\:::\    \ /\  /:::|____|\:::\  /:::/    \::/    /\::/    /|::|  /:::/    /\:::\   \:::\   \::/    /
-" \/_____/\:::\/:::/    /  \:::\    \       \:::\    \   /:::/    /  \:::\    /::\ \::/    /  \:::\/:::/    / \/____/  \/____/ |::| /:::/    /  \:::\   \:::\   \/____/
-"          \::::::/    /    \:::\    \       \:::\    \ /:::/    /    \:::\   \:::\ \/____/    \::::::/    /                   |::|/:::/    /    \:::\   \:::\    \ 
-"           \::::/    /      \:::\    \       \:::\    /:::/    /      \:::\   \:::\____\       \::::/____/                    |::::::/    /      \:::\   \:::\____\ 
-"            \::/____/        \:::\    \       \:::\__/:::/    /        \:::\  /:::/    /        \:::\    \                    |:::::/    /        \:::\  /:::/    /
-"             ~~               \:::\    \       \::::::::/    /          \:::\/:::/    /          \:::\    \                   |::::/    /          \:::\/:::/    /
-"                               \:::\    \       \::::::/    /            \::::::/    /            \:::\    \                  /:::/    /            \::::::/    /
-"                                \:::\____\       \::::/    /              \::::/    /              \:::\____\                /:::/    /              \::::/    /
-"                                 \::/    /        \::/____/                \::/____/                \::/    /                \::/    /                \::/    /
-"                                  \/____/          ~~                                                \/____/                  \/____/                  \/____/
-"
+"              __                     _                                          ____    _
+"     ____    / /  __  __   ____ _   (_)   ____          _____  ____    ____    / __/   (_)   ____ _
+"    / __ \  / /  / / / /  / __ `/  / /   / __ \        / ___/ / __ \  / __ \  / /_    / /   / __ `/
+"   / /_/ / / /  / /_/ /  / /_/ /  / /   / / / /       / /__  / /_/ / / / / / / __/   / /   / /_/ /
+"  / .___/ /_/   \__,_/   \__, /  /_/   /_/ /_/        \___/  \____/ /_/ /_/ /_/     /_/    \__, /
+" /_/                    /____/                                                            /____/
 
 " -------------------------- "
-" |    TRAILING WHITESPACE | "
+" |   TRAILING WHITESPACE  | "
 " -------------------------- "
 nnoremap <F1> :FixWhitespace<CR>
 inoremap <F1> :FixWhitespace<CR>
 
 " -------------------------- "
-" |       NERDTREE       | "
+" |       NERDTREE         | "
 " -------------------------- "
 autocmd vimenter * NERDTree
 
@@ -279,10 +285,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_disabled_filetypes = ['html, xhtml']
+let g:syntastic_disabled_filetypes = ['html', 'xhtml', 'xml']
 
 "javascript
-let g:syntastic_javascript_checkers = ["jshint"]
+let g:syntastic_javascript_checkers = ["eslint"]
 "c++
 let g:syntastc_cpp_checkers = ["gcc"]
 let g:syntastic_cpp_compiler = 'gcc'
@@ -294,7 +300,9 @@ let g:syntastic_python_flake8_args = "--ignore=E501,W191"
 let g:syntastic_html_checkers = ['']
 let g:syntastic_xhtml_checkers = ['']
 "sass
-let g:syntastic_sass_checks = ['compass']
+let g:syntastic_sass_checkers = ['sass']
+"go
+let g:syntastic_go_checkers = ['go']
 
 " -------------------------- "
 " |          CTRLP         | "
