@@ -47,6 +47,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
+Plug 'metakirby5/codi.vim'
 
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-two-firewatch'
@@ -97,7 +98,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
 " colorscheme
-colorscheme onedark
+colorscheme two-firewatch
 set background=dark
 
 " cursor shape
@@ -232,6 +233,12 @@ map <C-\> :NERDTreeToggle<CR>
 " -------------------------- "
 map <Leader> <Plug>(easymotion-prefix)
 
+
+" -------------------------- "
+" |         CODI           | "
+" -------------------------- "
+nnoremap <F7> :Codi<CR>
+nnoremap <F8> :Codi!<CR>
 
 " -------------------------- "
 " |     DELIMITEMATE       | "
