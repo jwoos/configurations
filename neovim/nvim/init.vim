@@ -295,7 +295,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_disabled_filetypes = ['html', 'xhtml', 'xml']
 
 "javascript
-let g:syntastic_javascript_checkers = ["eslint"]
+let g:syntastic_javascript_checkers = ["eslint", "jshint"]
 "c++
 let g:syntastc_cpp_checkers = ["gcc"]
 let g:syntastic_cpp_compiler = 'gcc'
