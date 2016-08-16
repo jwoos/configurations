@@ -295,14 +295,16 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_disabled_filetypes = ['html', 'xhtml', 'xml']
 
 "javascript
-let g:syntastic_javascript_checkers = ["eslint", "jshint"]
+"jshint makes neovim really slow :(
+"let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 "c++
-let g:syntastc_cpp_checkers = ["gcc"]
+let g:syntastc_cpp_checkers = ['gcc']
 let g:syntastic_cpp_compiler = 'gcc'
 let g:syntastic_cpp_compiler_options = '-std=c++14 -Wall'
 "python
-let g:syntastic_python_checkers = ["flake8"]
-let g:syntastic_python_flake8_args = "--ignore=E501,W191"
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = '--ignore=E501,W191'
 "html
 let g:syntastic_html_checkers = ['']
 let g:syntastic_xhtml_checkers = ['']
