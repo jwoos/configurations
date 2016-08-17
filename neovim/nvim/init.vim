@@ -98,7 +98,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
 " colorscheme
-colorscheme two-firewatch
+colorscheme onedark
 set background=dark
 
 " cursor shape
@@ -220,10 +220,10 @@ inoremap <F1> :FixWhitespace<CR>
 " -------------------------- "
 " |       NERDTREE         | "
 " -------------------------- "
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 map <C-\> :NERDTreeToggle<CR>
@@ -295,16 +295,14 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_disabled_filetypes = ['html', 'xhtml', 'xml']
 
 "javascript
-"jshint makes neovim really slow :(
-"let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ["eslint"]
 "c++
-let g:syntastc_cpp_checkers = ['gcc']
+let g:syntastc_cpp_checkers = ["gcc"]
 let g:syntastic_cpp_compiler = 'gcc'
 let g:syntastic_cpp_compiler_options = '-std=c++14 -Wall'
 "python
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = '--ignore=E501,W191'
+let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_python_flake8_args = "--ignore=E501,W191"
 "html
 let g:syntastic_html_checkers = ['']
 let g:syntastic_xhtml_checkers = ['']
