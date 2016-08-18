@@ -49,7 +49,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker last-working-dir)
+plugins=(git docker last-working-dir extract)
 
 # User configuration
 
@@ -88,3 +88,14 @@ export NVM_DIR="/home/junwoo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="$PATH:/usr/local/go/bin" # adds go to path
+
+export EDITOR=nvim
+
+# colorful man pages? yeah.
+export LESS_TERMCAP_mb=$'\e'"[1;31m"
+export LESS_TERMCAP_md=$'\e'"[1;31m"
+export LESS_TERMCAP_me=$'\e'"[0m"
+export LESS_TERMCAP_se=$'\e'"[0m"
+export LESS_TERMCAP_so=$'\e'"[1;44;33m"
+export LESS_TERMCAP_ue=$'\e'"[0m"
+export LESS_TERMCAP_us=$'\e'"[1;32m"
