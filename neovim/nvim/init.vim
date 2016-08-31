@@ -108,7 +108,7 @@ set background=dark
 let g:vim_json_syntax_conceal = 0
 
 " set line numbers
-set number
+set nonumber
 
 " don't expand tabs
 set noet
