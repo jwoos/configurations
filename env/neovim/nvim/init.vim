@@ -15,6 +15,8 @@
 
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
+" F6 F7 are unmapped
+
 "              __                     _
 "     ____    / /  __  __   ____ _   (_)   ____    _____
 "    / __ \  / /  / / / /  / __ `/  / /   / __ \  / ___/
@@ -24,16 +26,14 @@
 
 " TODO find a better plugin for space indents
 " TODO separate settings into various files and source them here
-" ----- VIM-PLUG ----- "
-" PlugInstall to install
-" PlugUpdate to update
 call plug#begin('~/.config/nvim/plugged')
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+
 Plug 'scrooloose/nerdtree'
-Plug 'wellle/targets.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'henrik/vim-indexed-search'
 Plug 'scrooloose/nerdcommenter'
 Plug 'easymotion/vim-easymotion'
@@ -46,14 +46,35 @@ Plug 'sjl/gundo.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
+Plug 'foosoft/vim-argwrap'
+Plug 'matze/vim-move'
+Plug 'kshenoy/vim-signature'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
+Plug 'wellle/targets.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-syntax'
+Plug 'kana/vim-textobj-lastpat'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-operator-user'
+Plug 'tommcdo/vim-exchange'
+Plug 'tommcdo/vim-lion'
+Plug 'osyo-manga/vim-hopping'
+Plug 'cloudhead/neovim-fuzzy'
+Plug 'mileszs/ack.vim'
+Plug 'vim-scripts/mru.vim'
+Plug 'wesq3/vim-windowswap'
 Plug 'sheerun/vim-polyglot'
-Plug 'metakirby5/codi.vim'
 
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-two-firewatch'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'Haron-Prime/evening_vim'
 " Plugins of interest
+"Plug 'garbas/vim-snipmate'
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'metakirby5/codi.vim'
 "Plug 'digitaltoad/vim-pug', {'for': 'pug'}
 "Plug 'elzr/vim-json', {'for': 'json'}
 "Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
@@ -69,10 +90,7 @@ Plug 'Haron-Prime/evening_vim'
 "Plug 'terryma/vim-multiple-cursors'
 "Plug 'ap/vim-css-color'
 "Plug 'benekastah/neomake'
-"Plug 'MarcWeber/vim-addon-mw-utils'
-"Plug 'tomtom/tlib_vim'
 "Plug 'Valloric/MatchTagAlways'
-"Plug 'garbas/vim-snipmate'
 "Plug 'tpope/vim-repeat'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'ludovicchabant/vim-gutentags'
@@ -152,7 +170,7 @@ nnoremap <S-\> <nop>
 "set cursorline
 
 " get rid of highlighting after search
-noremap <F2> :nohl<CR>
+noremap <silent> <F2> :nohl<CR>
 
 " folding
 set foldmethod=indent
@@ -188,21 +206,7 @@ nnoremap <F12> :te<CR>
 "tnoremap <F12> <C-d><CR>
 
 " echo current filename
-nnoremap <F5> :!echo %<CR>
-
-" clear macros
-function! ClearRegisters()
-	"let regs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+:.#%'
-	let regs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-	let i = 0
-	while (i < strlen(regs))
-		exec 'let @'.regs[i].'=""'
-		let i = i + 1
-	endwhile
-endfunction
-
-command! ClearRegisters call ClearRegisters()
-nnoremap <F6> :ClearRegisters<CR>
+nnoremap <silent> <F5> :!echo %<CR>
 
 "              __                     _                                          ____    _
 "     ____    / /  __  __   ____ _   (_)   ____          _____  ____    ____    / __/   (_)   ____ _
@@ -212,10 +216,37 @@ nnoremap <F6> :ClearRegisters<CR>
 " /_/                    /____/                                                            /____/
 
 " -------------------------- "
+" |           MRU          | "
+" -------------------------- "
+nnoremap <F6> :MRU<CR>
+
+
+" -------------------------- "
+" |      WINDOWSWAP        | "
+" -------------------------- "
+let g:windowswap_map_keys = 0
+nnoremap <F7> :call WindowSwap#EasyWindowSwap()<CR>
+
+" -------------------------- "
 " |   TRAILING WHITESPACE  | "
 " -------------------------- "
 nnoremap <F1> :FixWhitespace<CR>
 inoremap <F1> :FixWhitespace<CR>
+
+" -------------------------- "
+" |          ARGWRAP       | "
+" -------------------------- "
+nnoremap <F4> :ArgWrap<CR>
+
+" -------------------------- "
+" |          ACK           | "
+" -------------------------- "
+let g:ackprg = 'ag --vimgrep'
+
+" -------------------------- "
+" |          FZY           | "
+" -------------------------- "
+nnoremap <C-p> :FuzzyOpen<CR>
 
 " -------------------------- "
 " |       NERDTREE         | "
@@ -233,12 +264,17 @@ map <C-\> :NERDTreeToggle<CR>
 " -------------------------- "
 map <Leader> <Plug>(easymotion-prefix)
 
+" -------------------------- "
+" |     BUNNYHOPPING       | "
+" -------------------------- "
+nnoremap <F8> :HoppingStart<CR>
 
-" -------------------------- "
-" |         CODI           | "
-" -------------------------- "
-nnoremap <F7> :Codi<CR>
-nnoremap <F8> :Codi!<CR>
+let g:hopping#keymapping = {
+\   "\<C-n>" : "<Over>(hopping-next)",
+\   "\<C-p>" : "<Over>(hopping-prev)",
+\   "\<C-u>" : "<Over>(scroll-u)",
+\   "\<C-d>" : "<Over>(scroll-d)",
+\}
 
 " -------------------------- "
 " |     DELIMITEMATE       | "
@@ -323,6 +359,11 @@ let g:ctrlp_custom_ignore = {
 "max number of files listed
 let g:ctrlp_max_files = 10000
 
+" -------------------------- "
+" |         MOVE           | "
+" -------------------------- "
+"use A for alt and C for ctrl
+let g:move_key_modifier = 'C'
 
 " -------------------------- "
 " |         GUNDO          | "
@@ -339,8 +380,13 @@ nnoremap <F11> :GundoToggle<CR>
 " -------------------------- "
 let g:table_mode_corner = "|"
 nnoremap <F3> :TableModeToggle<CR>
-nnoremap <F4> :TableModeRealign<CR>
 
+"                                              __
+"   __  __   ____   __  __   _____  ___   ____/ /
+"  / / / /  / __ \ / / / /  / ___/ / _ \ / __  /
+" / /_/ /  / / / // /_/ /  (__  ) /  __// /_/ /
+" \__,_/  /_/ /_/ \__,_/  /____/  \___/ \__,_/
+"
 
 " -------------------------- "
 " |         GUTENTAG       | "
@@ -380,6 +426,4 @@ nnoremap <F4> :TableModeRealign<CR>
 	"\ 'exe': 'g++',
 	"\ 'args': ['-Wall', '-std=c++14'],
 	"\ }
-
-" TODO: map write
 
