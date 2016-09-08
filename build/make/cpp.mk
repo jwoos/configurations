@@ -1,4 +1,3 @@
-COMPILER = g++
 WARNING = -Wall
 STANDARD = -std=c++14
 # certain versions of g++ require 1y instead of specifying 14
@@ -11,5 +10,5 @@ FILE =
 LINK =
 
 default:
-	$(COMPILER) ${WARNING} ${STANDARD} ${DEBUG} ${DIRECTORY} ${FILE} ${LINK} -o ${BASE}.out
+	$(CXX) ${WARNING} ${STANDARD} ${DEBUG} ${DIRECTORY} ${FILE} ${LINK} -o ${BASE}.out
 	./${BASE}.out
