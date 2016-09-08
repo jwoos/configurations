@@ -41,7 +41,7 @@ Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/deoplete.nvim'
 Plug 'raimondi/delimitmate'
-Plug 'scrooloose/syntastic'
+Plug 'benekastah/neomake'
 Plug 'sjl/gundo.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'gregsexton/matchtag'
@@ -72,6 +72,7 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'Haron-Prime/evening_vim'
 " Plugins of interest
+"Plug 'scrooloose/syntastic'
 "Plug 'garbas/vim-snipmate'
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'metakirby5/codi.vim'
@@ -89,7 +90,6 @@ Plug 'Haron-Prime/evening_vim'
 "Plug 'jiangmiao/auto-pairs'
 "Plug 'terryma/vim-multiple-cursors'
 "Plug 'ap/vim-css-color'
-"Plug 'benekastah/neomake'
 "Plug 'Valloric/MatchTagAlways'
 "Plug 'tpope/vim-repeat'
 "Plug 'Valloric/YouCompleteMe'
@@ -316,39 +316,19 @@ nnoremap <F9> :call deoplete#toggle()<CR>
 
 
 " -------------------------- "
-" |       SYNTASTIC        | "
+" |        neomake         | "
 " -------------------------- "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+noremap <F10> :Neomake<CR>
+autocmd! BufWritePost * Neomake
+let g:neomake_open_list = 2
 
-nnoremap <F10> :SyntasticToggleMode<CR>
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_cpp_enabled_makers = ['gcc']
+let g:neomake_python_enabled_makers = ['flake8']
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_disabled_filetypes = ['html', 'xhtml', 'xml']
-
-"javascript
-let g:syntastic_javascript_checkers = ["eslint"]
-"c++
-let g:syntastc_cpp_checkers = ["gcc"]
-let g:syntastic_cpp_compiler = 'gcc'
-let g:syntastic_cpp_compiler_options = '-std=c++14 -Wall'
-"python
-let g:syntastic_python_checkers = ["flake8"]
-let g:syntastic_python_flake8_args = "--ignore=E501,W191"
-"html
-let g:syntastic_html_checkers = ['']
-let g:syntastic_xhtml_checkers = ['']
-"sass
-let g:syntastic_sass_checkers = ['sass']
-"go
-let g:syntastic_go_checkers = ['go']
 
 " -------------------------- "
-" |          CTRLP         | "
+" |          ctrlp         | "
 " -------------------------- "
 "directories and files to ignore
 let g:ctrlp_custom_ignore = {
@@ -426,4 +406,37 @@ nnoremap <F3> :TableModeToggle<CR>
 	"\ 'exe': 'g++',
 	"\ 'args': ['-Wall', '-std=c++14'],
 	"\ }
+
+" -------------------------- "
+" |       SYNTASTIC        | "
+" -------------------------- "
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"nnoremap <F10> :SyntasticToggleMode<CR>
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_disabled_filetypes = ['html', 'xhtml', 'xml']
+
+"javascript
+"let g:syntastic_javascript_checkers = ["eslint"]
+"c++
+"let g:syntastc_cpp_checkers = ["gcc"]
+"let g:syntastic_cpp_compiler = 'gcc'
+"let g:syntastic_cpp_compiler_options = '-std=c++14 -Wall'
+"python
+"let g:syntastic_python_checkers = ["flake8"]
+"let g:syntastic_python_flake8_args = "--ignore=E501,W191"
+"html
+"let g:syntastic_html_checkers = ['']
+"let g:syntastic_xhtml_checkers = ['']
+"sass
+"let g:syntastic_sass_checkers = ['sass']
+"go
+"let g:syntastic_go_checkers = ['go']
+
 
