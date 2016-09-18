@@ -316,15 +316,20 @@ nnoremap <F9> :call deoplete#toggle()<CR>
 
 
 " -------------------------- "
-" |        neomake         | "
+" |        NEOMAKE         | "
 " -------------------------- "
 noremap <F10> :Neomake<CR>
-autocmd! BufWritePost * Neomake
+"autocmd! BufWritePost * Neomake
 let g:neomake_open_list = 2
+
+"let g:neomake_cpp_gcc_maker = {
+			"\ 'args': ['-std=c++14', '-g', '-I.', '-O0', 'Wall']
+			"\ }
 
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_cpp_enabled_makers = ['gcc']
 let g:neomake_python_enabled_makers = ['flake8']
+
 
 
 " -------------------------- "
