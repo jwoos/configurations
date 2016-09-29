@@ -43,7 +43,6 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'raimondi/delimitmate'
 Plug 'benekastah/neomake'
 Plug 'sjl/gundo.vim'
-Plug 'dhruvasagar/vim-table-mode'
 Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
 Plug 'foosoft/vim-argwrap'
@@ -72,6 +71,7 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'Haron-Prime/evening_vim'
 " Plugins of interest
+"Plug 'dhruvasagar/vim-table-mode'
 "Plug 'scrooloose/syntastic'
 "Plug 'garbas/vim-snipmate'
 "Plug 'ctrlpvim/ctrlp.vim'
@@ -137,7 +137,15 @@ set shiftwidth=4
 " disable mouse
 set mouse=
 
+" disable arrow keys
+" TODO enable these
+"noremap <Up> <nop>
+"noremap <Down> <nop>
+"noremap <Left> <nop>
+"noremap <Right> <nop>
+
 " tab switching
+" TODO use hjkl instead of arrows
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-Down> :tabclose<CR>
@@ -182,6 +190,7 @@ set foldlevel=1
 set list lcs=tab:\|\ 
 
 " easy switching between splits
+" TODO use hjkl instead of arrows
 nnoremap <A-Left> <C-w><Left>
 nnoremap <A-Right> <C-w><Right>
 nnoremap <A-Down> <C-w><Down>
@@ -205,8 +214,10 @@ set splitright
 nnoremap <F12> :te<CR>
 "tnoremap <F12> <C-d><CR>
 
+nnoremap <F3> :set nopaste<CR>
+
 " echo current filename
-nnoremap <silent> <F5> :!echo %<CR>
+nnoremap <silent> <F4> :!echo %<CR>
 
 "              __                     _                                          ____    _
 "     ____    / /  __  __   ____ _   (_)   ____          _____  ____    ____    / __/   (_)   ____ _
@@ -236,7 +247,7 @@ inoremap <F1> :FixWhitespace<CR>
 " -------------------------- "
 " |          ARGWRAP       | "
 " -------------------------- "
-nnoremap <F4> :ArgWrap<CR>
+nnoremap <F5> :ArgWrap<CR>
 
 " -------------------------- "
 " |          ACK           | "
@@ -360,18 +371,23 @@ let g:gundo_return_on_revert = 0
 nnoremap <F11> :GundoToggle<CR>
 
 
-" -------------------------- "
-" |        TABLEMODE       | "
-" -------------------------- "
-let g:table_mode_corner = "|"
-nnoremap <F3> :TableModeToggle<CR>
-
 "                                              __
 "   __  __   ____   __  __   _____  ___   ____/ /
 "  / / / /  / __ \ / / / /  / ___/ / _ \ / __  /
 " / /_/ /  / / / // /_/ /  (__  ) /  __// /_/ /
 " \__,_/  /_/ /_/ \__,_/  /____/  \___/ \__,_/
 "
+" -------------------------- "
+" |        TABLEMODE       | "
+" -------------------------- "
+"let g:table_mode_corner = "|"
+"let g:table_mode_resize_map = "<Leader>oo"
+"let g:table_mode_tableize_op_map = "<Leader>O"
+"let g:table_mode_add_formula_map = "<Leader>ofa"
+"let g:able_mode_eval_expr_map = "<Leader>tfe"
+
+"nnoremap <F3> :TableModeToggle<CR>
+
 
 " -------------------------- "
 " |         GUTENTAG       | "
