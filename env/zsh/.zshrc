@@ -82,6 +82,8 @@ export LANG=en_US.UTF-8
 
 export TERM=xterm-256color
 
+export SAVEHIST=50000
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export NVM_DIR="/home/junwoo/.nvm"
