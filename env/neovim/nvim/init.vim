@@ -70,6 +70,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-two-firewatch'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'Haron-Prime/evening_vim'
+Plug 'tyrannicaltoucan/vim-quantum'
 " Plugins of interest
 "Plug 'dhruvasagar/vim-table-mode'
 "Plug 'scrooloose/syntastic'
