@@ -117,7 +117,10 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
 " colorscheme
-colorscheme onedark
+let g:quantum_black = 1
+let g:quantum_italics = 1
+
+colorscheme quantum
 set background=dark
 
 " cursor shape
