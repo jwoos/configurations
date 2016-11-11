@@ -120,7 +120,7 @@ let g:python_host_prog = '/usr/bin/python2'
 let g:quantum_black = 1
 let g:quantum_italics = 1
 
-colorscheme quantum
+colorscheme onedark
 set background=dark
 
 " cursor shape
@@ -175,6 +175,9 @@ nnoremap s <nop>
 nnoremap <F1> <nop>
 inoremap <F1> <nop>
 nnoremap <S-\> <nop>
+
+" live substitution
+set inccommand=nosplit
 
 " highlighting
 "autocmd WinEnter * setlocal cursorline
