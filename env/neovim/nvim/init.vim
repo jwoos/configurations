@@ -15,7 +15,7 @@
 
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
-" F6 F7 are unmapped
+" <F6> and <F8> are not used
 
 "              __                     _
 "     ____    / /  __  __   ____ _   (_)   ____    _____
@@ -46,7 +46,6 @@ Plug 'sjl/gundo.vim'
 Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
 Plug 'foosoft/vim-argwrap'
-Plug 'matze/vim-move'
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
@@ -61,8 +60,6 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tommcdo/vim-lion'
 Plug 'osyo-manga/vim-hopping'
 Plug 'cloudhead/neovim-fuzzy'
-Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/mru.vim'
 Plug 'wesq3/vim-windowswap'
 Plug 'sheerun/vim-polyglot'
 
@@ -72,6 +69,9 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'Haron-Prime/evening_vim'
 Plug 'tyrannicaltoucan/vim-quantum'
 " Plugins of interest
+"Plug 'mileszs/ack.vim'
+"Plug 'vim-scripts/mru.vim'
+"Plug 'matze/vim-move'
 "Plug 'dhruvasagar/vim-table-mode'
 "Plug 'scrooloose/syntastic'
 "Plug 'garbas/vim-snipmate'
@@ -141,40 +141,52 @@ set shiftwidth=4
 " disable mouse
 set mouse=
 
-" disable arrow keys
-" TODO enable these
-"noremap <Up> <nop>
-"noremap <Down> <nop>
-"noremap <Left> <nop>
-"noremap <Right> <nop>
+" unmap keys
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+noremap <C-w><Up> <nop>
+noremap <C-w><Down> <nop>
+noremap <C-w><Left> <nop>
+noremap <C-w><Right> <nop>
+nnoremap Q <nop>
+nnoremap s <nop>
+nnoremap <F1> <nop>
+nnoremap <S-\> <nop>
+nnoremap <S-j> <nop>
+
+" better navigation
+nnoremap <S-h> ^
+nnoremap <S-l> $
+nnoremap <S-j> <C-d>
+nnoremap <S-k> <C-u>
 
 " tab switching
-" TODO use hjkl instead of arrows
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
-nnoremap <C-Down> :tabclose<CR>
-nnoremap <C-Up> :tab split <CR>
-tnoremap <C-Left> <C-Bslash><C-n>:tabprevious<CR>
-tnoremap <C-Right> <C-Bslash><C-n>:tabnext<CR>
-tnoremap <C-Down> <C-Bslash><C-n>:tabclose<CR>
-tnoremap <C-Up> <C-Bslash><C-n>:tab split<CR>
+"nnoremap <C-h> :tabprevious<CR>
+"nnoremap <C-l> :tabnext<CR>
+"nnoremap <C-j> :tabclose<CR>
+"nnoremap <C-k> :tab split <CR>
 
-" tab splitting
+" easy switching between splits
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+
+" pane splitting
 nnoremap <A-[> <C-w>v
 nnoremap <A-]> <C-w>s
+
+" split to the right and below
+set splitbelow
+set splitright
 
 " hide status
 set laststatus=0
 
 " remap esc to control-c for ease of use
 inoremap <C-c> <ESC>
-
-" unmap keys (sets to no op)
-nnoremap Q <nop>
-nnoremap s <nop>
-nnoremap <F1> <nop>
-inoremap <F1> <nop>
-nnoremap <S-\> <nop>
 
 " live substitution
 set inccommand=nosplit
@@ -196,35 +208,18 @@ set foldlevel=1
 " indent guide
 set list lcs=tab:\|\ 
 
-" easy switching between splits
-" TODO use hjkl instead of arrows
-nnoremap <A-Left> <C-w><Left>
-nnoremap <A-Right> <C-w><Right>
-nnoremap <A-Down> <C-w><Down>
-nnoremap <A-Up> <C-w><Up>
-tnoremap <A-Left> <C-\><C-n><C-w><Left>
-tnoremap <A-Right> <C-\><C-n><C-w><Right>
-tnoremap <A-Down> <C-\><C-n><C-w><Down>
-tnoremap <A-Up> <C-\><C-n><C-w><Up>
-
 " tags
-nnoremap <C-]> g<C-]>
-vnoremap <C-]> g<C-]>
+"nnoremap <C-]> g<C-]>
+"vnoremap <C-]> g<C-]>
 "nnoremap <C-[> <C-t>
 "vnoremap <C-[> <C-t>
-
-" split to the right and below
-set splitbelow
-set splitright
 
 " open/close terminal emulator
 nnoremap <F12> :te<CR>
 "tnoremap <F12> <C-d><CR>
 
-nnoremap <F3> :set nopaste<CR>
-
 " echo current filename
-nnoremap <silent> <F4> :!echo %<CR>
+nnoremap <silent> <F3> :!echo %<CR>
 
 "              __                     _                                          ____    _
 "     ____    / /  __  __   ____ _   (_)   ____          _____  ____    ____    / __/   (_)   ____ _
@@ -232,11 +227,6 @@ nnoremap <silent> <F4> :!echo %<CR>
 "   / /_/ / / /  / /_/ /  / /_/ /  / /   / / / /       / /__  / /_/ / / / / / / __/   / /   / /_/ /
 "  / .___/ /_/   \__,_/   \__, /  /_/   /_/ /_/        \___/  \____/ /_/ /_/ /_/     /_/    \__, /
 " /_/                    /____/                                                            /____/
-
-" -------------------------- "
-" |           MRU          | "
-" -------------------------- "
-nnoremap <F6> :MRU<CR>
 
 
 " -------------------------- "
@@ -254,7 +244,7 @@ inoremap <F1> :FixWhitespace<CR>
 " -------------------------- "
 " |          ARGWRAP       | "
 " -------------------------- "
-nnoremap <F5> :ArgWrap<CR>
+nnoremap <F4> :ArgWrap<CR>
 
 " -------------------------- "
 " |          ACK           | "
@@ -285,7 +275,7 @@ map <Leader> <Plug>(easymotion-prefix)
 " -------------------------- "
 " |     BUNNYHOPPING       | "
 " -------------------------- "
-nnoremap <F8> :HoppingStart<CR>
+nnoremap <A-p> :HoppingStart<CR>
 
 let g:hopping#keymapping = {
 \   "\<C-n>" : "<Over>(hopping-next)",
@@ -339,10 +329,12 @@ nnoremap <F9> :call deoplete#toggle()<CR>
 noremap <F10> :Neomake<CR>
 "autocmd! BufWritePost * Neomake
 let g:neomake_open_list = 2
+let g:neomake_list_height = 10
 
-"let g:neomake_cpp_gcc_maker = {
-			"\ 'args': ['-std=c++14', '-g', '-I.', '-O0', 'Wall']
-			"\ }
+let g:neomake_cpp_gcc_maker = {
+	\ 'exe': 'g++-6',
+	\ 'args': ['-std=c++14', '-g', '-I.', '-O0', 'Wall']
+	\ }
 
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_cpp_enabled_makers = ['gcc']
@@ -361,12 +353,6 @@ let g:ctrlp_custom_ignore = {
 
 "max number of files listed
 let g:ctrlp_max_files = 10000
-
-" -------------------------- "
-" |         MOVE           | "
-" -------------------------- "
-"use A for alt and C for ctrl
-let g:move_key_modifier = 'C'
 
 " -------------------------- "
 " |         GUNDO          | "
@@ -395,6 +381,11 @@ nnoremap <F11> :GundoToggle<CR>
 
 "nnoremap <F3> :TableModeToggle<CR>
 
+" -------------------------- "
+" |         MOVE           | "
+" -------------------------- "
+"use A for alt and C for ctrl
+"let g:move_key_modifier = 'A'
 
 " -------------------------- "
 " |         GUTENTAG       | "
@@ -405,66 +396,11 @@ nnoremap <F11> :GundoToggle<CR>
 "let g:gutentags_exclude = ['.disabletags']
 "let g:gutentags_cache_dir = '~/.tags/'
 
-" UNUSED PLUGINS
-
 " ----- SNIPMATE ----- "
 "let g:snips_trigger_key = '<C-s>'
 "let g:snips_trigger_key_backwards = '<C-a>'
 
-" ----- YOUCOMPLETEME ----- "
-"let g:ycm_filetype_blacklist = {
-"			\ 'markdown' : 1,
-"			\ 'text' : 1
-"			\ }
-" disabled ycm setting itself as syntastic checker
-"let g:ycm_register_as_syntastic_checker = 0
-
-" python interpreter
-"let g:ycm_python_binary_path = '/usr/bin/python3'
-
-" ----- NEOMAKE ----- "
-"autocmd! BufWritePost * Neomake
-"noremap <F11> :Neomake<CR>
-
-"let g:neomake_open_list = 1
-"let g:neomake_list_height = 10
-
-" C++
-"let g:neomake_cpp_gcc_make = {
-	"\ 'exe': 'g++',
-	"\ 'args': ['-Wall', '-std=c++14'],
-	"\ }
-
 " -------------------------- "
-" |       SYNTASTIC        | "
+" |           MRU          | "
 " -------------------------- "
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"nnoremap <F10> :SyntasticToggleMode<CR>
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_disabled_filetypes = ['html', 'xhtml', 'xml']
-
-"javascript
-"let g:syntastic_javascript_checkers = ["eslint"]
-"c++
-"let g:syntastc_cpp_checkers = ["gcc"]
-"let g:syntastic_cpp_compiler = 'gcc'
-"let g:syntastic_cpp_compiler_options = '-std=c++14 -Wall'
-"python
-"let g:syntastic_python_checkers = ["flake8"]
-"let g:syntastic_python_flake8_args = "--ignore=E501,W191"
-"html
-"let g:syntastic_html_checkers = ['']
-"let g:syntastic_xhtml_checkers = ['']
-"sass
-"let g:syntastic_sass_checkers = ['sass']
-"go
-"let g:syntastic_go_checkers = ['go']
-
-
+"nnoremap <F6> :MRU<CR>
