@@ -30,73 +30,57 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'henrik/vim-indexed-search'
-Plug 'scrooloose/nerdcommenter'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
 Plug 'Shougo/deoplete.nvim'
-Plug 'raimondi/delimitmate'
-Plug 'benekastah/neomake'
-Plug 'sjl/gundo.vim'
-Plug 'gregsexton/matchtag'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+Plug 'benekastah/neomake'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'cloudhead/neovim-fuzzy'
+Plug 'easymotion/vim-easymotion'
 Plug 'foosoft/vim-argwrap'
-Plug 'kshenoy/vim-signature'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-eunuch'
-Plug 'wellle/targets.vim'
-Plug 'kana/vim-textobj-user'
+Plug 'gregsexton/matchtag'
+Plug 'henrik/vim-indexed-search'
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-lastpat'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-syntax'
-Plug 'kana/vim-textobj-lastpat'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-operator-user'
+Plug 'kana/vim-textobj-user'
+Plug 'kshenoy/vim-signature'
+Plug 'majutsushi/tagbar'
+Plug 'osyo-manga/vim-hopping'
+Plug 'raimondi/delimitmate'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'sjl/gundo.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tommcdo/vim-lion'
-Plug 'osyo-manga/vim-hopping'
-Plug 'cloudhead/neovim-fuzzy'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
 Plug 'wesq3/vim-windowswap'
-Plug 'sheerun/vim-polyglot'
 
+Plug 'Haron-Prime/evening_vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-two-firewatch'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'Haron-Prime/evening_vim'
 Plug 'tyrannicaltoucan/vim-quantum'
 " Plugins of interest
-"Plug 'mileszs/ack.vim'
-"Plug 'vim-scripts/mru.vim'
-"Plug 'matze/vim-move'
-"Plug 'dhruvasagar/vim-table-mode'
-"Plug 'scrooloose/syntastic'
-"Plug 'garbas/vim-snipmate'
-"Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'metakirby5/codi.vim'
-"Plug 'digitaltoad/vim-pug', {'for': 'pug'}
-"Plug 'elzr/vim-json', {'for': 'json'}
-"Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
-"Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
-"Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
-"Plug 'digitaltoad/vim-jade', {'for': 'jade'}
-"Plug 'othree/yajs.vim'
-"Plug 'HerringtonDarkholme/yats.vim'
-"Plug 'pangloss/vim-javascript'
-"Plug 'kana/vim-textobj-user'
-"Plug 'kchmck/vim-coffee-script'
-"Plug 'jiangmiao/auto-pairs'
-"Plug 'terryma/vim-multiple-cursors'
 "Plug 'ap/vim-css-color'
-"Plug 'Valloric/MatchTagAlways'
-"Plug 'tpope/vim-repeat'
-"Plug 'Valloric/YouCompleteMe'
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'dhruvasagar/vim-table-mode'
+"Plug 'elzr/vim-json', {'for': 'json'}
+"Plug 'garbas/vim-snipmate'
 "Plug 'ludovicchabant/vim-gutentags'
-"Plug 'wesq3/vim-windowswap'
-"Plug 'klen/python-mode'
+"Plug 'matze/vim-move'
+"Plug 'metakirby5/codi.vim'
+"Plug 'mileszs/ack.vim'
+"Plug 'terryma/vim-multiple-cursors'
+"Plug 'tpope/vim-repeat'
+"Plug 'vim-scripts/mru.vim'
 call plug#end()
 
 "            _                                              ____    _
@@ -163,10 +147,10 @@ nnoremap <S-j> <C-d>
 nnoremap <S-k> <C-u>
 
 " tab switching
-"nnoremap <C-h> :tabprevious<CR>
-"nnoremap <C-l> :tabnext<CR>
-"nnoremap <C-j> :tabclose<CR>
-"nnoremap <C-k> :tab split <CR>
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+nnoremap <C-j> :tabclose<CR>
+nnoremap <C-k> :tab split <CR>
 
 " easy switching between splits
 nnoremap <A-h> <C-w>h
