@@ -85,12 +85,15 @@ export TERM=xterm-256color
 export SAVEHIST=50000
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[ -s "~/.rvm/scripts/rvm" ] && . "~/.rvm/scripts/rvm"
 
 export NVM_DIR="/home/junwoo/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 export PATH="$PATH:/usr/local/go/bin" # adds go to path
 export GOPATH="$HOME/.go"
+
+export PATH="$PATH:$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin" # add haskell compiler to path
 
 export EDITOR=nvim
 
