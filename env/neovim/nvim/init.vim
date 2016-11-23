@@ -138,9 +138,12 @@ nnoremap Q <nop>
 nnoremap s <nop>
 nnoremap <F1> <nop>
 nnoremap <S-\> <nop>
-nnoremap <S-j> <nop>
 
 " better navigation
+vnoremap <S-h> ^
+vnoremap <S-l> $
+vnoremap <S-j> <C-d>
+vnoremap <S-k> <C-u>
 nnoremap <S-h> ^
 nnoremap <S-l> $
 nnoremap <S-j> <C-d>
