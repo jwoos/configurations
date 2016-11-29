@@ -206,6 +206,12 @@ nnoremap <F12> :te<CR>
 " echo current filename
 nnoremap <silent> <F3> :!echo %<CR>
 
+" set filetype correctly for c/c++
+au BufRead,BufNewFile *.hpp set filetype=cpp
+au BufRead,BufNewFile *.cpp set filetype=cpp
+au BufRead,BufNewFile *.h set filetype=c
+au BufRead,BufNewFile *.c set filetype=c
+
 "              __                     _                                          ____    _
 "     ____    / /  __  __   ____ _   (_)   ____          _____  ____    ____    / __/   (_)   ____ _
 "    / __ \  / /  / / / /  / __ `/  / /   / __ \        / ___/ / __ \  / __ \  / /_    / /   / __ `/
