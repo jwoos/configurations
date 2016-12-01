@@ -138,20 +138,20 @@ nnoremap <F1> <nop>
 nnoremap <S-\> <nop>
 
 " better navigation
-vnoremap <S-h> ^
-vnoremap <S-l> $
-vnoremap <S-j> <C-d>
-vnoremap <S-k> <C-u>
-nnoremap <S-h> ^
-nnoremap <S-l> $
-nnoremap <S-j> <C-d>
-nnoremap <S-k> <C-u>
+vnoremap <C-h> ^
+vnoremap <C-l> $
+vnoremap <C-j> <C-d>
+vnoremap <C-k> <C-u>
+nnoremap <C-h> ^
+nnoremap <C-l> $
+nnoremap <C-j> <C-d>
+nnoremap <C-k> <C-u>
 
 " tab switching
-nnoremap <C-h> :tabprevious<CR>
-nnoremap <C-l> :tabnext<CR>
-nnoremap <C-j> :tabclose<CR>
-nnoremap <C-k> :tab split <CR>
+"nnoremap <S-h> :tabprevious<CR>
+"nnoremap <S-l> :tabnext<CR>
+"nnoremap <S-j> :tabclose<CR>
+"nnoremap <S-k> :tab split <CR>
 
 " easy switching between splits
 nnoremap <A-h> <C-w>h
