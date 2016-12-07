@@ -7,3 +7,4 @@ alias g++="g++-6"
 alias gcc="gcc-6"
 
 alias ls="ls --color=auto"
+alias fuzzy='ls -l $(find -type f | fzy)'
