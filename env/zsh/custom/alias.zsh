@@ -6,7 +6,4 @@ alias vim="nvim"
 alias g++="g++-6"
 alias gcc="gcc-6"
 
-alias resetif="sudo ~/scripts/shell/resetif.sh"
-alias port-reroute="sudo ~/scripts/shell/reroute.sh"
-
 alias ls="ls --color=auto"
