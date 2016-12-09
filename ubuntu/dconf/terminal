@@ -1,0 +1,22 @@
+[legacy]
+new-terminal-mode='tab'
+menu-accelerator-enabled=false
+schema-version=uint32 3
+theme-variant='dark'
+
+[legacy/keybindings]
+full-screen='disabled'
+help='disabled'
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+foreground-color='rgb(131,148,150)'
+visible-name='main'
+default-size-columns=120
+default-size-rows=35
+scroll-on-output=false
+use-system-font=false
+use-theme-colors=false
+font='DejaVu Sans Mono for Powerline 10'
+use-theme-transparency=false
+background-color='rgb(0,43,54)'
+scrollback-lines=100000
