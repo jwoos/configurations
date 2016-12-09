@@ -15,7 +15,8 @@
 
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
-" <F6> and <F8> are not used
+" NOT USED
+" <F5> <F6> <F7>
 
 "              __                     _
 "     ____    / /  __  __   ____ _   (_)   ____    _____
@@ -41,6 +42,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'foosoft/vim-argwrap'
 Plug 'gregsexton/matchtag'
 Plug 'henrik/vim-indexed-search'
+Plug 'junegunn/vim-slash'
 Plug 'justinmk/vim-sneak'
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
@@ -91,19 +93,35 @@ call plug#end()
 " set 256 color mode
 "set t_Co=256
 
-" true color mode
-set termguicolors
-
 " set python interpreter
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
+
+" true color mode
+set termguicolors
+
+function! ToggleColorscheme()
+	if g:colors_name == 'PaperColor'
+		colorscheme onedark
+		set background=dark
+	else
+		colorscheme PaperColor
+		set background=light
+	endif
+endfunction
+
+nnoremap <F4> :call ToggleColorscheme()<CR>
 
 " colorscheme
 let g:quantum_black = 1
 let g:quantum_italics = 1
 
-colorscheme onedark
-set background=dark
+colorscheme PaperColor
+set background=light
+
+" dark colorscheme
+"colorscheme onedark
+"set background=dark
 
 " cursor shape
 ":let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -176,13 +194,13 @@ inoremap <C-c> <ESC>
 " live substitution
 set inccommand=nosplit
 
-" highlighting
+" line highlight
 "autocmd WinEnter * setlocal cursorline
 "autocmd WinLeave * setlocal nocursorline
 "set cursorline
 
 " get rid of highlighting after search
-noremap <silent> <F2> :nohl<CR>
+"noremap <silent> <F2> :nohl<CR>
 
 " folding
 set foldmethod=indent
@@ -204,7 +222,7 @@ nnoremap <F12> :te<CR>
 "tnoremap <F12> <C-d><CR>
 
 " echo current filename
-nnoremap <silent> <F3> :!echo %<CR>
+nnoremap <silent> <F2> :!echo %<CR>
 
 " set filetype correctly for c/c++
 au BufRead,BufNewFile *.hpp set filetype=cpp
@@ -224,7 +242,7 @@ au BufRead,BufNewFile *.c set filetype=c
 " |      WINDOWSWAP        | "
 " -------------------------- "
 let g:windowswap_map_keys = 0
-nnoremap <F7> :call WindowSwap#EasyWindowSwap()<CR>
+nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
 
 " -------------------------- "
 " |   TRAILING WHITESPACE  | "
@@ -235,7 +253,7 @@ inoremap <F1> :FixWhitespace<CR>
 " -------------------------- "
 " |          ARGWRAP       | "
 " -------------------------- "
-nnoremap <F4> :ArgWrap<CR>
+nnoremap <F3> :ArgWrap<CR>
 
 " -------------------------- "
 " |          ACK           | "
