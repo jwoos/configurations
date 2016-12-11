@@ -1,0 +1,19 @@
+BoldAsFont=yes
+CursorType=block
+DeleteSendsDEL=no
+CopyAsRTF=no
+MiddleClickAction=void
+RightClickAction=paste
+ClickTargetMod=off
+BellFlash=no
+BellTaskbar=no
+Font=DejaVu Sans Mono for Powerline
+Columns=120
+Rows=30
+FontHeight=10
+FontSmoothing=default
+Locale=en_US
+Charset=UTF-8
+Scrollbar=none
+Transparency=off
+
