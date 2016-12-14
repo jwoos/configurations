@@ -97,6 +97,9 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export EDITOR=nvim
 
+# for gitql
+export LD_LIBRARY_PATH="$GOPATH/src/github.com/cloudson/gitql/libgit2/install/lib"
+
 # colorful man pages? yeah.
 export LESS_TERMCAP_mb=$'\e'"[1;31m"
 export LESS_TERMCAP_md=$'\e'"[1;31m"
