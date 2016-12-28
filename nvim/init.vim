@@ -117,13 +117,15 @@ nnoremap <F4> :call ToggleColorscheme()<CR>
 " colorscheme
 let g:quantum_black = 1
 let g:quantum_italics = 1
+let g:onedark_terminal_italics = 1
 
-colorscheme PaperColor
-set background=light
+" light colorscheme
+"colorscheme PaperColor
+"set background=light
 
 " dark colorscheme
-"colorscheme onedark
-"set background=dark
+colorscheme onedark
+set background=dark
 
 " cursor shape
 ":let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
