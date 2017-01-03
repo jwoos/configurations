@@ -31,6 +31,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 
+Plug 'PeterRincker/vim-argumentative'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
@@ -304,21 +305,11 @@ let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_inside_quotes = 1
 
-
 " -------------------------- "
 " |       INDENTLINE       | "
 " -------------------------- "
 let g:indentLine_enabled = 1
 let g:indentLine_char = '|'
-
-" -------------------------- "
-" |    MULTIPLECURSOR      | "
-" -------------------------- "
-"let g:multi_cursor_use_default_mapping=0
-"let g:multi_cursor_next_key='<C-d>'
-"let g:multi_cursor_prev_key='<C-a>'
-"let g:multi_cursor_skip_key='<C-s>'
-"let g:multi_cursor_quit_key='<C-c>'
 
 " -------------------------- "
 " |         TAGBAR         | "
@@ -334,7 +325,6 @@ inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to backward cycle
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 nnoremap <F9> :call deoplete#toggle()<CR>
-
 
 " -------------------------- "
 " |        NEOMAKE         | "
@@ -353,20 +343,6 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_cpp_enabled_makers = ['gcc']
 let g:neomake_python_enabled_makers = ['flake8']
 
-
-
-" -------------------------- "
-" |          ctrlp         | "
-" -------------------------- "
-"directories and files to ignore
-let g:ctrlp_custom_ignore = {
-			\ 'dir': '\.git$\|\.tmp$\|bower_components$\|node_modules$',
-			\ 'file': '\.swo$\|\.swp$\|\.pyc$'
-			\ }
-
-"max number of files listed
-let g:ctrlp_max_files = 10000
-
 " -------------------------- "
 " |         GUNDO          | "
 " -------------------------- "
@@ -375,6 +351,20 @@ let g:gundo_help = 0
 let g:gundo_right = 1
 let g:gundo_return_on_revert = 0
 nnoremap <F11> :GundoToggle<CR>
+
+" -------------------------- "
+" |     argumentative      | "
+" -------------------------- "
+nmap [m <Plug>Argumentative_Prev
+nmap ]m <Plug>Argumentative_Next
+xmap [m <Plug>Argumentative_XPrev
+xmap ]m <Plug>Argumentative_XNext
+nmap <m <Plug>Argumentative_MoveLeft
+nmap >m <Plug>Argumentative_MoveRight
+xmap im <Plug>Argumentative_InnerTextObject
+xmap am <Plug>Argumentative_OuterTextObject
+omap im <Plug>Argumentative_OpPendingInnerTextObject
+omap am <Plug>Argumentative_OpPendingOuterTextObject
 
 
 "                                              __
@@ -417,3 +407,24 @@ nnoremap <F11> :GundoToggle<CR>
 " |           MRU          | "
 " -------------------------- "
 "nnoremap <F6> :MRU<CR>
+
+" -------------------------- "
+" |          ctrlp         | "
+" -------------------------- "
+"directories and files to ignore
+"let g:ctrlp_custom_ignore = {
+			"\ 'dir': '\.git$\|\.tmp$\|bower_components$\|node_modules$',
+			"\ 'file': '\.swo$\|\.swp$\|\.pyc$'
+			"\ }
+
+"max number of files listed
+"let g:ctrlp_max_files = 10000
+
+" -------------------------- "
+" |    MULTIPLECURSOR      | "
+" -------------------------- "
+"let g:multi_cursor_use_default_mapping=0
+"let g:multi_cursor_next_key='<C-d>'
+"let g:multi_cursor_prev_key='<C-a>'
+"let g:multi_cursor_skip_key='<C-s>'
+"let g:multi_cursor_quit_key='<C-c>'
