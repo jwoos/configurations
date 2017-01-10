@@ -16,7 +16,7 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F5> <F6> <F7>
+" <F6> <F7>
 
 "              __                     _
 "     ____    / /  __  __   ____ _   (_)   ____    _____
@@ -225,6 +225,9 @@ nnoremap <F12> :te<CR>
 
 " echo current filename
 nnoremap <silent> <F2> :!echo %<CR>
+
+" redraw
+nnoremap <silent> <F5> :redraw!<CR>
 
 " set filetype correctly for c/c++
 au BufRead,BufNewFile *.hpp set filetype=cpp
