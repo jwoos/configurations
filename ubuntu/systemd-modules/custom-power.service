@@ -1,0 +1,9 @@
+[Unit]
+Description=Enable good power settings on startup as recommended by powertop
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/custom-power
+
+[Install]
+WantedBy=multi-user.target
