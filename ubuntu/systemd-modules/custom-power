@@ -1,9 +1,7 @@
 #! /usr/bin/env bash
 
-set -euo
-
 # autosuspend for usb device touchscreen
-echo 'auto' > '/sys/bus/usb/devices/1-9/power/control'
+echo auto > /sys/bus/usb/devices/1-9/power/control
 
 # vm writeback timeout
-echo '1500' > '/proc/sys/vm/dirty_writeback_centisecs'
+echo 1500 > /proc/sys/vm/dirty_writeback_centisecs
