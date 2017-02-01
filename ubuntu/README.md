@@ -10,6 +10,10 @@ dconf dump /PATH/TO/SETTINGS/ > filename
 dconf load /PATH/TO/SETTINGS/ < filname
 ```
 
+#### Dconf paths
+- Terminal: `/org/gnome/terminal/` = `terminal`
+- window management: `/org/gnome/desktop/wm/` = `wm`
+
 ### udev for fastboot
 `/etc/udev/rules.d/51-android.rules`
 
