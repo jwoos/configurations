@@ -204,6 +204,11 @@ set inccommand=nosplit
 " get rid of highlighting after search
 "noremap <silent> <F2> :nohl<CR>
 
+" searching
+" make searches case insensitive except when capital letter is present
+set ignorecase
+set smartcase
+
 " folding
 set foldmethod=indent
 set foldnestmax=10
@@ -385,6 +390,11 @@ xmap am <Plug>Argumentative_OuterTextObject
 omap im <Plug>Argumentative_OpPendingInnerTextObject
 omap am <Plug>Argumentative_OpPendingOuterTextObject
 
+" -------------------------- "
+" |        surround        | "
+" -------------------------- "
+" make surround $ work
+let g:surround_36 = "$\r$"
 
 "                                              __
 "   __  __   ____   __  __   _____  ___   ____/ /
