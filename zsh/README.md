@@ -1,4 +1,4 @@
-# zsh configuration
+# ZSH
 
 `~/.oh-my-zsh`
 
