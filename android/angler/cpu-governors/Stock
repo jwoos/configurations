@@ -1,0 +1,32 @@
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 99
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 960000
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack 80000
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads 65 460000:75 960000:80
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/boost 0
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/align_windows 0
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 0
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 80000
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration 80000
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 99
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 19000
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1248000
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack 80000
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads 70 960000:80 1248000:85
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/boost 0
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/align_windows 0
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif 1
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 0
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 80000
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/boostpulse_duration 80000
+/sys/module/msm_performance/parameters/touchboost 1
+/sys/module/cpu_boost/parameters/boost_ms 0
+/sys/module/cpu_boost/parameters/input_boost_ms 40
+/sys/module/cpu_boost/parameters/input_boost_freq 0:1344000 1:0 2:0 3:0 4:0 5:0 6:0 7:0
+
+
