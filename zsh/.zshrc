@@ -49,7 +49,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker last-working-dir extract)
+plugins=(git docker last-working-dir extract vi-mode)
 
 # User configuration
 
@@ -108,3 +108,9 @@ export LESS_TERMCAP_se=$'\e'"[0m"
 export LESS_TERMCAP_so=$'\e'"[1;44;33m"
 export LESS_TERMCAP_ue=$'\e'"[0m"
 export LESS_TERMCAP_us=$'\e'"[1;32m"
+
+# set vim mode
+bindkey -v
+
+# reduce key timeout for mode switching
+export KEYTIMEOUT=1
