@@ -51,6 +51,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec terminator
+bindsym $mod+backslash exec i3lock -c 000000
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -169,4 +170,5 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config $HOME/.config/compton.conf -b
+exec --no-startup-id autolock -detectsleep -time 10 -locker 'i3lock -c 000000'
 exec --no-startup-id nm-applet
