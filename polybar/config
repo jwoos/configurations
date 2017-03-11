@@ -1,0 +1,157 @@
+[colors]
+accent = #3498db
+
+[bar/top]
+monitor = eDP-1
+width = 100%
+height = 50
+
+background = #1f1f1f00
+foreground = #000000
+
+border-bottom = 1
+border-bottom-color = #33333300
+
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 10
+underline-color = ${self.background}
+
+padding-left = 0
+padding-right = 3
+module-margin-left = 3
+module-margin-right = 3
+
+font-0 = NotoSans-Regular:size=14;1
+font-1 = MaterialIcons:size=14;0
+font-2 = Termsynu:size=14;-1
+font-3 = Siji:pixelsize=14;0
+;font-4 = FontAwesome:size=10;-8
+
+separator = |
+
+modules-left = i3
+modules-center = xwindow
+modules-right = volume xbacklight battery clock menu-apps
+
+wm-restack = i3
+
+tray-position = right
+tray-background = ${self.background}
+tray-transparent = true
+tray-padding = 3
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+pin-workspaces = true
+
+label-dimmed-underline = ${root.background}
+
+label-focused = %name%
+label-focused-foreground = #f3f3f300
+label-focused-background = #3f3f3f00
+label-focused-underline = ${colors.accent}
+label-focused-font = 4
+label-focused-padding = 4
+
+label-unfocused = %name%
+label-unfocused-underline = #555555
+label-unfocused-font = 4
+label-unfocused-padding = 4
+
+label-urgent = %name%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+label-urgent-font = 4
+label-urgent-padding = 4
+
+label-visible = %name%
+label-visible-foreground = #55ffffff
+label-visible-font = 4
+label-visible-padding = 4
+
+[module/clock]
+type = internal/date
+interval = 10
+format-foreground = #000
+date = %Y-%m-%d  %H:%M  
+
+[module/volume]
+type = internal/volume
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+format-volume = <ramp-volume> <label-volume>
+
+label-volume = Volume: %percentage%%
+label-volume-foreground = #000000
+
+label-muted = Volume: MUTED
+label-muted-foreground = #000000
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-foreground = #9f78e1
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+ramp-headphones-foreground = #9f78e1
+
+[module/xbacklight]
+type = internal/xbacklight
+output = eDP-1
+
+format = <label>
+
+label = Brightness: %percentage%%
+
+[module/battery]
+type = internal/battery
+full-at = 100
+time-format = %H:%M
+poll-internal = 50
+
+format-charging = <label-charging>
+format-discharging = <label-discharging>
+format-full = <label-full>
+
+label-charging = Battery: %percentage%% (%time%)
+label-discharging = Battery: %percentage%% (%time%)
+label-full = Battery: FULL
+
+[module/xwindow]
+type = internal/xwindow
+label-maxlen = 100
+label-foreground = #000000
+
+[module/menu-apps]
+type = custom/menu
+
+label-open = MENU
+label-close = CLOSE
+label-separator = " - "
+
+menu-0-0 = Terminate WM
+menu-0-0-exec = bspc quit -1
+menu-0-1 = Reboot
+menu-0-1-exec = menu-open-1
+menu-0-2 = Power off
+menu-0-2-exec = menu-open-2
+
+menu-1-0 = Cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = Reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = Cancel
+menu-2-0-exec = menu-open-0
+menu-2-1 = Power off
+menu-2-1-exec = sudo poweroff
+
+; vim:ft=dosini
