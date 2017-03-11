@@ -140,7 +140,7 @@ shell_version="on"
 #          'scaling_max'
 # Flag:    --speed_type
 # Supports: Linux with 'cpufreq'
-speed_type="current"
+speed_type="scaling_current"
 
 # Shorten the output of the CPU function
 #
@@ -219,7 +219,7 @@ gpu_brand="on"
 # Example:
 # on:  '1920x1080 @ 60Hz'
 # off: '1920x1080'
-refresh_rate="off"
+refresh_rate="on"
 
 
 # Gtk Theme / Icons / Font
@@ -475,13 +475,14 @@ disk_display="off"
 
 # Image Options
 
+image_backend="w3m"
 
 # Image Source
 #
 # Default:  'wallpaper'
 # Values:   'wallpaper', '/path/to/img', '/path/to/dir/', 'off'
 # Flag:     --image
-image_source="wallpaper"
+image_source='~/Downloads/arch-linux.png'
 
 # Thumbnail directory
 #
