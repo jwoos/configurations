@@ -30,6 +30,7 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'directory' \
   'spectrum' \
+  'git' \
   'utility' \
   'completion' \
   'prompt' \
@@ -59,6 +60,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
 # zstyle ':prezto:module:git:status:ignore' submodules 'all'
+zstyle ':prezto:module:git:info:context:subcontext' format 'string'
 
 #
 # GNU Utility
@@ -137,10 +139,10 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 # can use color index as well
 # black, blue, green, yellow, cyan, white, magenta, red
 # Set syntax highlighting styles.
-zstyle ':prezto:module:syntax-highlighting' styles \
-  'builtin' 'bg=blue' \
-  'command' 'bg=green' \
-  'function' 'bg=cyan'
+#zstyle ':prezto:module:syntax-highlighting' styles \
+  #'builtin' 'bg=blue' \
+  #'command' 'bg=green' \
+  #'function' 'bg=cyan'
 
 #
 # Terminal
