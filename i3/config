@@ -203,5 +203,5 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config $HOME/.config/compton.conf -b
-exec --no-startup-id autolock -detectsleep -time 10 -locker 'i3lock -c 000000'
+exec --no-startup-id xautolock -detectsleep -time 10 -locker 'i3lock -c 000000'
 exec --no-startup-id nm-applet
