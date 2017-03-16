@@ -133,8 +133,8 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'brackets' \
   'pattern' \
   'line' \
-  'cursor' \
   'root'
+  #'cursor' \
 
 # can use color index as well
 # black, blue, green, yellow, cyan, white, magenta, red
