@@ -1,6 +1,7 @@
 export GDK_SCALE=1.85
 export GDK_DPI_SCALE=1.85
 export QT_QPA_PLATFORMTHEME=qt5ct
+export NO_AT_BRIDGE=1
 
 setxkbmap -option caps:escape
 xrandr --dpi 191
