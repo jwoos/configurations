@@ -9,7 +9,7 @@ height = 50
 background = #001f1f1f
 foreground = #FF000000
 
-border-bottom = 1
+border-bottom-size = 1
 border-bottom-color = #33000000
 
 overline-size = 10
@@ -22,17 +22,18 @@ padding-right = 3
 module-margin-left = 2
 module-margin-right = 2
 
-font-0 = Iosevka:size=16;0
-font-1 = MaterialIcons:size=14;0
-font-2 = Termsynu:size=14;0
-font-3 = Siji:pixelsize=14;0
-font-4 = FontAwesome:size=14;2
+font-0 = iosevka:size=16;0
+font-1 = materialicons:size=15;2
+font-2 = unifont:size=15:0
+font-3 = siji:pixelsize=15;0
+font-4 = fontawesome:size=15;1
+font-5 = materialicons:size=18;1
 
 separator = |
 
 modules-left = i3
 modules-center = xwindow
-modules-right = volume xbacklight battery date menu-apps
+modules-right = volume xbacklight battery date wireless-network menu-apps
 
 wm-restack = i3
 
@@ -49,26 +50,34 @@ pin-workspaces = true
 
 label-dimmed-underline = ${root.background}
 
-label-focused = %name%
+label-focused = %icon%
 label-focused-foreground = #FFFFFFFF
 label-focused-underline = ${colors.accent}
-label-focused-font = 3
-label-focused-padding = 4
+label-focused-padding = 3
+label-focused-font = 6
 
-label-unfocused = %name%
+label-unfocused = %icon%
 label-unfocused-underline = #FF555555
-label-unfocused-font = 3
-label-unfocused-padding = 4
+label-unfocused-padding = 3
+label-unfocused-font = 6
 
-label-urgent = %name%
+label-urgent = %icon%
 label-urgent-foreground = #FF000000
 label-urgent-background = #FFbd2c40
 label-urgent-underline = #FF9b0a20
-label-urgent-font = 3
-label-urgent-padding = 4
+label-urgent-padding = 3
+label-urgent-font = 6
 
-label-visible = %name%
-label-visible-font = 3
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+;ws-icon-default = 
 
 [module/date]
 type = internal/date
@@ -76,7 +85,7 @@ type = internal/date
 format = <label>
 format-foreground = #FF000000
 
-label =  %date%  %time%
+label =  %date%   %time%
 
 interval = 30
 date = %Y-%m-%d
@@ -93,17 +102,17 @@ format-volume = <ramp-volume> <label-volume>
 label-volume =  %percentage%%
 label-volume-foreground = #FF000000
 
-format-muted = <ramp-volume> <label-muted>
+format-muted =  <label-muted>
 
 label-muted = MUTED
 label-muted-foreground = #FF000000
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-ramp-volume-4 = 
-ramp-volume-5 = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+ramp-volume-5 = 
 ramp-volume-foreground = #FF000000
 
 [module/xbacklight]
@@ -112,11 +121,9 @@ output = eDP-1
 
 format = <ramp> <label>
 
-ramp-0 = 🌕
-ramp-1 = 🌔
-ramp-2 = 🌓
-ramp-3 = 🌒
-ramp-4 = 🌑
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 
 label = %percentage%%
 
@@ -142,14 +149,16 @@ ramp-capacity-4 = 
 
 [module/xwindow]
 type = internal/xwindow
-label-maxlen = 100
-label-foreground = #000000
+
+label = [ %title% ]
+label-maxlen = 250
+label-foreground = #FF000000
 
 [module/menu-apps]
 type = custom/menu
 
-label-open = MENU
-label-close = CLOSE
+label-open =  MENU
+label-close =  CLOSE
 label-separator = " - "
 
 menu-0-0 = Terminate WM
@@ -190,7 +199,15 @@ interval = 10
 
 [module/wireless-network]
 type = internal/network
-interface = wlan1
-interval = 10
+interface = wlp2s0
+interval = 30
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-packetloss = <label-packetloss>
+
+label-connected =  %essid%
+label-disconnected =   DISCONNECTED
+label-packetloss =  %essid%
 
 ; vim:ft=dosini
