@@ -1,16 +1,16 @@
 [colors]
-accent = #3498db
+accent = #FF3498db
 
 [bar/top]
 monitor = eDP-1
 width = 100%
 height = 50
 
-background = #1f1f1f00
-foreground = #000000
+background = #001f1f1f
+foreground = #FF000000
 
 border-bottom = 1
-border-bottom-color = #33333300
+border-bottom-color = #33000000
 
 overline-size = 10
 overline-color = ${self.background}
@@ -19,20 +19,20 @@ underline-color = ${self.background}
 
 padding-left = 0
 padding-right = 3
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 2
+module-margin-right = 2
 
-font-0 = NotoSans-Regular:size=14;1
+font-0 = Iosevka:size=16;0
 font-1 = MaterialIcons:size=14;0
-font-2 = Termsynu:size=14;-1
+font-2 = Termsynu:size=14;0
 font-3 = Siji:pixelsize=14;0
-;font-4 = FontAwesome:size=10;-8
+font-4 = FontAwesome:size=14;2
 
 separator = |
 
 modules-left = i3
 modules-center = xwindow
-modules-right = volume xbacklight battery clock menu-apps
+modules-right = volume xbacklight battery date menu-apps
 
 wm-restack = i3
 
@@ -50,34 +50,37 @@ pin-workspaces = true
 label-dimmed-underline = ${root.background}
 
 label-focused = %name%
-label-focused-foreground = #f3f3f300
-label-focused-background = #3f3f3f00
+label-focused-foreground = #FFFFFFFF
 label-focused-underline = ${colors.accent}
-label-focused-font = 4
+label-focused-font = 3
 label-focused-padding = 4
 
 label-unfocused = %name%
-label-unfocused-underline = #555555
-label-unfocused-font = 4
+label-unfocused-underline = #FF555555
+label-unfocused-font = 3
 label-unfocused-padding = 4
 
 label-urgent = %name%
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
-label-urgent-underline = #9b0a20
-label-urgent-font = 4
+label-urgent-foreground = #FF000000
+label-urgent-background = #FFbd2c40
+label-urgent-underline = #FF9b0a20
+label-urgent-font = 3
 label-urgent-padding = 4
 
 label-visible = %name%
-label-visible-foreground = #55ffffff
-label-visible-font = 4
-label-visible-padding = 4
+label-visible-font = 3
 
-[module/clock]
+[module/date]
 type = internal/date
-interval = 10
-format-foreground = #000
-date = %Y-%m-%d  %H:%M  
+
+format = <label>
+format-foreground = #FF000000
+
+label =  %date%  %time%
+
+interval = 30
+date = %Y-%m-%d
+time = %H:%M
 
 [module/volume]
 type = internal/volume
@@ -87,43 +90,55 @@ headphone-soundcard = default
 
 format-volume = <ramp-volume> <label-volume>
 
-label-volume = Volume: %percentage%%
-label-volume-foreground = #000000
+label-volume =  %percentage%%
+label-volume-foreground = #FF000000
 
-label-muted = Volume: MUTED
-label-muted-foreground = #000000
+format-muted = <ramp-volume> <label-muted>
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-ramp-volume-foreground = #9f78e1
+label-muted = MUTED
+label-muted-foreground = #FF000000
 
-ramp-headphones-0 = 
-ramp-headphones-1 = 
-ramp-headphones-foreground = #9f78e1
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+ramp-volume-5 = 
+ramp-volume-foreground = #FF000000
 
 [module/xbacklight]
 type = internal/xbacklight
 output = eDP-1
 
-format = <label>
+format = <ramp> <label>
 
-label = Brightness: %percentage%%
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+label = %percentage%%
 
 [module/battery]
 type = internal/battery
-full-at = 100
+full-at = 99
 time-format = %H:%M
 poll-internal = 50
 
-format-charging = <label-charging>
-format-discharging = <label-discharging>
-format-full = <label-full>
+format-charging = <ramp-capacity> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
 
-label-charging = Battery: %percentage%% (%time%)
-label-discharging = Battery: %percentage%% (%time%)
-label-full = Battery: FULL
+label-charging = %percentage%% (%time%)
+label-discharging = %percentage%% (%time%)
+label-full = FULL
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 [module/xwindow]
 type = internal/xwindow
@@ -167,5 +182,15 @@ menu-4-0 = Cancel
 menu-4-0-exec = menu-open-0
 menu-4-1 = Power off
 menu-4-1-exec = systemctl poweroff
+
+[module/wired-network]
+type = internal/network
+interface = eth1
+interval = 10
+
+[module/wireless-network]
+type = internal/network
+interface = wlan1
+interval = 10
 
 ; vim:ft=dosini
