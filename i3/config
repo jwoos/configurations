@@ -204,4 +204,4 @@ exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config $HOME/.config/compton.conf -b
 exec --no-startup-id xautolock -detectsleep -time 7 -locker 'i3lock -f -e -r 0 -s 8' -killtime 15 -killer 'systemctl suspend'
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
