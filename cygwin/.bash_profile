@@ -1,8 +1,6 @@
 # sets display for x11 forwarding
 export DISPLAY=:0.0
 
-# SSH targets
-alias home='ssh -Y 192.168.1.20'
-alias school='ssh -Y 172.16.18.10'
 # need to change in case server chooses different IP
-alias hostonly='ssh -Y 192.168.79.101'
+alias ssh-ubuntu='ssh -Y junwoo@192.168.79.102'
+alias ssh-arch='ssh -Y -p 3022 junwoo@localhost'
