@@ -12,16 +12,14 @@ export TERM=xterm-256color
 
 export SAVEHIST=50000
 
-export NVM_DIR="/home/junwoo/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+export NVM_DIR="${HOME}/.nvm"
+[ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh" # This loads nvm
 
-export PATH="$PATH:/usr/local/go/bin" # adds go to path
-export GOPATH="$HOME/.go"
+export GOPATH="${HOME}/.go"
 
-export PATH="$PATH:$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin" # add haskell compiler to path
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="${PATH}:${HOME}/.gem/ruby/2.4.0/bin"
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -78,8 +76,8 @@ path=(
 #
 
 if [[ ! -d "$TMPDIR" ]]; then
-  export TMPDIR="/tmp/$LOGNAME"
-  mkdir -p -m 700 "$TMPDIR"
+  export TMPDIR="/tmp/${LOGNAME}"
+  mkdir -p -m 700 "${TMPDIR}"
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
