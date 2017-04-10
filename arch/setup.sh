@@ -31,3 +31,4 @@ export NVM_DIR="$HOME/.nvm"
 nvm install v6.10.2
 
 mkdir -p ${HOME}/.config/
+make
