@@ -27,9 +27,8 @@ font pango:DejaVu Sans Mono 10
 
 no_focus [window_role="pop-up"]
 
-bindsym Print exec gnome-screenshot
-bindsym Shift+Print exec gnome-screenshot -a
-bindsym Ctrl+Shift+Print exec gnome-screenshot -a -c
+bindsym Print exec scrot -q 100 ~/screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym Ctrl+Print exec scrot -q 100 -s ~/screenshots/%Y-%m-%d-%T-screenshot.png
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -204,4 +203,3 @@ exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config $HOME/.config/compton.conf -b
 exec --no-startup-id xautolock -detectsleep -time 7 -locker 'i3lock -f -e -r 0 -s 8' -killtime 15 -killer 'systemctl suspend'
-#exec --no-startup-id nm-applet
