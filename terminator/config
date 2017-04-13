@@ -1,14 +1,16 @@
 [global_config]
   borderless = True
+  enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   extra_styling = False
+  handle_size = 0
   title_font = DejaVu Sans Mono 14
   title_use_system_font = False
 [keybindings]
   broadcast_all = None
   broadcast_group = None
   broadcast_off = None
-  cycle_next = None
-  cycle_prev = None
+  cycle_next = <Primary>Tab
+  cycle_prev = <Primary><Shift>Tab
   edit_tab_title = None
   edit_terminal_title = None
   edit_window_title = None
@@ -27,7 +29,8 @@
   insert_padded = None
   layout_launcher = None
   new_window = None
-  prev_tab = None
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
   reset_clear = None
   resize_down = None
   resize_left = None
@@ -39,6 +42,16 @@
   search = <Primary><Shift>f
   split_horiz = None
   split_vert = None
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_10 = <Alt>0
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
   toggle_scrollbar = None
   toggle_zoom = None
   ungroup_all = None
@@ -55,11 +68,11 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.6
+    background_darkness = 0.7
     background_type = transparent
     cursor_color = "#aaaaaa"
     delete_binding = automatic
-    font = DejaVu Sans Mono 18
+    font = Iosevka Term 10
     foreground_color = "#ffffff"
     icon_bell = False
     scrollback_lines = 10000
