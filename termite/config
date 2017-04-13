@@ -1,82 +1,147 @@
+#https://terminal.sexy
 [options]
 allow_bold = true
 audible_bell = false
 clickable_url = true
 dynamic_title = true
-font = Monospace 9
-;font = iosevka-term 9
-#fullscreen = true
-#geometry = 640x480
-#icon_name = terminal
-#mouse_autohide = false
+#font = DejaVuSansMono 9
+font = Iosevka Term 10
+# fullscreen = true
+# geometry = 640x480
+# icon_name = terminal
+# mouse_autohide = false
 scroll_on_output = false
 scroll_on_keystroke = true
 scrollback_lines = 10000
-#search_wrap = true
-#urgent_on_bell = true
+# search_wrap = true
+# urgent_on_bell = true
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
-#browser = xdg-open
+# browser = xdg-open
 
 # "system", "on" or "off"
-#cursor_blink = system
+# cursor_blink = system
 
 # "block", "underline" or "ibeam"
-#cursor_shape = block
+# cursor_shape = block
 
 # Hide links that are no longer valid in url select overlay mode
-#filter_unmatched_urls = true
+# filter_unmatched_urls = true
 
 # Emit escape sequences for extra modified keys
-#modify_other_keys = false
+# modify_other_keys = false
 
 # set size hints for the window
-#size_hints = false
+# size_hints = false
 
 [colors]
 # If both of these are unset, cursor falls back to the foreground color,
 # and cursor_foreground falls back to the background color.
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
+# cursor = #dcdccc
+# cursor_foreground = #dcdccc
 
-#foreground = #dcdccc
-#foreground_bold = #ffffff
-#background = #3f3f3f
+# foreground = #dcdccc
+# foreground_bold = #ffffff
+# background = #3f3f3f
 
-# 20% background transparency (requires a compositor)
-;background = rgba(63, 63, 63, 0.8)
-background = rgba(0, 0, 0, 0.7)
+# background = rgba(63, 63, 63, 0.8)
+# nice gray opaque
+background = rgba(29, 31, 33, 1)
+# black with transparency
+# background = rgba(0, 0, 0, 0.7)
 
 # If unset, will reverse foreground and background
-highlight = #2f2f2f
+# highlight = #2f2f2f
 
 # Colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
-color15 = #ffffff
+# color0 = #3f3f3f
+# color1 = #705050
+# color2 = #60b48a
+# color3 = #dfaf8f
+# color4 = #506070
+# color5 = #dc8cc3
+# color6 = #8cd0d3
+# color7 = #dcdccc
+# color8 = #709080
+# color9 = #dca3a3
+# color10 = #c3bf9f
+# color11 = #f0dfaf
+# color12 = #94bff3
+# color13 = #ec93d3
+# color14 = #93e0e3
+# color15 = #ffffff
+
+# hybrid
+# foreground = #c5c8c6
+# foreground_bold = #c5c8c6
+# background = rgba(29, 31, 33, 0.7)
+
+# black
+# color0 = #282a2e
+# color8 = #373b41
+# red
+# color1 = #a54242
+# color9 = #cc6666
+# green
+# color2 = #8c9440
+# color10 = #b5bd68
+# yellow
+# color3 = #de935f
+# color11 = #f0c674
+# blue
+# color4 = #5f819d
+# color12 = #81a2be
+# magenta
+# color5 = #85678f
+# color13 = #b294bb
+# cyan
+# color6 = #5e8d87
+# color14 = #8abeb7
+# white
+# color7 = #707880
+# color15 = #c5c8c6
+
+# rainbow
+# foreground      = #dcdccc
+# foreground_bold = #dcdccc
+# cursor          = #dcdccc
+# background      = #575757
+# black
+color0  = #666666
+color8  = #888888
+# red
+color1  = #ff8278
+color9  = #ff8278
+# green
+color2  = #bde077
+color10 = #bde077
+# yellow
+color3  = #eadc84
+color11 = #eadc84
+# blue
+color4  = #77bee0
+color12 = #77bee0
+# magenta
+color5  = #dd91f3
+color13 = #dd91f3
+# cyan
+color6  = #ffc178
+color14 = #ffc178
+# white
+color7  = #dddddd
+color15 = #cccccc
+
+
 
 [hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
+# font = Monospace 12
+# foreground = #dcdccc
+# background = #3f3f3f
+# active_foreground = #e68080
+# active_background = #3f3f3f
 padding = 2
 border = #000000
 border_width = 0
-#roundness = 2.0
+# roundness = 2.0
 
 # vim: ft=dosini cms=#%s
