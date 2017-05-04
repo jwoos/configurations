@@ -16,7 +16,7 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F6> <F7>
+" <F4> <F6> <F7> <F8>
 
 "              __                     _
 "     ____    / /  __  __   ____ _   (_)   ____    _____
@@ -28,42 +28,41 @@
 " TODO find a better plugin for space indents
 " TODO separate settings into various files and source them here
 call plug#begin('~/.config/nvim/plugged')
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
+" Libraries
+"Plug 'MarcWeber/vim-addon-mw-utils'
+"Plug 'tomtom/tlib_vim'
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-textobj-user'
 
-Plug 'PeterRincker/vim-argumentative'
+" moving plugins
+Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
+Plug 'haya14busa/vim-signjk-motion'
+
 Plug 'Shougo/deoplete.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
-Plug 'bronson/vim-trailing-whitespace'
 Plug 'cloudhead/neovim-fuzzy'
-Plug 'easymotion/vim-easymotion'
 Plug 'foosoft/vim-argwrap'
 Plug 'gregsexton/matchtag'
-Plug 'haya14busa/vim-signjk-motion'
-Plug 'junegunn/vim-slash'
-Plug 'justinmk/vim-sneak'
-Plug 'kana/vim-operator-user'
-Plug 'kana/vim-textobj-user'
+Plug 'jlanzarotta/bufexplorer'
 Plug 'kshenoy/vim-signature'
 Plug 'majutsushi/tagbar'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'osyo-manga/vim-hopping'
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'sjl/gundo.vim'
-Plug 'thinca/vim-visualstar'
 Plug 'tommcdo/vim-lion'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
-Plug 'wesq3/vim-windowswap'
 
+" Color Schemes
 Plug 'Haron-Prime/evening_vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'joshdick/onedark.vim'
@@ -71,18 +70,20 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'tyrannicaltoucan/vim-quantum'
 
 " Plugins of interest
-"Plug 'henrik/vim-indexed-search'
+"Plug 'wesq3/vim-windowswap'
+"Plug 'junegunn/vim-slash'
+"Plug 'PeterRincker/vim-argumentative'
+"Plug 'thinca/vim-visualstar'
+"Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-eunuch'
 "Plug 'ap/vim-css-color'
-"Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'dhruvasagar/vim-table-mode'
 "Plug 'garbas/vim-snipmate'
 "Plug 'ludovicchabant/vim-gutentags'
 "Plug 'matze/vim-move'
 "Plug 'metakirby5/codi.vim'
 "Plug 'mileszs/ack.vim'
-"Plug 'terryma/vim-multiple-cursors'
 "Plug 'tommcdo/vim-exchange'
-"Plug 'vim-scripts/mru.vim'
 "Plug 'xolox/vim-session'
 call plug#end()
 
@@ -93,9 +94,6 @@ call plug#end()
 " |___/  /_/   /_/ /_/ /_/        \___/  \____/ /_/ /_/ /_/     /_/    \__, /
 "                                                                     /____/
 
-" set 256 color mode
-"set t_Co=256
-
 " set python interpreter
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
@@ -103,33 +101,16 @@ let g:python_host_prog = '/usr/bin/python2'
 " true color mode
 set termguicolors
 
-function! ToggleColorscheme()
-	if g:colors_name == 'PaperColor'
-		colorscheme onedark
-		set background=dark
-	else
-		colorscheme PaperColor
-		set background=light
-	endif
-endfunction
+" cursor shape
+"set guicursor=
 
-nnoremap <F4> :call ToggleColorscheme()<CR>
+" disable mouse
+set mouse=
 
 " colorscheme
-let g:quantum_black = 1
-let g:quantum_italics = 1
-let g:onedark_terminal_italics = 1
-
-" light colorscheme
-"colorscheme PaperColor
-"set background=light
-
-" dark colorscheme
 colorscheme onedark
 set background=dark
-
-" cursor shape
-":let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let g:onedark_terminal_italics = 1
 
 " set line numbers
 set nonumber
@@ -139,9 +120,6 @@ set noet
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
-
-" disable mouse
-set mouse=
 
 " unmap keys
 noremap <Up> <nop>
@@ -167,6 +145,11 @@ nnoremap <C-l> $
 nnoremap <C-j> <C-d>
 nnoremap <C-k> <C-u>
 
+" screen navigation
+nnoremap z<S-t> H
+nnoremap z<S-b> L
+nnoremap z<S-z> M
+
 " tab switching
 "nnoremap <S-h> :tabprevious<CR>
 "nnoremap <S-l> :tabnext<CR>
@@ -182,6 +165,12 @@ nnoremap <A-k> <C-w>k
 " pane splitting
 nnoremap <A-[> <C-w>v
 nnoremap <A-]> <C-w>s
+
+" Move splits
+nnoremap <S-h> <C-w>H
+nnoremap <S-l> <C-w>L
+nnoremap <S-j> <C-w>J
+nnoremap <S-k> <C-w>K
 
 " split to the right and below
 set splitbelow
@@ -202,10 +191,12 @@ set inccommand=nosplit
 "set cursorline
 
 " get rid of highlighting after search
-"noremap <silent> <F2> :nohl<CR>
+noremap <silent> <F3> :nohl<CR>
 
 " searching
 " make searches case insensitive except when capital letter is present
+set incsearch
+set hlsearch
 set ignorecase
 set smartcase
 
@@ -259,35 +250,28 @@ nnoremap cQ :call SetupCR()<CR>#``qz
 vnoremap <expr> cq ":\<C-u>call SetupCR()\<CR>" . "gv" . g:mc . "``qz"
 vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '?', 'g') . "``qz"
 
+"=======================================================================================================
 "              __                     _                                          ____    _
 "     ____    / /  __  __   ____ _   (_)   ____          _____  ____    ____    / __/   (_)   ____ _
 "    / __ \  / /  / / / /  / __ `/  / /   / __ \        / ___/ / __ \  / __ \  / /_    / /   / __ `/
 "   / /_/ / / /  / /_/ /  / /_/ /  / /   / / / /       / /__  / /_/ / / / / / / __/   / /   / /_/ /
 "  / .___/ /_/   \__,_/   \__, /  /_/   /_/ /_/        \___/  \____/ /_/ /_/ /_/     /_/    \__, /
 " /_/                    /____/                                                            /____/
+"=======================================================================================================
 
+" ------------------------- "
+" |   BETTER WHITESPACE    | "
+" -------------------------- "
+let g:bufExplorerDisableDefaultKeyMapping = 0
+nnoremap <silent> <Leader>bb :BufExplorer<CR>
+nnoremap <silent> <Leader>b] :BufExplorerHorizontalSplit<CR>
+nnoremap <silent> <Leader>b[ :BufExplorerVerticalSplit<CR>
 
+" ------------------------- "
+" |   BETTER WHITESPACE    | "
 " -------------------------- "
-" |      WINDOWSWAP        | "
-" -------------------------- "
-let g:windowswap_map_keys = 0
-nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
-
-" -------------------------- "
-" |   TRAILING WHITESPACE  | "
-" -------------------------- "
-nnoremap <F1> :FixWhitespace<CR>
-inoremap <F1> :FixWhitespace<CR>
-
-" -------------------------- "
-" |          ARGWRAP       | "
-" -------------------------- "
-nnoremap <F3> :ArgWrap<CR>
-
-" -------------------------- "
-" |          ACK           | "
-" -------------------------- "
-let g:ackprg = 'ag --vimgrep'
+nnoremap <F1> :StripWhitespace<CR>
+inoremap <F1> :StripWhitespace<CR>
 
 " -------------------------- "
 " |          FZY           | "
@@ -309,18 +293,6 @@ map <C-\> :NERDTreeToggle<CR>
 " |       EASYMOTION       | "
 " -------------------------- "
 map <Leader> <Plug>(easymotion-prefix)
-
-" -------------------------- "
-" |     BUNNYHOPPING       | "
-" -------------------------- "
-nnoremap <A-p> :HoppingStart<CR>
-
-let g:hopping#keymapping = {
-\   "\<C-n>" : "<Over>(hopping-next)",
-\   "\<C-p>" : "<Over>(hopping-prev)",
-\   "\<C-u>" : "<Over>(scroll-u)",
-\   "\<C-d>" : "<Over>(scroll-d)",
-\}
 
 " -------------------------- "
 " |     DELIMITEMATE       | "
@@ -348,7 +320,7 @@ let g:deoplete#enable_at_startup = 1
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to backward cycle
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 nnoremap <F9> :call deoplete#toggle()<CR>
 
 " -------------------------- "
@@ -378,31 +350,62 @@ let g:gundo_return_on_revert = 0
 nnoremap <F11> :GundoToggle<CR>
 
 " -------------------------- "
-" |     argumentative      | "
-" -------------------------- "
-nmap [m <Plug>Argumentative_Prev
-nmap ]m <Plug>Argumentative_Next
-xmap [m <Plug>Argumentative_XPrev
-xmap ]m <Plug>Argumentative_XNext
-nmap <m <Plug>Argumentative_MoveLeft
-nmap >m <Plug>Argumentative_MoveRight
-xmap im <Plug>Argumentative_InnerTextObject
-xmap am <Plug>Argumentative_OuterTextObject
-omap im <Plug>Argumentative_OpPendingInnerTextObject
-omap am <Plug>Argumentative_OpPendingOuterTextObject
-
-" -------------------------- "
 " |        surround        | "
 " -------------------------- "
 " make surround $ work
 let g:surround_36 = "$\r$"
 
+" -------------------------- "
+" |     BUNNYHOPPING       | "
+" -------------------------- "
+nnoremap <A-p> :HoppingStart<CR>
+
+let g:hopping#keymapping = {
+\   "\<tab>" : "<Over>(hopping-next)",
+\   "\<S-tab>" : "<Over>(hopping-prev)",
+\   "\<C-k>" : "<Over>(scroll-u)",
+\   "\<C-j>" : "<Over>(scroll-d)",
+\}
+
+"=============================================================
 "                                              __
 "   __  __   ____   __  __   _____  ___   ____/ /
 "  / / / /  / __ \ / / / /  / ___/ / _ \ / __  /
 " / /_/ /  / / / // /_/ /  (__  ) /  __// /_/ /
 " \__,_/  /_/ /_/ \__,_/  /____/  \___/ \__,_/
-"
+"=============================================================
+
+" -------------------------- "
+" |      WINDOWSWAP        | "
+" -------------------------- "
+"let g:windowswap_map_keys = 0
+"nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
+
+" -------------------------- "
+" |          ARGWRAP       | "
+" -------------------------- "
+"nnoremap <F3> :ArgWrap<CR>
+
+" -------------------------- "
+" |          ACK           | "
+" -------------------------- "
+"let g:ackprg = 'ag --vimgrep'
+
+" -------------------------- "
+" |     argumentative      | "
+" -------------------------- "
+"nmap [m <Plug>Argumentative_Prev
+"nmap ]m <Plug>Argumentative_Next
+"xmap [m <Plug>Argumentative_XPrev
+"xmap ]m <Plug>Argumentative_XNext
+"nmap <m <Plug>Argumentative_MoveLeft
+"nmap >m <Plug>Argumentative_MoveRight
+"xmap im <Plug>Argumentative_InnerTextObject
+"xmap am <Plug>Argumentative_OuterTextObject
+"omap im <Plug>Argumentative_OpPendingInnerTextObject
+"omap am <Plug>Argumentative_OpPendingOuterTextObject
+
+
 " -------------------------- "
 " |        TABLEMODE       | "
 " -------------------------- "
