@@ -263,9 +263,9 @@ vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '
 " |   BETTER WHITESPACE    | "
 " -------------------------- "
 let g:bufExplorerDisableDefaultKeyMapping = 0
-nnoremap <silent> <Leader>bb :BufExplorer<CR>
-nnoremap <silent> <Leader>b] :BufExplorerHorizontalSplit<CR>
-nnoremap <silent> <Leader>b[ :BufExplorerVerticalSplit<CR>
+nnoremap <silent> <Leader>vb :BufExplorer<CR>
+nnoremap <silent> <Leader>v] :BufExplorerHorizontalSplit<CR>
+nnoremap <silent> <Leader>v[ :BufExplorerVerticalSplit<CR>
 
 " ------------------------- "
 " |   BETTER WHITESPACE    | "
