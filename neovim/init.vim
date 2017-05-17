@@ -111,6 +111,8 @@ set mouse=
 colorscheme onedark
 set background=dark
 let g:onedark_terminal_italics = 1
+hi Normal ctermbg=None guibg=None
+hi NonText ctermbg=None guibg=None
 
 " set line numbers
 set nonumber
@@ -167,10 +169,10 @@ nnoremap <A-[> <C-w>v
 nnoremap <A-]> <C-w>s
 
 " Move splits
-nnoremap <S-h> <C-w>H
-nnoremap <S-l> <C-w>L
-nnoremap <S-j> <C-w>J
-nnoremap <S-k> <C-w>K
+"nnoremap <S-h> <C-w>H
+"nnoremap <S-l> <C-w>L
+"nnoremap <S-j> <C-w>J
+"nnoremap <S-k> <C-w>K
 
 " split to the right and below
 set splitbelow
