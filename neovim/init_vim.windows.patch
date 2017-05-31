@@ -1,0 +1,31 @@
+--- init.vim	2017-05-31 09:06:29.000000000 -0400
++++ init.windows.vim	2017-05-31 13:59:24.000000000 -0400
+@@ -27,7 +27,7 @@
+ 
+ " TODO find a better plugin for space indents
+ " TODO separate settings into various files and source them here
+-call plug#begin('~/.config/nvim/plugged')
++call plug#begin('C:\Users\Jun Woo\AppData\Local\nvim\plugged')
+ " Libraries
+ "Plug 'MarcWeber/vim-addon-mw-utils'
+ "Plug 'tomtom/tlib_vim'
+@@ -95,8 +95,8 @@
+ "                                                                     /____/
+ 
+ " set python interpreter
+-let g:python3_host_prog = '/usr/bin/python3'
+-let g:python_host_prog = '/usr/bin/python2'
++let g:python3_host_prog = 'C:\Program Files (x86)\Python36-32\python.exe'
++let g:python_host_prog = 'C:\Python27\python.exe'
+ 
+ " true color mode
+ set termguicolors
+@@ -111,8 +111,6 @@
+ colorscheme onedark
+ set background=dark
+ let g:onedark_terminal_italics = 1
+-hi Normal ctermbg=None guibg=None
+-hi NonText ctermbg=None guibg=None
+ 
+ " set line numbers
+ set nonumber
