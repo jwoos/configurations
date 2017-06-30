@@ -64,10 +64,13 @@ Plug 'wellle/targets.vim'
 
 " Color Schemes
 Plug 'Haron-Prime/evening_vim'
+Plug 'KeitaNakamura/neodark.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-two-firewatch'
+Plug 'rhysd/vim-color-spring-night'
 Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'zcodes/vim-colors-basic'
 
 " Plugins of interest
 "Plug 'wesq3/vim-windowswap'
