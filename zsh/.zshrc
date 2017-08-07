@@ -60,6 +60,11 @@ alias lesshi='LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
+fpath=(
+	~/.zsh/completion/
+	$fpath
+)
+
 # Set the the list of directories that cd searches.
 # cdpath=(
 #   $cdpath
