@@ -27,8 +27,10 @@ font pango:DejaVu Sans Mono 10
 
 no_focus [window_role="pop-up"]
 
-bindsym Print exec scrot -q 100 ~/screenshots/%Y-%m-%d-%T-screenshot.png
-bindsym --release Ctrl+Print exec scrot -q 100 -s ~/screenshots/%Y-%m-%d-%T-screenshot.png
+bindsym Print exec maim --quality=1 --hidecursor ~/screenshots/$(date +%Y-%m-%d-%T).png
+bindsym --release Shift+Print exec maim --quality=1 --hidecursor | xclip -selection clipboard -t image/png
+bindsym --release Ctrl+Print exec maim --quality=1 --select --hidecursor ~/screenshots/$(date +%Y-%m-%d-%T)-screenshot.png
+bindsym --release Ctrl+Shift+Print exec maim --quality=1 --select --hidecursor | xclip -selection clipboard -t image/png
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -137,7 +139,6 @@ bindsym $mod+Shift+0 move container to workspace 10
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
 	bindsym o      mode "$mode_gaps_outer"
@@ -172,12 +173,6 @@ mode "$mode_gaps_outer" {
 	bindsym Escape mode "default"
 }
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
 	# These bindings trigger as soon as you enter the resize mode
@@ -197,7 +192,14 @@ mode "resize" {
 	bindsym Escape mode "default"
 }
 
+bindsym $mod+g mode "$mode_gaps"
 bindsym $mod+r mode "resize"
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
 
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore
