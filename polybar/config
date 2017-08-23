@@ -93,6 +93,7 @@ time = %H:%M
 
 [module/volume]
 type = internal/volume
+
 master-soundcard = default
 speaker-soundcard = default
 headphone-soundcard = default
@@ -114,6 +115,8 @@ ramp-volume-3 = 
 ramp-volume-4 = 
 ramp-volume-5 = 
 ramp-volume-foreground = #FF000000
+
+mapped = false
 
 [module/xbacklight]
 type = internal/xbacklight
