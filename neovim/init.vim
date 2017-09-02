@@ -202,7 +202,6 @@ noremap <silent> <F3> :nohl<CR>
 " make searches case insensitive except when capital letter is present
 set incsearch
 set hlsearch
-set ignorecase
 set smartcase
 
 " folding
@@ -311,7 +310,7 @@ let g:delimitMate_expand_inside_quotes = 1
 " -------------------------- "
 let g:indentLine_enabled = 1
 let g:indentLine_char = '|'
-let g:indentLine_setConceal = 0
+let g:indentLine_setConceal = 1
 
 " -------------------------- "
 " |         TAGBAR         | "
