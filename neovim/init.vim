@@ -16,7 +16,7 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F4> <F6> <F7> <F8>
+" <F3> <F4> <F6> <F7> <F8>
 
 "              __                     _
 "     ____    / /  __  __   ____ _   (_)   ____    _____
@@ -223,7 +223,7 @@ set inccommand=nosplit
 "set cursorline
 
 " get rid of highlighting after search
-noremap <silent> <F3> :nohl<CR>
+noremap <silent> <Space> :nohl<CR>
 
 " searching
 " make searches case insensitive except when capital letter is present
