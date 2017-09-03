@@ -133,6 +133,7 @@ noremap <C-w><Up> <nop>
 noremap <C-w><Down> <nop>
 noremap <C-w><Left> <nop>
 noremap <C-w><Right> <nop>
+nnoremap <C-r> <nop>
 noremap , <nop>
 nnoremap K <nop>
 nnoremap Q <nop>
@@ -190,6 +191,9 @@ nnoremap M J
 nnoremap : ,
 vnoremap : ,
 
+" remap <C-r> to U
+nnoremap U <C-r>
+
 " remap : to use enter
 nnoremap <CR> :
 vnoremap <CR> :
@@ -233,6 +237,10 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=1
+
+" use ` by default instead of '
+nnoremap ' `
+vnoremap ' `
 
 " indent guide
 set list lcs=tab:\|\ 
@@ -315,7 +323,7 @@ nnoremap <C-p> :FuzzyOpen<CR>
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-map <C-\> :NERDTreeToggle<CR>
+nnoremap <C-\> :NERDTreeToggle<CR>
 
 " -------------------------- "
 " |       EASYMOTION       | "
