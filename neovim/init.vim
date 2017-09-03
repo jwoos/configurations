@@ -36,8 +36,6 @@ Plug 'kana/vim-textobj-user'
 
 " moving plugins
 Plug 'easymotion/vim-easymotion'
-Plug 'justinmk/vim-sneak'
-Plug 'haya14busa/vim-signjk-motion'
 
 Plug 'Shougo/deoplete.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -135,10 +133,18 @@ noremap <C-w><Up> <nop>
 noremap <C-w><Down> <nop>
 noremap <C-w><Left> <nop>
 noremap <C-w><Right> <nop>
+noremap , <nop>
+nnoremap K <nop>
 nnoremap Q <nop>
 nnoremap s <nop>
 nnoremap <F1> <nop>
 nnoremap <S-\> <nop>
+nnoremap ge <nop>
+vnoremap ge <nop>
+nnoremap b <nop>
+vnoremap b <nop>
+nnoremap B <nop>
+vnoremap B <nop>
 
 " better navigation
 vnoremap <C-h> ^
@@ -172,10 +178,27 @@ nnoremap <A-[> <C-w>v
 nnoremap <A-]> <C-w>s
 
 " Move splits
-"nnoremap <S-h> <C-w>H
-"nnoremap <S-l> <C-w>L
-"nnoremap <S-j> <C-w>J
-"nnoremap <S-k> <C-w>K
+nnoremap H <C-w>H
+nnoremap L <C-w>L
+nnoremap J <C-w>J
+nnoremap K <C-w>K
+
+" remap merge
+nnoremap M J
+
+" remap : to be opposite of ;
+nnoremap : ,
+vnoremap : ,
+
+" remap : to use enter
+nnoremap <CR> :
+vnoremap <CR> :
+
+" remap shift to mean backwards
+nnoremap E ge
+vnoremap E ge
+nnoremap W b
+vnoremap W b
 
 " split to the right and below
 set splitbelow
@@ -202,6 +225,7 @@ noremap <silent> <F3> :nohl<CR>
 " make searches case insensitive except when capital letter is present
 set incsearch
 set hlsearch
+set ignorecase
 set smartcase
 
 " folding
@@ -297,6 +321,26 @@ map <C-\> :NERDTreeToggle<CR>
 " |       EASYMOTION       | "
 " -------------------------- "
 map <Leader> <Plug>(easymotion-prefix)
+map <Leader>W <Plug>(easymotion-b)
+map <Leader>E <Plug>(easymotion-ge)
+
+" vim-sneak mapping
+nmap s <Plug>(easymotion-f2)
+nmap S <Plug>(easymotion-F2)
+nmap <Leader>s <Plug>(easymotion-fn)
+nmap <Leader>S <Plug>(easymotion-Fn)
+vmap s <Plug>(easymotion-f2)
+vmap S <Plug>(easymotion-F2)
+vmap <Leader>s <Plug>(easymotion-fn)
+vmap <Leader>S <Plug>(easymotion-Fn)
+
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+" keep cursor column when JK motion
+let g:EasyMotion_startofline = 0
 
 " -------------------------- "
 " |     DELIMITEMATE       | "
@@ -354,7 +398,7 @@ let g:gundo_return_on_revert = 0
 nnoremap <F11> :GundoToggle<CR>
 
 " -------------------------- "
-" |        surround        | "
+" |        SURROUND        | "
 " -------------------------- "
 " make surround $ work
 let g:surround_36 = "$\r$"
