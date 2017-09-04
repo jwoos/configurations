@@ -1,17 +1,17 @@
---- init.vim	2017-05-31 09:06:29.000000000 -0400
-+++ init.mac.vim	2017-05-31 14:06:13.000000000 -0400
-@@ -95,8 +95,8 @@
+--- init.vim	2017-09-03 15:26:19.000000000 -0400
++++ init.mac.vim	2017-09-03 22:02:57.000000000 -0400
+@@ -96,8 +96,8 @@
  "                                                                     /____/
  
  " set python interpreter
 -let g:python3_host_prog = '/usr/bin/python3'
 -let g:python_host_prog = '/usr/bin/python2'
 +let g:python3_host_prog = '/usr/local/bin/python3'
-+let g:python_host_prog = '/usr/local/bin/python'
++let g:python_host_prog = '/usr/local/bin/python2'
  
  " true color mode
  set termguicolors
-@@ -111,8 +111,6 @@
+@@ -112,8 +112,6 @@
  colorscheme onedark
  set background=dark
  let g:onedark_terminal_italics = 1
