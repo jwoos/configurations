@@ -15,7 +15,7 @@
  " set python interpreter
 -let g:python3_host_prog = '/usr/bin/python3'
 -let g:python_host_prog = '/usr/bin/python2'
-+let g:python3_host_prog = 'C:\Program Files (x86)\Python36-32\python.exe'
++let g:python3_host_prog = 'C:\Python36\python.exe'
 +let g:python_host_prog = 'C:\Python27\python.exe'
  
  " true color mode
