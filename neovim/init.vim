@@ -134,7 +134,9 @@ noremap <C-w><Down> <nop>
 noremap <C-w><Left> <nop>
 noremap <C-w><Right> <nop>
 nnoremap <C-r> <nop>
+vnoremap <C-r> <nop>
 noremap , <nop>
+vnoremap J <nop>
 nnoremap K <nop>
 nnoremap Q <nop>
 nnoremap s <nop>
