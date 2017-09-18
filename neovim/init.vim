@@ -467,7 +467,7 @@ nnoremap <F3> :ArgWrap<CR>
 " -------------------------- "
 " |      WINDOWSWAP        | "
 " -------------------------- "
-"let g:windowswap_map_keys = 0
+let g:windowswap_map_keys = 0
 nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
 
 
