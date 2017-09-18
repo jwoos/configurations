@@ -16,7 +16,7 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F3> <F4> <F6> <F7> <F8>
+" <F4> <F6> <F7>
 
 "              __                     _
 "     ____    / /  __  __   ____ _   (_)   ____    _____
@@ -34,10 +34,23 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 
-" moving plugins
+" movement plugins
+"Plug 'autozimu/LanguageClient-neovim', {'do': ':UpdateRemotePlugins'}
 Plug 'easymotion/vim-easymotion'
+Plug 'osyo-manga/vim-hopping'
 
-Plug 'Shougo/deoplete.nvim'
+" completion
+Plug 'honza/vim-snippets'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'SirVer/ultisnips'
+"Plug 'zchee/deoplete-clang'
+"Plug 'zchee/deoplete-go'
+"Plug 'carlitux/deoplete-ternjs'
+"Plug 'mhartington/nvim-typescript'
+"Plug 'poppyschmo/deoplete-latex'
+"Plug 'zchee/deoplete-jedi'
+"Plug 'Shougo/neco-vim'
+
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
@@ -49,7 +62,6 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'kshenoy/vim-signature'
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'osyo-manga/vim-hopping'
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -59,6 +71,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
+Plug 'wesq3/vim-windowswap'
 
 " Color Schemes
 Plug 'Haron-Prime/evening_vim'
@@ -71,7 +84,6 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'zcodes/vim-colors-basic'
 
 " Plugins of interest
-"Plug 'wesq3/vim-windowswap'
 "Plug 'junegunn/vim-slash'
 "Plug 'PeterRincker/vim-argumentative'
 "Plug 'thinca/vim-visualstar'
@@ -374,14 +386,34 @@ let g:indentLine_setConceal = 1
 nnoremap <A-\> :TagbarToggle<CR>
 
 " -------------------------- "
+" |        UTILSNIPS       | "
+" -------------------------- "
+let g:UltiSnipsExpandTrigger = '<C-x>'
+let g:UltiSnipsJumpForwardTrigger = '<C-s>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-a>'
+
+" -------------------------- "
 " |       DEOPLETE         | "
 " -------------------------- "
+" disable deoplete preview
+set completeopt-=preview
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" use tab to backward cycle
+" use shift tab to backward cycle
 inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
+
+" show snippets with short names
+call deoplete#custom#set('ultisnips', 'matchers', ['matcher_fuzzy'])
 nnoremap <F9> :call deoplete#toggle()<CR>
+
+" -------------------------------- "
+" |       DEOPLETE-CLANG         | "
+" -------------------------------- "
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/lib/clang/'
 
 " -------------------------- "
 " |        NEOMAKE         | "
@@ -427,6 +459,18 @@ let g:hopping#keymapping = {
 \   "\<C-j>" : "<Over>(scroll-d)",
 \}
 
+" -------------------------- "
+" |          ARGWRAP       | "
+" -------------------------- "
+nnoremap <F3> :ArgWrap<CR>
+
+" -------------------------- "
+" |      WINDOWSWAP        | "
+" -------------------------- "
+"let g:windowswap_map_keys = 0
+nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
+
+
 "=============================================================
 "                                              __
 "   __  __   ____   __  __   _____  ___   ____/ /
@@ -434,22 +478,6 @@ let g:hopping#keymapping = {
 " / /_/ /  / / / // /_/ /  (__  ) /  __// /_/ /
 " \__,_/  /_/ /_/ \__,_/  /____/  \___/ \__,_/
 "=============================================================
-
-" -------------------------- "
-" |      WINDOWSWAP        | "
-" -------------------------- "
-"let g:windowswap_map_keys = 0
-"nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
-
-" -------------------------- "
-" |          ARGWRAP       | "
-" -------------------------- "
-"nnoremap <F3> :ArgWrap<CR>
-
-" -------------------------- "
-" |          ACK           | "
-" -------------------------- "
-"let g:ackprg = 'ag --vimgrep'
 
 " -------------------------- "
 " |     argumentative      | "
@@ -469,19 +497,13 @@ let g:hopping#keymapping = {
 " -------------------------- "
 " |        TABLEMODE       | "
 " -------------------------- "
-"let g:table_mode_corner = "|"
-"let g:table_mode_resize_map = "<Leader>oo"
-"let g:table_mode_tableize_op_map = "<Leader>O"
-"let g:table_mode_add_formula_map = "<Leader>ofa"
-"let g:able_mode_eval_expr_map = "<Leader>tfe"
+"let g:table_mode_corner = '|'
+"let g:table_mode_resize_map = '<Leader>oo'
+"let g:table_mode_tableize_op_map = '<Leader>O'
+"let g:table_mode_add_formula_map = '<Leader>ofa'
+"let g:able_mode_eval_expr_map = '<Leader>tfe'
 
 "nnoremap <F3> :TableModeToggle<CR>
-
-" -------------------------- "
-" |         MOVE           | "
-" -------------------------- "
-"use A for alt and C for ctrl
-"let g:move_key_modifier = 'A'
 
 " -------------------------- "
 " |         GUTENTAG       | "
@@ -491,15 +513,6 @@ let g:hopping#keymapping = {
 "let g:gutentags_tagfile = 'tags'
 "let g:gutentags_exclude = ['.disabletags']
 "let g:gutentags_cache_dir = '~/.tags/'
-
-" ----- SNIPMATE ----- "
-"let g:snips_trigger_key = '<C-s>'
-"let g:snips_trigger_key_backwards = '<C-a>'
-
-" -------------------------- "
-" |           MRU          | "
-" -------------------------- "
-"nnoremap <F6> :MRU<CR>
 
 " -------------------------- "
 " |          ctrlp         | "
@@ -512,12 +525,3 @@ let g:hopping#keymapping = {
 
 "max number of files listed
 "let g:ctrlp_max_files = 10000
-
-" -------------------------- "
-" |    MULTIPLECURSOR      | "
-" -------------------------- "
-"let g:multi_cursor_use_default_mapping=0
-"let g:multi_cursor_next_key='<C-d>'
-"let g:multi_cursor_prev_key='<C-a>'
-"let g:multi_cursor_skip_key='<C-s>'
-"let g:multi_cursor_quit_key='<C-c>'
