@@ -9,7 +9,7 @@
  " Libraries
  "Plug 'MarcWeber/vim-addon-mw-utils'
  "Plug 'tomtom/tlib_vim'
-@@ -95,8 +95,8 @@
+@@ -108,8 +108,8 @@
  "                                                                     /____/
  
  " set python interpreter
@@ -20,7 +20,7 @@
  
  " true color mode
  set termguicolors
-@@ -111,8 +111,6 @@
+@@ -124,8 +124,6 @@
  colorscheme onedark
  set background=dark
  let g:onedark_terminal_italics = 1
