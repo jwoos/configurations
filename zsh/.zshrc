@@ -43,12 +43,11 @@ export KEYTIMEOUT=1
 alias python=python3
 alias pip=pip3
 
-alias tmux="tmux -2"
-alias vim="nvim"
-alias g++="g++-6"
-alias gcc="gcc-6"
+alias tmux='tmux -2'
+alias vim='nvim'
+alias vimdiff='nvim -d'
 
-alias ls="ls --color=auto"
+alias ls='ls --color=auto'
 alias fuzzy='ls -l $(find -type f | fzy)'
 
 # always show line number
