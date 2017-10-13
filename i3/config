@@ -17,8 +17,8 @@ set $mod Mod4
 new_window 1pixel
 hide_edge_borders both
 
-gaps outer 10
-gaps inner 25
+gaps outer 0
+gaps inner 20
 smart_gaps on
 
 # Font for window titles. Will also be used by the bar unless a different font
