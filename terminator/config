@@ -3,12 +3,14 @@
   enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   extra_styling = False
   handle_size = 0
+  smart_copy = False
   title_font = DejaVu Sans Mono 14
   title_use_system_font = False
 [keybindings]
   broadcast_all = None
   broadcast_group = None
   broadcast_off = None
+  close_term = <Primary><Shift>w
   cycle_next = <Primary>Tab
   cycle_prev = <Primary><Shift>Tab
   edit_tab_title = None
@@ -28,7 +30,8 @@
   insert_number = None
   insert_padded = None
   layout_launcher = None
-  new_window = None
+  new_tab = <Primary><Shift>t
+  new_window = <Primary><Shift>n
   next_tab = <Primary>Tab
   prev_tab = <Primary><Shift>Tab
   reset_clear = None
