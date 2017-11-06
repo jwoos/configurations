@@ -281,6 +281,9 @@ au BufRead,BufNewFile *.cpp set filetype=cpp
 au BufRead,BufNewFile *.h set filetype=c
 au BufRead,BufNewFile *.c set filetype=c
 
+" set grep
+set grepprg=rg\ --vimgrep
+
 " multiple cursors
 let g:mc = "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>"
 
