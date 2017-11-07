@@ -98,6 +98,7 @@ Plug 'zcodes/vim-colors-basic'
 "Plug 'mileszs/ack.vim'
 "Plug 'tommcdo/vim-exchange'
 "Plug 'xolox/vim-session'
+"Plug 'frioux/vim-regedit'
 call plug#end()
 
 "            _                                              ____    _
