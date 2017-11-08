@@ -37,28 +37,18 @@ Plug 'kana/vim-textobj-user'
 " movement plugins
 "Plug 'autozimu/LanguageClient-neovim', {'do': ':UpdateRemotePlugins'}
 Plug 'easymotion/vim-easymotion'
-Plug 'osyo-manga/vim-hopping'
 
 " completion
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'SirVer/ultisnips'
-"Plug 'zchee/deoplete-clang'
-"Plug 'zchee/deoplete-go'
-"Plug 'carlitux/deoplete-ternjs'
-"Plug 'mhartington/nvim-typescript'
-"Plug 'poppyschmo/deoplete-latex'
-"Plug 'zchee/deoplete-jedi'
-"Plug 'Shougo/neco-vim'
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'benekastah/neomake'
-Plug 'cloudhead/neovim-fuzzy'
 Plug 'foosoft/vim-argwrap'
 Plug 'gregsexton/matchtag'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'kshenoy/vim-signature'
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
@@ -72,6 +62,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'wesq3/vim-windowswap'
+Plug 'junegunn/fzf.vim'
+" pull out of vim plug
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Color Schemes
 Plug 'Haron-Prime/evening_vim'
@@ -82,22 +75,6 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'rhysd/vim-color-spring-night'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'zcodes/vim-colors-basic'
-
-" Plugins of interest
-"Plug 'junegunn/vim-slash'
-"Plug 'PeterRincker/vim-argumentative'
-"Plug 'thinca/vim-visualstar'
-"Plug 'tpope/vim-fugitive'
-"Plug 'tpope/vim-eunuch'
-"Plug 'ap/vim-css-color'
-"Plug 'dhruvasagar/vim-table-mode'
-"Plug 'garbas/vim-snipmate'
-"Plug 'ludovicchabant/vim-gutentags'
-"Plug 'matze/vim-move'
-"Plug 'metakirby5/codi.vim'
-"Plug 'mileszs/ack.vim'
-"Plug 'tommcdo/vim-exchange'
-"Plug 'xolox/vim-session'
 call plug#end()
 
 "            _                                              ____    _
@@ -124,8 +101,6 @@ set mouse=
 colorscheme onedark
 set background=dark
 let g:onedark_terminal_italics = 1
-hi Normal ctermbg=None guibg=None
-hi NonText ctermbg=None guibg=None
 
 " set line numbers
 set nonumber
@@ -281,6 +256,9 @@ au BufRead,BufNewFile *.cpp set filetype=cpp
 au BufRead,BufNewFile *.h set filetype=c
 au BufRead,BufNewFile *.c set filetype=c
 
+" set grep
+set grepprg=rg\ --vimgrep
+
 " multiple cursors
 let g:mc = "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>"
 
@@ -312,21 +290,26 @@ vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '
 " ------------------------- "
 " |   BETTER WHITESPACE    | "
 " -------------------------- "
-let g:bufExplorerDisableDefaultKeyMapping = 1
-nnoremap <silent> <Leader>vv :BufExplorer<CR>
-nnoremap <silent> <Leader>v] :BufExplorerHorizontalSplit<CR>
-nnoremap <silent> <Leader>v[ :BufExplorerVerticalSplit<CR>
-
-" ------------------------- "
-" |   BETTER WHITESPACE    | "
-" -------------------------- "
 nnoremap <F1> :StripWhitespace<CR>
 inoremap <F1> :StripWhitespace<CR>
 
 " -------------------------- "
-" |          FZY           | "
+" |          FZF           | "
 " -------------------------- "
-nnoremap <C-p> :FuzzyOpen<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <A-p> :BLines<CR>
+
+command! -bang -nargs=* Rg
+			\ call fzf#vim#grep(
+			\   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+			\   <bang>0 ? fzf#vim#with_preview('up:60%')
+			\           : fzf#vim#with_preview('right:50%:hidden', '?'),
+			\   <bang>0)
+
+"let g:fzf_action = {
+  "\ 'ctrl-s': 'split',
+  "\ 'ctrl-v': 'vsplit'
+  "\ }
 
 " -------------------------- "
 " |       NERDTREE         | "
@@ -448,18 +431,6 @@ nnoremap <F11> :GundoToggle<CR>
 let g:surround_36 = "$\r$"
 
 " -------------------------- "
-" |     BUNNYHOPPING       | "
-" -------------------------- "
-nnoremap <A-p> :HoppingStart<CR>
-
-let g:hopping#keymapping = {
-\   "\<tab>" : "<Over>(hopping-next)",
-\   "\<S-tab>" : "<Over>(hopping-prev)",
-\   "\<C-k>" : "<Over>(scroll-u)",
-\   "\<C-j>" : "<Over>(scroll-d)",
-\}
-
-" -------------------------- "
 " |          ARGWRAP       | "
 " -------------------------- "
 nnoremap <F3> :ArgWrap<CR>
@@ -478,6 +449,39 @@ nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
 " / /_/ /  / / / // /_/ /  (__  ) /  __// /_/ /
 " \__,_/  /_/ /_/ \__,_/  /____/  \___/ \__,_/
 "=============================================================
+
+" Plugins of interest
+"Plug 'osyo-manga/vim-hopping'
+"Plug 'zchee/deoplete-clang'
+"Plug 'zchee/deoplete-go'
+"Plug 'carlitux/deoplete-ternjs'
+"Plug 'mhartington/nvim-typescript'
+"Plug 'poppyschmo/deoplete-latex'
+"Plug 'zchee/deoplete-jedi'
+"Plug 'Shougo/neco-vim'
+"Plug 'junegunn/vim-slash'
+"Plug 'PeterRincker/vim-argumentative'
+"Plug 'thinca/vim-visualstar'
+"Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-eunuch'
+"Plug 'ap/vim-css-color'
+"Plug 'dhruvasagar/vim-table-mode'
+"Plug 'garbas/vim-snipmate'
+"Plug 'ludovicchabant/vim-gutentags'
+"Plug 'matze/vim-move'
+"Plug 'metakirby5/codi.vim'
+"Plug 'mileszs/ack.vim'
+"Plug 'tommcdo/vim-exchange'
+"Plug 'xolox/vim-session'
+"Plug 'frioux/vim-regedit'
+
+" ------------------------- "
+" |      BUFEXPLORER      | "
+" ------------------------- "
+"let g:bufExplorerDisableDefaultKeyMapping = 1
+"nnoremap <silent> <Leader>vv :BufExplorer<CR>
+"nnoremap <silent> <Leader>v] :BufExplorerHorizontalSplit<CR>
+"nnoremap <silent> <Leader>v[ :BufExplorerVerticalSplit<CR>
 
 " -------------------------- "
 " |     argumentative      | "
@@ -525,3 +529,15 @@ nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
 
 "max number of files listed
 "let g:ctrlp_max_files = 10000
+
+" -------------------------- "
+" |     VIMHOPPING       | "
+" -------------------------- "
+"nnoremap <A-p> :HoppingStart<CR>
+
+"let g:hopping#keymapping = {
+"\   "\<tab>" : "<Over>(hopping-next)",
+"\   "\<S-tab>" : "<Over>(hopping-prev)",
+"\   "\<C-k>" : "<Over>(scroll-u)",
+"\   "\<C-j>" : "<Over>(scroll-d)",
+"\}

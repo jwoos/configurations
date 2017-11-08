@@ -18,21 +18,13 @@ export NVM_DIR="${HOME}/.nvm"
 export GOPATH="${HOME}/.go"
 
 export PATH="${PATH}:${HOME}/.gem/ruby/2.4.0/bin"
-#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export EDITOR='nvim'
 export VISUAL='nvim'
-export PAGER='less'
+export PAGER='nvim -M'
 
-# colorful man pages? yeah.
-export LESS_TERMCAP_mb=$'\e'"[1;31m"
-export LESS_TERMCAP_md=$'\e'"[1;31m"
-export LESS_TERMCAP_me=$'\e'"[0m"
-export LESS_TERMCAP_se=$'\e'"[0m"
-export LESS_TERMCAP_so=$'\e'"[1;44;33m"
-export LESS_TERMCAP_ue=$'\e'"[0m"
-export LESS_TERMCAP_us=$'\e'"[1;32m"
+export FZF_DEFAULT_COMMAND='fd --type f'
+# export FZF_DEFAULT_OPTS=''
 
 # set vim mode
 # bindkey -v
@@ -46,15 +38,6 @@ alias pip=pip3
 alias tmux='tmux -2'
 alias vim='nvim'
 alias vimdiff='nvim -d'
-
-alias ls='ls --color=auto'
-alias fuzzy='ls -l $(find -type f | fzy)'
-
-# always show line number
-alias less='less -N'
-
-# less with syntax highlighting
-alias lesshi='LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s" less '
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
