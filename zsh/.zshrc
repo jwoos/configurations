@@ -39,11 +39,6 @@ alias tmux='tmux -2'
 alias vim='nvim'
 alias vimdiff='nvim -d'
 
-export function _sshInit() {
-	eval "$(ssh-agent -s)"
-	ssh-add -K ~/.ssh/id_rsa
-}
-
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
