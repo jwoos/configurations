@@ -1,15 +1,21 @@
-" modes    | recursive | not recursive | unmap
-"---------------------------------------------
-" normal   | nmap      | nnoremap      | nunmap
-"---------------------------------------------
-" visual   | vmap      | vnoremap      | vunmap
-"---------------------------------------------
-" insert   | imap      | inoremap      | iunmap
-"---------------------------------------------
-"   cli    | cmap      | cnoremap      | cunmap
-"---------------------------------------------
-" terminal | tmap      | tnnoremap     | tunmap
-"---------------------------------------------
+" modes           | recursive | not recursive | unmap
+"-----------------------------------------------------
+" normal          | nmap      | nnoremap      | nunmap
+"-----------------------------------------------------
+" visual/select   | vmap      | vnoremap      | vunmap
+"-----------------------------------------------------
+" visual          | xmap      | xnoremap      | xunmap
+"-----------------------------------------------------
+" select          | smap      | snoremap      | sunmap
+"-----------------------------------------------------
+" insert          | imap      | inoremap      | iunmap
+"-----------------------------------------------------
+" cli             | cmap      | cnoremap      | cunmap
+"-----------------------------------------------------
+" operator        | omap      | onoremap      | ounmap
+"-----------------------------------------------------
+" terminal        | tmap      | tnnoremap     | tunmap
+"-----------------------------------------------------
 "
 " map refers to normal, visual, and insert
 
@@ -101,6 +107,8 @@ set mouse=
 colorscheme onedark
 set background=dark
 let g:onedark_terminal_italics = 1
+hi Normal ctermbg=None guibg=None
+hi NonText ctermbg=None guibg=None
 
 " set line numbers
 set nonumber
@@ -536,8 +544,8 @@ nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
 "nnoremap <A-p> :HoppingStart<CR>
 
 "let g:hopping#keymapping = {
-"\   "\<tab>" : "<Over>(hopping-next)",
-"\   "\<S-tab>" : "<Over>(hopping-prev)",
-"\   "\<C-k>" : "<Over>(scroll-u)",
-"\   "\<C-j>" : "<Over>(scroll-d)",
+"\   '\<tab>' : '<Over>(hopping-next)',
+"\   '\<S-tab>' : '<Over>(hopping-prev)',
+"\   '\<C-k>' : '<Over>(scroll-u)',
+"\   '\<C-j>' : '<Over>(scroll-d)',
 "\}
