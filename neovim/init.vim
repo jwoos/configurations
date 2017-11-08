@@ -22,7 +22,8 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F4> <F6> <F7>
+" <F4> <F5> <F6> <F7> <F8> <F9> <F10>
+" <A-\>
 
 "              __                     _
 "     ____    / /  __  __   ____ _   (_)   ____    _____
@@ -35,42 +36,39 @@
 " TODO separate settings into various files and source them here
 call plug#begin('~/.config/nvim/plugged')
 " Libraries
-"Plug 'MarcWeber/vim-addon-mw-utils'
-"Plug 'tomtom/tlib_vim'
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
+Plug 'tpope/vim-repeat'
 
 " movement plugins
-"Plug 'autozimu/LanguageClient-neovim', {'do': ':UpdateRemotePlugins'}
 Plug 'easymotion/vim-easymotion'
 
 " completion
-Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'SirVer/ultisnips'
 
+" navigation
+Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" visual
+Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
-Plug 'benekastah/neomake'
+Plug 'sheerun/vim-polyglot'
+
+" utils
 Plug 'foosoft/vim-argwrap'
-Plug 'gregsexton/matchtag'
-Plug 'kshenoy/vim-signature'
-Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
+
+" editing
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'sjl/gundo.vim'
 Plug 'tommcdo/vim-lion'
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
-Plug 'wesq3/vim-windowswap'
 Plug 'junegunn/fzf.vim'
-" pull out of vim plug
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'frioux/vim-regedit'
+Plug 'junegunn/fzf'
 
 " Color Schemes
 Plug 'Haron-Prime/evening_vim'
@@ -255,9 +253,6 @@ nnoremap <F12> :te<CR>
 " echo current filename
 nnoremap <silent> <F2> :!echo %<CR>
 
-" redraw
-nnoremap <silent> <F5> :redraw!<CR>
-
 " set filetype correctly for c/c++
 au BufRead,BufNewFile *.hpp set filetype=cpp
 au BufRead,BufNewFile *.cpp set filetype=cpp
@@ -372,18 +367,6 @@ let g:indentLine_char = '|'
 let g:indentLine_setConceal = 1
 
 " -------------------------- "
-" |         TAGBAR         | "
-" -------------------------- "
-nnoremap <A-\> :TagbarToggle<CR>
-
-" -------------------------- "
-" |        UTILSNIPS       | "
-" -------------------------- "
-let g:UltiSnipsExpandTrigger = '<C-x>'
-let g:UltiSnipsJumpForwardTrigger = '<C-s>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-a>'
-
-" -------------------------- "
 " |       DEOPLETE         | "
 " -------------------------- "
 " disable deoplete preview
@@ -398,39 +381,13 @@ inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 
 " show snippets with short names
 call deoplete#custom#set('ultisnips', 'matchers', ['matcher_fuzzy'])
-nnoremap <F9> :call deoplete#toggle()<CR>
+nnoremap <F11> :call deoplete#toggle()<CR>
 
 " -------------------------------- "
 " |       DEOPLETE-CLANG         | "
 " -------------------------------- "
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/lib/clang/'
-
-" -------------------------- "
-" |        NEOMAKE         | "
-" -------------------------- "
-noremap <F10> :Neomake<CR>
-"autocmd! BufWritePost * Neomake
-let g:neomake_open_list = 2
-let g:neomake_list_height = 10
-
-let g:neomake_cpp_gcc_maker = {
-	\ 'exe': 'g++-6',
-	\ 'args': ['-std=c++14', '-g', '-I.', '-O0', 'Wall']
-	\ }
-
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_cpp_enabled_makers = ['gcc']
-let g:neomake_python_enabled_makers = ['flake8']
-
-" -------------------------- "
-" |         GUNDO          | "
-" -------------------------- "
-let g:gundo_close_on_revert = 0
-let g:gundo_help = 0
-let g:gundo_right = 1
-let g:gundo_return_on_revert = 0
-nnoremap <F11> :GundoToggle<CR>
 
 " -------------------------- "
 " |        SURROUND        | "
@@ -443,13 +400,6 @@ let g:surround_36 = "$\r$"
 " -------------------------- "
 nnoremap <F3> :ArgWrap<CR>
 
-" -------------------------- "
-" |      WINDOWSWAP        | "
-" -------------------------- "
-let g:windowswap_map_keys = 0
-nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
-
-
 "=============================================================
 "                                              __
 "   __  __   ____   __  __   _____  ___   ____/ /
@@ -459,6 +409,7 @@ nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
 "=============================================================
 
 " Plugins of interest
+"Plug 'kshenoy/vim-signature'
 "Plug 'osyo-manga/vim-hopping'
 "Plug 'zchee/deoplete-clang'
 "Plug 'zchee/deoplete-go'
@@ -481,7 +432,57 @@ nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
 "Plug 'mileszs/ack.vim'
 "Plug 'tommcdo/vim-exchange'
 "Plug 'xolox/vim-session'
-"Plug 'frioux/vim-regedit'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
+"Plug 'autozimu/LanguageClient-neovim', {'do': ':UpdateRemotePlugins'}
+"Plug 'benekastah/neomake'
+"Plug 'majutsushi/tagbar'
+"Plug 'sjl/gundo.vim'
+"Plug 'wesq3/vim-windowswap'
+
+" -------------------------- "
+" |        NEOMAKE         | "
+" -------------------------- "
+"noremap <F10> :Neomake<CR>
+"autocmd! BufWritePost * Neomake
+"let g:neomake_open_list = 2
+"let g:neomake_list_height = 10
+
+"let g:neomake_cpp_gcc_maker = {
+	"\ 'exe': 'g++-6',
+	"\ 'args': ['-std=c++14', '-g', '-I.', '-O0', 'Wall']
+	"\ }
+
+" -------------------------- "
+" |         GUNDO          | "
+" -------------------------- "
+"let g:gundo_close_on_revert = 0
+"let g:gundo_help = 0
+"let g:gundo_right = 1
+"let g:gundo_return_on_revert = 0
+"nnoremap <F10> :GundoToggle<CR>
+
+"let g:neomake_javascript_enabled_makers = ['eslint']
+"let g:neomake_cpp_enabled_makers = ['gcc']
+"let g:neomake_python_enabled_makers = ['flake8']
+
+" -------------------------- "
+" |      WINDOWSWAP        | "
+" -------------------------- "
+"let g:windowswap_map_keys = 0
+"nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
+
+" -------------------------- "
+" |         TAGBAR         | "
+" -------------------------- "
+"nnoremap <A-\> :TagbarToggle<CR>
+
+" -------------------------- "
+" |        UTILSNIPS       | "
+" -------------------------- "
+"let g:UltiSnipsExpandTrigger = '<C-x>'
+"let g:UltiSnipsJumpForwardTrigger = '<C-s>'
+"let g:UltiSnipsJumpBackwardTrigger = '<C-a>'
 
 " ------------------------- "
 " |      BUFEXPLORER      | "
