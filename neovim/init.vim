@@ -23,7 +23,9 @@
 
 " NOT USED
 " <F4> <F5> <F6> <F7> <F8> <F9> <F10>
-" <A-\>
+" <Leader>b <Leader>c <Leader>m
+" ,
+" Q
 
 "              __                     _
 "     ____    / /  __  __   ____ _   (_)   ____    _____
@@ -40,7 +42,7 @@ Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
 
-" movement plugins
+" movement
 Plug 'easymotion/vim-easymotion'
 
 " completion
@@ -66,9 +68,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'frioux/vim-regedit'
-Plug 'junegunn/fzf'
 
 " Color Schemes
 Plug 'Haron-Prime/evening_vim'
@@ -118,6 +120,8 @@ set softtabstop=0
 set shiftwidth=4
 
 " unmap keys
+nnoremap <C-]> <nop>
+noremap <C-n> <nop>
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
@@ -193,11 +197,17 @@ nnoremap U <C-r>
 nnoremap <CR> :
 vnoremap <CR> :
 
+" remap to better delimited words
+"vnoremap w W
+"nnoremap w W
+"vnoremap e E
+"nnoremap e E
+
 " remap shift to mean backwards
-nnoremap E ge
-vnoremap E ge
-nnoremap W b
-vnoremap W b
+nnoremap E gE
+vnoremap E gE
+nnoremap W B
+vnoremap W B
 
 " split to the right and below
 set splitbelow
@@ -300,7 +310,10 @@ inoremap <F1> :StripWhitespace<CR>
 " |          FZF           | "
 " -------------------------- "
 nnoremap <C-p> :Files<CR>
+nnoremap <A-\> :Buffers<CR>
 nnoremap <A-p> :BLines<CR>
+nnoremap b :Rg 
+nnoremap B :Marks<CR>
 
 command! -bang -nargs=* Rg
 			\ call fzf#vim#grep(
@@ -309,10 +322,10 @@ command! -bang -nargs=* Rg
 			\           : fzf#vim#with_preview('right:50%:hidden', '?'),
 			\   <bang>0)
 
-"let g:fzf_action = {
-  "\ 'ctrl-s': 'split',
-  "\ 'ctrl-v': 'vsplit'
-  "\ }
+let g:fzf_action = {
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \ }
 
 " -------------------------- "
 " |       NERDTREE         | "
@@ -375,7 +388,7 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 
 " use tab to forward cycle
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 " use shift tab to backward cycle
 inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 
@@ -394,6 +407,11 @@ let g:deoplete#sources#clang#clang_header = '/lib/clang/'
 " -------------------------- "
 " make surround $ work
 let g:surround_36 = "$\r$"
+
+" -------------------------- "
+" |         REGEDIT        | "
+" -------------------------- "
+nmap <leader>q <Plug>(RegEditPostfix)
 
 " -------------------------- "
 " |          ARGWRAP       | "
