@@ -206,8 +206,8 @@ vnoremap <CR> :
 " remap shift to mean backwards
 nnoremap E gE
 vnoremap E gE
-nnoremap W B
-vnoremap W B
+nnoremap W b
+vnoremap W b
 
 " split to the right and below
 set splitbelow
