@@ -21,7 +21,7 @@ export PATH="${PATH}:${HOME}/.gem/ruby/2.4.0/bin"
 
 export EDITOR='nvim'
 export VISUAL='nvim'
-export PAGER='nvim -M'
+export PAGER='less'
 
 export FZF_DEFAULT_COMMAND='fd --type f'
 # export FZF_DEFAULT_OPTS=''
