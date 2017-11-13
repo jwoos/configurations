@@ -1,0 +1,9 @@
+[Unit]
+Description=Enable libinput gestures
+
+[Service]
+Type=oneshot
+ExecStart=libinput-gestures-setup start
+
+[Install]
+WantedBy=multi-user.target
