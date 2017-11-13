@@ -18,6 +18,7 @@ export NVM_DIR="${HOME}/.nvm"
 export GOPATH="${HOME}/.go"
 
 export PATH="${PATH}:${HOME}/.gem/ruby/2.4.0/bin"
+export PATH="${PATH}:/home/junwoo/bin"
 
 export EDITOR='nvim'
 export VISUAL='nvim'
