@@ -2,8 +2,9 @@
 Description=Enable libinput gestures
 
 [Service]
+User=%i
 Type=oneshot
-ExecStart=libinput-gestures-setup start
+ExecStart=/usr/bin/libinput-gestures-setup status
 
 [Install]
 WantedBy=multi-user.target
