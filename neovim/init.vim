@@ -54,7 +54,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " visual
 Plug 'gregsexton/matchtag'
-Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 
@@ -248,7 +248,7 @@ nnoremap ' `
 vnoremap ' `
 
 " indent guide
-set list lcs=tab:\|\ 
+"set list lcs=tab:\|\ 
 
 " tags
 "nnoremap <C-]> g<C-]>
@@ -373,13 +373,6 @@ let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_inside_quotes = 1
 
 " -------------------------- "
-" |       INDENTLINE       | "
-" -------------------------- "
-let g:indentLine_enabled = 1
-let g:indentLine_char = '|'
-let g:indentLine_setConceal = 1
-
-" -------------------------- "
 " |       DEOPLETE         | "
 " -------------------------- "
 " disable deoplete preview
@@ -396,12 +389,6 @@ inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 call deoplete#custom#set('ultisnips', 'matchers', ['matcher_fuzzy'])
 nnoremap <F11> :call deoplete#toggle()<CR>
 
-" -------------------------------- "
-" |       DEOPLETE-CLANG         | "
-" -------------------------------- "
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/lib/clang/'
-
 " -------------------------- "
 " |        SURROUND        | "
 " -------------------------- "
@@ -417,6 +404,14 @@ nmap <leader>q <Plug>(RegEditPostfix)
 " |          ARGWRAP       | "
 " -------------------------- "
 nnoremap <F3> :ArgWrap<CR>
+
+" -------------------------- "
+" |      INDENT GUIDES     | "
+" -------------------------- "
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
 
 "=============================================================
 "                                              __
@@ -457,6 +452,19 @@ nnoremap <F3> :ArgWrap<CR>
 "Plug 'majutsushi/tagbar'
 "Plug 'sjl/gundo.vim'
 "Plug 'wesq3/vim-windowswap'
+
+" -------------------------------- "
+" |       DEOPLETE-CLANG         | "
+" -------------------------------- "
+"let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+"let g:deoplete#sources#clang#clang_header = '/lib/clang/'
+
+" -------------------------- "
+" |       INDENTLINE       | "
+" -------------------------- "
+"let g:indentLine_enabled = 1
+"let g:indentLine_char = '|'
+"let g:indentLine_setConceal = 1
 
 " -------------------------- "
 " |        NEOMAKE         | "
