@@ -3,10 +3,12 @@
 !-------------------------------------------------------------------------------
 
 Xft.dpi: 191
-Xft.antialias:              false
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintslight
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 
 !-------------------------------------------------------------------------------
 ! URxvt settings
