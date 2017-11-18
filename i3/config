@@ -52,7 +52,23 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec terminator
-bindsym $mod+backslash exec i3lock -f -e -r 0 -s 8
+bindsym $mod+backslash exec i3lock --nofork \
+	--ignore-empty-password \
+	--image='/home/junwoo/gdrive/Graphics/Wallpapers/Computer/1f1841e7 [6400x3600].png' \
+	--keyhlcolor=3498DBFF \
+	--bshlcolor=95A5A6FF \
+	--insidecolor=00000000 \
+	--insidevercolor=00000000 \
+	--insidewrongcolor=00000000 \
+	--line-uses-inside \
+	--separatorcolor=00000000 \
+	--ringcolor=FFFFFFFF \
+	--ringvercolor=F1C40FFF \
+	--ringwrongcolor=E74C3CFF \
+	--indpos='x+100:y+2060' \
+	--radius=20 \
+	--veriftext='' \
+	--wrongtext=''
 
 # kill focused window
 bindsym $mod+q kill
@@ -204,4 +220,20 @@ bindsym $mod+Shift+c reload
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config $HOME/.config/compton.conf -b
-exec --no-startup-id xautolock -detectsleep -time 7 -locker 'i3lock -f -e -r 0 -s 8' -killtime 15 -killer 'systemctl suspend'
+exec --no-startup-id xautolock -detectsleep -time 7 -killtime 15 -killer 'systemctl suspend' -locker "i3lock --nofork \
+	--ignore-empty-password \
+	--image='/home/junwoo/gdrive/Graphics/Wallpapers/Computer/1f1841e7 [6400x3600].png' \
+	--keyhlcolor=3498DBFF \
+	--bshlcolor=95A5A6FF \
+	--insidecolor=00000000 \
+	--insidevercolor=00000000 \
+	--insidewrongcolor=00000000 \
+	--line-uses-inside \
+	--separatorcolor=00000000 \
+	--ringcolor=FFFFFFFF \
+	--ringvercolor=F1C40FFF \
+	--ringwrongcolor=E74C3CFF \
+	--indpos='x+100:y+2060' \
+	--radius=20 \
+	--veriftext='' \
+	--wrongtext=''"

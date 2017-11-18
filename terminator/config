@@ -75,7 +75,7 @@
     background_type = transparent
     cursor_color = "#aaaaaa"
     delete_binding = automatic
-    font = Iosevka Term 10
+    font = Iosevka Term 12
     foreground_color = "#ffffff"
     icon_bell = False
     scrollback_lines = 10000
