@@ -54,7 +54,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " visual
 Plug 'gregsexton/matchtag'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 
@@ -76,6 +76,7 @@ Plug 'frioux/vim-regedit'
 Plug 'Haron-Prime/evening_vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'fxn/vim-monochrome'
 Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-two-firewatch'
 Plug 'rhysd/vim-color-spring-night'
@@ -248,7 +249,7 @@ nnoremap ' `
 vnoremap ' `
 
 " indent guide
-"set list lcs=tab:\|\ 
+set list lcs=tab:\|\ 
 
 " tags
 "nnoremap <C-]> g<C-]>
@@ -406,12 +407,11 @@ nmap <leader>q <Plug>(RegEditPostfix)
 nnoremap <F3> :ArgWrap<CR>
 
 " -------------------------- "
-" |      INDENT GUIDES     | "
+" |       INDENTLINE       | "
 " -------------------------- "
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
+let g:indentLine_enabled = 1
+let g:indentLine_char = '|'
+let g:indentLine_setConceal = 1
 
 "=============================================================
 "                                              __
@@ -452,19 +452,21 @@ hi IndentGuidesEven ctermbg=darkgrey
 "Plug 'majutsushi/tagbar'
 "Plug 'sjl/gundo.vim'
 "Plug 'wesq3/vim-windowswap'
+"Plug 'nathanaelkane/vim-indent-guides'
+
+" -------------------------- "
+" |      INDENT GUIDES     | "
+" -------------------------- "
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_guide_size = 1
+"hi IndentGuidesOdd  ctermbg=black
+"hi IndentGuidesEven ctermbg=darkgrey
 
 " -------------------------------- "
 " |       DEOPLETE-CLANG         | "
 " -------------------------------- "
 "let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 "let g:deoplete#sources#clang#clang_header = '/lib/clang/'
-
-" -------------------------- "
-" |       INDENTLINE       | "
-" -------------------------- "
-"let g:indentLine_enabled = 1
-"let g:indentLine_char = '|'
-"let g:indentLine_setConceal = 1
 
 " -------------------------- "
 " |        NEOMAKE         | "
