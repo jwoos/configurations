@@ -1,6 +1,6 @@
-diff --git a/neovim/init.vim b/Users/junwoo/.config/nvim/init.vim
-index 0fe65b7..1488959 100644
---- a/neovim/init.vim
+diff --git a/init.vim b/Users/junwoo/.config/nvim/init.vim
+index 3f0ec57..1488959 100644
+--- a/init.vim
 +++ b/Users/junwoo/.config/nvim/init.vim
 @@ -92,8 +92,8 @@ call plug#end()
  "                                                                     /____/
@@ -31,3 +31,26 @@ index 0fe65b7..1488959 100644
  set timeoutlen=500
  
  " update time
+@@ -356,14 +354,14 @@ map <Leader>W <Plug>(easymotion-b)
+ map <Leader>E <Plug>(easymotion-ge)
+ 
+ " vim-sneak mapping
+-nmap s <Plug>(easymotion-fl2)
+-nmap S <Plug>(easymotion-Fl2)
+-nmap <Leader>s <Plug>(easymotion-fn)
+-nmap <Leader>S <Plug>(easymotion-Fn)
+-vmap s <Plug>(easymotion-fl2)
+-vmap S <Plug>(easymotion-Fl2)
+-vmap <Leader>s <Plug>(easymotion-fn)
+-vmap <Leader>S <Plug>(easymotion-Fn)
++nmap s <Plug>(easymotion-fl)
++nmap S <Plug>(easymotion-Fl)
++nmap <Leader>s <Plug>(easymotion-f)
++nmap <Leader>S <Plug>(easymotion-F)
++vmap s <Plug>(easymotion-fl)
++vmap S <Plug>(easymotion-Fl)
++vmap <Leader>s <Plug>(easymotion-f)
++vmap <Leader>S <Plug>(easymotion-F)
+ 
+ map <Leader>l <Plug>(easymotion-lineforward)
+ map <Leader>j <Plug>(easymotion-j)
