@@ -1,6 +1,8 @@
---- init.vim	2017-09-19 08:45:31.000000000 -0400
-+++ init_mac.vim	2017-09-19 08:50:11.000000000 -0400
-@@ -91,8 +91,8 @@
+diff --git a/neovim/init.vim b/Users/junwoo/.config/nvim/init.vim
+index 0fe65b7..1488959 100644
+--- a/neovim/init.vim
++++ b/Users/junwoo/.config/nvim/init.vim
+@@ -92,8 +92,8 @@ call plug#end()
  "                                                                     /____/
  
  " set python interpreter
@@ -11,7 +13,7 @@
  
  " true color mode
  set termguicolors
-@@ -107,8 +107,6 @@
+@@ -108,8 +108,6 @@ set mouse=
  colorscheme onedark
  set background=dark
  let g:onedark_terminal_italics = 1
@@ -20,3 +22,12 @@
  
  " set line numbers
  set nonumber
+@@ -121,7 +119,7 @@ set softtabstop=0
+ set shiftwidth=4
+ 
+ " set key combination timeouts
+-set timeout=1
++set timeout
+ set timeoutlen=500
+ 
+ " update time
