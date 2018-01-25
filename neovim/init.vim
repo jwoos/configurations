@@ -121,7 +121,7 @@ set softtabstop=0
 set shiftwidth=4
 
 " set key combination timeouts
-set timeout=1
+set timeout
 set timeoutlen=500
 
 " update time
