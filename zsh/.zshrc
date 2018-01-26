@@ -19,8 +19,9 @@ export TERM=xterm-256color
 
 export SAVEHIST=50000
 
-export NVM_DIR="${HOME}/.nvm"
-[ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh" # This loads nvm
+[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/nvm.sh
+source /usr/share/nvm/install-nvm-exec
 
 export GOPATH="${HOME}/.go"
 
