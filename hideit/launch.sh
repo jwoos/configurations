@@ -2,6 +2,9 @@
 
 NAME='polybar-top_eDP1'
 
+pkill -f hideIt.sh
+
+
 # poll until window is available
 while true; do
 	echo 'polling'
