@@ -35,7 +35,7 @@ foreground =  ${colors.my_foreground}
 line-size = 10
 line-color = ${colors.my_color4}
 
-border-size = 0
+border-size = 2
 border-color = ${colors.my_color4}
 
 padding-left = 5
@@ -50,7 +50,7 @@ font-2 = unifont:size=18:0
 font-3 = siji:pixelsize=18;0
 font-4 = fontawesome:size=18;1
 
-separator =
+separator = " "
 
 modules-left = i3
 modules-center = date
@@ -106,7 +106,7 @@ type = internal/date
 format = <label>
 format-foreground = ${colors.my_foreground}
 
-label =  %time%   %date%
+label = %time%  %date%
 
 interval = 30
 date = %Y-%m-%d
@@ -189,7 +189,7 @@ type = custom/menu
 
 label-open = 
 label-close = 
-label-separator = " - "
+label-separator = " | "
 
 menu-0-0 = Terminate WM
 menu-0-0-exec = i3-msg exit
