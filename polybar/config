@@ -187,8 +187,8 @@ label-packetloss =  %essid%
 [module/menu-apps]
 type = custom/menu
 
-label-open =  MENU
-label-close =  CLOSE
+label-open = 
+label-close = 
 label-separator = " - "
 
 menu-0-0 = Terminate WM
