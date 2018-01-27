@@ -72,13 +72,13 @@
 [profiles]
   [[default]]
     background_darkness = 0.7
-    background_type = transparent
     cursor_color = "#aaaaaa"
     delete_binding = automatic
-    font = Iosevka Term 12
+    font = Iosevka Term 11
     foreground_color = "#ffffff"
     icon_bell = False
     scrollback_lines = 10000
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
+    use_theme_colors = True
