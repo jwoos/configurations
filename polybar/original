@@ -1,0 +1,220 @@
+[colors]
+accent = #FF3498db
+
+[bar/top]
+monitor = eDP-1
+width = 100%
+height = 50
+
+background = #001f1f1f
+foreground = #FF000000
+
+border-bottom-size = 0
+border-bottom-color = #33000000
+
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 10
+underline-color = ${self.background}
+
+padding-left = 0
+padding-right = 3
+module-margin-left = 2
+module-margin-right = 2
+
+font-0 = iosevka:size=16;0
+font-1 = materialicons:size=15;2
+font-2 = unifont:size=15:0
+font-3 = siji:pixelsize=15;0
+font-4 = fontawesome:size=15;1
+font-5 = materialicons:size=18;1
+
+separator = |
+
+modules-left = i3
+modules-center = xwindow
+modules-right = volume xbacklight battery date wireless-network menu-apps
+
+# FIXME this is commented out for now to disable drawing polybar behind windows
+;wm-restack = i3
+
+# REQUIRED for us to be able to move the window
+override-redirect = true
+
+tray-position = right
+tray-background = ${self.background}
+tray-transparent = true
+tray-padding = 3
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+pin-workspaces = true
+
+label-dimmed-underline = ${root.background}
+
+label-focused = %icon%
+label-focused-foreground = #FFFFFFFF
+label-focused-underline = ${colors.accent}
+label-focused-padding = 3
+label-focused-font = 6
+
+label-unfocused = %icon%
+label-unfocused-underline = #FF555555
+label-unfocused-padding = 3
+label-unfocused-font = 6
+
+label-urgent = %icon%
+label-urgent-foreground = #FF000000
+label-urgent-background = #FFbd2c40
+label-urgent-underline = #FF9b0a20
+label-urgent-padding = 3
+label-urgent-font = 6
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+;ws-icon-default = 
+
+[module/date]
+type = internal/date
+
+format = <label>
+format-foreground = #FF000000
+
+label =  %date%   %time%
+
+interval = 30
+date = %Y-%m-%d
+time = %H:%M
+
+[module/volume]
+type = internal/volume
+
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+format-volume = <ramp-volume> <label-volume>
+
+label-volume =  %percentage%%
+label-volume-foreground = #FF000000
+
+format-muted =  <label-muted>
+
+label-muted = MUTED
+label-muted-foreground = #FF000000
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+ramp-volume-5 = 
+ramp-volume-foreground = #FF000000
+
+mapped = false
+
+[module/xbacklight]
+type = internal/xbacklight
+output = eDP-1
+
+format = <ramp> <label>
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+label = %percentage%%
+
+[module/battery]
+type = internal/battery
+full-at = 99
+time-format = %H:%M
+poll-internal = 50
+
+format-charging =  <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+label-charging = %percentage%% (%time%)
+label-discharging = %percentage%% (%time%)
+label-full = FULL
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+[module/xwindow]
+type = internal/xwindow
+
+label = [ %title% ]
+label-maxlen = 250
+label-foreground = #FF000000
+
+[module/menu-apps]
+type = custom/menu
+
+label-open =  MENU
+label-close =  CLOSE
+label-separator = " - "
+
+menu-0-0 = Terminate WM
+menu-0-0-exec = i3-msg exit
+menu-0-1 = Suspend
+menu-0-1-exec = menu-open-1
+menu-0-2 = Hibernate
+menu-0-2-exec = menu-open-2
+menu-0-3 = Reboot
+menu-0-3-exec = menu-open-3
+menu-0-4 = Power off
+menu-0-4-exec = menu-open-4
+
+menu-1-0 = Cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = Suspend
+menu-1-1-exec = systemctl suspend
+
+menu-2-0 = Cancel
+menu-2-0-exec = menu-open-0
+menu-2-1 = Hibernate
+menu-2-1-exec = systemctl hibernate
+
+menu-3-0 = Cancel
+menu-3-0-exec = menu-open-0
+menu-3-1 = Reboot
+menu-3-1-exec = systemctl reboot
+
+menu-4-0 = Cancel
+menu-4-0-exec = menu-open-0
+menu-4-1 = Power off
+menu-4-1-exec = systemctl poweroff
+
+[module/wired-network]
+type = internal/network
+interface = eth1
+interval = 10
+
+[module/wireless-network]
+type = internal/network
+interface = wlp2s0
+interval = 30
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-packetloss = <label-packetloss>
+
+label-connected =  %essid%
+label-disconnected =   DISCONNECTED
+label-packetloss =  %essid%
+
+; vim:ft=dosini
