@@ -56,7 +56,7 @@ modules-left = i3
 modules-center = date
 modules-right = volume xbacklight battery wireless-network menu-apps
 
-tray-position = right
+tray-position =
 tray-padding = 0
 tray-transparent = false
 tray-offset-y = 0%
