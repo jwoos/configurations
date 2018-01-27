@@ -106,7 +106,7 @@ type = internal/date
 format = <label>
 format-foreground = ${colors.my_foreground}
 
-label = %time%  %date%
+label = %time% %date%
 
 interval = 30
 date = %Y-%m-%d
