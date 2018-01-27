@@ -221,7 +221,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+c reload
 
 exec --no-startup-id $XDG_CONFIG_HOME/polybar/launch.sh
-exec --no-startup-id $XDG_CONFIG_HOME/hideit/launch.sh >> ~/temp/hideit.log 2>&1
+exec --no-startup-id $XDG_CONFIG_HOME/hideit/launch.sh
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config $HOME/.config/compton.conf -b
 exec --no-startup-id xautolock -detectsleep -time 7 -killtime 15 -killer 'systemctl suspend' -locker "i3lock --nofork \

@@ -32,7 +32,7 @@ fixed-center = true
 background = ${colors.my_background}
 foreground =  ${colors.my_foreground}
 
-line-size = 4
+line-size = 10
 line-color = ${colors.my_color4}
 
 border-size = 0
@@ -50,7 +50,7 @@ font-2 = unifont:size=18:0
 font-3 = siji:pixelsize=18;0
 font-4 = fontawesome:size=18;1
 
-separator = |
+separator =
 
 modules-left = i3
 modules-center = date
@@ -106,7 +106,7 @@ type = internal/date
 format = <label>
 format-foreground = ${colors.my_foreground}
 
-label =  %date%   %time%
+label =  %time%   %date%
 
 interval = 30
 date = %Y-%m-%d
@@ -161,8 +161,8 @@ format-charging =  <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
 
-label-charging = %percentage%% (%time%)
-label-discharging = %percentage%% (%time%)
+label-charging = %percentage%%
+label-discharging = %percentage%%
 label-full = FULL
 
 ramp-capacity-0 = 
@@ -174,7 +174,7 @@ ramp-capacity-4 = 
 [module/wireless-network]
 type = internal/network
 interface = wlp2s0
-interval = 30
+interval = 60
 
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>

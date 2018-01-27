@@ -108,8 +108,8 @@ set mouse=
 colorscheme onedark
 set background=dark
 let g:onedark_terminal_italics = 1
-hi Normal ctermbg=None guibg=None
-hi NonText ctermbg=None guibg=None
+"hi Normal ctermbg=None guibg=None
+"hi NonText ctermbg=None guibg=None
 
 " set line numbers
 set nonumber
