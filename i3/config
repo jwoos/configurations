@@ -121,7 +121,14 @@ bindsym $mod+Ctrl+Tab move position center
 bindsym $mod+Tab focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
+
+# move to scratchpad
+bindsym $mod+Shift+grave move scratchpad
+bindsym $mod+grave scratchpad show
+
+# sticky
+bindsym $mod+apostrophe sticky toggle
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -155,6 +162,12 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+# marks
+# TODO
+
+# unmark
+#TODO
 
 # gaps
 set $mode_gaps Gaps: (o) outer, (i) inner
