@@ -18,7 +18,7 @@ new_window 1pixel
 hide_edge_borders both
 
 gaps outer 0
-gaps inner 20
+gaps inner 15
 smart_gaps on
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -73,8 +73,11 @@ bindsym $mod+backslash exec i3lock --nofork \
 # kill focused window
 bindsym $mod+q kill
 
+# hide systray
+bindsym $mod+slash exec hideIt.sh --name '^polybar-top_eDP1$' --toggle
+
 # start dmenu (a program launcher)
-bindsym $mod+slash exec rofi -show run
+bindsym $mod+space exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -107,13 +110,13 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+Tab floating toggle
 
 # center floating window
-bindsym $mod+Ctrl+space move position center
+bindsym $mod+Ctrl+Tab move position center
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Tab focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -217,7 +220,8 @@ bindsym $mod+Shift+r restart
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-exec --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id $XDG_CONFIG_HOME/polybar/launch.sh
+exec --no-startup-id $XDG_CONFIG_HOME/hideit/launch.sh >> ~/temp/hideit.log 2>&1
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config $HOME/.config/compton.conf -b
 exec --no-startup-id xautolock -detectsleep -time 7 -killtime 15 -killer 'systemctl suspend' -locker "i3lock --nofork \

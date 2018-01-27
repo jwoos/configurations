@@ -37,6 +37,9 @@ modules-right = volume xbacklight battery date wireless-network menu-apps
 
 wm-restack = i3
 
+# REQUIRED for us to be able to move the window
+override-redirect = true
+
 tray-position = right
 tray-background = ${self.background}
 tray-transparent = true
