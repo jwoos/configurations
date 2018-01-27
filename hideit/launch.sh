@@ -15,4 +15,4 @@ while true; do
 	sleep 1
 done
 
-hideIt.sh --name $NAME --signal --direction top --peek 0 &
+hideIt.sh --name $NAME --signal --direction top --peek 0 --steps 2
