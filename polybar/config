@@ -35,7 +35,8 @@ modules-left = i3
 modules-center = xwindow
 modules-right = volume xbacklight battery date wireless-network menu-apps
 
-wm-restack = i3
+# FIXME this is commented out for now to disable drawing polybar behind windows
+;wm-restack = i3
 
 # REQUIRED for us to be able to move the window
 override-redirect = true
