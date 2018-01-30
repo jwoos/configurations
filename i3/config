@@ -14,10 +14,11 @@
 
 set $mod Mod4
 
-new_window 1pixel
+new_window none
+new_float none
 hide_edge_borders both
 
-for_window [class=".*"] border pixel 0
+for_window [class="^.*"] border none
 
 gaps outer 0
 gaps inner 15
