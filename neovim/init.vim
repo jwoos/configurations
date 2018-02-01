@@ -95,6 +95,11 @@ call plug#end()
 let g:python3_host_prog = '/usr/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 
+" set swap, backup and undo directory
+set directory=~/.vim/swap//
+set backupdir=~/.vim/backup//
+set undodir=~/.vim/undo//
+
 " true color mode
 set termguicolors
 
