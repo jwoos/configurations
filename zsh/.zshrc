@@ -35,6 +35,10 @@ export PAGER='less'
 export FZF_DEFAULT_COMMAND='fd --type f'
 # export FZF_DEFAULT_OPTS=''
 
+export NNN_USE_EDITOR=nvim
+export NNN_DE_FILE_MANAGER=pcmanfm
+export NNN_NOWAIT=true
+
 # set vim mode
 # bindkey -v
 
@@ -47,6 +51,7 @@ alias pip=pip3
 alias tmux='tmux -2'
 alias vim='nvim'
 alias vimdiff='nvim -d'
+alias n='nnn'
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
