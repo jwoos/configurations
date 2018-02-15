@@ -5,6 +5,7 @@ Description=Enable libinput gestures
 User=%i
 Type=simple
 Environment=DISPLAY=:0
+ExecStartPre=/bin/sleep 15
 ExecStart=/usr/bin/python3 /usr/bin/libinput-gestures
 
 [Install]
