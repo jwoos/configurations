@@ -217,8 +217,8 @@ vnoremap <CR> :
 "nnoremap e E
 
 " remap shift to mean backwards
-nnoremap E gE
-vnoremap E gE
+nnoremap E ge
+vnoremap E ge
 nnoremap W b
 vnoremap W b
 
