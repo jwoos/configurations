@@ -59,6 +59,7 @@
   toggle_zoom = None
   ungroup_all = None
   ungroup_tab = None
+  zoom_in = <Primary>equal
 [layouts]
   [[default]]
     [[[child1]]]
