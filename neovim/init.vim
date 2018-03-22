@@ -23,7 +23,7 @@
 
 " NOT USED
 " <F4> <F5> <F6> <F7> <F8> <F9> <F10>
-" <Leader>b <Leader>c <Leader>m
+" <Leader>c <Leader>m
 " ,
 " Q
 
@@ -51,6 +51,7 @@ Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " navigation
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'majutsushi/tagbar'
 
 " visual
 Plug 'gregsexton/matchtag'
@@ -425,6 +426,11 @@ let g:indentLine_enabled = 1
 let g:indentLine_char = '|'
 let g:indentLine_setConceal = 1
 
+" -------------------------- "
+" |         TAGBAR         | "
+" -------------------------- "
+nnoremap <Leader>b :TagbarToggle<CR>
+
 "=============================================================
 "                                              __
 "   __  __   ____   __  __   _____  ___   ____/ /
@@ -511,11 +517,6 @@ let g:indentLine_setConceal = 1
 " -------------------------- "
 "let g:windowswap_map_keys = 0
 "nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
-
-" -------------------------- "
-" |         TAGBAR         | "
-" -------------------------- "
-"nnoremap <A-\> :TagbarToggle<CR>
 
 " -------------------------- "
 " |        UTILSNIPS       | "
