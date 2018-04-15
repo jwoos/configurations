@@ -400,7 +400,7 @@ inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 
 " show snippets with short names
-call deoplete#custom#set('ultisnips', 'matchers', ['matcher_fuzzy'])
+call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
 nnoremap <F11> :call deoplete#toggle()<CR>
 
 " -------------------------- "
