@@ -253,7 +253,7 @@ exec --no-startup-id xautolock -detectsleep -time 7 -killtime 15 -killer 'system
 	--ringcolor=FFFFFFFF \
 	--ringvercolor=F1C40FFF \
 	--ringwrongcolor=E74C3CFF \
-	--indpos='x+100:y+2060' \
+	--indpos='x+50:y+1040' \
 	--radius=20 \
 	--veriftext='' \
 	--wrongtext=''"
