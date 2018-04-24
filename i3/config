@@ -74,7 +74,16 @@ bindsym $mod+backslash exec i3lock --nofork \
 	--wrongtext=''
 
 # kill focused window
-bindsym $mod+q kill
+set $close "Close the window? (y/n)"
+
+mode $close {
+    bindsym y kill, mode default
+    bindsym Return kill, mode default
+
+    bindsym n mode default
+    bindsym Escape mode default
+}
+bindsym $mod+Shift+q mode $close
 
 # hide systray
 bindsym $mod+slash exec hideIt.sh --name '^polybar-top_eDP1$' --toggle
