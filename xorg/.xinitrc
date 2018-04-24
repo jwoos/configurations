@@ -11,7 +11,7 @@ export NO_AT_BRIDGE=1
 xrandr --dpi 191
 xrdb -merge ~/.Xresources
 xrdb -merge ~/.extend.Xresources
-xcalib -d :0 ~/main/configurations/screenprofiles/xps15-9550/Dell_XPS15_9550_UHD_Touch__7PHPT_LQ156D1_.icm
+xcalib -d :0 ~/main/personal/configurations/screenprofiles/xps15-9550/Y2XND_LQ156D1.icm
 # xinput set-prop 12 'libinput Accel Speed' 0.7
 # xinput set-prop 12 'libinput Middle Emulation Enabled' 1
 xsettingsd &
