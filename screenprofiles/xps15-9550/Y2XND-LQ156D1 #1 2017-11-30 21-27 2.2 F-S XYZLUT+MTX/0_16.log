@@ -1,0 +1,41 @@
+2017-11-30 21:27:38,118 --------------------------------------------------------------------------------
+2017-11-30 21:27:38,119 Working directory:
+2017-11-30 21:27:38,119   c:\
+2017-11-30 21:27:38,121    users\
+2017-11-30 21:27:38,121     dariu\
+2017-11-30 21:27:38,121      appdata\
+2017-11-30 21:27:38,122       local\
+2017-11-30 21:27:38,122        temp\
+2017-11-30 21:27:38,124         DisplayCAL-oiiihc\
+2017-11-30 21:27:38,125 
+2017-11-30 21:27:38,125 Command line:
+2017-11-30 21:27:38,127   C:\Users\dariu\Downloads\Argyll_V2.0.0\bin\dispread.exe
+2017-11-30 21:27:38,128     -v
+2017-11-30 21:27:38,128     -k
+2017-11-30 21:27:38,130     "C:\Program Files (x86)\DisplayCAL\linear.cal"
+2017-11-30 21:27:38,131     -d1
+2017-11-30 21:27:38,155     -c1
+2017-11-30 21:27:38,157     -yn
+2017-11-30 21:27:38,157     "-P0.499507874016,0.497159090909,1.62443845463"
+2017-11-30 21:27:38,158     0_16
+2017-11-30 21:27:38,160 
+2017-11-30 21:27:38,789 DisplayCAL: Starting interaction with subprocess
+2017-11-30 21:27:38,793 Number of patches = 3
+2017-11-30 21:27:38,795 Setting up the instrument
+2017-11-30 21:27:39,801 Product Name:      i1Display3
+2017-11-30 21:27:39,802 Serial Number:     I1-16.B-02.262810.12
+2017-11-30 21:27:39,802 Firmware Version:  v2.28
+2017-11-30 21:27:39,802 Firmware Date:     29Jan14
+2017-11-30 21:27:40,078 Place instrument on test window.
+2017-11-30 21:27:40,085 DisplayCAL: Waiting for send buffer
+2017-11-30 21:27:41,588 DisplayCAL: Skipping place instrument on screen message...
+2017-11-30 21:27:41,602 DisplayCAL: Sending buffer: ' '
+2017-11-30 21:27:41,634 Hit Esc or Q to give up, any other key to continue:
+2017-11-30 21:27:44,234 Measured display update delay of 47 msec, using delay of 162 msec & 0 msec inst reaction
+2017-11-30 21:27:48,802 Patch 3 of 3
+2017-11-30 21:27:48,802 The instrument can be removed from the screen.
+2017-11-30 21:27:48,887 Written '0_16.ti3'
+2017-11-30 21:27:48,992 DisplayCAL: Reached EOF (OK)
+2017-11-30 21:27:49,006 RGB level 0 is 0.388131 cd/m2
+2017-11-30 21:27:49,009 RGB level 16 is 0.903885 cd/m2
+2017-11-30 21:27:49,012 Assuming full range output levels

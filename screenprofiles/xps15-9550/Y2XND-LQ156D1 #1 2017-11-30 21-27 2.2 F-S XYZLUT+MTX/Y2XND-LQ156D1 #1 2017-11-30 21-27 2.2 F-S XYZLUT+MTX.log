@@ -1,0 +1,453 @@
+2017-11-30 21:27:49,028 --------------------------------------------------------------------------------
+2017-11-30 21:27:49,033 Working directory:
+2017-11-30 21:27:49,035   c:\
+2017-11-30 21:27:49,036    users\
+2017-11-30 21:27:49,039     dariu\
+2017-11-30 21:27:49,040      appdata\
+2017-11-30 21:27:49,042       local\
+2017-11-30 21:27:49,043        temp\
+2017-11-30 21:27:49,046         DisplayCAL-oiiihc\
+2017-11-30 21:27:49,046 
+2017-11-30 21:27:49,049 Command line:
+2017-11-30 21:27:49,049   C:\Users\dariu\Downloads\Argyll_V2.0.0\bin\dispcal.exe
+2017-11-30 21:27:49,052     -v2
+2017-11-30 21:27:49,053     -d1
+2017-11-30 21:27:49,055     -c1
+2017-11-30 21:27:49,058     -yn
+2017-11-30 21:27:49,059     "-P0.499507874016,0.497159090909,1.62443845463"
+2017-11-30 21:27:49,059     -ql
+2017-11-30 21:27:49,062     -m
+2017-11-30 21:27:49,065     -t
+2017-11-30 21:27:49,066     -g2.2
+2017-11-30 21:27:49,069     -f1.0
+2017-11-30 21:27:49,069     -k0
+2017-11-30 21:27:49,072     -A4.0
+2017-11-30 21:27:49,073     -b
+2017-11-30 21:27:49,075     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX"
+2017-11-30 21:27:49,076 
+2017-11-30 21:27:49,720 DisplayCAL: Starting interaction with subprocess
+2017-11-30 21:27:49,726 Setting up the instrument
+2017-11-30 21:27:50,694 Product Name:      i1Display3
+2017-11-30 21:27:50,696 Serial Number:     I1-16.B-02.262810.12
+2017-11-30 21:27:50,697 Firmware Version:  v2.28
+2017-11-30 21:27:50,697 Firmware Date:     29Jan14
+2017-11-30 21:27:50,996 Place instrument on test window.
+2017-11-30 21:27:51,000 DisplayCAL: Waiting for send buffer
+2017-11-30 21:27:52,490 DisplayCAL: Skipping place instrument on screen message...
+2017-11-30 21:27:52,515 DisplayCAL: Sending buffer: ' '
+2017-11-30 21:27:52,525 Hit Esc or Q to give up, any other key to continue:
+2017-11-30 21:27:52,542 Display type is 'n'
+2017-11-30 21:27:52,546 Target white = native white point
+2017-11-30 21:27:52,546 Target white brightness = native brightness
+2017-11-30 21:27:52,552 Target black brightness = native brightness
+2017-11-30 21:27:52,552 Black point device hack is enabled
+2017-11-30 21:27:52,562 Target advertised gamma = 2.200000
+2017-11-30 21:27:52,563 Commencing display calibration
+2017-11-30 21:27:55,160 Measured display update delay of 43 msec, using delay of 157 msec & 0 msec inst reaction
+2017-11-30 21:28:08,947 Patch 9 of 9
+2017-11-30 21:28:08,950 Black = XYZ 0.3736 0.3877 0.5342
+2017-11-30 21:28:08,951 Red   = XYZ 208.501 105.849  3.862
+2017-11-30 21:28:08,953 Green = XYZ 67.821 245.520 28.445
+2017-11-30 21:28:08,953 Blue  = XYZ 79.317 28.566 431.477
+2017-11-30 21:28:08,956 White = XYZ 356.640 380.486 463.598
+2017-11-30 21:29:20,983 Patch 48 of 48
+2017-11-30 21:29:21,220 
+2017-11-30 21:29:21,220 Initial native brightness target = 380.485837 cd/m^2
+2017-11-30 21:29:21,223 Target white value is XYZ 356.640152 380.485837 463.598488 [xy 0.297021 0.316880]
+2017-11-30 21:29:21,223 Adjusted target black XYZ 0.3736 0.3877 0.5342, Lab 0.920 0.112 -0.208
+2017-11-30 21:29:21,224 Target black after min adjust: XYZ 0.3736 0.3877 0.5342, Lab 0.920 0.112 -0.208
+2017-11-30 21:29:21,224 Gamma curve input offset = 0.000000, output offset = 0.001019, power = 2.205300
+2017-11-30 21:29:21,226 Total Iteration 2, Final Samples = 32 Final Repeat threshold = 0.900000
+2017-11-30 21:29:21,226 Creating initial calibration curves...
+2017-11-30 21:29:21,236 
+2017-11-30 21:29:21,236 Doing iteration 1/2 with 16 sample points and repeat threshold of 1.272792 DE
+2017-11-30 21:29:21,618 Patch 1 of 16 DE 0.000000, W.DE 0.000000, OK ( < 1.272792)
+2017-11-30 21:29:22,098 Patch 2 of 16 DE 3.200142, W.DE 3.200142, Repeat
+2017-11-30 21:29:22,591 Patch 2 of 16 DE 0.342713, W.DE 0.342713, OK ( < 1.272792)
+2017-11-30 21:29:23,081 Patch 3 of 16 DE 4.648431, W.DE 4.648431, Repeat
+2017-11-30 21:29:23,615 Patch 3 of 16 DE 0.473414, W.DE 0.473414, OK ( < 1.272792)
+2017-11-30 21:29:24,095 Patch 4 of 16 DE 2.447902, W.DE 2.447902, Repeat
+2017-11-30 21:29:24,602 Patch 4 of 16 DE 0.531174, W.DE 0.531174, OK ( < 1.272792)
+2017-11-30 21:29:25,101 Patch 5 of 16 DE 1.715220, W.DE 1.715220, Repeat
+2017-11-30 21:29:25,607 Patch 5 of 16 DE 0.254671, W.DE 0.254671, OK ( < 1.272792)
+2017-11-30 21:29:26,079 Patch 6 of 16 DE 1.524511, W.DE 1.524511, Repeat
+2017-11-30 21:29:26,582 Patch 6 of 16 DE 0.266207, W.DE 0.266207, OK ( < 1.272792)
+2017-11-30 21:29:27,062 Patch 7 of 16 DE 1.300218, W.DE 1.300218, Repeat
+2017-11-30 21:29:27,552 Patch 7 of 16 DE 0.479475, W.DE 0.479475, OK ( < 1.272792)
+2017-11-30 21:29:28,048 Patch 8 of 16 DE 0.990925, W.DE 0.990925, OK ( < 1.272792)
+2017-11-30 21:29:28,763 Patch 9 of 16 DE 1.442760, W.DE 1.442760, Repeat
+2017-11-30 21:29:29,479 Patch 9 of 16 DE 0.332403, W.DE 0.332403, OK ( < 1.272792)
+2017-11-30 21:29:30,232 Patch 10 of 16 DE 0.803935, W.DE 0.803935, OK ( < 1.272792)
+2017-11-30 21:29:31,082 Patch 11 of 16 DE 1.477502, W.DE 1.477502, Repeat
+2017-11-30 21:29:31,892 Patch 11 of 16 DE 0.413824, W.DE 0.413824, OK ( < 1.272792)
+2017-11-30 21:29:32,937 Patch 12 of 16 DE 1.165640, W.DE 1.165640, OK ( < 1.272792)
+2017-11-30 21:29:34,677 Patch 13 of 16 DE 1.820727, W.DE 1.820727, Repeat
+2017-11-30 21:29:36,210 Patch 13 of 16 DE 0.590719, W.DE 0.590719, OK ( < 1.173247)
+2017-11-30 21:29:38,401 Patch 14 of 16 DE 0.688479, W.DE 0.688479, Repeat
+2017-11-30 21:29:40,540 Patch 14 of 16 DE 0.513147, W.DE 0.513147, Repeat
+2017-11-30 21:29:42,605 Patch 14 of 16 DE 0.234760, W.DE 0.234760, OK ( < 0.336987)
+2017-11-30 21:29:44,842 Patch 15 of 16 DE 0.064218, W.DE 0.064218, Repeat
+2017-11-30 21:29:53,602 Patch 15 of 16 DE 0.063831, W.DE 0.063831, Repeat
+2017-11-30 21:29:55,831 Patch 15 of 16 DE 0.055717, W.DE 0.055717, Repeat
+2017-11-30 21:29:58,030 Patch 15 of 16 DE 0.055122, W.DE 0.055122, Repeat
+2017-11-30 21:30:00,220 Patch 15 of 16 DE 0.042091, W.DE 0.042091, OK ( < 0.050000)
+2017-11-30 21:30:02,464 Patch 16 of 16 DE 0.001808, W.DE 0.001808, OK ( < 0.050000)
+2017-11-30 21:30:02,464 
+2017-11-30 21:30:02,466 Brightness error = 0.000000 cd/m^2 (is 380.853227, should be 380.853227)
+2017-11-30 21:30:02,467 White point error = 0.000000 deltaE
+2017-11-30 21:30:02,467 Maximum neutral error (@ 0.120656) = 1.165599 deltaE
+2017-11-30 21:30:02,470 Average neutral error = 0.432747 deltaE
+2017-11-30 21:30:02,470 Number of measurements taken = 34
+2017-11-30 21:30:02,470 Computing update to calibration curves...
+2017-11-30 21:30:02,535 
+2017-11-30 21:30:02,536 Doing iteration 2/2 with 32 sample points and repeat threshold of 0.900000 DE
+2017-11-30 21:30:03,184 Patch 1 of 32 DE 0.000000, W.DE 0.000000, W.peqDE 0.000000, OK ( < 0.900000)
+2017-11-30 21:30:03,671 Patch 2 of 32 DE 0.185586, W.DE 0.185586, W.peqDE 0.185587, OK ( < 0.900000)
+2017-11-30 21:30:04,131 Patch 3 of 32 DE 0.483826, W.DE 0.483826, W.peqDE 0.515730, OK ( < 0.900000)
+2017-11-30 21:30:04,595 Patch 4 of 32 DE 0.312981, W.DE 0.312981, W.peqDE 0.336634, OK ( < 0.900000)
+2017-11-30 21:30:05,062 Patch 5 of 32 DE 0.628039, W.DE 0.628039, W.peqDE 0.538598, OK ( < 0.900000)
+2017-11-30 21:30:05,529 Patch 6 of 32 DE 0.712767, W.DE 0.712767, W.peqDE 0.505424, OK ( < 0.900000)
+2017-11-30 21:30:06,000 Patch 7 of 32 DE 0.284948, W.DE 0.284948, W.peqDE 0.676683, OK ( < 0.900000)
+2017-11-30 21:30:06,467 Patch 8 of 32 DE 0.423238, W.DE 0.423238, W.peqDE 0.402318, OK ( < 0.900000)
+2017-11-30 21:30:06,934 Patch 9 of 32 DE 0.405968, W.DE 0.405968, W.peqDE 0.546749, OK ( < 0.900000)
+2017-11-30 21:30:07,424 Patch 10 of 32 DE 0.619009, W.DE 0.619009, W.peqDE 0.375239, OK ( < 0.900000)
+2017-11-30 21:30:07,901 Patch 11 of 32 DE 0.718971, W.DE 0.718971, W.peqDE 0.615506, OK ( < 0.900000)
+2017-11-30 21:30:08,369 Patch 12 of 32 DE 0.635223, W.DE 0.635223, W.peqDE 0.856837, OK ( < 0.900000)
+2017-11-30 21:30:08,825 Patch 13 of 32 DE 0.669095, W.DE 0.669095, W.peqDE 0.634412, OK ( < 0.900000)
+2017-11-30 21:30:09,299 Patch 14 of 32 DE 1.107161, W.DE 1.107161, peqDE 1.185425, Repeat
+2017-11-30 21:30:09,799 Patch 14 of 32 DE 0.384354, W.DE 0.384354, W.peqDE 0.190145, OK ( < 0.900000)
+2017-11-30 21:30:10,269 Patch 15 of 32 DE 1.355134, W.DE 1.355134, peqDE 1.284782, Repeat
+2017-11-30 21:30:12,447 Patch 15 of 32 DE 1.189733, W.DE 1.189733, peqDE 1.391781, Repeat
+2017-11-30 21:30:12,940 Patch 15 of 32 DE 0.911202, W.DE 0.911202, peqDE 0.858920, Repeat
+2017-11-30 21:30:13,371 Patch 15 of 32 DE 0.151123, W.DE 0.151123, W.peqDE 0.499051, OK ( < 0.900000)
+2017-11-30 21:30:13,854 Patch 16 of 32 DE 1.567670, W.DE 1.567670, peqDE 1.574245, Repeat
+2017-11-30 21:30:14,352 Patch 16 of 32 DE 0.176382, W.DE 0.176382, W.peqDE 0.227855, OK ( < 0.900000)
+2017-11-30 21:30:15,039 Patch 17 of 32 DE 0.949066, W.DE 0.949066, peqDE 0.947780, Repeat
+2017-11-30 21:30:15,551 Patch 17 of 32 DE 0.217572, W.DE 0.217572, W.peqDE 0.224175, OK ( < 0.900000)
+2017-11-30 21:30:16,256 Patch 18 of 32 DE 1.062584, W.DE 1.062584, peqDE 1.162665, Repeat
+2017-11-30 21:30:16,956 Patch 18 of 32 DE 0.332177, W.DE 0.332177, W.peqDE 0.163449, OK ( < 0.900000)
+2017-11-30 21:30:17,707 Patch 19 of 32 DE 0.841162, W.DE 0.841162, peqDE 1.059207, Repeat
+2017-11-30 21:30:18,434 Patch 19 of 32 DE 0.265413, W.DE 0.265413, W.peqDE 0.344736, OK ( < 0.900000)
+2017-11-30 21:30:19,187 Patch 20 of 32 DE 0.520549, W.DE 0.520549, W.peqDE 0.729336, OK ( < 0.900000)
+2017-11-30 21:30:20,017 Patch 21 of 32 DE 0.794912, W.DE 0.794912, W.peqDE 0.611084, OK ( < 0.900000)
+2017-11-30 21:30:20,907 Patch 22 of 32 DE 0.990624, W.DE 0.990624, peqDE 0.888587, Repeat
+2017-11-30 21:30:21,826 Patch 22 of 32 DE 0.369723, W.DE 0.369723, W.peqDE 0.892318, OK ( < 0.900000)
+2017-11-30 21:30:22,790 Patch 23 of 32 DE 1.275167, W.DE 1.275167, peqDE 1.453768, Repeat
+2017-11-30 21:30:23,766 Patch 23 of 32 DE 0.684345, W.DE 0.684345, peqDE 0.962545, Repeat
+2017-11-30 21:30:24,671 Patch 23 of 32 DE 0.475639, W.DE 0.475639, W.peqDE 0.291684, OK ( < 0.900000)
+2017-11-30 21:30:25,755 Patch 24 of 32 DE 1.793301, W.DE 1.793301, peqDE 1.833543, Repeat
+2017-11-30 21:30:26,838 Patch 24 of 32 DE 0.801671, W.DE 0.801671, W.peqDE 0.809270, OK ( < 0.900000)
+2017-11-30 21:30:28,190 Patch 25 of 32 DE 1.055769, W.DE 1.055769, peqDE 1.115163, Repeat
+2017-11-30 21:30:29,519 Patch 25 of 32 DE 0.356842, W.DE 0.356842, W.peqDE 0.748277, OK ( < 0.900000)
+2017-11-30 21:30:31,089 Patch 26 of 32 DE 0.899622, W.DE 0.899622, peqDE 0.848451, Repeat
+2017-11-30 21:30:32,586 Patch 26 of 32 DE 0.340506, W.DE 0.340506, W.peqDE 0.622903, OK ( < 0.651673)
+2017-11-30 21:30:34,427 Patch 27 of 32 DE 0.616954, W.DE 0.616954, peqDE 0.714247, Repeat
+2017-11-30 21:30:36,171 Patch 27 of 32 DE 0.242744, W.DE 0.242744, peqDE 0.495083, Repeat
+2017-11-30 21:30:42,790 Patch 27 of 32 DE 0.209967, W.DE 0.209967, W.peqDE 0.125640, OK ( < 0.393408)
+2017-11-30 21:30:44,796 Patch 28 of 32 DE 0.361149, W.DE 0.361149, peqDE 0.363092, Repeat
+2017-11-30 21:30:46,858 Patch 28 of 32 DE 0.255176, W.DE 0.255176, peqDE 0.363755, Repeat
+2017-11-30 21:30:48,844 Patch 28 of 32 DE 0.118622, W.DE 0.118622, peqDE 0.322214, Repeat
+2017-11-30 21:30:56,292 Patch 28 of 32 DE 0.118622, W.DE 0.118622, peqDE 0.322214, Repeat
+2017-11-30 21:30:58,256 Patch 28 of 32 DE 0.120376, W.DE 0.120376, peqDE 0.324002, Repeat
+2017-11-30 21:31:00,144 Patch 28 of 32 DE 0.120140, W.DE 0.120140, peqDE 0.323861, Repeat
+2017-11-30 21:31:02,051 Patch 28 of 32 DE 0.217813, W.DE 0.264275, peqDE 0.233191, Repeat
+2017-11-30 21:31:03,973 Patch 28 of 32 DE 0.247000, W.DE 0.247000, peqDE 0.398953, Repeat
+2017-11-30 21:31:05,868 Patch 28 of 32 DE 0.218304, W.DE 0.264850, peqDE 0.233045, Repeat
+2017-11-30 21:31:07,775 Patch 28 of 32 DE 0.118622, W.DE 0.118622, W.peqDE 0.322214, Fail ( > 0.209519)
+2017-11-30 21:31:09,884 Patch 29 of 32 DE 0.167510, W.DE 0.167510, peqDE 0.183435, Repeat
+2017-11-30 21:31:18,391 Patch 29 of 32 DE 0.140499, W.DE 0.140499, peqDE 0.193033, Repeat
+2017-11-30 21:31:20,575 Patch 29 of 32 DE 0.122712, W.DE 0.122712, peqDE 0.125703, Repeat
+2017-11-30 21:31:22,670 Patch 29 of 32 DE 0.081574, W.DE 0.081574, W.peqDE 0.071173, OK ( < 0.090705)
+2017-11-30 21:31:24,907 Patch 30 of 32 DE 0.048774, W.DE 0.048774, peqDE 0.069078, Repeat
+2017-11-30 21:31:33,589 Patch 30 of 32 DE 0.048774, W.DE 0.048774, peqDE 0.069078, Repeat
+2017-11-30 21:31:35,808 Patch 30 of 32 DE 0.048657, W.DE 0.048657, peqDE 0.069907, Repeat
+2017-11-30 21:31:37,986 Patch 30 of 32 DE 0.037790, W.DE 0.037790, peqDE 0.075570, Repeat
+2017-11-30 21:31:40,155 Patch 30 of 32 DE 0.036491, W.DE 0.036491, peqDE 0.066175, Repeat
+2017-11-30 21:31:42,298 Patch 30 of 32 DE 0.036152, W.DE 0.036152, W.peqDE 0.041777, OK ( < 0.050000)
+2017-11-30 21:31:44,528 Patch 31 of 32 DE 0.008406, W.DE 0.008406, W.peqDE 0.022666, OK ( < 0.050000)
+2017-11-30 21:31:46,752 Patch 32 of 32 DE 0.002114, W.DE 0.002114, W.peqDE 0.002114, OK ( < 0.050000)
+2017-11-30 21:31:46,765 
+2017-11-30 21:31:46,767 Brightness error = 0.000000 cd/m^2 (is 381.044980, should be 381.044980)
+2017-11-30 21:31:46,769 White point error = 0.000000 deltaE
+2017-11-30 21:31:46,772 Maximum neutral error (@ 0.114489) = 0.802148 deltaE
+2017-11-30 21:31:46,773 Average neutral error = 0.366352 deltaE
+2017-11-30 21:31:46,776 Failed to meet target 0.900000 delta E, got worst case 0.118622
+2017-11-30 21:31:46,778 Number of measurements taken = 80
+2017-11-30 21:31:46,779 Computing update to calibration curves...
+2017-11-30 21:31:46,868 The instrument can be removed from the screen.
+2017-11-30 21:31:47,003 Written calibration file 'Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.cal'
+2017-11-30 21:31:47,108 DisplayCAL: Reached EOF (OK)
+2017-11-30 21:31:47,273 --------------------------------------------------------------------------------
+2017-11-30 21:31:47,275 Working directory:
+2017-11-30 21:31:47,276   c:\
+2017-11-30 21:31:47,276    users\
+2017-11-30 21:31:47,278     dariu\
+2017-11-30 21:31:47,278      appdata\
+2017-11-30 21:31:47,279       local\
+2017-11-30 21:31:47,279        temp\
+2017-11-30 21:31:47,279         DisplayCAL-oiiihc\
+2017-11-30 21:31:47,279 
+2017-11-30 21:31:47,279 Command line:
+2017-11-30 21:31:47,280   C:\Users\dariu\Downloads\Argyll_V2.0.0\bin\dispread.exe
+2017-11-30 21:31:47,282     -v
+2017-11-30 21:31:47,282     -d1
+2017-11-30 21:31:47,282     -c1
+2017-11-30 21:31:47,282     -yn
+2017-11-30 21:31:47,282     "-P0.499507874016,0.497159090909,1.62443845463"
+2017-11-30 21:31:47,283     -k
+2017-11-30 21:31:47,283     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.cal"
+2017-11-30 21:31:47,283     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX"
+2017-11-30 21:31:47,285 
+2017-11-30 21:31:47,898 DisplayCAL: Starting interaction with subprocess
+2017-11-30 21:31:47,903 Number of patches = 175
+2017-11-30 21:31:47,904 Setting up the instrument
+2017-11-30 21:31:48,848 Product Name:      i1Display3
+2017-11-30 21:31:48,849 Serial Number:     I1-16.B-02.262810.12
+2017-11-30 21:31:48,851 Firmware Version:  v2.28
+2017-11-30 21:31:48,851 Firmware Date:     29Jan14
+2017-11-30 21:31:49,125 Place instrument on test window.
+2017-11-30 21:31:49,128 DisplayCAL: Waiting for send buffer
+2017-11-30 21:31:50,632 DisplayCAL: Skipping place instrument on screen message...
+2017-11-30 21:31:50,641 DisplayCAL: Sending buffer: ' '
+2017-11-30 21:31:50,683 Hit Esc or Q to give up, any other key to continue:
+2017-11-30 21:31:53,282 Measured display update delay of 47 msec, using delay of 162 msec & 0 msec inst reaction
+2017-11-30 21:34:03,252 Patch 175 of 175
+2017-11-30 21:34:03,253 The instrument can be removed from the screen.
+2017-11-30 21:34:03,436 Written 'Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.ti3'
+2017-11-30 21:34:03,543 DisplayCAL: Reached EOF (OK)
+2017-11-30 21:34:03,865 -> Preparing ChromaticityType tag from TI3 colorants
+2017-11-30 21:34:03,877 -> Storing settings in TI3
+2017-11-30 21:34:04,045 Extracting neutrals from c:\users\dariu\appdata\local\temp\DisplayCAL-oiiihc\Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.ti3
+2017-11-30 21:34:04,079 R=G=B (>= 1% luminance) dE*00 avg 0.456379019041 peak 1.3305507341
+2017-11-30 21:34:04,107 Initial cLUT resolution 5x5x5
+2017-11-30 21:34:08,677 Final interpolated cLUT resolution 33x33x33
+2017-11-30 21:34:08,686 --------------------------------------------------------------------------------
+2017-11-30 21:34:08,686 Creating matrix from primaries
+2017-11-30 21:34:08,796 --------------------------------------------------------------------------------
+2017-11-30 21:34:08,798 Creating shaper tags in separate step
+2017-11-30 21:34:08,894 --------------------------------------------------------------------------------
+2017-11-30 21:34:08,895 Adding rTRC from forward A2B lookup to Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX
+2017-11-30 21:34:08,897 Adding gTRC from forward A2B lookup to Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX
+2017-11-30 21:34:08,898 Adding bTRC from forward A2B lookup to Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX
+2017-11-30 21:34:08,903 --------------------------------------------------------------------------------
+2017-11-30 21:34:08,903 Applying black point compensation to rTRC
+2017-11-30 21:34:08,904 Applying black point compensation to gTRC
+2017-11-30 21:34:08,904 Applying black point compensation to bTRC
+2017-11-30 21:34:08,986 Applying 0% black point correction to A2B0 table
+2017-11-30 21:34:10,437 100%
+2017-11-30 21:34:10,552 --------------------------------------------------------------------------------
+2017-11-30 21:34:10,553 Generating A2B1 by copying A2B0
+2017-11-30 21:34:10,555 Generating B2A1 table by inverting A2B1 table
+2017-11-30 21:34:10,555 
+2017-11-30 21:34:10,625 Black XYZ: 0.0010 0.0010 0.0008
+2017-11-30 21:34:10,625 White XYZ: 0.9642 1.0000 0.8249
+2017-11-30 21:34:10,627 R XYZ: 0.6010 0.3003 0.0055
+2017-11-30 21:34:10,627 G XYZ: 0.2112 0.6412 0.0605
+2017-11-30 21:34:10,628 B XYZ: 0.1490 0.0566 0.7592
+2017-11-30 21:34:10,628 Generating input curve PCS values...
+2017-11-30 21:34:10,645 Looking up input curve RGB values...
+2017-11-30 21:34:11,177 Setting curve entry #0 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,178 Setting curve entry #1 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,178 Setting curve entry #2 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,180 Setting curve entry #3 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,180 Setting curve entry #4 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,180 Setting curve entry #5 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,180 Setting curve entry #6 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,181 Setting curve entry #7 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,181 Setting curve entry #8 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,181 Setting curve entry #9 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,183 Setting curve entry #10 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,183 Setting curve entry #11 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,184 Setting curve entry #12 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,184 Setting curve entry #13 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,184 Setting curve entry #14 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,184 Setting curve entry #15 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,186 Setting curve entry #16 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,186 Setting curve entry #17 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,186 Setting curve entry #18 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,187 Setting curve entry #19 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,187 Setting curve entry #20 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,187 Setting curve entry #21 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,187 Setting curve entry #22 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,187 Setting curve entry #23 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,188 Setting curve entry #24 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,188 Setting curve entry #25 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,188 Setting curve entry #26 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,190 Setting curve entry #27 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,190 Setting curve entry #28 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,190 Setting curve entry #29 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,190 Setting curve entry #30 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,190 Setting curve entry #31 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,190 Setting curve entry #32 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,191 Setting curve entry #33 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,191 Setting curve entry #34 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,193 Setting curve entry #35 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,193 Setting curve entry #36 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,193 Setting curve entry #37 (0.000000 0.000000 0.000000) to black because it got clipped
+2017-11-30 21:34:11,194 Setting curve entry #4095 (1.000000 0.999993 1.000000) to white because it got clipped
+2017-11-30 21:34:11,196 Setting up matrix
+2017-11-30 21:34:11,197 Increasing saturation of actual primaries for PCS candidate to 103%...
+2017-11-30 21:34:11,197 R xy 0.662741 0.331168 -> 0.672252 0.330347
+2017-11-30 21:34:11,198 G xy 0.231327 0.702441 -> 0.227896 0.712758
+2017-11-30 21:34:11,200 B xy 0.154384 0.058704 -> 0.148644 0.049709
+2017-11-30 21:34:11,200 Checking for suitable PCS candidate...
+2017-11-30 21:34:11,201 PCS candidate based on actual primaries fit: 1.01 (area: 94.26%)
+2017-11-30 21:34:11,203 Using primaries: PCS candidate based on actual primaries
+2017-11-30 21:34:11,203 Using R XYZ: 0.6127 0.3011 -0.0024
+2017-11-30 21:34:11,203 Using G XYZ: 0.2081 0.6510 0.0542
+2017-11-30 21:34:11,204 Using B XYZ: 0.1433 0.0479 0.7731
+2017-11-30 21:34:11,204 R+G+B XYZ: 0.9642 1.0000 0.8249
+2017-11-30 21:34:11,206 Correction factors: 1.0000 1.0000 1.0000
+2017-11-30 21:34:11,207 Matrix 1:
+2017-11-30 21:34:11,207 [1.919343854584152, -0.587086443645387, -0.319487090489335]
+2017-11-30 21:34:11,207 [-0.8927849090957877, 1.817219627143226, 0.0528592340973846]
+2017-11-30 21:34:11,207 [0.06847677656550746, -0.12920929523763106, 1.2888640893116363]
+2017-11-30 21:34:11,209 Matrix 2:
+2017-11-30 21:34:11,210 [1.9193271989448353, -0.5870813490397332, -0.31948431805138283]
+2017-11-30 21:34:11,210 [-0.892787669963615, 1.8172252467534515, 0.052859397560450924]
+2017-11-30 21:34:11,210 [0.0684776332882739, -0.12921091179364344, 1.2888802144749916]
+2017-11-30 21:34:11,211 Matrix 3:
+2017-11-30 21:34:11,211 [1.999969482421875, 0, 0]
+2017-11-30 21:34:11,213 [0, 1.999969482421875, 0]
+2017-11-30 21:34:11,213 [0, 0, 1.999969482421875]
+2017-11-30 21:34:11,213 Final matrix:
+2017-11-30 21:34:11,214 [3.838595824671929, -1.1741447817785313, -0.6389588862151299]
+2017-11-30 21:34:11,214 [-1.7855480942097628, 3.6343950361934647, 0.10571718198010716]
+2017-11-30 21:34:11,216 [0.1369531768050241, -0.25841788038319163, 2.577721095447344]
+2017-11-30 21:34:11,217 Applying matrix to input curve XYZ values...
+2017-11-30 21:34:11,230 Generating input curves...
+2017-11-30 21:34:16,101 100%
+2017-11-30 21:34:16,104 Generating A2B1 table lookup input values...
+2017-11-30 21:34:16,105 cLUT grid res: 33
+2017-11-30 21:34:16,105 Looking up input values through A2B1 table (6 workers)...
+2017-11-30 21:34:16,105 Using CAM Jab for clipping
+2017-11-30 21:34:37,834 100%
+2017-11-30 21:34:37,835 Input black XYZ: 0.000970 0.001000 0.000818
+2017-11-30 21:34:37,835 Input white XYZ: 0.964200 1.000000 0.824900
+2017-11-30 21:34:37,871 Output black RGB: 0.0000 0.0000 0.0000
+2017-11-30 21:34:37,874 Output white RGB: 99.9998 100.0000 100.0000
+2017-11-30 21:34:37,924 Filling cLUT...
+2017-11-30 21:34:38,025 100%
+2017-11-30 21:34:38,171 Smoothing B2A1...
+2017-11-30 21:34:39,249 Generating B2A0 table by inverting A2B0 table
+2017-11-30 21:34:39,250 
+2017-11-30 21:34:39,321 Black XYZ: 0.0010 0.0010 0.0008
+2017-11-30 21:34:39,322 White XYZ: 0.9642 1.0000 0.8249
+2017-11-30 21:34:39,323 R XYZ: 0.6010 0.3003 0.0055
+2017-11-30 21:34:39,325 G XYZ: 0.2112 0.6412 0.0605
+2017-11-30 21:34:39,325 B XYZ: 0.1490 0.0566 0.7592
+2017-11-30 21:34:39,326 Generating input curve PCS values...
+2017-11-30 21:34:39,344 Applying BPC to input curve PCS values...
+2017-11-30 21:34:39,428 Looking up input curve RGB values...
+2017-11-30 21:34:39,778 Setting curve entry #4095 (1.000000 0.999993 1.000000) to white because it got clipped
+2017-11-30 21:34:39,779 Applying matrix to input curve XYZ values...
+2017-11-30 21:34:39,792 Generating input curves...
+2017-11-30 21:34:44,719 100%
+2017-11-30 21:34:45,219 --------------------------------------------------------------------------------
+2017-11-30 21:34:45,220 Working directory:
+2017-11-30 21:34:45,221   c:\
+2017-11-30 21:34:45,221    users\
+2017-11-30 21:34:45,223     dariu\
+2017-11-30 21:34:45,223      appdata\
+2017-11-30 21:34:45,223       local\
+2017-11-30 21:34:45,226        temp\
+2017-11-30 21:34:45,226         DisplayCAL-oiiihc\
+2017-11-30 21:34:45,226 
+2017-11-30 21:34:45,226 Command line:
+2017-11-30 21:34:45,226   C:\Users\dariu\Downloads\Argyll_V2.0.0\bin\profcheck.exe
+2017-11-30 21:34:45,227     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.ti3"
+2017-11-30 21:34:45,227     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.icm"
+2017-11-30 21:34:45,227 
+2017-11-30 21:34:45,459 Profile check complete, errors: max. = 0.631931, avg. = 0.082186, RMS = 0.164496
+2017-11-30 21:34:45,463 --------------------------------------------------------------------------------
+2017-11-30 21:34:45,463 Generating gamut views...
+2017-11-30 21:34:46,227 --------------------------------------------------------------------------------
+2017-11-30 21:34:46,233 Working directory:
+2017-11-30 21:34:46,236   c:\
+2017-11-30 21:34:46,237    users\
+2017-11-30 21:34:46,239     dariu\
+2017-11-30 21:34:46,240      appdata\
+2017-11-30 21:34:46,242       local\
+2017-11-30 21:34:46,242        temp\
+2017-11-30 21:34:46,243         DisplayCAL-oiiihc\
+2017-11-30 21:34:46,244 
+2017-11-30 21:34:46,246 Command line:
+2017-11-30 21:34:46,246   C:\Users\dariu\Downloads\Argyll_V2.0.0\bin\iccgamut.exe
+2017-11-30 21:34:46,250     -v
+2017-11-30 21:34:46,252     -w
+2017-11-30 21:34:46,253     -ir
+2017-11-30 21:34:46,255     -ff
+2017-11-30 21:34:46,256     -on
+2017-11-30 21:34:46,256     -d10.00
+2017-11-30 21:34:46,257     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.icm"
+2017-11-30 21:34:46,259 
+2017-11-30 21:34:47,176 Header:
+2017-11-30 21:34:47,176   size         = 715584 bytes
+2017-11-30 21:34:47,176   CMM          = 0x0
+2017-11-30 21:34:47,177   Version      = 2.4.0
+2017-11-30 21:34:47,177   Device Class = Display
+2017-11-30 21:34:47,177   Color Space  = RGB
+2017-11-30 21:34:47,177   Conn. Space  = XYZ
+2017-11-30 21:34:47,177   Date, Time   = 30 Nov 2017, 21:34:04
+2017-11-30 21:34:47,177   Platform     = Unrecognized - 0x0
+2017-11-30 21:34:47,177   Flags        = Not Embedded Profile, Use anywhere
+2017-11-30 21:34:47,177   Dev. Mnfctr. = 0x0
+2017-11-30 21:34:47,177   Dev. Model   = 0x0
+2017-11-30 21:34:47,177   Dev. Attrbts = Reflective, Glossy, Positive, Color
+2017-11-30 21:34:47,177   Rndrng Intnt = Perceptual
+2017-11-30 21:34:47,177   Illuminant   = 0.96420288, 1.00000000, 0.82490540    [Lab 100.000000, 0.000000, 0.000000]
+2017-11-30 21:34:47,177   Creator      = 0x0
+2017-11-30 21:34:47,177 
+2017-11-30 21:34:47,177 Total volume of gamut is 1277683.034833 cubic colorspace units
+2017-11-30 21:34:48,697 --------------------------------------------------------------------------------
+2017-11-30 21:34:48,698 Command line:
+2017-11-30 21:34:48,700   C:\Users\dariu\Downloads\Argyll_V2.0.0\bin\viewgam.exe
+2017-11-30 21:34:48,700     -cw
+2017-11-30 21:34:48,701     -t0
+2017-11-30 21:34:48,701     -w
+2017-11-30 21:34:48,703     "C:\Program Files (x86)\DisplayCAL\ref\sRGB.gam"
+2017-11-30 21:34:48,703     -cn
+2017-11-30 21:34:48,703     -t.3
+2017-11-30 21:34:48,704     -s
+2017-11-30 21:34:48,706     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.gam"
+2017-11-30 21:34:48,707     -i
+2017-11-30 21:34:48,707     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX vs sRGB.wrl"
+2017-11-30 21:34:48,707 
+2017-11-30 21:34:48,709 Intersecting volume = 832449.0 cubic units
+2017-11-30 21:34:48,709 'C:\Program Files (x86)\DisplayCAL\ref\sRGB.gam' volume = 833675.1 cubic units, intersect = 99.85%
+2017-11-30 21:34:48,709 'Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.gam' volume = 1277683.0 cubic units, intersect = 65.15%
+2017-11-30 21:34:49,302 --------------------------------------------------------------------------------
+2017-11-30 21:34:49,305 Command line:
+2017-11-30 21:34:49,305   C:\Users\dariu\Downloads\Argyll_V2.0.0\bin\viewgam.exe
+2017-11-30 21:34:49,306     -cw
+2017-11-30 21:34:49,306     -t0
+2017-11-30 21:34:49,306     -w
+2017-11-30 21:34:49,308     "C:\Program Files (x86)\DisplayCAL\ref\ClayRGB1998.gam"
+2017-11-30 21:34:49,308     -cn
+2017-11-30 21:34:49,309     -t.3
+2017-11-30 21:34:49,309     -s
+2017-11-30 21:34:49,309     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.gam"
+2017-11-30 21:34:49,311     -i
+2017-11-30 21:34:49,311     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX vs ClayRGB1998.wrl"
+2017-11-30 21:34:49,312 
+2017-11-30 21:34:49,312 Intersecting volume = 1201249.5 cubic units
+2017-11-30 21:34:49,312 'C:\Program Files (x86)\DisplayCAL\ref\ClayRGB1998.gam' volume = 1209985.9 cubic units, intersect = 99.28%
+2017-11-30 21:34:49,312 'Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.gam' volume = 1277683.0 cubic units, intersect = 94.02%
+2017-11-30 21:34:49,312 --------------------------------------------------------------------------------
+2017-11-30 21:34:49,313 Command line:
+2017-11-30 21:34:49,315   C:\Users\dariu\Downloads\Argyll_V2.0.0\bin\viewgam.exe
+2017-11-30 21:34:49,315     -cw
+2017-11-30 21:34:49,315     -t0
+2017-11-30 21:34:49,316     -w
+2017-11-30 21:34:49,316     "C:\Program Files (x86)\DisplayCAL\ref\SMPTE431_P3.gam"
+2017-11-30 21:34:49,318     -cn
+2017-11-30 21:34:49,318     -t.3
+2017-11-30 21:34:49,319     -s
+2017-11-30 21:34:49,319     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.gam"
+2017-11-30 21:34:49,319     -i
+2017-11-30 21:34:49,319     "Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX vs SMPTE431_P3.wrl"
+2017-11-30 21:34:49,321 
+2017-11-30 21:34:49,322 Intersecting volume = 1062740.2 cubic units
+2017-11-30 21:34:49,322 'C:\Program Files (x86)\DisplayCAL\ref\SMPTE431_P3.gam' volume = 1176953.5 cubic units, intersect = 90.30%
+2017-11-30 21:34:49,322 'Y2XND-LQ156D1 #1 2017-11-30 21-27 2.2 F-S XYZLUT+MTX.gam' volume = 1277683.0 cubic units, intersect = 83.18%
+2017-11-30 21:34:49,575 --------------------------------------------------------------------------------
