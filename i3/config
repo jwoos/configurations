@@ -117,9 +117,9 @@ bindsym $mod+bracketright split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
+bindsym $mod+q layout toggle split
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+Tab floating toggle
@@ -131,7 +131,7 @@ bindsym $mod+Ctrl+Tab move position center
 bindsym $mod+Tab focus mode_toggle
 
 # focus the parent container
-#bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 
 # move to scratchpad
 bindsym $mod+Shift+grave move scratchpad
