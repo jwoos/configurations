@@ -1,12 +1,13 @@
 [Unit]
 Description=User suspend actions
 Before=sleep.target
+Before=suspend.target
 
 [Service]
 User=%i
-Type=simple
+Type=forking
 Environment=DISPLAY=:0
-ExecStart=/usr/bin/i3lock --nofork \
+ExecStart=/usr/bin/i3lock \
 	--ignore-empty-password \
 	--image='/home/junwoo/gdrive/Graphics/Wallpapers/Computer/oI6nY95 [3840x2160].png' \
 	--keyhlcolor=3498DBFF \
@@ -26,3 +27,4 @@ ExecStart=/usr/bin/i3lock --nofork \
 
 [Install]
 WantedBy=sleep.target
+WantedBy=suspend.target
