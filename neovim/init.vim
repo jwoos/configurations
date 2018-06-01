@@ -227,8 +227,8 @@ vnoremap W b
 set splitbelow
 set splitright
 
-" hide status
-set laststatus=0
+" show status
+set laststatus=2
 
 " remap esc to control-c for ease of use
 inoremap <C-c> <ESC>
