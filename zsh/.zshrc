@@ -53,6 +53,9 @@ alias vim='nvim'
 alias vimdiff='nvim -d'
 alias n='nnn'
 
+# clobber files during redirection
+setopt clobber
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
