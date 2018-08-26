@@ -74,7 +74,16 @@ bindsym $mod+backslash exec i3lock --nofork \
 	--wrongtext=''
 
 # kill focused window
-bindsym $mod+q kill
+set $close "Close the window? (y/n)"
+
+mode $close {
+    bindsym y kill, mode default
+    bindsym Return kill, mode default
+
+    bindsym n mode default
+    bindsym Escape mode default
+}
+bindsym $mod+Shift+q mode $close
 
 # hide systray
 bindsym $mod+slash exec hideIt.sh --name '^polybar-top_eDP1$' --toggle
@@ -108,9 +117,9 @@ bindsym $mod+bracketright split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
+bindsym $mod+q layout toggle split
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+Tab floating toggle
@@ -122,7 +131,7 @@ bindsym $mod+Ctrl+Tab move position center
 bindsym $mod+Tab focus mode_toggle
 
 # focus the parent container
-#bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 
 # move to scratchpad
 bindsym $mod+Shift+grave move scratchpad
@@ -240,7 +249,7 @@ exec --no-startup-id $XDG_CONFIG_HOME/polybar/launch.sh
 exec --no-startup-id $XDG_CONFIG_HOME/hideit/launch.sh
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton --config $HOME/.config/compton.conf -b
-exec --no-startup-id xautolock -detectsleep -time 7 -killtime 15 -killer 'systemctl suspend' -locker "i3lock --nofork \
+exec --no-startup-id xautolock -detectsleep -time 7 -locker "i3lock --nofork \
 	--ignore-empty-password \
 	--image='/home/junwoo/gdrive/Graphics/Wallpapers/Computer/oI6nY95 [3840x2160].png' \
 	--keyhlcolor=3498DBFF \
@@ -253,7 +262,7 @@ exec --no-startup-id xautolock -detectsleep -time 7 -killtime 15 -killer 'system
 	--ringcolor=FFFFFFFF \
 	--ringvercolor=F1C40FFF \
 	--ringwrongcolor=E74C3CFF \
-	--indpos='x+100:y+2060' \
+	--indpos='x+50:y+1040' \
 	--radius=20 \
 	--veriftext='' \
 	--wrongtext=''"

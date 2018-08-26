@@ -1,12 +1,30 @@
 [Unit]
 Description=User suspend actions
 Before=sleep.target
+Before=suspend.target
 
 [Service]
 User=%i
-Type=simple
+Type=forking
 Environment=DISPLAY=:0
-ExecStart=i3lock -f -e -r 0 -s 8
+ExecStart=/usr/bin/i3lock \
+	--ignore-empty-password \
+	--image='/home/junwoo/gdrive/Graphics/Wallpapers/Computer/oI6nY95 [3840x2160].png' \
+	--keyhlcolor=3498DBFF \
+	--bshlcolor=95A5A6FF \
+	--insidecolor=00000000 \
+	--insidevercolor=00000000 \
+	--insidewrongcolor=00000000 \
+	--line-uses-inside \
+	--separatorcolor=00000000 \
+	--ringcolor=FFFFFFFF \
+	--ringvercolor=F1C40FFF \
+	--ringwrongcolor=E74C3CFF \
+	--indpos='x+50:y+1040' \
+	--radius=20 \
+	--veriftext='' \
+	--wrongtext=''
 
 [Install]
 WantedBy=sleep.target
+WantedBy=suspend.target
