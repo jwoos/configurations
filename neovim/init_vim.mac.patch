@@ -1,13 +1,13 @@
---- /Users/junwoo/.config/nvim/init.vim	2018-10-18 20:30:57.858295252 -0400
-+++ init.vim	2018-08-26 20:17:24.819840000 -0400
-@@ -93,8 +93,8 @@
+--- init.vim	2019-01-15 14:19:48.431289651 -0500
++++ init_mac.vim	2019-01-15 14:22:49.825253834 -0500
+@@ -106,8 +106,8 @@
  "                                                                     /____/
  
  " set python interpreter
--let g:python3_host_prog = '/usr/local/bin/python3'
--let g:python_host_prog = '/usr/local/bin/python2'
-+let g:python3_host_prog = '/usr/bin/python3'
-+let g:python_host_prog = '/usr/bin/python2'
+-let g:python3_host_prog = '/usr/bin/python3'
+-let g:python_host_prog = '/usr/bin/python2'
++let g:python3_host_prog = '/usr/local/bin/python3'
++let g:python_host_prog = '/usr/local/bin/python2'
  
  " set swap, backup and undo directory
  set directory=~/.vim/swap//

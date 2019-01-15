@@ -37,6 +37,7 @@
 " TODO find a better plugin for space indents
 " TODO separate settings into various files and source them here
 call plug#begin('~/.config/nvim/plugged')
+
 " Libraries
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
@@ -47,6 +48,18 @@ Plug 'easymotion/vim-easymotion'
 
 " completion
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+"js
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+"c/c++
+Plug 'Shougo/deoplete-clangx'
+"python
+Plug 'zchee/deoplete-jedi', { 'do': 'pip3 install jedi' }
+"go
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+"Plug 'autozimu/LanguageClient-neovim', {
+    "\ 'branch': 'next',
+    "\ 'do': 'bash install.sh',
+    "\ }
 
 " navigation
 Plug 'scrooloose/nerdtree'
@@ -304,6 +317,13 @@ nnoremap cQ :call SetupCR()<CR>#``qz
 
 vnoremap <expr> cq ":\<C-u>call SetupCR()\<CR>" . "gv" . g:mc . "``qz"
 vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '?', 'g') . "``qz"
+
+" DEOPLETE SOURCE CONFIG
+"c/c++
+call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+"go
+let g:deoplete#sources#go#gocode_binary = '~/.go/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 "=======================================================================================================
 "              __                     _                                          ____    _
