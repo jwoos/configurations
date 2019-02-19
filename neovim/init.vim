@@ -50,12 +50,16 @@ Plug 'easymotion/vim-easymotion'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 "js
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+"typescript
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+"docker
+Plug 'deoplete-plugins/deoplete-docker'
 "c/c++
 Plug 'Shougo/deoplete-clangx'
 "python
-Plug 'zchee/deoplete-jedi', { 'do': 'pip3 install jedi' }
+Plug 'deoplete-plugins/deoplete-jedi', { 'do': 'pip3 install jedi' }
 "go
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 "Plug 'autozimu/LanguageClient-neovim', {
     "\ 'branch': 'next',
     "\ 'do': 'bash install.sh',
