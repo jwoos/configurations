@@ -123,6 +123,9 @@ set undodir=~/.vim/undo//
 " true color mode
 set termguicolors
 
+"set height for echodoc
+set cmdheight=2
+
 " cursor shape
 "set guicursor=
 
