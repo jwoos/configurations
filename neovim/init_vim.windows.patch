@@ -10,7 +10,7 @@
  " Libraries
  "Plug 'MarcWeber/vim-addon-mw-utils'
  "Plug 'tomtom/tlib_vim'
-@@ -110,8 +110,8 @@
+@@ -112,8 +112,8 @@
  "                                                                     /____/
  
  " set python interpreter

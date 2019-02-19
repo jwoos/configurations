@@ -48,6 +48,8 @@ Plug 'easymotion/vim-easymotion'
 
 " completion
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+"echo document
+Plug 'Shougo/echodoc.vim'
 "js
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 "typescript
@@ -326,7 +328,7 @@ vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '
 "c/c++
 call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
 "go
-let g:deoplete#sources#go#gocode_binary = '~/.go/bin/gocode'
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 "=======================================================================================================
@@ -415,8 +417,10 @@ let g:delimitMate_expand_inside_quotes = 1
 " -------------------------- "
 " disable deoplete preview
 set completeopt-=preview
+set completeopt+=noinsert
+set completeopt+=noselect
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
+"let g:deoplete#enable_smart_case = 1
 
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
