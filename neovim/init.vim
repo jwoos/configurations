@@ -48,8 +48,6 @@ Plug 'easymotion/vim-easymotion'
 
 " completion
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-"echo document
-Plug 'Shougo/echodoc.vim'
 "js
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 "typescript
@@ -122,9 +120,6 @@ set undodir=~/.vim/undo//
 
 " true color mode
 set termguicolors
-
-"set height for echodoc
-set cmdheight=2
 
 " cursor shape
 "set guicursor=
@@ -420,6 +415,7 @@ let g:delimitMate_expand_inside_quotes = 1
 " -------------------------- "
 " disable deoplete preview
 set completeopt-=preview
+"set previewheight=2
 set completeopt+=noinsert
 set completeopt+=noselect
 let g:deoplete#enable_at_startup = 1
