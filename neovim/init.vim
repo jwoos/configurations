@@ -22,7 +22,7 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F4> <F5> <F6> <F7> <F8> <F9> <F10>
+" <F3> <F4> <F5> <F6> <F7> <F8> <F9> <F10>
 " <Leader>c <Leader>m
 " ,
 " Q
@@ -75,10 +75,12 @@ Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
 
 " utils
 Plug 'foosoft/vim-argwrap'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'nelstrom/vim-visual-star-search'
 
 " editing
 Plug 'raimondi/delimitmate'
@@ -110,8 +112,8 @@ call plug#end()
 "                                                                     /____/
 
 " set python interpreter
-let g:python3_host_prog = '/usr/bin/python3'
-let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python2'
 
 " set swap, backup and undo directory
 set directory=~/.vim/swap//
@@ -133,6 +135,8 @@ set background=dark
 let g:onedark_terminal_italics = 1
 "hi Normal ctermbg=None guibg=None
 "hi NonText ctermbg=None guibg=None
+
+set noshowmode
 
 " set line numbers
 set nonumber
@@ -291,9 +295,6 @@ set list lcs=tab:\|\
 nnoremap <F12> :te<CR>
 "tnoremap <F12> <C-d><CR>
 
-" echo current filename
-nnoremap <silent> <F2> :!echo %<CR>
-
 " set filetype correctly for c/c++
 au BufRead,BufNewFile *.hpp set filetype=cpp
 au BufRead,BufNewFile *.cpp set filetype=cpp
@@ -321,13 +322,6 @@ nnoremap cQ :call SetupCR()<CR>#``qz
 
 vnoremap <expr> cq ":\<C-u>call SetupCR()\<CR>" . "gv" . g:mc . "``qz"
 vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '?', 'g') . "``qz"
-
-" DEOPLETE SOURCE CONFIG
-"c/c++
-call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
-"go
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 "=======================================================================================================
 "              __                     _                                          ____    _
@@ -430,6 +424,13 @@ inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
 nnoremap <F11> :call deoplete#toggle()<CR>
 
+" DEOPLETE SOURCE CONFIG
+"c/c++
+call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
+"go
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
 " -------------------------- "
 " |        SURROUND        | "
 " -------------------------- "
@@ -444,7 +445,7 @@ nmap <leader>q <Plug>(RegEditPostfix)
 " -------------------------- "
 " |          ARGWRAP       | "
 " -------------------------- "
-nnoremap <F3> :ArgWrap<CR>
+nnoremap <F2> :ArgWrap<CR>
 
 " -------------------------- "
 " |       INDENTLINE       | "
@@ -457,6 +458,13 @@ let g:indentLine_setConceal = 1
 " |         TAGBAR         | "
 " -------------------------- "
 nnoremap <Leader>b :TagbarToggle<CR>
+
+" ----------------------------- "
+" |         LIGHTLINE         | "
+" ----------------------------- "
+let g:lightline = {
+			\ 'colorscheme': 'one',
+			\}
 
 "=============================================================
 "                                              __
