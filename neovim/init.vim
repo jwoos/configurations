@@ -73,9 +73,9 @@ Plug 'majutsushi/tagbar'
 " visual
 Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
+Plug 'mhinz/vim-signify'
 
 " utils
 Plug 'foosoft/vim-argwrap'
