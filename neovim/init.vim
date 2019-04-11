@@ -273,10 +273,10 @@ set ignorecase
 set smartcase
 
 " folding
-set foldmethod=indent
+set foldmethod=manual
 set foldnestmax=10
 set nofoldenable
-set foldlevel=1
+set foldlevel=2
 
 " use ` by default instead of '
 nnoremap ' `
