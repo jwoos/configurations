@@ -464,7 +464,11 @@ nnoremap <Leader>b :TagbarToggle<CR>
 " ----------------------------- "
 let g:lightline = {
 			\ 'colorscheme': 'one',
-			\}
+			\ 'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\             [ 'readonly', 'relativepath', 'modified'] ]
+			\ },
+			\ }
 
 "=============================================================
 "                                              __
