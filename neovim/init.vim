@@ -67,7 +67,6 @@ Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 
 " navigation
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
 
 " visual
@@ -85,7 +84,6 @@ Plug 'nelstrom/vim-visual-star-search'
 " editing
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf'
