@@ -19,14 +19,11 @@ export TERM=xterm-256color
 
 export SAVEHIST=50000
 
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/install-nvm-exec
-
 export GOPATH="${HOME}/.go"
 
-export PATH="${PATH}:${HOME}/.gem/ruby/2.5.0/bin"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="${PATH}:/home/junwoo/bin"
+export PATH="${PATH}:/home/junwoo/.cargo/bin"
 
 export EDITOR='nvim'
 export VISUAL='nvim'
