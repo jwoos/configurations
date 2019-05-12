@@ -22,7 +22,7 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F3> <F4> <F5> <F6> <F7> <F8> <F9> <F10>
+" <F4> <F5> <F6> <F7> <F8> <F9> <F10>
 " <Leader>c <Leader>m
 " ,
 " Q
@@ -48,22 +48,7 @@ Plug 'easymotion/vim-easymotion'
 
 " completion
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-"js
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-"typescript
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-"docker
-Plug 'deoplete-plugins/deoplete-docker'
-"c/c++
-Plug 'Shougo/deoplete-clangx'
-"python
-Plug 'deoplete-plugins/deoplete-jedi', { 'do': 'pip3 install jedi' }
-"go
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-"Plug 'autozimu/LanguageClient-neovim', {
-    "\ 'branch': 'next',
-    "\ 'do': 'bash install.sh',
-    "\ }
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 
 " navigation
 Plug 'scrooloose/nerdtree'
@@ -84,7 +69,7 @@ Plug 'nelstrom/vim-visual-star-search'
 " editing
 Plug 'raimondi/delimitmate'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -369,6 +354,7 @@ let NERDTreeIgnore = ['\.pyc$', '\.o$', '__pycache__$[[dir]]']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 nnoremap <C-\> :NERDTreeToggle<CR>
+nnoremap <F3> :NERDTreeFind<CR>
 
 " -------------------------- "
 " |       EASYMOTION       | "
@@ -378,14 +364,14 @@ map <Leader>W <Plug>(easymotion-b)
 map <Leader>E <Plug>(easymotion-ge)
 
 " vim-sneak mapping
-nmap s <Plug>(easymotion-fl2)
-nmap S <Plug>(easymotion-Fl2)
-nmap <Leader>s <Plug>(easymotion-fn)
-nmap <Leader>S <Plug>(easymotion-Fn)
-vmap s <Plug>(easymotion-fl2)
-vmap S <Plug>(easymotion-Fl2)
-vmap <Leader>s <Plug>(easymotion-fn)
-vmap <Leader>S <Plug>(easymotion-Fn)
+"nmap s <Plug>(easymotion-fl2)
+"nmap S <Plug>(easymotion-Fl2)
+"nmap <Leader>s <Plug>(easymotion-fn)
+"nmap <Leader>S <Plug>(easymotion-Fn)
+"vmap s <Plug>(easymotion-fl2)
+"vmap S <Plug>(easymotion-Fl2)
+"vmap <Leader>s <Plug>(easymotion-fn)
+"vmap <Leader>S <Plug>(easymotion-Fn)
 
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
@@ -413,6 +399,8 @@ set completeopt+=noselect
 let g:deoplete#enable_at_startup = 1
 "let g:deoplete#enable_smart_case = 1
 
+set completefunc=LanguageClient#complete
+
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 " use shift tab to backward cycle
@@ -422,12 +410,22 @@ inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
 nnoremap <F11> :call deoplete#toggle()<CR>
 
-" DEOPLETE SOURCE CONFIG
-"c/c++
-call deoplete#custom#var('clangx', 'clang_binary', '/usr/local/bin/clang')
-"go
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+" ----------------------------- "
+" |       LANGUAGECLIENT      | "
+" ----------------------------- "
+" disable linting
+let g:LanguageClient_diagnosticsEnable = 0
+
+let g:LanguageClient_serverCommands = {
+			\ 'sh': ['bash-language-server', 'start'],
+			\ 'c': ['cquery', '--init={"cacheDirectory": "/Users/junwoo/.vim/plugcache/cquery"}'],
+			\ 'cpp': ['cquery', '--init={"cacheDirectory": "/Users/junwoo/.vim/plugcache/cquery"}'],
+			\ 'go': ['gopls'],
+			\ 'javascript': ['javascript-typescript-stdio'],
+			\ 'python': ['pyls'],
+			\ 'rust': ['rustup', 'run', 'stable', 'rls'],
+			\ 'typescript': ['javascript-typescript-stdio'],
+			\ }
 
 " -------------------------- "
 " |        SURROUND        | "
