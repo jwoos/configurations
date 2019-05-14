@@ -109,8 +109,8 @@ set termguicolors
 " cursor shape
 "set guicursor=
 
-" disable mouse
-set mouse=
+" enable mouse
+set mouse=a
 
 " colorscheme
 colorscheme onedark
@@ -427,6 +427,8 @@ let g:LanguageClient_serverCommands = {
 			\ 'typescript': ['javascript-typescript-stdio'],
 			\ }
 
+nnoremap <F4> :call LanguageClient_contextMenu()
+
 " -------------------------- "
 " |        SURROUND        | "
 " -------------------------- "
@@ -475,37 +477,18 @@ let g:lightline = {
 "=============================================================
 
 " Plugins of interest
-"Plug 'kshenoy/vim-signature'
-"Plug 'osyo-manga/vim-hopping'
-"Plug 'zchee/deoplete-clang'
-"Plug 'zchee/deoplete-go'
-"Plug 'carlitux/deoplete-ternjs'
-"Plug 'mhartington/nvim-typescript'
-"Plug 'poppyschmo/deoplete-latex'
-"Plug 'zchee/deoplete-jedi'
-"Plug 'Shougo/neco-vim'
-"Plug 'junegunn/vim-slash'
-"Plug 'PeterRincker/vim-argumentative'
-"Plug 'thinca/vim-visualstar'
 "Plug 'tpope/vim-fugitive'
 "Plug 'tpope/vim-eunuch'
-"Plug 'ap/vim-css-color'
-"Plug 'dhruvasagar/vim-table-mode'
-"Plug 'garbas/vim-snipmate'
-"Plug 'ludovicchabant/vim-gutentags'
 "Plug 'matze/vim-move'
 "Plug 'metakirby5/codi.vim'
 "Plug 'mileszs/ack.vim'
 "Plug 'tommcdo/vim-exchange'
 "Plug 'xolox/vim-session'
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
-"Plug 'autozimu/LanguageClient-neovim', {'do': ':UpdateRemotePlugins'}
 "Plug 'benekastah/neomake'
-"Plug 'majutsushi/tagbar'
 "Plug 'sjl/gundo.vim'
 "Plug 'wesq3/vim-windowswap'
 "Plug 'nathanaelkane/vim-indent-guides'
+"Plug 'liuchengxu/vista.vim'
 
 " -------------------------- "
 " |      INDENT GUIDES     | "
@@ -514,12 +497,6 @@ let g:lightline = {
 "let g:indent_guides_guide_size = 1
 "hi IndentGuidesOdd  ctermbg=black
 "hi IndentGuidesEven ctermbg=darkgrey
-
-" -------------------------------- "
-" |       DEOPLETE-CLANG         | "
-" -------------------------------- "
-"let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-"let g:deoplete#sources#clang#clang_header = '/lib/clang/'
 
 " -------------------------- "
 " |        NEOMAKE         | "
@@ -568,20 +545,6 @@ let g:lightline = {
 "nnoremap <silent> <Leader>v] :BufExplorerHorizontalSplit<CR>
 "nnoremap <silent> <Leader>v[ :BufExplorerVerticalSplit<CR>
 
-" -------------------------- "
-" |     argumentative      | "
-" -------------------------- "
-"nmap [m <Plug>Argumentative_Prev
-"nmap ]m <Plug>Argumentative_Next
-"xmap [m <Plug>Argumentative_XPrev
-"xmap ]m <Plug>Argumentative_XNext
-"nmap <m <Plug>Argumentative_MoveLeft
-"nmap >m <Plug>Argumentative_MoveRight
-"xmap im <Plug>Argumentative_InnerTextObject
-"xmap am <Plug>Argumentative_OuterTextObject
-"omap im <Plug>Argumentative_OpPendingInnerTextObject
-"omap am <Plug>Argumentative_OpPendingOuterTextObject
-
 
 " -------------------------- "
 " |        TABLEMODE       | "
@@ -593,36 +556,3 @@ let g:lightline = {
 "let g:able_mode_eval_expr_map = '<Leader>tfe'
 
 "nnoremap <F3> :TableModeToggle<CR>
-
-" -------------------------- "
-" |         GUTENTAG       | "
-" -------------------------- "
-"set statusline+=%{gutentags#statusline('[CtagsGenerating...]')}
-"let g:gutentags_project_root = ['.roottags', '.subtags']
-"let g:gutentags_tagfile = 'tags'
-"let g:gutentags_exclude = ['.disabletags']
-"let g:gutentags_cache_dir = '~/.tags/'
-
-" -------------------------- "
-" |          ctrlp         | "
-" -------------------------- "
-"directories and files to ignore
-"let g:ctrlp_custom_ignore = {
-			"\ 'dir': '\.git$\|\.tmp$\|bower_components$\|node_modules$',
-			"\ 'file': '\.swo$\|\.swp$\|\.pyc$'
-			"\ }
-
-"max number of files listed
-"let g:ctrlp_max_files = 10000
-
-" -------------------------- "
-" |     VIMHOPPING       | "
-" -------------------------- "
-"nnoremap <A-p> :HoppingStart<CR>
-
-"let g:hopping#keymapping = {
-"\   '\<tab>' : '<Over>(hopping-next)',
-"\   '\<S-tab>' : '<Over>(hopping-prev)',
-"\   '\<C-k>' : '<Over>(scroll-u)',
-"\   '\<C-j>' : '<Over>(scroll-d)',
-"\}
