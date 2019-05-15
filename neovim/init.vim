@@ -139,6 +139,7 @@ set updatetime=250
 
 " unmap keys
 nnoremap <C-]> <nop>
+noremap <C-t> <nop>
 noremap <C-n> <nop>
 noremap <Up> <nop>
 noremap <Down> <nop>
@@ -306,6 +307,13 @@ nnoremap cQ :call SetupCR()<CR>#``qz
 vnoremap <expr> cq ":\<C-u>call SetupCR()\<CR>" . "gv" . g:mc . "``qz"
 vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '?', 'g') . "``qz"
 
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 "=======================================================================================================
 "              __                     _                                          ____    _
 "     ____    / /  __  __   ____ _   (_)   ____          _____  ____    ____    / __/   (_)   ____ _
@@ -325,10 +333,10 @@ inoremap <F1> :StripWhitespace<CR>
 " |          FZF           | "
 " -------------------------- "
 nnoremap <C-p> :Files<CR>
-nnoremap <A-\> :Buffers<CR>
-nnoremap <A-p> :BLines<CR>
-nnoremap b :Rg 
-nnoremap B :Marks<CR>
+nnoremap <A-p> :Buffers<CR>
+nnoremap <Leader>/ :BLines<CR>
+nnoremap <Leader>? :Rg 
+nnoremap <A-m> :Marks<CR>
 
 command! -bang -nargs=* Rg
 			\ call fzf#vim#grep(
@@ -427,13 +435,12 @@ let g:LanguageClient_serverCommands = {
 			\ 'typescript': ['javascript-typescript-stdio'],
 			\ }
 
-nnoremap <F4> :call LanguageClient_contextMenu()
+nnoremap <Leader>b :call LanguageClient_contextMenu()<CR>
+nnoremap b :call LanguageClient_textDocument_hover()<CR>
+nnoremap B :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <C-b> :call LanguageClient_textDocument_typeDefinition()<CR>
+nnoremap <A-b> :call LanguageClient_textDocument_implementation()<CR>
 
-" -------------------------- "
-" |        SURROUND        | "
-" -------------------------- "
-" make surround $ work
-let g:surround_36 = "$\r$"
 
 " -------------------------- "
 " |         REGEDIT        | "
@@ -455,7 +462,7 @@ let g:indentLine_setConceal = 1
 " -------------------------- "
 " |         TAGBAR         | "
 " -------------------------- "
-nnoremap <Leader>b :TagbarToggle<CR>
+nnoremap <A-\> :TagbarToggle<CR>
 
 " ----------------------------- "
 " |         LIGHTLINE         | "
@@ -477,7 +484,6 @@ let g:lightline = {
 "=============================================================
 
 " Plugins of interest
-"Plug 'tpope/vim-fugitive'
 "Plug 'tpope/vim-eunuch'
 "Plug 'matze/vim-move'
 "Plug 'metakirby5/codi.vim'
