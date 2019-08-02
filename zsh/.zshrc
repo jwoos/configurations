@@ -5,6 +5,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 	source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+export CLICOLOR=1
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
