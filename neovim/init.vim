@@ -51,13 +51,16 @@ Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 
 " navigation
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
+Plug 'justinmk/vim-dirvish'
 Plug 'majutsushi/tagbar'
+
+" syntax
+Plug 'sheerun/vim-polyglot'
 
 " visual
 Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 
@@ -68,7 +71,7 @@ Plug 'nelstrom/vim-visual-star-search'
 
 " editing
 Plug 'raimondi/delimitmate'
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 Plug 'machakann/vim-sandwich'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf'
@@ -126,9 +129,9 @@ set nonumber
 
 " don't expand tabs
 set noet
-set tabstop=4
+set tabstop=2
 set softtabstop=0
-set shiftwidth=4
+set shiftwidth=2
 
 " set key combination timeouts
 set timeout
@@ -428,11 +431,11 @@ let g:LanguageClient_serverCommands = {
 			\ 'sh': ['bash-language-server', 'start'],
 			\ 'c': ['cquery', '--init={"cacheDirectory": "/Users/junwoo/.vim/plugcache/cquery"}'],
 			\ 'cpp': ['cquery', '--init={"cacheDirectory": "/Users/junwoo/.vim/plugcache/cquery"}'],
-			\ 'go': ['gopls'],
-			\ 'javascript': ['javascript-typescript-stdio'],
+			\ 'go': ['/Users/junwoo/.go/bin/gopls'],
+			\ 'javascript': ['typescript-language-server', '--stdio'],
 			\ 'python': ['pyls'],
 			\ 'rust': ['rustup', 'run', 'stable', 'rls'],
-			\ 'typescript': ['javascript-typescript-stdio'],
+			\ 'typescript': ['typescript-language-server', '--stdio'],
 			\ }
 
 nnoremap <Leader>b :call LanguageClient_contextMenu()<CR>
