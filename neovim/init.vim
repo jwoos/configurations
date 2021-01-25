@@ -22,7 +22,7 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F4> <F5> <F6> <F7> <F8> <F9> <F10>
+" <F2> <F4> <F5> <F6> <F7> <F8> <F9> <F10>
 " <Leader>c <Leader>m
 " ,
 " Q
@@ -51,8 +51,9 @@ Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 
 " navigation
-Plug 'preservim/nerdtree'
-Plug 'justinmk/vim-dirvish'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+"Plug 'preservim/nerdtree'
+"Plug 'justinmk/vim-dirvish'
 Plug 'majutsushi/tagbar'
 
 " syntax
@@ -77,6 +78,7 @@ Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'frioux/vim-regedit'
+Plug 'junegunn/vim-easy-align'
 
 " Color Schemes
 Plug 'Haron-Prime/evening_vim'
@@ -88,6 +90,7 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'rhysd/vim-color-spring-night'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'zcodes/vim-colors-basic'
+
 call plug#end()
 
 "            _                                              ____    _
@@ -326,11 +329,19 @@ endfunction
 " /_/                    /____/                                                            /____/
 "=======================================================================================================
 
-" ------------------------- "
+" -------------------------- "
 " |   BETTER WHITESPACE    | "
 " -------------------------- "
 nnoremap <F1> :StripWhitespace<CR>
-inoremap <F1> :StripWhitespace<CR>
+
+" -------------------------- "
+" |       EASY ALIGN       | "
+" -------------------------- "
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " -------------------------- "
 " |          FZF           | "
@@ -354,18 +365,29 @@ let g:fzf_action = {
   \ }
 
 " -------------------------- "
+" |       CHADTREE         | "
+" -------------------------- "
+let g:chadtree_settings = {
+			\ "theme.icon_glyph_set": "ascii",
+			\ "view.width": 30,
+			\ "keymap.v_split": ["<a-[>"],
+			\ "keymap.h_split": ["<a-]>"],
+			\ }
+nnoremap <C-\> <cmd>CHADopen<CR>
+
+" -------------------------- "
 " |       NERDTREE         | "
 " -------------------------- "
 "autocmd vimenter * NERDTree
 
-let NERDTreeIgnore = ['\.pyc$', '\.o$', '__pycache__$[[dir]]']
+"let NERDTreeIgnore = ['\.pyc$', '\.o$', '__pycache__$[[dir]]']
 
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-nnoremap <C-\> :NERDTreeToggle<CR>
-nnoremap <F3> :NERDTreeFind<CR>
+"nnoremap <C-\> :NERDTreeToggle<CR>
+"nnoremap <F3> :NERDTreeFind<CR>
 
 " -------------------------- "
 " |       EASYMOTION       | "
