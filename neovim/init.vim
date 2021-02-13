@@ -125,9 +125,12 @@ set termguicolors
 set mouse=a
 
 " colorscheme
-colorscheme onebuddy
 set background=dark
-let g:onedark_terminal_italics = 1
+colorscheme onebuddy
+" override the SignColumn highlight
+lua Group.new('SignColumn', c.none, c.none, no)
+
+" let g:onedark_terminal_italics = 1
 "hi Normal ctermbg=None guibg=None
 "hi NonText ctermbg=None guibg=None
 
