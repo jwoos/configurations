@@ -51,9 +51,7 @@ Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 
 " navigation
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
-"Plug 'preservim/nerdtree'
-"Plug 'justinmk/vim-dirvish'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'majutsushi/tagbar'
 
 " syntax
@@ -72,7 +70,7 @@ Plug 'nelstrom/vim-visual-star-search'
 
 " editing
 Plug 'raimondi/delimitmate'
-Plug 'preservim/nerdcommenter'
+Plug 'b3nj5m1n/kommentary'
 Plug 'machakann/vim-sandwich'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf'
@@ -365,29 +363,42 @@ let g:fzf_action = {
   \ }
 
 " -------------------------- "
-" |       CHADTREE         | "
+" |      NVIM-TREE         | "
 " -------------------------- "
-let g:chadtree_settings = {
-			\ "theme.icon_glyph_set": "ascii",
-			\ "view.width": 30,
-			\ "keymap.v_split": ["<a-[>"],
-			\ "keymap.h_split": ["<a-]>"],
-			\ }
-nnoremap <C-\> <cmd>CHADopen<CR>
+let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
+let g:nvim_tree_auto_open = 0
+let g:nvim_tree_auto_close = 1
+let g:nvim_tree_follow = 0
+let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_hide_dotfiles = 1
+let g:nvim_tree_show_icons = {
+    \ 'git': 0,
+    \ 'folders': 0,
+    \ 'files': 0,
+    \ }
+let g:nvim_tree_bindings = {
+    \ 'edit':            ['<CR>', 'o'],
+    \ 'edit_split':      '<C-s>',
+    \ 'edit_vsplit':     '<C-v>',
+    \ 'edit_tab':        '<C-t>',
+    \ 'close_node':      ['<S-CR>', '<BS>'],
+    \ 'toggle_ignored':  'I',
+    \ 'toggle_dotfiles': 'H',
+    \ 'refresh':         '<C-r>',
+    \ 'preview':         '<Tab>',
+    \ 'create':          'c',
+    \ 'remove':          'd',
+    \ 'rename':          'r',
+    \ 'cut':             'x',
+    \ 'copy':            'y',
+    \ 'paste':           'p',
+    \ 'cd':              '+',
+    \ 'dir_up':          '-',
+    \ }
+" let nvim_tree_disable_keybindings=1
 
-" -------------------------- "
-" |       NERDTREE         | "
-" -------------------------- "
-"autocmd vimenter * NERDTree
-
-"let NERDTreeIgnore = ['\.pyc$', '\.o$', '__pycache__$[[dir]]']
-
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-"nnoremap <C-\> :NERDTreeToggle<CR>
-"nnoremap <F3> :NERDTreeFind<CR>
+nnoremap <C-\> :NvimTreeToggle<CR>
+nnoremap <F3> :NvimTreeFindFile<CR>
 
 " -------------------------- "
 " |       EASYMOTION       | "
@@ -439,8 +450,6 @@ inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 " use shift tab to backward cycle
 inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 
-" show snippets with short names
-call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
 nnoremap <F11> :call deoplete#toggle()<CR>
 
 " ----------------------------- "
@@ -499,91 +508,3 @@ let g:lightline = {
 			\             [ 'readonly', 'relativepath', 'modified'] ]
 			\ },
 			\ }
-
-"=============================================================
-"                                              __
-"   __  __   ____   __  __   _____  ___   ____/ /
-"  / / / /  / __ \ / / / /  / ___/ / _ \ / __  /
-" / /_/ /  / / / // /_/ /  (__  ) /  __// /_/ /
-" \__,_/  /_/ /_/ \__,_/  /____/  \___/ \__,_/
-"=============================================================
-
-" Plugins of interest
-"Plug 'tpope/vim-eunuch'
-"Plug 'matze/vim-move'
-"Plug 'metakirby5/codi.vim'
-"Plug 'mileszs/ack.vim'
-"Plug 'tommcdo/vim-exchange'
-"Plug 'xolox/vim-session'
-"Plug 'benekastah/neomake'
-"Plug 'sjl/gundo.vim'
-"Plug 'wesq3/vim-windowswap'
-"Plug 'nathanaelkane/vim-indent-guides'
-"Plug 'liuchengxu/vista.vim'
-
-" -------------------------- "
-" |      INDENT GUIDES     | "
-" -------------------------- "
-"let g:indent_guides_enable_on_vim_startup = 1
-"let g:indent_guides_guide_size = 1
-"hi IndentGuidesOdd  ctermbg=black
-"hi IndentGuidesEven ctermbg=darkgrey
-
-" -------------------------- "
-" |        NEOMAKE         | "
-" -------------------------- "
-"noremap <F10> :Neomake<CR>
-"autocmd! BufWritePost * Neomake
-"let g:neomake_open_list = 2
-"let g:neomake_list_height = 10
-
-"let g:neomake_cpp_gcc_maker = {
-	"\ 'exe': 'g++-6',
-	"\ 'args': ['-std=c++14', '-g', '-I.', '-O0', 'Wall']
-	"\ }
-
-" -------------------------- "
-" |         GUNDO          | "
-" -------------------------- "
-"let g:gundo_close_on_revert = 0
-"let g:gundo_help = 0
-"let g:gundo_right = 1
-"let g:gundo_return_on_revert = 0
-"nnoremap <F10> :GundoToggle<CR>
-
-"let g:neomake_javascript_enabled_makers = ['eslint']
-"let g:neomake_cpp_enabled_makers = ['gcc']
-"let g:neomake_python_enabled_makers = ['flake8']
-
-" -------------------------- "
-" |      WINDOWSWAP        | "
-" -------------------------- "
-"let g:windowswap_map_keys = 0
-"nnoremap <F8> :call WindowSwap#EasyWindowSwap()<CR>
-
-" -------------------------- "
-" |        UTILSNIPS       | "
-" -------------------------- "
-"let g:UltiSnipsExpandTrigger = '<C-x>'
-"let g:UltiSnipsJumpForwardTrigger = '<C-s>'
-"let g:UltiSnipsJumpBackwardTrigger = '<C-a>'
-
-" ------------------------- "
-" |      BUFEXPLORER      | "
-" ------------------------- "
-"let g:bufExplorerDisableDefaultKeyMapping = 1
-"nnoremap <silent> <Leader>vv :BufExplorer<CR>
-"nnoremap <silent> <Leader>v] :BufExplorerHorizontalSplit<CR>
-"nnoremap <silent> <Leader>v[ :BufExplorerVerticalSplit<CR>
-
-
-" -------------------------- "
-" |        TABLEMODE       | "
-" -------------------------- "
-"let g:table_mode_corner = '|'
-"let g:table_mode_resize_map = '<Leader>oo'
-"let g:table_mode_tableize_op_map = '<Leader>O'
-"let g:table_mode_add_formula_map = '<Leader>ofa'
-"let g:able_mode_eval_expr_map = '<Leader>tfe'
-
-"nnoremap <F3> :TableModeToggle<CR>
