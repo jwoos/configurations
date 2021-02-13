@@ -47,15 +47,12 @@ Plug 'tpope/vim-repeat'
 Plug 'easymotion/vim-easymotion'
 
 " completion
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
 
 " navigation
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'majutsushi/tagbar'
-
-" syntax
-Plug 'sheerun/vim-polyglot'
 
 " visual
 Plug 'gregsexton/matchtag'
@@ -78,6 +75,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'frioux/vim-regedit'
 Plug 'junegunn/vim-easy-align'
 
+" syntax
+" Plug 'sheerun/vim-polyglot'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " Color Schemes
 Plug 'Haron-Prime/evening_vim'
 Plug 'KeitaNakamura/neodark.vim'
@@ -88,6 +90,12 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'rhysd/vim-color-spring-night'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'zcodes/vim-colors-basic'
+
+" Treesitter
+" Utility
+Plug 'tjdevries/colorbuddy.vim'
+
+Plug 'Th3Whit3Wolf/onebuddy'
 
 call plug#end()
 
@@ -117,7 +125,7 @@ set termguicolors
 set mouse=a
 
 " colorscheme
-colorscheme onedark
+colorscheme onebuddy
 set background=dark
 let g:onedark_terminal_italics = 1
 "hi Normal ctermbg=None guibg=None
@@ -327,6 +335,78 @@ endfunction
 " /_/                    /____/                                                            /____/
 "=======================================================================================================
 
+" ----------------------------- "
+" |          LSPCONFIG        | "
+" -----------------------------"
+lua << EOF
+	local lspconfig = require'lspconfig'
+
+	local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+  buf_set_keymap('n', 'bb', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', '<C-b>', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<A-b>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', 'bh', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', 'bn', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', 'br', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  -- buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  -- buf_set_keymap('n', 'br', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+
+  -- Set some keybinds conditional on server capabilities
+  if client.resolved_capabilities.document_formatting then
+    buf_set_keymap("n", 'bf', "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  elseif client.resolved_capabilities.document_range_formatting then
+    buf_set_keymap("n", 'bf', "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+  end
+
+  -- Set autocommands conditional on server_capabilities
+  -- if client.resolved_capabilities.document_highlight then
+  --   vim.api.nvim_exec([[
+  --     hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+  --     hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+  --     hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+  --     augroup lsp_document_highlight
+  --       autocmd! * <buffer>
+  --       autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+  --       autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+  --     augroup END
+  --   ]], false)
+  -- end
+end
+
+	local servers = {
+		-- bash
+		"bashls",
+		-- js/ts
+		"tsserver",
+		-- python
+		"pyls",
+		-- c/c++
+		"ccls",
+		-- go
+		"gopls",
+		-- rust
+		"rust_analyzer",
+	}
+	for _, lsp in ipairs(servers) do
+		lspconfig[lsp].setup { on_attach = on_attach }
+	end
+
+EOF
+
 " -------------------------- "
 " |   BETTER WHITESPACE    | "
 " -------------------------- "
@@ -433,47 +513,81 @@ let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_inside_quotes = 1
 
 " -------------------------- "
-" |       DEOPLETE         | "
+" |      nvim-compe        | "
 " -------------------------- "
-" disable deoplete preview
-set completeopt-=preview
-"set previewheight=2
-set completeopt+=noinsert
-set completeopt+=noselect
-let g:deoplete#enable_at_startup = 1
-"let g:deoplete#enable_smart_case = 1
+set completeopt=menuone,noselect
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
 
-set completefunc=LanguageClient#complete
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.vsnip = v:false
+let g:compe.source.spell = v:false
+let g:compe.source.tags = v:false
+let g:compe.source.treesitter = v:false
+let g:compe.source.snippets_nvim = v:false
 
-" use tab to forward cycle
-inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
-" use shift tab to backward cycle
-inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm({ 'keys': "\<Plug>delimitMateCR", 'mode': '' })
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
-nnoremap <F11> :call deoplete#toggle()<CR>
+lua << EOF
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
 
-" ----------------------------- "
-" |       LANGUAGECLIENT      | "
-" ----------------------------- "
-" disable linting
-let g:LanguageClient_diagnosticsEnable = 0
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
 
-let g:LanguageClient_serverCommands = {
-			\ 'sh': ['bash-language-server', 'start'],
-			\ 'c': ['cquery', '--init={"cacheDirectory": "/Users/junwoo/.vim/plugcache/cquery"}'],
-			\ 'cpp': ['cquery', '--init={"cacheDirectory": "/Users/junwoo/.vim/plugcache/cquery"}'],
-			\ 'go': ['/Users/junwoo/.go/bin/gopls'],
-			\ 'javascript': ['typescript-language-server', '--stdio'],
-			\ 'python': ['pyls'],
-			\ 'rust': ['rustup', 'run', 'stable', 'rls'],
-			\ 'typescript': ['typescript-language-server', '--stdio'],
-			\ }
+-- Use (s-)tab to:
+--- move to prev/next item in completion menuone
+--- jump to prev/next snippet's placeholder
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-p>"
+  else
+    return t "<S-Tab>"
+  end
+end
 
-nnoremap <Leader>b :call LanguageClient_contextMenu()<CR>
-nnoremap b :call LanguageClient_textDocument_hover()<CR>
-nnoremap B :call LanguageClient_textDocument_documentSymbol()<CR>
-nnoremap <C-b> :call LanguageClient_textDocument_typeDefinition()<CR>
-nnoremap <A-b> :call LanguageClient_textDocument_implementation()<CR>
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+EOF
+
 
 
 " -------------------------- "
