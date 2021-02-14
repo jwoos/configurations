@@ -360,6 +360,12 @@ lua << EOF
 local lspsaga = require 'lspsaga'
 
 lspsaga.init_lsp_saga {
+	max_diag_msg_width = 100,
+	use_saga_diagnostic_sign = false,
+	error_header = "Error",
+	warn_header = "Warn",
+	hint_header = "Hint",
+	infor_header = "Info",
 	code_action_keys = {
 		quit = '<esc>',
 		exec = '<CR>'
@@ -372,7 +378,10 @@ lspsaga.init_lsp_saga {
 		scroll_up = '<C-b>',
 		scroll_down = '<C-f>'
 	},
-	max_diag_msg_width = 100,
+	finder_definition_icon = '',
+	finder_reference_icon = '',
+	definition_preview_icon = '',
+	max_finder_preview_lines = 25
 }
 
 local opts = { noremap=true, silent=true }
