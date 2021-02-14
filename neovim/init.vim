@@ -46,8 +46,11 @@ Plug 'tpope/vim-repeat'
 " movement
 Plug 'easymotion/vim-easymotion'
 
-" completion
+" lsp
 Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+
+" completion
 Plug 'hrsh7th/nvim-compe'
 
 " navigation
@@ -350,6 +353,38 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+" ----------------------------- "
+" |          LSPSAGA          | "
+" -----------------------------"
+lua << EOF
+local lspsaga = require 'lspsaga'
+
+lspsaga.init_lsp_saga {
+	code_action_keys = {
+		quit = '<esc>',
+		exec = '<CR>'
+	},
+	finder_action_keys = {
+		quit = '<esc>',
+		open = '<CR>',
+		vsplit = '<c-v>',
+		split = '<c-s>',
+		scroll_up = '<C-b>',
+		scroll_down = '<C-f>'
+	},
+	max_diag_msg_width = 100,
+}
+
+local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', 'bb', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
+vim.api.nvim_set_keymap('n', 'bv', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", opts)
+vim.api.nvim_set_keymap('n', 'bn', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>b', "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", opts)
+vim.api.nvim_set_keymap('n', 'bg', "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opts)
+vim.api.nvim_set_keymap('n', '[d', "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", opts)
+vim.api.nvim_set_keymap('n', ']d', "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", opts)
+
+EOF
 
 " ----------------------------- "
 " |          LSPCONFIG        | "
@@ -378,28 +413,23 @@ vim.lsp.callbacks["textDocument/publishDiagnostics"] = vim.lsp.with(
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
+	-- everything commented out is using lspsaga
   local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'bb', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  -- buf_set_keymap('n', 'bb', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', '<C-b>', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', '<A-b>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', 'bn', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', 'br', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'bt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<leader>b', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  -- buf_set_keymap('n', 'bn', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  -- buf_set_keymap('n', 'br', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  -- buf_set_keymap('n', '<leader>b', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '<leader>B', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  -- buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  -- buf_set_keymap('n', 'br', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
     buf_set_keymap("n", 'bf', "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", 'bf', "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+    buf_set_keymap("n", 'bF', "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
 
   -- Set autocommands conditional on server_capabilities
@@ -429,11 +459,17 @@ end
 		-- go
 		"gopls",
 		-- rust
-		"rust_analyzer",
+		-- "rust_analyzer",
+		"rls",
 	}
 
 	for _, lsp in ipairs(servers) do
-		lspconfig[lsp].setup { on_attach = on_attach }
+		lspconfig[lsp].setup {
+			on_attach = on_attach,
+			root_dir = function(fname)
+				return vim.fn.getcwd()
+			end
+		}
 	end
 
 EOF
@@ -458,7 +494,7 @@ nmap ga <Plug>(EasyAlign)
 nnoremap <C-p> :Files<CR>
 nnoremap <A-p> :Buffers<CR>
 nnoremap <Leader>/ :BLines<CR>
-nnoremap <Leader>? :Rg 
+nnoremap <Leader>? :Rg
 nnoremap <A-m> :Marks<CR>
 
 command! -bang -nargs=* Rg
