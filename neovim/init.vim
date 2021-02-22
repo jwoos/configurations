@@ -388,6 +388,7 @@ lspsaga.init_lsp_saga {
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', 'bb', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
 vim.api.nvim_set_keymap('n', 'bt', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
+vim.api.nvim_set_keymap('n', 'br', "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
 vim.api.nvim_set_keymap('n', 'bv', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", opts)
 vim.api.nvim_set_keymap('n', 'bn', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
 vim.api.nvim_set_keymap('n', '<leader>b', "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", opts)
