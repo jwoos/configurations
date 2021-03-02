@@ -96,9 +96,11 @@ Plug 'zcodes/vim-colors-basic'
 
 " Treesitter
 " Utility
-Plug 'tjdevries/colorbuddy.vim'
 
-Plug 'Th3Whit3Wolf/onebuddy'
+Plug 'Th3Whit3Wolf/one-nvim'
+Plug 'mhartington/oceanic-next'
+Plug 'glepnir/zephyr-nvim'
+Plug 'yonlu/omni.vim'
 
 call plug#end()
 
@@ -129,9 +131,9 @@ set mouse=a
 
 " colorscheme
 set background=dark
-colorscheme onebuddy
+colorscheme zephyr
 " override the SignColumn highlight
-lua Group.new('SignColumn', c.none, c.none, no)
+" lua Group.new('SignColumn', c.none, c.none, no)
 
 " let g:onedark_terminal_italics = 1
 "hi Normal ctermbg=None guibg=None
