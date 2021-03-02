@@ -535,25 +535,45 @@ let g:nvim_tree_show_icons = {
     \ 'folders': 0,
     \ 'files': 0,
     \ }
-let g:nvim_tree_bindings = {
-    \ 'edit':            ['<CR>', 'o'],
-    \ 'edit_split':      '<C-s>',
-    \ 'edit_vsplit':     '<C-v>',
-    \ 'edit_tab':        '<C-t>',
-    \ 'close_node':      ['<S-CR>', '<BS>'],
-    \ 'toggle_ignored':  'I',
-    \ 'toggle_dotfiles': 'H',
-    \ 'refresh':         '<C-r>',
-    \ 'preview':         '<Tab>',
-    \ 'create':          'c',
-    \ 'remove':          'd',
-    \ 'rename':          'r',
-    \ 'cut':             'x',
-    \ 'copy':            'y',
-    \ 'paste':           'p',
-    \ 'cd':              '+',
-    \ 'dir_up':          '-',
-    \ }
+
+lua <<EOF
+
+local function get_lua_cb(cb_name)
+  return string.format(":lua require'nvim-tree'.on_keypress('%s')<CR>", cb_name)
+end
+
+vim.g.nvim_tree_bindings = {
+    ["<CR>"]           = get_lua_cb("edit"),
+    ["o"]              = get_lua_cb("edit"),
+    ["<2-LeftMouse>"]  = "",
+    ["<2-RightMouse>"] = "",
+    ["<C-]>"]          = "",
+    ["<C-v>"]          = get_lua_cb("vsplit"),
+    ["<C-s>"]          = get_lua_cb("split"),
+    ["<C-x>"]          = "",
+    ["<C-t>"]          = get_lua_cb("tabnew"),
+    ["<BS>"]           = "",
+    ["<S-CR>"]         = get_lua_cb("close_node"),
+    ["<Tab>"]          = get_lua_cb("preview"),
+    ["I"]              = get_lua_cb("toggle_ignored"),
+    ["H"]              = get_lua_cb("toggle_dotfiles"),
+    ["R"]              = "",
+    ["<c-r>"]          = get_lua_cb("refresh"),
+    ["a"]              = "",
+    ["c"]              = get_lua_cb("create"),
+    ["d"]              = get_lua_cb("remove"),
+    ["r"]              = get_lua_cb("rename"),
+    ["x"]              = get_lua_cb("cut"),
+    ["r"]              = get_lua_cb("copy"),
+    ["p"]              = get_lua_cb("paste"),
+    ["[c"]             = "",
+    ["]c"]             = "",
+    ["-"]              = "",
+    ["<"]              = get_lua_cb("dir_up"),
+    [">"]              = get_lua_cb("cd"),
+    ["q"]              = get_lua_cb("close"),
+  }
+EOF
 " let nvim_tree_disable_keybindings=1
 
 nnoremap <C-\> :NvimTreeToggle<CR>
