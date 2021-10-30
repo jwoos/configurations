@@ -469,22 +469,26 @@ local configs = require'lspconfig/configs'
 		-- js/ts
 		"tsserver",
 		-- python
-		"pyls",
+		"pylsp",
 		-- c/c++
-		"ccls",
+		"clangd",
+		-- css
+		"cssls",
 		-- go
 		"gopls",
 		-- rust
-		-- "rust_analyzer",
-		"rls",
+		"rust_analyzer",
 	}
-	
+
 	for _, lsp in ipairs(servers) do
                 lspconfig[lsp].setup {
                         on_attach = on_attach,
                         root_dir = function(fname)
                                 return vim.fn.getcwd()
-                        end
+                        end,
+												flags = {
+													debounce_text_changes = 100,
+													}
                 }
         end
 
