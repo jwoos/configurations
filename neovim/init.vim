@@ -404,30 +404,30 @@ EOF
 " |          LSPCONFIG        | "
 " -----------------------------"
 lua << EOF
-	local lspconfig = require'lspconfig'
+        local lspconfig = require'lspconfig'
 
-	-- disable inline diagnostics
-vim.lsp.callbacks["textDocument/publishDiagnostics"] = vim.lsp.with(
-	vim.lsp.diagnostic.on_publish_diagnostics, {
-	-- disable virtual text
-	virtual_text = false,
+        -- disable inline diagnostics
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+        -- disable virtual text
+        virtual_text = false,
 
-	-- show signs
-	signs = true,
+        -- show signs
+        signs = true,
 
-	-- delay update diagnostics
-	update_in_insert = false,
-	}
+        -- delay update diagnostics
+        update_in_insert = false,
+        }
 )
 
-	local on_attach = function(client, bufnr)
+        local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-	-- everything commented out is using lspsaga
+        -- everything commented out is using lspsaga
   local opts = { noremap=true, silent=true }
   -- buf_set_keymap('n', 'bb', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', '<C-b>', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -461,6 +461,8 @@ vim.lsp.callbacks["textDocument/publishDiagnostics"] = vim.lsp.with(
   -- end
 end
 
+local configs = require'lspconfig/configs'
+
 	local servers = {
 		-- bash
 		"bashls",
@@ -476,15 +478,15 @@ end
 		-- "rust_analyzer",
 		"rls",
 	}
-
+	
 	for _, lsp in ipairs(servers) do
-		lspconfig[lsp].setup {
-			on_attach = on_attach,
-			root_dir = function(fname)
-				return vim.fn.getcwd()
-			end
-		}
-	end
+                lspconfig[lsp].setup {
+                        on_attach = on_attach,
+                        root_dir = function(fname)
+                                return vim.fn.getcwd()
+                        end
+                }
+        end
 
 EOF
 
