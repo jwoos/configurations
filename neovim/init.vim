@@ -330,8 +330,8 @@ vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
+	echo "@".getcmdline()
+	execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
 "=======================================================================================================
@@ -347,11 +347,11 @@ endfunction
 " -----------------------------"
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-	ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	highlight = {
-		enable = true,
-		disable = {'rust'}
-	},
+ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+highlight = {
+enable = true,
+disable = {'rust'}
+},
 }
 EOF
 
@@ -362,30 +362,30 @@ lua << EOF
 local lspsaga = require 'lspsaga'
 
 lspsaga.init_lsp_saga {
-        use_saga_diagnostic_sign = false,
-        error_sign = "",
-        warn_sign = "",
-        hint_sign = "",
-        infor_sign = "",
-  dianostic_header_icon = "",
-        finder_definition_icon = '',
-        finder_reference_icon = '',
-        definition_preview_icon = '',
-  code_action_icon = "",
-        code_action_keys = {
-                quit = '<esc>',
-                exec = '<CR>'
-        },
-        finder_action_keys = {
-                quit = '<esc>',
-                open = '<CR>',
-                vsplit = '<c-v>',
-                split = '<c-s>',
-                scroll_up = '<C-b>',
-                scroll_down = '<C-f>'
-        },
-        max_preview_lines = 25
-}
+	use_saga_diagnostic_sign = false,
+	error_sign = "",
+	warn_sign = "",
+	hint_sign = "",
+	infor_sign = "",
+	dianostic_header_icon = "",
+	finder_definition_icon = '',
+	finder_reference_icon = '',
+	definition_preview_icon = '',
+	code_action_icon = "",
+	code_action_keys = {
+		quit = '<esc>',
+		exec = '<CR>'
+		},
+	finder_action_keys = {
+		quit = '<esc>',
+		open = '<CR>',
+		vsplit = '<c-v>',
+		split = '<c-s>',
+		scroll_up = '<C-b>',
+		scroll_down = '<C-f>'
+		},
+	max_preview_lines = 25
+	}
 
 local opts = { noremap=true, silent=true }
 vim.api.nvim_set_keymap('n', 'bb', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
@@ -404,93 +404,93 @@ EOF
 " |          LSPCONFIG        | "
 " -----------------------------"
 lua << EOF
-        local lspconfig = require'lspconfig'
+local lspconfig = require'lspconfig'
 
-        -- disable inline diagnostics
+-- disable inline diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-        -- disable virtual text
-        virtual_text = false,
+vim.lsp.diagnostic.on_publish_diagnostics, {
+	-- disable virtual text
+	virtual_text = false,
 
-        -- show signs
-        signs = true,
+	-- show signs
+	signs = true,
 
-        -- delay update diagnostics
-        update_in_insert = false,
-        }
+	-- delay update diagnostics
+	update_in_insert = false,
+	}
 )
 
-        local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+local on_attach = function(client, bufnr)
+local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings.
-        -- everything commented out is using lspsaga
-  local opts = { noremap=true, silent=true }
-  -- buf_set_keymap('n', 'bb', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<C-b>', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', '<A-b>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- buf_set_keymap('n', 'bn', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  -- buf_set_keymap('n', 'br', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  -- buf_set_keymap('n', '<leader>b', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '<leader>B', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+-- Mappings.
+-- everything commented out is using lspsaga
+local opts = { noremap=true, silent=true }
+-- buf_set_keymap('n', 'bb', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+buf_set_keymap('n', '<C-b>', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+buf_set_keymap('n', '<A-b>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+-- buf_set_keymap('n', 'bn', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+-- buf_set_keymap('n', 'br', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+-- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+-- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+-- buf_set_keymap('n', '<leader>b', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+buf_set_keymap('n', '<leader>B', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
-  -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", 'bf', "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", 'bF', "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-  end
+-- Set some keybinds conditional on server capabilities
+if client.resolved_capabilities.document_formatting then
+	buf_set_keymap("n", 'bf', "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+elseif client.resolved_capabilities.document_range_formatting then
+	buf_set_keymap("n", 'bF', "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+end
 
-  -- Set autocommands conditional on server_capabilities
-  -- if client.resolved_capabilities.document_highlight then
-  --   vim.api.nvim_exec([[
-  --     hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-  --     hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-  --     hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-  --     augroup lsp_document_highlight
-  --       autocmd! * <buffer>
-  --       autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-  --       autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-  --     augroup END
-  --   ]], false)
-  -- end
+-- Set autocommands conditional on server_capabilities
+-- if client.resolved_capabilities.document_highlight then
+--   vim.api.nvim_exec([[
+--     hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+--     hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+--     hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+--     augroup lsp_document_highlight
+--       autocmd! * <buffer>
+--       autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+--       autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+--     augroup END
+--   ]], false)
+-- end
 end
 
 local configs = require'lspconfig/configs'
 
-	local servers = {
-		-- bash
-		"bashls",
-		-- js/ts
-		"tsserver",
-		-- python
-		"pylsp",
-		-- c/c++
-		"clangd",
-		-- css
-		"cssls",
-		-- go
-		"gopls",
-		-- rust
-		"rust_analyzer",
-	}
+local servers = {
+	-- bash
+	"bashls",
+	-- js/ts
+	"tsserver",
+	-- python
+	"pylsp",
+	-- c/c++
+	"clangd",
+	-- css
+	"cssls",
+	-- go
+	"gopls",
+	-- rust
+	"rust_analyzer",
+}
 
-	for _, lsp in ipairs(servers) do
-                lspconfig[lsp].setup {
-                        on_attach = on_attach,
-                        root_dir = function(fname)
-                                return vim.fn.getcwd()
-                        end,
-												flags = {
-													debounce_text_changes = 100,
-													}
-                }
-        end
+for _, lsp in ipairs(servers) do
+	lspconfig[lsp].setup {
+		on_attach = on_attach,
+		root_dir = function(fname)
+		return vim.fn.getcwd()
+	end,
+	flags = {
+		debounce_text_changes = 100,
+		}
+	}
+end
 
 EOF
 
@@ -525,9 +525,9 @@ command! -bang -nargs=* Rg
 			\   <bang>0)
 
 let g:fzf_action = {
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit'
-  \ }
+			\ 'ctrl-s': 'split',
+			\ 'ctrl-v': 'vsplit'
+			\ }
 
 " -------------------------- "
 " |      NVIM-TREE         | "
@@ -537,10 +537,10 @@ let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_hide_dotfiles = 1
 let g:nvim_tree_special_files = [ 'TARGETS', 'BUCK' ]
 let g:nvim_tree_show_icons = {
-    \ 'git': 0,
-    \ 'folders': 0,
-    \ 'files': 0,
-    \ }
+			\ 'git': 0,
+			\ 'folders': 0,
+			\ 'files': 0,
+			\ }
 
 let g:nvim_tree_disable_default_keybindings = 1
 
@@ -549,38 +549,38 @@ lua <<EOF
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 require'nvim-tree'.setup {
-  open_on_setup = false,
-  auto_close = true,
-  update_focused_file = {
-    enable = false,
-  },
-  view = {
-    mappings = {
-      custom_only = true,
-      list = {
-        {key = "<CR>", cb = tree_cb("edit")},
-        {key = "o", cb = tree_cb("edit")},
-        {key = "<C-v>", cb = tree_cb("vsplit")},
-        {key = "<C-s>", cb = tree_cb("split")},
-        {key = "<C-t>", cb = tree_cb("tabnew")},
-        {key = "<S-CR>", cb = tree_cb("close_node")},
-        {key = "<Tab>", cb = tree_cb("preview")},
-        {key = "I", cb = tree_cb("toggle_ignored")},
-        {key = "H", cb = tree_cb("toggle_dotfiles")},
-        {key = "<C-r>", cb = tree_cb("refresh")},
-        {key = "c", cb = tree_cb("create")},
-        {key = "d", cb = tree_cb("remove")},
-        {key = "r", cb = tree_cb("rename")},
-        {key = "R", cb = tree_cb("full_rename")},
-        {key = "x", cb = tree_cb("cut")},
-        {key = "y", cb = tree_cb("copy")},
-        {key = "p", cb = tree_cb("paste")},
-        {key = "<", cb  = tree_cb("dir_up")},
-        {key = ">", cb  = tree_cb("cd")},
-        {key = "q", cb  = tree_cb("close")},
-      }
-    }
-  }
+	open_on_setup = false,
+	auto_close = true,
+	update_focused_file = {
+	enable = false,
+	},
+view = {
+	mappings = {
+		custom_only = true,
+		list = {
+			{key = "<CR>", cb = tree_cb("edit")},
+			{key = "o", cb = tree_cb("edit")},
+			{key = "<C-v>", cb = tree_cb("vsplit")},
+			{key = "<C-s>", cb = tree_cb("split")},
+			{key = "<C-t>", cb = tree_cb("tabnew")},
+			{key = "<S-CR>", cb = tree_cb("close_node")},
+			{key = "<Tab>", cb = tree_cb("preview")},
+			{key = "I", cb = tree_cb("toggle_ignored")},
+			{key = "H", cb = tree_cb("toggle_dotfiles")},
+			{key = "<C-r>", cb = tree_cb("refresh")},
+			{key = "c", cb = tree_cb("create")},
+			{key = "d", cb = tree_cb("remove")},
+			{key = "r", cb = tree_cb("rename")},
+			{key = "R", cb = tree_cb("full_rename")},
+			{key = "x", cb = tree_cb("cut")},
+			{key = "y", cb = tree_cb("copy")},
+			{key = "p", cb = tree_cb("paste")},
+			{key = "<", cb  = tree_cb("dir_up")},
+			{key = ">", cb  = tree_cb("cd")},
+			{key = "q", cb  = tree_cb("close")},
+			}
+		}
+	}
 }
 EOF
 
@@ -655,38 +655,38 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
-lua << EOF
+lua <<EOF
 local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
+return vim.api.nvim_replace_termcodes(str, true, true, true)
+		end
 
-local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
-end
+		local check_back_space = function()
+		local col = vim.fn.col('.') - 1
+		if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+			return true
+		else
+			return false
+		end
+	end
 
--- Use (s-)tab to:
---- move to prev/next item in completion menuone
---- jump to prev/next snippet's placeholder
-_G.tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-n>"
-  elseif check_back_space() then
-    return t "<Tab>"
-  else
-    return vim.fn['compe#complete']()
-  end
+	-- Use (s-)tab to:
+	--- move to prev/next item in completion menuone
+	--- jump to prev/next snippet's placeholder
+	_G.tab_complete = function()
+	if vim.fn.pumvisible() == 1 then
+		return t "<C-n>"
+	elseif check_back_space() then
+		return t "<Tab>"
+	else
+		return vim.fn['compe#complete']()
+	end
 end
 _G.s_tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-p>"
-  else
-    return t "<S-Tab>"
-  end
+if vim.fn.pumvisible() == 1 then
+	return t "<C-p>"
+else
+	return t "<S-Tab>"
+end
 end
 
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
@@ -723,7 +723,7 @@ nnoremap <A-\> :TagbarToggle<CR>
 let g:lightline = {
 			\ 'colorscheme': 'one',
 			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'readonly', 'relativepath', 'modified'] ]
-			\ },
-			\ }
+				\   'left': [ [ 'mode', 'paste' ],
+				\             [ 'readonly', 'relativepath', 'modified'] ]
+				\ },
+				\ }
