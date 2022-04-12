@@ -532,6 +532,10 @@ let g:fzf_action = {
 " -------------------------- "
 " |      NVIM-TREE         | "
 " -------------------------- "
+
+" auto close
+autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache', '.hg']
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_hide_dotfiles = 1
