@@ -42,6 +42,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
+Plug 'anuvyklack/hydra.nvim'
 
 " movement
 Plug 'easymotion/vim-easymotion'
@@ -55,7 +56,7 @@ Plug 'hrsh7th/nvim-compe'
 
 " navigation
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar' " replace with simrat39/symbols-outline.nvim
 
 " visual
 Plug 'gregsexton/matchtag'
@@ -67,6 +68,7 @@ Plug 'mhinz/vim-signify'
 Plug 'foosoft/vim-argwrap'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'nacro90/numb.nvim'
 
 " editing
 Plug 'raimondi/delimitmate'
@@ -77,6 +79,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'frioux/vim-regedit'
 Plug 'junegunn/vim-easy-align'
+Plug 'zegervdv/nrpattern.nvim'
 
 " syntax
 " Plug 'sheerun/vim-polyglot'
@@ -732,3 +735,13 @@ let g:lightline = {
 				\             [ 'readonly', 'relativepath', 'modified'] ]
 				\ },
 				\ }
+
+" ----------------------------- "
+" |         NRPATTERN         | "
+" ----------------------------- "
+lua require("nrpattern").setup()
+
+" ------------------------ "
+" |         numb         | "
+" ------------------------ "
+lua require('numb').setup()
