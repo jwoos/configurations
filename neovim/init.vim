@@ -347,11 +347,11 @@ endfunction
 " -----------------------------"
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-highlight = {
-enable = true,
-disable = {'rust'}
-},
+	ensure_installed = 'all',
+	highlight = {
+		enable = true,
+		disable = {'rust'}
+	},
 }
 EOF
 
@@ -362,16 +362,9 @@ lua << EOF
 local lspsaga = require 'lspsaga'
 
 lspsaga.init_lsp_saga {
-	use_saga_diagnostic_sign = false,
-	error_sign = "",
-	warn_sign = "",
-	hint_sign = "",
-	infor_sign = "",
-	dianostic_header_icon = "",
-	finder_definition_icon = '',
-	finder_reference_icon = '',
+	show_diagnostic_source = false,
 	definition_preview_icon = '',
-	code_action_icon = "",
+	code_action_icon = '',
 	code_action_keys = {
 		quit = '<esc>',
 		exec = '<CR>'
@@ -485,11 +478,11 @@ for _, lsp in ipairs(servers) do
 		on_attach = on_attach,
 		root_dir = function(fname)
 		return vim.fn.getcwd()
-	end,
-	flags = {
-		debounce_text_changes = 100,
+		end,
+		flags = {
+			debounce_text_changes = 100,
+			}
 		}
-	}
 end
 
 EOF
@@ -532,56 +525,64 @@ let g:fzf_action = {
 " -------------------------- "
 " |      NVIM-TREE         | "
 " -------------------------- "
-
-" auto close
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-
-let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache', '.hg']
-let g:nvim_tree_indent_markers = 1
-let g:nvim_tree_hide_dotfiles = 1
-let g:nvim_tree_special_files = [ 'TARGETS', 'BUCK' ]
-let g:nvim_tree_show_icons = {
-			\ 'git': 0,
-			\ 'folders': 0,
-			\ 'files': 0,
-			\ }
-
-let g:nvim_tree_disable_default_keybindings = 1
-
 
 lua <<EOF
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 require'nvim-tree'.setup {
-	open_on_setup = false,
-	auto_close = true,
-	update_focused_file = {
-	enable = false,
+	renderer = {
+		indent_markers = {
+			enable = true,
+		},
+		icons = {
+			show = {
+				folder = false,
+				file = false,
+				folder_arrow = false,
+				git = false,
+			}
+		},
+		special_files = {"TARGETS", "BUCK"},
 	},
-view = {
-	mappings = {
-		custom_only = true,
-		list = {
-			{key = "<CR>", cb = tree_cb("edit")},
-			{key = "o", cb = tree_cb("edit")},
-			{key = "<C-v>", cb = tree_cb("vsplit")},
-			{key = "<C-s>", cb = tree_cb("split")},
-			{key = "<C-t>", cb = tree_cb("tabnew")},
-			{key = "<S-CR>", cb = tree_cb("close_node")},
-			{key = "<Tab>", cb = tree_cb("preview")},
-			{key = "I", cb = tree_cb("toggle_ignored")},
-			{key = "H", cb = tree_cb("toggle_dotfiles")},
-			{key = "<C-r>", cb = tree_cb("refresh")},
-			{key = "c", cb = tree_cb("create")},
-			{key = "d", cb = tree_cb("remove")},
-			{key = "r", cb = tree_cb("rename")},
-			{key = "R", cb = tree_cb("full_rename")},
-			{key = "x", cb = tree_cb("cut")},
-			{key = "y", cb = tree_cb("copy")},
-			{key = "p", cb = tree_cb("paste")},
-			{key = "<", cb  = tree_cb("dir_up")},
-			{key = ">", cb  = tree_cb("cd")},
-			{key = "q", cb  = tree_cb("close")},
+	filters = {
+		dotfiles = true,
+		custom = {},
+		exclude = {},
+	},
+	git = {
+		enable = false,
+		ignore = false,
+		timeout = 400,
+	},
+	open_on_setup = false,
+	update_focused_file = {
+		enable = false,
+	},
+	view = {
+		mappings = {
+			custom_only = true,
+			list = {
+				{key = "<CR>", cb = tree_cb("edit")},
+				{key = "o", cb = tree_cb("edit")},
+				{key = "<C-v>", cb = tree_cb("vsplit")},
+				{key = "<C-s>", cb = tree_cb("split")},
+				{key = "<C-t>", cb = tree_cb("tabnew")},
+				{key = "<S-CR>", cb = tree_cb("close_node")},
+				{key = "<Tab>", cb = tree_cb("preview")},
+				{key = "I", cb = tree_cb("toggle_ignored")},
+				{key = "H", cb = tree_cb("toggle_dotfiles")},
+				{key = "<C-r>", cb = tree_cb("refresh")},
+				{key = "c", cb = tree_cb("create")},
+				{key = "d", cb = tree_cb("remove")},
+				{key = "r", cb = tree_cb("rename")},
+				{key = "R", cb = tree_cb("full_rename")},
+				{key = "x", cb = tree_cb("cut")},
+				{key = "y", cb = tree_cb("copy")},
+				{key = "p", cb = tree_cb("paste")},
+				{key = "<", cb  = tree_cb("dir_up")},
+				{key = ">", cb  = tree_cb("cd")},
+				{key = "q", cb  = tree_cb("close")},
 			}
 		}
 	}
