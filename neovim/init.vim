@@ -365,8 +365,6 @@ lua << EOF
 local lspsaga = require 'lspsaga'
 
 lspsaga.init_lsp_saga {
-	show_diagnostic_source = false,
-	definition_preview_icon = '',
 	code_action_icon = '',
 	code_action_keys = {
 		quit = '<esc>',
@@ -474,6 +472,8 @@ local servers = {
 	"gopls",
 	-- rust
 	"rust_analyzer",
+	-- java
+	"jdtls",
 }
 
 for _, lsp in ipairs(servers) do
