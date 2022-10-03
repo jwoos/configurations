@@ -369,7 +369,7 @@ lspsaga.init_lsp_saga {
 		show_file = false,
 	},
 	diagnostic_header = {'E', 'W', 'I', 'H'},
-	code_action_icon = '💡',
+	code_action_icon = '',
 	code_action_keys = {
 		quit = '<esc>',
 		exec = '<CR>'
