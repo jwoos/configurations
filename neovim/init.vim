@@ -56,7 +56,6 @@ Plug 'hrsh7th/nvim-compe'
 
 " navigation
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'majutsushi/tagbar' " replace with simrat39/symbols-outline.nvim
 
 " visual
 Plug 'gregsexton/matchtag'
@@ -365,32 +364,59 @@ lua << EOF
 local lspsaga = require 'lspsaga'
 
 lspsaga.init_lsp_saga {
-	code_action_icon = '',
+	symbol_in_winbar = {
+		separator = '#',
+		show_file = false,
+	},
+	diagnostic_header = {'E', 'W', 'I', 'H'},
+	code_action_icon = '💡',
 	code_action_keys = {
 		quit = '<esc>',
 		exec = '<CR>'
-		},
+	},
+	finder_action_keys = {
+		open = "<CR>",
+		vsplit = "<c-v>",
+		split = "<c-s>",
+		quit = "<esc>",
+	},
+	definition_action_keys = {
+		edit = '<CR>',
+		vsplit = '<c-v>',
+		split = '<c-s>',
+		quit = '<esc>',
+	},
+	rename_action_quit = "<esc>",
 	finder_action_keys = {
 		quit = '<esc>',
 		open = '<CR>',
 		vsplit = '<c-v>',
 		split = '<c-s>',
-		scroll_up = '<C-b>',
-		scroll_down = '<C-f>'
-		},
-	max_preview_lines = 25
+		scroll_up = '<C-k>',
+		scroll_down = '<C-j>'
+	},
+	max_preview_lines = 25,
+	finder_icons = {
+		def = '[def] ',
+		ref = '[ref] ',
+		link = '[link] ',
+	},
+	show_outline = {
+		jump_key = '<CR>'
 	}
+}
 
 local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', 'bb', "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", opts)
-vim.api.nvim_set_keymap('n', 'bt', "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", opts)
-vim.api.nvim_set_keymap('n', 'br', "<cmd>lua require('lspsaga.rename').rename()<CR>", opts)
-vim.api.nvim_set_keymap('n', 'bv', "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", opts)
-vim.api.nvim_set_keymap('n', 'bn', "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", opts)
-vim.api.nvim_set_keymap('n', '<leader>b', "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", opts)
-vim.api.nvim_set_keymap('n', 'bg', "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", opts)
-vim.api.nvim_set_keymap('n', '[d', "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", opts)
-vim.api.nvim_set_keymap('n', ']d', "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<A-\\>', "<cmd>LSoutlineToggle<CR>", opts)
+vim.api.nvim_set_keymap('n', 'bb', "<cmd>Lspsaga hover_doc<CR>", opts)
+vim.api.nvim_set_keymap('n', 'bB', "<cmd>Lspsaga peek_definition<CR>", opts)
+vim.api.nvim_set_keymap('n', 'bv', "<cmd>Lspsaga lsp_finder<CR>", opts)
+vim.api.nvim_set_keymap('n', 'ba', "<cmd>Lspsaga code_action<CR>", opts)
+vim.api.nvim_set_keymap('n', 'br', "<cmd>Lspsaga rename<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>b', "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>B', "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+vim.api.nvim_set_keymap('n', '[d', "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+vim.api.nvim_set_keymap('n', ']d', "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 
 EOF
 
@@ -719,11 +745,6 @@ nnoremap <F2> :ArgWrap<CR>
 let g:indentLine_enabled = 1
 let g:indentLine_char = '|'
 let g:indentLine_setConceal = 1
-
-" -------------------------- "
-" |         TAGBAR         | "
-" -------------------------- "
-nnoremap <A-\> :TagbarToggle<CR>
 
 " ----------------------------- "
 " |         LIGHTLINE         | "
