@@ -443,7 +443,7 @@ vim.api.nvim_set_keymap('n', 'bv', "<cmd>Lspsaga lsp_finder<CR>", opts)
 vim.api.nvim_set_keymap('n', 'ba', "<cmd>Lspsaga code_action<CR>", opts)
 vim.api.nvim_set_keymap('n', 'br', "<cmd>Lspsaga rename<CR>", opts)
 vim.api.nvim_set_keymap('n', '<leader>b', "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-vim.api.nvim_set_keymap('n', '<leader>B', "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+-- vim.api.nvim_set_keymap('n', '<leader>B', "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 vim.api.nvim_set_keymap('n', '[d', "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 vim.api.nvim_set_keymap('n', ']d', "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 
@@ -489,10 +489,10 @@ buf_set_keymap('n', '<A-b>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 buf_set_keymap('n', '<leader>B', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
 -- Set some keybinds conditional on server capabilities
-if client.server_capabilities.document_formatting then
-	buf_set_keymap("n", 'bf', "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-elseif client.server_capabilities.document_range_formatting then
-	buf_set_keymap("n", 'bF', "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+if client.server_capabilities.documentFormattingProvider then
+  buf_set_keymap("n", 'bf', "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
+elseif client.server_capabilities.documentRangeFormattingProvider then
+	buf_set_keymap("v", 'bf', "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
 end
 
 -- Set autocommands conditional on server_capabilities
