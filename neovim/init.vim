@@ -489,14 +489,14 @@ buf_set_keymap('n', '<A-b>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 buf_set_keymap('n', '<leader>B', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
 -- Set some keybinds conditional on server capabilities
-if client.resolved_capabilities.document_formatting then
+if client.server_capabilities.document_formatting then
 	buf_set_keymap("n", 'bf', "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-elseif client.resolved_capabilities.document_range_formatting then
+elseif client.server_capabilities.document_range_formatting then
 	buf_set_keymap("n", 'bF', "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 end
 
 -- Set autocommands conditional on server_capabilities
--- if client.resolved_capabilities.document_highlight then
+-- if client.server_capabilities.document_highlight then
 --   vim.api.nvim_exec([[
 --     hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
 --     hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
