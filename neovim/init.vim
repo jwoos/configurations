@@ -471,28 +471,38 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 
 local on_attach = function(client, bufnr)
 local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 -- Mappings.
 -- everything commented out is using lspsaga
-local opts = { noremap=true, silent=true }
--- buf_set_keymap('n', 'bb', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-buf_set_keymap('n', '<C-b>', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-buf_set_keymap('n', '<A-b>', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
--- buf_set_keymap('n', 'bn', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
--- buf_set_keymap('n', 'br', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+
+-- not buffer specific
+local opts = {
+  noremap=true,
+  silent=true,
+}
 -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
--- buf_set_keymap('n', '<leader>b', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-buf_set_keymap('n', '<leader>B', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+vim.keymap.set('n', '<leader>B', vim.diagnostic.setloclist, opts)
+
+-- buffer specific
+local bufopts = {
+  noremap=true,
+  silent=true,
+  buffer=bufnr,
+}
+-- buf_set_keymap('n', 'bb', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+vim.keymap.set('n', '<C-b>', vim.lsp.buf.definition, bufopts)
+vim.keymap.set('n', '<A-b>', vim.lsp.buf.implementation, bufopts)
+-- buf_set_keymap('n', 'bn', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+-- buf_set_keymap('n', 'br', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 
 -- Set some keybinds conditional on server capabilities
 if client.server_capabilities.documentFormattingProvider then
-  buf_set_keymap("n", 'bf', "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
+  vim.keymap.set('n', 'bf', function() vim.lsp.buf.format({async = true}) end, bufopts)
 elseif client.server_capabilities.documentRangeFormattingProvider then
-	buf_set_keymap("v", 'bf', "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
+	vim.keymap.set('v', 'bf', function() vim.lsp.buf.format({async = true}) end, bufopts)
 end
 
 -- Set autocommands conditional on server_capabilities
