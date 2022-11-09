@@ -1,0 +1,39 @@
+config:
+  backup: true
+  banner: true
+  chmod_on_import: false
+  clear_workdir: false
+  compare_workdir: false
+  create: true
+  dotpath: ..
+  link_on_import: absolute
+  showdiff: true
+  workdir: ~/.config/dotdrop
+
+dotfiles:
+  d_neovim:
+    src: neovim
+    dst: ~/.config/nvim
+    link: link_children
+
+  f_tmux:
+    src: tmux/.tmux.conf
+    dst: ~/.tmux.conf
+
+  f_git:
+    src: git/.gitconfig
+    dst: ~/.gitconfig
+
+  d_zsh:
+    src: zsh
+    dst: ~/
+    link: link_children
+    chmod: 750
+
+profiles:
+  main:
+    dotfiles:
+      - d_neovim
+      - f_tmux
+      - f_git
+      - d_zsh
