@@ -63,6 +63,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 " visual
 Plug 'gregsexton/matchtag'
 Plug 'Yggdroot/indentLine'
+" https://github.com/nvim-lualine/lualine.nvim
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 
