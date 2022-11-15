@@ -110,9 +110,13 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/local/bin/python2'
 
 " set swap, backup and undo directory
-set directory=~/.vim/swap//
-set backupdir=~/.vim/backup//
-set undodir=~/.vim/undo//
+lua <<EOF
+
+vim.opt.undodir = vim.fn.stdpath('data') .. '/undo//'
+vim.opt.backupdir = vim.fn.stdpath('data') .. '/backup//'
+vim.opt.directory = vim.fn.stdpath('data') .. '/swap//'
+
+EOF
 
 " true color mode
 set termguicolors
