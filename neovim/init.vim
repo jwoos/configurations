@@ -55,6 +55,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ggandor/leap.nvim'
 
 " movement along marks
+Plug 'cbochs/grapple.nvim'
 
 " lsp
 Plug 'neovim/nvim-lspconfig'
@@ -714,13 +715,57 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " -------------------------- "
+" |         GRAPPLE        | "
+" -------------------------- "
+lua <<EOF
+
+local grapple = require('grapple')
+
+grapple.setup({
+    ---@type "debug" | "info" | "warn" | "error"
+    log_level = "warn",
+
+    ---The scope used when creating, selecting, and deleting tags
+    ---@type Grapple.Scope
+    scope = function()
+        return vim.fn.getcwd()
+    end,
+
+    ---The save location for tags
+    save_path = vim.fn.stdpath("data") .. "/grapple.json",
+
+    ---Window options used for the popup menu
+    popup_options = {
+        relative = "editor",
+        width = 120,
+        height = 24,
+        style = "minimal",
+        focusable = false,
+        border = "single",
+    },
+
+    integrations = {
+        ---Support for saving tag state using resession.nvim
+        resession = false,
+    },
+})
+
+vim.keymap.set("n", "<leader>m", grapple.toggle, {})
+vim.keymap.set("n", "<A-m>", grapple.popup_tags, {})
+vim.keymap.set("n", "<A-o>", grapple.cycle_backward, {})
+vim.keymap.set("n", "<A-i>", grapple.cycle_forward, {})
+
+EOF
+
+
+" -------------------------- "
 " |          FZF           | "
 " -------------------------- "
 nnoremap <C-p> :Files<CR>
 nnoremap <A-p> :Buffers<CR>
 nnoremap <Leader>/ :BLines<CR>
-nnoremap <Leader>? :Rg
-nnoremap <A-m> :Marks<CR>
+nnoremap <Leader>? :Rg 
+nnoremap <A-M> :Marks<CR>
 
 command! -bang -nargs=* Rg
 			\ call fzf#vim#grep(
