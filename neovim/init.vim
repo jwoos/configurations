@@ -47,8 +47,11 @@ Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
 Plug 'anuvyklack/hydra.nvim'
 
-" movement
+" movement within file
 Plug 'easymotion/vim-easymotion'
+Plug 'ggandor/leap.nvim'
+
+" movement along marks
 
 " lsp
 Plug 'neovim/nvim-lspconfig'
@@ -744,21 +747,33 @@ nnoremap <C-\> :NvimTreeToggle<CR>
 nnoremap <F3> :NvimTreeFindFile<CR>
 
 " -------------------------- "
+" |          LEAP          | "
+" -------------------------- "
+lua <<EOF
+
+local leap = require('leap')
+
+vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' })
+vim.api.nvim_set_hl(0, 'LeapMatch', {
+  fg = 'white',  -- for light themes, set to 'black' or similar
+  bold = true,
+  nocombine = true,
+})
+leap.opts.highlight_unlabeled_phase_one_targets = true
+
+vim.keymap.set({'n', 'v', 'o'}, '<Leader>s', '<Plug>(leap-forward-to)')
+vim.keymap.set({'n', 'v', 'o'}, '<Leader>S', '<Plug>(leap-backward-to)')
+vim.keymap.set({'n', 'v', 'o'}, '<Leader>x', '<Plug>(leap-forward-till)')
+vim.keymap.set({'n', 'v', 'o'}, '<Leader>X', '<Plug>(leap-backward-till)')
+
+EOF
+
+" -------------------------- "
 " |       EASYMOTION       | "
 " -------------------------- "
 map <Leader> <Plug>(easymotion-prefix)
 map <Leader>W <Plug>(easymotion-b)
 map <Leader>E <Plug>(easymotion-ge)
-
-" vim-sneak mapping
-"nmap s <Plug>(easymotion-fl2)
-"nmap S <Plug>(easymotion-Fl2)
-"nmap <Leader>s <Plug>(easymotion-fn)
-"nmap <Leader>S <Plug>(easymotion-Fn)
-"vmap s <Plug>(easymotion-fl2)
-"vmap S <Plug>(easymotion-Fl2)
-"vmap <Leader>s <Plug>(easymotion-fn)
-"vmap <Leader>S <Plug>(easymotion-Fn)
 
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
