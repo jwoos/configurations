@@ -56,6 +56,7 @@ Plug 'ggandor/leap.nvim'
 
 " movement along marks
 Plug 'cbochs/grapple.nvim'
+" https://github.com/cbochs/portal.nvim
 
 " lsp
 Plug 'neovim/nvim-lspconfig'
