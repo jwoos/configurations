@@ -40,6 +40,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" UI
+" https://github.com/folke/noice.nvim
+
 " Libraries
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'kana/vim-operator-user'
