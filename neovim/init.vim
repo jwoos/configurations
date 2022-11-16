@@ -249,9 +249,9 @@ nnoremap <C-j> <C-d>
 nnoremap <C-k> <C-u>
 
 " screen navigation
-nnoremap z<S-t> H
-nnoremap z<S-b> L
-nnoremap z<S-z> M
+nnoremap zT H
+nnoremap zZ M
+nnoremap zB L
 
 " tab switching
 "nnoremap <S-h> :tabprevious<CR>
@@ -333,7 +333,7 @@ set smartcase
 set foldmethod=manual
 set foldnestmax=10
 set nofoldenable
-set foldlevel=2
+set foldlevel=20
 
 " use ` by default instead of '
 nnoremap ' `
