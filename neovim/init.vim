@@ -22,8 +22,8 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F2> <F4> <F5> <F6> <F7> <F8> <F9> <F10>
-" <Leader>c <Leader>m
+" <F2> <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
+" <Leader>c
 " ,
 " Q
 
@@ -351,8 +351,8 @@ vnoremap ' `
 "vnoremap <C-[> <C-t>
 
 " open/close terminal emulator
-nnoremap <F12> :te<CR>
-"tnoremap <F12> <C-d><CR>
+" nnoremap <F12> :te<CR>
+" tnoremap <F12> <C-d><CR>
 
 " set filetype correctly for c/c++
 au BufRead,BufNewFile *.hpp set filetype=cpp
@@ -363,7 +363,7 @@ au BufRead,BufNewFile *.c set filetype=c
 " set grep
 set grepprg=rg\ --vimgrep
 
-" multiple cursors
+" BEGIN: multiple cursors
 let g:mc = "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>"
 
 nnoremap cn *``cgn
@@ -388,6 +388,66 @@ function! ExecuteMacroOverVisualRange()
 	echo "@".getcmdline()
 	execute ":'<,'>normal @".nr2char(getchar())
 endfunction
+
+" END: multiple cursors
+
+" BEGIN: session
+set sessionoptions=buffers,curdir,folds,winpos,winsize
+
+lua << EOF
+
+local function maybe_make_dir(path)
+	if vim.fn.isdirectory(path) == 0 then
+		vim.fn.mkdir(path, "p")
+	end
+end
+
+local function get_normalized_cwd()
+	local cwd = vim.fn.getcwd()
+	local cwd_normalized = cwd:gsub('/', '__')
+	return cwd_normalized
+end
+
+local function get_session_dir()
+	return vim.fn.stdpath('data') .. '/sessions/'
+end
+
+local function get_session_path()
+	local session_dir = get_session_dir()
+	local cwd = get_normalized_cwd()
+
+	return session_dir .. cwd
+end
+
+function make_session()
+	local session_dir = get_session_dir()
+	maybe_make_dir(session_dir)
+
+	local session_path = get_session_path()
+
+	vim.cmd('mks! ' .. session_path)
+end
+vim.keymap.set('n', '<F12><F12>', make_session)
+
+function load_session()
+	local session_path = get_session_path()
+
+	local cmd = 'source ' .. session_path
+	vim.cmd(cmd)
+end
+vim.keymap.set('n', '<F12>', load_session)
+
+--[[
+function delete_session()
+	local session_path = get_session_path()
+
+	vim.fn.delete(session_path)
+end
+vim.keymap.set('n', '<F10>', delete_session)
+]]
+
+EOF
+" END: session
 
 "=======================================================================================================
 "              __                     _                                          ____    _
