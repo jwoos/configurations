@@ -70,6 +70,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
 " completion
+Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -1041,23 +1042,46 @@ cmp.setup({
 	})
 })
 
-  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = 'buffer' }
+	}
+})
 
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = 'path' }
+	}, {
+		{ name = 'cmdline' }
+	})
+})
+
+cmp.setup.filetype('lua', {
+	sources = cmp.config.sources({
+		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' },
+	}, {
+		{ name = 'nvim_lua' },
+		{ name = 'buffer' },
+		{ name = 'path' },
+	})
+})
+
+-- TODO completion of lua doesn't work in embedded lua
+cmp.setup.filetype('vim', {
+	sources = cmp.config.sources({
+		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' },
+	}, {
+		{ name = 'nvim_lua' },
+		{ name = 'buffer' },
+		{ name = 'path' },
+	})
+})
 
 EOF
 
