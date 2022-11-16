@@ -70,7 +70,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 " visual
 Plug 'gregsexton/matchtag'
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 " https://github.com/nvim-lualine/lualine.nvim
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
@@ -327,7 +327,7 @@ nnoremap ' `
 vnoremap ' `
 
 " indent guide
-set list lcs=tab:\|\ 
+" set list lcs=tab:\|\ 
 
 " tags
 "nnoremap <C-]> g<C-]>
@@ -981,11 +981,16 @@ nmap <leader>q <Plug>(RegEditPostfix)
 nnoremap <F2> :ArgWrap<CR>
 
 " -------------------------- "
-" |       INDENTLINE       | "
+" |    Indent_BLANKLINE    | "
 " -------------------------- "
-let g:indentLine_enabled = 1
-let g:indentLine_char = '|'
-let g:indentLine_setConceal = 1
+lua <<EOF
+vim.api.nvim_set_hl(0, 'IndentBlanklineChar', {link = 'VertSplit'})
+vim.api.nvim_set_hl(0, 'IndentBlanklineSpaceChar', {link = 'VertSplit'})
+require("indent_blankline").setup {
+    char = "│",
+    show_trailing_blankline_indent = false,
+}
+EOF
 
 " ----------------------------- "
 " |         LIGHTLINE         | "
