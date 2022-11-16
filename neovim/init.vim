@@ -50,6 +50,9 @@ Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
 Plug 'anuvyklack/hydra.nvim'
 
+" meta
+Plug 'folke/which-key.nvim'
+
 " movement within file
 Plug 'easymotion/vim-easymotion'
 Plug 'ggandor/leap.nvim'
@@ -74,6 +77,9 @@ Plug 'hrsh7th/nvim-cmp'
 
 " navigation
 Plug 'kyazdani42/nvim-tree.lua'
+
+" SSR
+Plug 'cshuaimin/ssr.nvim'
 
 " visual
 Plug 'gregsexton/matchtag'
@@ -661,6 +667,11 @@ EOF
 " |   BETTER WHITESPACE    | "
 " -------------------------- "
 nnoremap <F1> :StripWhitespace<CR>
+
+" -------------------------- "
+" |           SSR          | "
+" -------------------------- "
+lua vim.keymap.set({ 'n', 'x' }, 'bs', function() require('ssr').open() end)
 
 " -------------------------- "
 " |         COMMENT        | "
