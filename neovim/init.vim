@@ -98,7 +98,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'nacro90/numb.nvim'
 
 " editing
-Plug 'raimondi/delimitmate'
+Plug 'windwp/nvim-autopairs'
 Plug 'numToStr/Comment.nvim'
 Plug 'machakann/vim-sandwich'
 Plug 'wellle/targets.vim'
@@ -969,11 +969,51 @@ map <Leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0
 
 " -------------------------- "
-" |     DELIMITEMATE       | "
+" |     nvim-autopairs     | "
 " -------------------------- "
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
-let g:delimitMate_expand_inside_quotes = 1
+lua <<EOF
+
+local ap = require('nvim-autopairs')
+local rule = require('nvim-autopairs.rule')
+local cond = require('nvim-autopairs.conds')
+local ts_conds = require('nvim-autopairs.ts-conds')
+
+ap.setup({
+	disable_filetype = { "TelescopePrompt" },
+	disable_in_macro = false,  -- disable when recording or executing a macro
+	disable_in_visualblock = false, -- disable when insert after visual block mode
+	disable_in_replace_mode = true,
+	ignored_next_char = [=[[%w%%%'%[%"%.]]=],
+	enable_moveright = true,
+	enable_afterquote = true,  -- add bracket pairs after quote
+	enable_check_bracket_line = true,  --- check bracket in same line
+	enable_bracket_in_quote = true, --
+	enable_abbr = false, -- trigger abbreviation
+	break_undo = true, -- switch for basic rule break undo sequence
+	check_ts = true,
+	map_cr = true,
+	map_bs = true,  -- map the <BS> key
+	map_c_h = false,  -- Map the <C-h> key to delete a pair
+	map_c_w = false, -- map <c-w> to delete a pair if possible
+})
+
+ap.add_rules({
+	rule('<', '>', {'cpp', 'rust'}):with_pair(function(opts)
+		local fn1 = cond.before_regex('template%s+', -1)
+		local fn2 = cond.before_regex('%w', 1)
+		return fn1(opts) or fn2(opts)
+	end),
+})
+
+-- integrate nvim-cmp with autopairs
+-- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+-- local cmp = require('cmp')
+-- cmp.event:on(
+--   'confirm_done',
+--   cmp_autopairs.on_confirm_done()
+-- )
+
+EOF
 
 " -------------------------- "
 " |         LUASNIP        | "
