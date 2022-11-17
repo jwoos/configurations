@@ -22,7 +22,7 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
+" <F3> <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
 " <Leader>c
 " ,
 " Q
@@ -94,8 +94,7 @@ Plug 'anuvyklack/pretty-fold.nvim'
 Plug 'anuvyklack/fold-preview.nvim'
 
 " utils
-" https://github.com/Wansmer/treesj
-Plug 'foosoft/vim-argwrap'
+Plug 'aarondiel/spread.nvim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'nacro90/numb.nvim'
@@ -1151,9 +1150,20 @@ EOF
 nmap <leader>q <Plug>(RegEditPostfix)
 
 " -------------------------- "
-" |          ARGWRAP       | "
+" |       SPREAD.NVIM      | "
 " -------------------------- "
-nnoremap <F2> :ArgWrap<CR>
+lua <<EOF
+local spread = require('spread')
+
+local opts = {
+	silent = true,
+	noremap = true
+}
+
+vim.keymap.set('n', 'bM', spread.out, opts)
+vim.keymap.set('n', 'bm', spread.combine, opts)
+
+EOF
 
 " -------------------------- "
 " |    Indent_BLANKLINE    | "
@@ -1273,6 +1283,6 @@ iswap.setup{
 }
 vim.keymap.set('n', 'bx', '<cmd>ISwapNodeWithRight<CR>', {silent = true})
 vim.keymap.set('n', 'bX', '<cmd>ISwapNodeWithLeft<CR>', {silent = true})
-vim.keymap.set('n', '<F3>', '<cmd>ISwapNodeWith<CR>', {silent = true})
+vim.keymap.set('n', '<F2>', '<cmd>ISwapNodeWith<CR>', {silent = true})
 
 EOF
