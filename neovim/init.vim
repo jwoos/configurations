@@ -48,10 +48,12 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
-Plug 'anuvyklack/hydra.nvim'
+" TODO
+" Plug 'anuvyklack/hydra.nvim'
 
 " meta
-Plug 'folke/which-key.nvim'
+" TODO
+" Plug 'folke/which-key.nvim'
 
 " movement within file
 Plug 'easymotion/vim-easymotion'
@@ -67,9 +69,9 @@ Plug 'glepnir/lspsaga.nvim'
 
 " snippets
 Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
 
 " completion
+Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -92,6 +94,7 @@ Plug 'anuvyklack/pretty-fold.nvim'
 Plug 'anuvyklack/fold-preview.nvim'
 
 " utils
+" https://github.com/Wansmer/treesj
 Plug 'foosoft/vim-argwrap'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nelstrom/vim-visual-star-search'
@@ -561,7 +564,8 @@ EOF
 " |          LSPSAGA          | "
 " -----------------------------"
 lua << EOF
-local lspsaga = require 'lspsaga'
+
+local lspsaga = require('lspsaga')
 
 lspsaga.init_lsp_saga {
 	symbol_in_winbar = {
@@ -607,16 +611,23 @@ lspsaga.init_lsp_saga {
 }
 
 local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', '<A-\\>', "<cmd>LSoutlineToggle<CR>", opts)
-vim.api.nvim_set_keymap('n', 'bb', "<cmd>Lspsaga hover_doc<CR>", opts)
-vim.api.nvim_set_keymap('n', 'bB', "<cmd>Lspsaga peek_definition<CR>", opts)
-vim.api.nvim_set_keymap('n', 'bv', "<cmd>Lspsaga lsp_finder<CR>", opts)
-vim.api.nvim_set_keymap('n', 'ba', "<cmd>Lspsaga code_action<CR>", opts)
-vim.api.nvim_set_keymap('n', 'br', "<cmd>Lspsaga rename<CR>", opts)
-vim.api.nvim_set_keymap('n', '<leader>b', "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
--- vim.api.nvim_set_keymap('n', '<leader>B', "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-vim.api.nvim_set_keymap('n', '[d', "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-vim.api.nvim_set_keymap('n', ']d', "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+vim.keymap.set('n', '<A-\\>', "<cmd>LSoutlineToggle<CR>", opts)
+vim.keymap.set('n', 'bb', "<cmd>Lspsaga hover_doc<CR>", opts)
+vim.keymap.set('n', 'bB', "<cmd>Lspsaga peek_definition<CR>", opts)
+vim.keymap.set('n', 'bv', "<cmd>Lspsaga lsp_finder<CR>", opts)
+vim.keymap.set('n', 'ba', "<cmd>Lspsaga code_action<CR>", opts)
+vim.keymap.set('n', 'br', "<cmd>Lspsaga rename<CR>", opts)
+vim.keymap.set('n', '<leader>b', "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+-- vim.keymap.set('n', '<leader>B', "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+vim.keymap.set('n', '[d', "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+vim.keymap.set('n', ']d', "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+local lspsaga_diagnostics = require("lspsaga.diagnostic")
+vim.keymap.set('n', '[e', function()
+	lspsaga_diagnostics.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, opts)
+vim.keymap.set('n', ']e', function()
+	lspsaga_diagnostics.goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, opts)
 
 EOF
 
