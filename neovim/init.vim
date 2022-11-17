@@ -22,7 +22,7 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F2> <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
+" <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
 " <Leader>c
 " ,
 " Q
@@ -110,6 +110,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'frioux/vim-regedit'
 Plug 'junegunn/vim-easy-align'
 Plug 'zegervdv/nrpattern.nvim'
+Plug 'mizlan/iswap.nvim'
 
 " Color Schemes
 Plug 'navarasu/onedark.nvim'
@@ -469,7 +470,6 @@ require'nvim-treesitter.configs'.setup {
 	ensure_installed = 'all',
 	highlight = {
 		enable = true,
-		disable = {'rust'}
 	},
 }
 EOF
@@ -949,7 +949,7 @@ require'nvim-tree'.setup {
 EOF
 
 nnoremap <C-\> :NvimTreeToggle<CR>
-nnoremap <F3> :NvimTreeFindFile<CR>
+nnoremap \| :NvimTreeFindFile<CR>
 
 " -------------------------- "
 " |          LEAP          | "
@@ -1067,9 +1067,9 @@ cmp.setup({
   },
 	mapping = cmp.mapping.preset.insert({
 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
-		['<C-f>'] = cmp.mapping.scroll_docs(4),
+		['<C-d>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-x>'] = cmp.mapping.abort(),
+		['<C-c>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 		['<Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
@@ -1250,5 +1250,29 @@ fp.setup({
 	border = 'single'
 })
 vim.keymap.set('n', 'zs', fp.toggle_preview)
+
+EOF
+
+" -------------------------- "
+" |         ISWAP          | "
+" -------------------------- "
+lua <<EOF
+
+local iswap = require('iswap')
+
+iswap.setup{
+  keys = 'asdfghjklqwertyuiopzxcvbnm',
+  grey = 'enable',
+  hl_snipe = 'Search',
+  hl_selection = 'Visual',
+  hl_grey = 'Comment',
+  flash_style = 'simultaneous',
+  hl_flash = 'IncSearch',
+  move_cursor = true,
+  autoswap = true,
+}
+vim.keymap.set('n', 'bx', '<cmd>ISwapNodeWithRight<CR>', {silent = true})
+vim.keymap.set('n', 'bX', '<cmd>ISwapNodeWithLeft<CR>', {silent = true})
+vim.keymap.set('n', '<F3>', '<cmd>ISwapNodeWith<CR>', {silent = true})
 
 EOF
