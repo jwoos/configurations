@@ -475,6 +475,16 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 " ----------------------------- "
+" |          TARGETS          | "
+" -----------------------------"
+autocmd User targets#mappings#user call targets#mappings#extend({
+    \ 'a': {},
+    \ 'B': {},
+    \ 'b': {},
+    \ 'q': {},
+    \ })
+
+" ----------------------------- "
 " |   TREESITTER-TEXTOBJECT   | "
 " -----------------------------"
 lua <<EOF
@@ -487,13 +497,12 @@ require'nvim-treesitter.configs'.setup {
 			lookahead = true,
 
 			keymaps = {
-				-- You can use the capture groups defined in textobjects.scm
 				["af"] = "@function.outer",
 				["if"] = "@function.inner",
-				["ac"] = "@class.outer",
-				-- You can optionally set descriptions to the mappings (used in the desc parameter of
-				-- nvim_buf_set_keymap) which plugins like which-key display
-				["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+				["ac"] = {query = "@class.outer", desc = "Select around class region"},
+				["ic"] = {query = "@class.inner", desc = "Select inner part of a class region"},
+				["aa"] = {query = "@parameter.outer", desc = "Select around parameter region"},
+				["ia"] = {query = "@parameter.inner", desc = "Select inner part of a parameter region"},
 			},
 			-- You can choose the select mode (default is charwise 'v')
 			--
