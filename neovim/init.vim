@@ -1030,11 +1030,17 @@ ap.setup({
 })
 
 ap.add_rules({
-	rule('<', '>', {'cpp', 'rust'}):with_pair(function(opts)
+	rule('<', '>', {'cpp'}):with_pair(function(opts)
 		local fn1 = cond.before_regex('template%s+', -1)
 		local fn2 = cond.before_regex('%w', 1)
 		return fn1(opts) or fn2(opts)
-	end),
+	end):with_move(cond.done),
+	rule('<', '>', {'rust'}):with_pair(function(opts)
+		local fn1 = cond.before_regex('template%s+', -1)
+		local fn2 = cond.before_regex('%w', 1)
+		local fn3 = cond.before_regex('::', 2)
+		return fn1(opts) or fn2(opts) or fn3(opts)
+	end):with_move(cond.done),
 })
 
 -- integrate nvim-cmp with autopairs
