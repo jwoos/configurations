@@ -1009,6 +1009,7 @@ local ap = require('nvim-autopairs')
 local rule = require('nvim-autopairs.rule')
 local cond = require('nvim-autopairs.conds')
 local ts_conds = require('nvim-autopairs.ts-conds')
+local utils = require('nvim-autopairs.utils')
 
 ap.setup({
 	disable_filetype = { "TelescopePrompt" },
@@ -1029,18 +1030,40 @@ ap.setup({
 	map_c_w = false, -- map <c-w> to delete a pair if possible
 })
 
+local function move_for_angle_bracket(opts)
+	-- this is adapted from the bracket logic in the plugin
+	if opts.next_char == opts.char then
+		if opts.char == '>' then
+				return true
+		end
+		-- move right when have quote on end line or in quote
+		-- situtaion  |"  => "|
+		if utils.is_quote(opts.char) then
+			if opts.col == string.len(opts.line) then
+					return true
+			end
+			-- ("|")  => (""|)
+			--  ""       |"      "  => ""       "|      "
+			if utils.is_in_quotes(opts.line, opts.col - 1, opts.char) then
+					return true
+			end
+		end
+	end
+	return false
+end
+
 ap.add_rules({
 	rule('<', '>', {'cpp'}):with_pair(function(opts)
 		local fn1 = cond.before_regex('template%s+', -1)
 		local fn2 = cond.before_regex('%w', 1)
 		return fn1(opts) or fn2(opts)
-	end):with_move(cond.done),
+	end):with_move(move_for_angle_bracket),
 	rule('<', '>', {'rust'}):with_pair(function(opts)
 		local fn1 = cond.before_regex('template%s+', -1)
 		local fn2 = cond.before_regex('%w', 1)
 		local fn3 = cond.before_regex('::', 2)
 		return fn1(opts) or fn2(opts) or fn3(opts)
-	end):with_move(cond.done),
+	end):with_move(move_for_angle_bracket),
 })
 
 -- integrate nvim-cmp with autopairs
