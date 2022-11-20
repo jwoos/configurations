@@ -1261,8 +1261,8 @@ EOF
 " |    Indent_BLANKLINE    | "
 " -------------------------- "
 lua <<EOF
-vim.api.nvim_set_hl(0, 'IndentBlanklineChar', {link = 'VertSplit'})
-vim.api.nvim_set_hl(0, 'IndentBlanklineSpaceChar', {link = 'VertSplit'})
+vim.api.nvim_set_hl(0, 'IndentBlanklineChar', {link = 'Whitespace'})
+vim.api.nvim_set_hl(0, 'IndentBlanklineSpaceChar', {link = 'Whitespace'})
 require("indent_blankline").setup {
     char = "│",
     show_trailing_blankline_indent = false,
