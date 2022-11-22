@@ -20,13 +20,7 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 
 export TERM=xterm-256color
 
-export SAVEHIST=50000
-
-export GOPATH="${HOME}/.go"
-
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="${PATH}:/home/junwoo/bin"
-export PATH="${PATH}:/home/junwoo/.cargo/bin"
+export SAVEHIST=100000
 
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -71,7 +65,11 @@ fpath=(
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  /usr/local/opt/coreutils/libexec/gnubin
+  /opt/homebrew/bin
   /usr/local/{bin,sbin}
+  ~/bin
+  ~/.cargo/bin
   $path
 )
 
