@@ -48,6 +48,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
+Plug 'nvim-lua/plenary.nvim'
 " TODO
 " Plug 'anuvyklack/hydra.nvim'
 
