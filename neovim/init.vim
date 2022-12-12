@@ -885,6 +885,7 @@ nmap ga <Plug>(EasyAlign)
 lua <<EOF
 
 local grapple = require('grapple')
+local path = require('plenary.path')
 
 grapple.setup({
     ---@type "debug" | "info" | "warn" | "error"
@@ -897,7 +898,7 @@ grapple.setup({
     end,
 
     ---The save location for tags
-    save_path = vim.fn.stdpath("data") .. "/grapple.json",
+    save_path = tostring(path:new(vim.fn.stdpath("data")) / "grapple"),
 
     ---Window options used for the popup menu
     popup_options = {
