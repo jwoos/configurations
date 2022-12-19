@@ -22,7 +22,8 @@
 "http://patorjk.com/software/taag/#p=display&h=0&v=0&f=Slant&t=test
 
 " NOT USED
-" <F3> <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
+" <Space>
+" <F5> <F6> <F7> <F8> <F9> <F10> <F11>
 " <Leader>c
 " ,
 " Q
@@ -93,6 +94,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'anuvyklack/pretty-fold.nvim'
 Plug 'anuvyklack/fold-preview.nvim'
+Plug 'shortcuts/no-neck-pain.nvim'
 
 " utils
 Plug 'aarondiel/spread.nvim'
@@ -113,7 +115,7 @@ Plug 'zegervdv/nrpattern.nvim'
 Plug 'mizlan/iswap.nvim'
 
 " Color Schemes
-Plug 'shaunsingh/oxocarbon.nvim', { 'do': './install.sh' }
+Plug 'shaunsingh/oxocarbon.nvim'
 Plug 'navarasu/onedark.nvim'
 Plug 'rakr/vim-two-firewatch'
 Plug 'glepnir/zephyr-nvim'
@@ -193,55 +195,55 @@ lua << EOF
 -- 	},
 -- })
 
-require('nvim-tundra').setup({
-  transparent_background = false,
-  dim_inactive_windows = {
-    enabled = false,
-    color = nil,
-  },
-  editor = {
-    search = {},
-    substitute = {},
-  },
-  syntax = {
-    booleans = { bold = true, italic = true },
-    comments = { bold = true, italic = true },
-    conditionals = {},
-    constants = { bold = true },
-    fields = {},
-    functions = {},
-    keywords = {},
-    loops = {},
-    numbers = { bold = true },
-    operators = { bold = true },
-    punctuation = {},
-    strings = {},
-    types = { italic = true },
-  },
-  diagnostics = {
-    errors = {},
-    warnings = {},
-    information = {},
-    hints = {},
-  },
-  plugins = {
-    lsp = true,
-    treesitter = true,
-    nvimtree = true,
-    cmp = true,
-    context = true,
-    dbui = true,
-    gitsigns = true,
-    telescope = true,
-  },
-  overwrite = {
-    colors = {},
-    highlights = {},
-  },
-})
+-- require('nvim-tundra').setup({
+--   transparent_background = false,
+--   dim_inactive_windows = {
+--     enabled = false,
+--     color = nil,
+--   },
+--   editor = {
+--     search = {},
+--     substitute = {},
+--   },
+--   syntax = {
+--     booleans = { bold = true, italic = true },
+--     comments = { bold = true, italic = true },
+--     conditionals = {},
+--     constants = { bold = true },
+--     fields = {},
+--     functions = {},
+--     keywords = {},
+--     loops = {},
+--     numbers = { bold = true },
+--     operators = { bold = true },
+--     punctuation = {},
+--     strings = {},
+--     types = { italic = true },
+--   },
+--   diagnostics = {
+--     errors = {},
+--     warnings = {},
+--     information = {},
+--     hints = {},
+--   },
+--   plugins = {
+--     lsp = true,
+--     treesitter = true,
+--     nvimtree = true,
+--     cmp = true,
+--     context = true,
+--     dbui = true,
+--     gitsigns = true,
+--     telescope = true,
+--   },
+--   overwrite = {
+--     colors = {},
+--     highlights = {},
+--   },
+-- })
 
 vim.opt.background = 'dark'
-vim.cmd('colorscheme tundra')
+vim.cmd('colorscheme oxocarbon')
 
 EOF
 
@@ -376,7 +378,7 @@ set inccommand=nosplit
 "set cursorline
 
 " get rid of highlighting after search
-noremap <silent> <Space> :nohl<CR>
+noremap <silent> <F3> :nohl<CR>
 
 " searching
 " make searches case insensitive except when capital letter is present
@@ -1275,7 +1277,7 @@ EOF
 " |         LIGHTLINE         | "
 " ----------------------------- "
 let g:lightline = {
-			\ 'colorscheme': 'one',
+			\ 'colorscheme': 'wombat',
 			\ 'active': {
 				\   'left': [ [ 'mode', 'paste' ],
 				\             [ 'readonly', 'relativepath', 'modified'] ]
@@ -1356,6 +1358,76 @@ fp.setup({
 vim.keymap.set('n', 'zs', fp.toggle_preview)
 
 EOF
+" -------------------------- "
+" |      no-neck-pain      | "
+" -------------------------- "
+lua << EOF
+
+local nnp = require("no-neck-pain")
+
+nnp.setup({
+    -- The width of the focused buffer when enabling NNP.
+    -- If the available window size is less than `width`, the buffer will take the whole screen.
+    width = 200,
+    -- Prints useful logs about what event are triggered, and reasons actions are executed.
+    debug = false,
+    -- Disables NNP if the last valid buffer in the list has been closed.
+    disableOnLastBuffer = true,
+    -- When `true`, disabling NNP kills every split/vsplit buffers except the main NNP buffer.
+    killAllBuffersOnDisable = true,
+    -- Options related to the side buffers.
+    buffers = {
+        -- The background options of the side buffer(s).
+        background = {
+            -- Hexadecimal color code to override the current background color of the buffer. (e.g. #24273A)
+            -- popular theme are supported by their name:
+            -- - catppuccin-frappe
+            -- - catppuccin-latte
+            -- - catppuccin-macchiato
+            -- - catppuccin-mocha
+            -- - tokyonight-day
+            -- - tokyonight-moon
+            -- - tokyonight-night
+            -- - tokyonight-storm
+            -- - rose-pine
+            -- - rose-pine-moon
+            -- - rose-pine-dawn
+            colorCode = '#232223',
+        },
+        -- When `false`, the `left` padding buffer won't be created.
+        left = true,
+        -- When `false`, the `right` padding buffer won't be created.
+        right = true,
+        -- When `true`, the side buffers will be named `no-neck-pain-left` and `no-neck-pain-right` respectively.
+        showName = false,
+        -- The buffer options when creating the buffer.
+        options = {
+            -- Buffer-scoped options, below are the default values, but any `vim.bo` options are valid and will be forwarded to the buffer creation.
+            bo = {
+                filetype = "no-neck-pain",
+                buftype = "nofile",
+                bufhidden = "hide",
+                modifiable = false,
+                buflisted = false,
+                swapfile = false,
+            },
+            -- Window-scoped options, below are the default values, but any `vim.wo` options are valid and will be forwarded to the buffer creation.
+            wo = {
+                cursorline = false,
+                cursorcolumn = false,
+                number = false,
+                relativenumber = false,
+                foldenable = false,
+                list = false,
+            },
+        },
+    },
+})
+
+-- toggle NNP
+vim.keymap.set('n', '<F2>', nnp.toggle)
+
+EOF
 
 " -------------------------- "
 " |         ISWAP          | "
@@ -1377,6 +1449,6 @@ iswap.setup{
 }
 vim.keymap.set('n', 'bx', '<cmd>ISwapNodeWithRight<CR>', {silent = true})
 vim.keymap.set('n', 'bX', '<cmd>ISwapNodeWithLeft<CR>', {silent = true})
-vim.keymap.set('n', '<F2>', '<cmd>ISwapNodeWith<CR>', {silent = true})
+vim.keymap.set('n', '<F4>', '<cmd>ISwapNodeWith<CR>', {silent = true})
 
 EOF
