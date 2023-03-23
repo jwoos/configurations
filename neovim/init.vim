@@ -627,7 +627,7 @@ lua << EOF
 
 local lspsaga = require('lspsaga')
 
-lspsaga.init_lsp_saga {
+lspsaga.setup({
 	symbol_in_winbar = {
 		separator = '#',
 		show_file = false,
@@ -668,7 +668,7 @@ lspsaga.init_lsp_saga {
 	show_outline = {
 		jump_key = '<CR>'
 	}
-}
+})
 
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<A-\\>', "<cmd>LSoutlineToggle<CR>", opts)
