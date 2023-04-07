@@ -1,0 +1,9 @@
+# load symbols on demand
+settings set symbols.load-on-demand true
+
+# set cache for symbols
+settings set symbols.enable-lldb-index-cache true
+
+# set how many lines are shown
+settings set stop-line-count-before 20
+settings set stop-line-count-after 20
