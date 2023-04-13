@@ -980,7 +980,6 @@ require'nvim-tree'.setup {
 		ignore = false,
 		timeout = 400,
 	},
-	open_on_setup = false,
 	update_focused_file = {
 		enable = false,
 	},
