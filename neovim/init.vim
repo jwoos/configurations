@@ -955,6 +955,44 @@ autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tab
 lua <<EOF
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
+local function on_attach(bufnr)
+  local api = require('nvim-tree.api')
+
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+
+  -- Default mappings not inserted as:
+  --  remove_keymaps = true
+  --  OR
+  --  view.mappings.custom_only = true
+
+
+  -- Mappings migrated from view.mappings.list
+  --
+  -- You will need to insert "your code goes here" for any mappings with a custom action_cb
+  vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
+  vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
+  vim.keymap.set('n', '<C-v>', api.node.open.vertical, opts('Open: Vertical Split'))
+  vim.keymap.set('n', '<C-s>', api.node.open.horizontal, opts('Open: Horizontal Split'))
+  vim.keymap.set('n', '<C-t>', api.node.open.tab, opts('Open: New Tab'))
+  vim.keymap.set('n', '<S-CR>', api.node.navigate.parent_close, opts('Close Directory'))
+  vim.keymap.set('n', '<Tab>', api.node.open.preview, opts('Open Preview'))
+  vim.keymap.set('n', 'H', api.tree.toggle_hidden_filter, opts('Toggle Dotfiles'))
+  vim.keymap.set('n', '<C-r>', api.tree.reload, opts('Refresh'))
+  vim.keymap.set('n', 'c', api.fs.create, opts('Create'))
+  vim.keymap.set('n', 'd', api.fs.remove, opts('Delete'))
+  vim.keymap.set('n', 'r', api.fs.rename, opts('Rename'))
+  vim.keymap.set('n', 'R', api.fs.rename_sub, opts('Rename: Omit Filename'))
+  vim.keymap.set('n', 'x', api.fs.cut, opts('Cut'))
+  vim.keymap.set('n', 'y', api.fs.copy.node, opts('Copy'))
+  vim.keymap.set('n', 'p', api.fs.paste, opts('Paste'))
+  vim.keymap.set('n', '<', api.tree.change_root_to_parent, opts('Up'))
+  vim.keymap.set('n', '>', api.tree.change_root_to_node, opts('CD'))
+  vim.keymap.set('n', 'q', api.tree.close, opts('Close'))
+end
+
 require'nvim-tree'.setup {
 	renderer = {
 		indent_markers = {
@@ -983,33 +1021,7 @@ require'nvim-tree'.setup {
 	update_focused_file = {
 		enable = false,
 	},
-	view = {
-		mappings = {
-			custom_only = true,
-			list = {
-				{key = "<CR>", cb = tree_cb("edit")},
-				{key = "o", cb = tree_cb("edit")},
-				{key = "<C-v>", cb = tree_cb("vsplit")},
-				{key = "<C-s>", cb = tree_cb("split")},
-				{key = "<C-t>", cb = tree_cb("tabnew")},
-				{key = "<S-CR>", cb = tree_cb("close_node")},
-				{key = "<Tab>", cb = tree_cb("preview")},
-				{key = "I", cb = tree_cb("toggle_ignored")},
-				{key = "H", cb = tree_cb("toggle_dotfiles")},
-				{key = "<C-r>", cb = tree_cb("refresh")},
-				{key = "c", cb = tree_cb("create")},
-				{key = "d", cb = tree_cb("remove")},
-				{key = "r", cb = tree_cb("rename")},
-				{key = "R", cb = tree_cb("full_rename")},
-				{key = "x", cb = tree_cb("cut")},
-				{key = "y", cb = tree_cb("copy")},
-				{key = "p", cb = tree_cb("paste")},
-				{key = "<", cb  = tree_cb("dir_up")},
-				{key = ">", cb  = tree_cb("cd")},
-				{key = "q", cb  = tree_cb("close")},
-			}
-		}
-	}
+	on_attach = on_attach,
 }
 EOF
 
