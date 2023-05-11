@@ -23,7 +23,7 @@
 
 " NOT USED
 " <Space>
-" <F5> <F6> <F7> <F8> <F9> <F10> <F11>
+" <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
 " <Leader>c
 " ,
 " Q
@@ -1469,8 +1469,7 @@ iswap.setup{
   move_cursor = true,
   autoswap = true,
 }
-vim.keymap.set('n', 'bx', '<cmd>ISwapNodeWithRight<CR>', {silent = true})
-vim.keymap.set('n', 'bX', '<cmd>ISwapNodeWithLeft<CR>', {silent = true})
-vim.keymap.set('n', '<F4>', '<cmd>ISwapNodeWith<CR>', {silent = true})
+vim.keymap.set('n', 'bx', '<cmd>ISwapNodeWith<CR>', {silent = true})
+vim.keymap.set('n', 'bX', '<cmd>ISwapWith<CR>', {silent = true})
 
 EOF
