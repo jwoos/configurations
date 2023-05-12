@@ -43,6 +43,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " UI
 " https://github.com/folke/noice.nvim
 
+Plug 'nvim-tree/nvim-web-devicons'
+
 " Libraries
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'kana/vim-operator-user'
@@ -137,11 +139,9 @@ let g:python_host_prog = '/usr/local/bin/python2'
 
 " set swap, backup and undo directory
 lua <<EOF
-
 vim.opt.undodir = vim.fn.stdpath('data') .. '/undo//'
 vim.opt.backupdir = vim.fn.stdpath('data') .. '/backup//'
 vim.opt.directory = vim.fn.stdpath('data') .. '/swap//'
-
 EOF
 
 " true color mode
@@ -157,43 +157,43 @@ set mouse=a
 lua << EOF
 -- for onedark
 -- require('onedark').setup({
--- 	-- Main options --
--- 	style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
--- 	transparent = false,  -- Show/hide background
--- 	term_colors = true, -- Change terminal color as per the selected theme style
--- 	ending_tildes = true, -- Show the end-of-buffer tildes. By default they are hidden
--- 	cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+--   -- Main options --
+--   style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+--   transparent = false,  -- Show/hide background
+--   term_colors = true, -- Change terminal color as per the selected theme style
+--   ending_tildes = true, -- Show the end-of-buffer tildes. By default they are hidden
+--   cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
 --
--- 	-- toggle theme style ---
--- 	toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
--- 	toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+--   -- toggle theme style ---
+--   toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+--   toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
 --
--- 	-- Change code style ---
--- 	-- Options are italic, bold, underline, none
--- 	-- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
--- 	code_style = {
--- 		comments = 'italic',
--- 		keywords = 'none',
--- 		functions = 'none',
--- 		strings = 'none',
--- 		variables = 'none'
--- 	},
+--   -- Change code style ---
+--   -- Options are italic, bold, underline, none
+--   -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
+--   code_style = {
+--     comments = 'italic',
+--     keywords = 'none',
+--     functions = 'none',
+--     strings = 'none',
+--     variables = 'none'
+--   },
 --
--- 	-- Lualine options --
--- 	lualine = {
--- 		transparent = false, -- lualine center bar transparency
--- 	},
+--   -- Lualine options --
+--   lualine = {
+--     transparent = false, -- lualine center bar transparency
+--   },
 --
--- 	-- Custom Highlights --
--- 	colors = {}, -- Override default colors
--- 	highlights = {}, -- Override highlight groups
+--   -- Custom Highlights --
+--   colors = {}, -- Override default colors
+--   highlights = {}, -- Override highlight groups
 --
--- 	-- Plugins Config --
--- 	diagnostics = {
--- 		darker = true, -- darker colors for diagnostic
--- 		undercurl = true,   -- use undercurl instead of underline for diagnostics
--- 		background = true,    -- use background color for virtual text
--- 	},
+--   -- Plugins Config --
+--   diagnostics = {
+--     darker = true, -- darker colors for diagnostic
+--     undercurl = true,   -- use undercurl instead of underline for diagnostics
+--     background = true,    -- use background color for virtual text
+--   },
 -- })
 
 -- require('nvim-tundra').setup({
@@ -399,7 +399,7 @@ nnoremap ' `
 vnoremap ' `
 
 " indent guide
-" set list lcs=tab:\|\ 
+" set list lcs=tab:\|\
 
 " tags
 "nnoremap <C-]> g<C-]>
@@ -430,7 +430,7 @@ vnoremap <expr> cn g:mc . "``cgn"
 vnoremap <expr> cN g:mc . "``cgN"
 
 function! SetupCR()
-	nnoremap <Enter> :nnoremap <lt>Enter> n@z<CR>q:<C-u>let @z=strpart(@z,0,strlen(@z)-1)<CR>n@z
+  nnoremap <Enter> :nnoremap <lt>Enter> n@z<CR>q:<C-u>let @z=strpart(@z,0,strlen(@z)-1)<CR>n@z
 endfunction
 
 nnoremap cq :call SetupCR()<CR>*``qz
@@ -442,8 +442,8 @@ vnoremap <expr> cQ ":\<C-u>call SetupCR()\<CR>" . "gv" . substitute(g:mc, '/', '
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 function! ExecuteMacroOverVisualRange()
-	echo "@".getcmdline()
-	execute ":'<,'>normal @".nr2char(getchar())
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
 " END: multiple cursors
@@ -454,51 +454,51 @@ set sessionoptions=buffers,curdir,folds,winpos,winsize
 lua << EOF
 
 local function maybe_make_dir(path)
-	if vim.fn.isdirectory(path) == 0 then
-		vim.fn.mkdir(path, "p")
-	end
+  if vim.fn.isdirectory(path) == 0 then
+    vim.fn.mkdir(path, "p")
+  end
 end
 
 local function get_normalized_cwd()
-	local cwd = vim.fn.getcwd()
-	local cwd_normalized = cwd:gsub('/', '__')
-	return cwd_normalized
+  local cwd = vim.fn.getcwd()
+  local cwd_normalized = cwd:gsub('/', '__')
+  return cwd_normalized
 end
 
 local function get_session_dir()
-	return vim.fn.stdpath('data') .. '/sessions/'
+  return vim.fn.stdpath('data') .. '/sessions/'
 end
 
 local function get_session_path()
-	local session_dir = get_session_dir()
-	local cwd = get_normalized_cwd()
+  local session_dir = get_session_dir()
+  local cwd = get_normalized_cwd()
 
-	return session_dir .. cwd
+  return session_dir .. cwd
 end
 
 function make_session()
-	local session_dir = get_session_dir()
-	maybe_make_dir(session_dir)
+  local session_dir = get_session_dir()
+  maybe_make_dir(session_dir)
 
-	local session_path = get_session_path()
+  local session_path = get_session_path()
 
-	vim.cmd('mks! ' .. session_path)
+  vim.cmd('mks! ' .. session_path)
 end
 vim.keymap.set('n', '<F12><F12>', make_session)
 
 function load_session()
-	local session_path = get_session_path()
+  local session_path = get_session_path()
 
-	local cmd = 'source ' .. session_path
-	vim.cmd(cmd)
+  local cmd = 'source ' .. session_path
+  vim.cmd(cmd)
 end
 vim.keymap.set('n', '<F12>', load_session)
 
 --[[
 function delete_session()
-	local session_path = get_session_path()
+  local session_path = get_session_path()
 
-	vim.fn.delete(session_path)
+  vim.fn.delete(session_path)
 end
 vim.keymap.set('n', '<F10>', delete_session)
 ]]
@@ -514,15 +514,16 @@ EOF
 "  / .___/ /_/   \__,_/   \__, /  /_/   /_/ /_/        \___/  \____/ /_/ /_/ /_/     /_/    \__, /
 " /_/                    /____/                                                            /____/
 "=======================================================================================================
+
 " ----------------------------- "
 " |         TREESITTER        | "
 " -----------------------------"
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-	ensure_installed = 'all',
-	highlight = {
-		enable = true,
-	},
+  ensure_installed = 'all',
+  highlight = {
+    enable = true,
+  },
 }
 EOF
 
@@ -541,83 +542,83 @@ autocmd User targets#mappings#user call targets#mappings#extend({
 " -----------------------------"
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-	textobjects = {
-		select = {
-			enable = true,
+  textobjects = {
+    select = {
+      enable = true,
 
-			-- Automatically jump forward to textobj, similar to targets.vim
-			lookahead = true,
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
 
-			keymaps = {
-				["af"] = "@function.outer",
-				["if"] = "@function.inner",
-				["ac"] = {query = "@class.outer", desc = "Select around class region"},
-				["ic"] = {query = "@class.inner", desc = "Select inner part of a class region"},
-				["aa"] = {query = "@parameter.outer", desc = "Select around parameter region"},
-				["ia"] = {query = "@parameter.inner", desc = "Select inner part of a parameter region"},
-			},
-			-- You can choose the select mode (default is charwise 'v')
-			--
-			-- Can also be a function which gets passed a table with the keys
-			-- * query_string: eg '@function.inner'
-			-- * method: eg 'v' or 'o'
-			-- and should return the mode ('v', 'V', or '<c-v>') or a table
-			-- mapping query_strings to modes.
-			selection_modes = {
-				['@parameter.outer'] = 'v', -- charwise
-				['@function.outer'] = 'V', -- linewise
-				['@class.outer'] = '<c-v>', -- blockwise
-			},
-			-- If you set this to `true` (default is `false`) then any textobject is
-			-- extended to include preceding or succeeding whitespace. Succeeding
-			-- whitespace has priority in order to act similarly to eg the built-in
-			-- `ap`.
-			--
-			-- Can also be a function which gets passed a table with the keys
-			-- * query_string: eg '@function.inner'
-			-- * selection_mode: eg 'v'
-			-- and should return true of false
-			include_surrounding_whitespace = true,
-		},
-		-- TODO set up the below
-		-- swap = {
-		--   enable = true,
-		--   swap_next = {
-		--     ["<leader>a"] = "@parameter.inner",
-		--   },
-		--   swap_previous = {
-		--     ["<leader>A"] = "@parameter.inner",
-		--   },
-		-- }
-		-- move = {
-		--   enable = true,
-		--   set_jumps = true, -- whether to set jumps in the jumplist
-		--   goto_next_start = {
-		--     ["]m"] = "@function.outer",
-		--     ["]]"] = { query = "@class.outer", desc = "Next class start" },
-		--   },
-		--   goto_next_end = {
-		--     ["]M"] = "@function.outer",
-		--     ["]["] = "@class.outer",
-		--   },
-		--   goto_previous_start = {
-		--     ["[m"] = "@function.outer",
-		--     ["[["] = "@class.outer",
-		--   },
-		--   goto_previous_end = {
-		--     ["[M"] = "@function.outer",
-		--     ["[]"] = "@class.outer",
-		--   },
-		-- },
-		-- lsp_interop = {
-		--   enable = true,
-		--   border = 'none',
-		--   peek_definition_code = {
-		--     ["<leader>df"] = "@function.outer",
-		--     ["<leader>dF"] = "@class.outer",
-		--   },
-		-- },
-		},
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = {query = "@class.outer", desc = "Select around class region"},
+        ["ic"] = {query = "@class.inner", desc = "Select inner part of a class region"},
+        ["aa"] = {query = "@parameter.outer", desc = "Select around parameter region"},
+        ["ia"] = {query = "@parameter.inner", desc = "Select inner part of a parameter region"},
+      },
+      -- You can choose the select mode (default is charwise 'v')
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * method: eg 'v' or 'o'
+      -- and should return the mode ('v', 'V', or '<c-v>') or a table
+      -- mapping query_strings to modes.
+      selection_modes = {
+        ['@parameter.outer'] = 'v', -- charwise
+        ['@function.outer'] = 'V', -- linewise
+        ['@class.outer'] = '<c-v>', -- blockwise
+      },
+      -- If you set this to `true` (default is `false`) then any textobject is
+      -- extended to include preceding or succeeding whitespace. Succeeding
+      -- whitespace has priority in order to act similarly to eg the built-in
+      -- `ap`.
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * selection_mode: eg 'v'
+      -- and should return true of false
+      include_surrounding_whitespace = true,
+    },
+    -- TODO set up the below
+    -- swap = {
+    --   enable = true,
+    --   swap_next = {
+    --     ["<leader>a"] = "@parameter.inner",
+    --   },
+    --   swap_previous = {
+    --     ["<leader>A"] = "@parameter.inner",
+    --   },
+    -- }
+    -- move = {
+    --   enable = true,
+    --   set_jumps = true, -- whether to set jumps in the jumplist
+    --   goto_next_start = {
+    --     ["]m"] = "@function.outer",
+    --     ["]]"] = { query = "@class.outer", desc = "Next class start" },
+    --   },
+    --   goto_next_end = {
+    --     ["]M"] = "@function.outer",
+    --     ["]["] = "@class.outer",
+    --   },
+    --   goto_previous_start = {
+    --     ["[m"] = "@function.outer",
+    --     ["[["] = "@class.outer",
+    --   },
+    --   goto_previous_end = {
+    --     ["[M"] = "@function.outer",
+    --     ["[]"] = "@class.outer",
+    --   },
+    -- },
+    -- lsp_interop = {
+    --   enable = true,
+    --   border = 'none',
+    --   peek_definition_code = {
+    --     ["<leader>df"] = "@function.outer",
+    --     ["<leader>dF"] = "@class.outer",
+    --   },
+    -- },
+    },
 }
 EOF
 
@@ -629,46 +630,46 @@ lua << EOF
 local lspsaga = require('lspsaga')
 
 lspsaga.setup({
-	symbol_in_winbar = {
-		separator = '#',
-		show_file = false,
-	},
-	diagnostic_header = {'E', 'W', 'I', 'H'},
-	code_action_icon = '',
-	code_action_keys = {
-		quit = '<esc>',
-		exec = '<CR>'
-	},
-	finder_action_keys = {
-		open = "<CR>",
-		vsplit = "<c-v>",
-		split = "<c-s>",
-		quit = "<esc>",
-	},
-	definition_action_keys = {
-		edit = '<CR>',
-		vsplit = '<c-v>',
-		split = '<c-s>',
-		quit = '<esc>',
-	},
-	rename_action_quit = "<esc>",
-	finder_action_keys = {
-		quit = '<esc>',
-		open = '<CR>',
-		vsplit = '<c-v>',
-		split = '<c-s>',
-		scroll_up = '<C-k>',
-		scroll_down = '<C-j>'
-	},
-	max_preview_lines = 25,
-	finder_icons = {
-		def = '[def] ',
-		ref = '[ref] ',
-		link = '[link] ',
-	},
-	show_outline = {
-		jump_key = '<CR>'
-	}
+  symbol_in_winbar = {
+    separator = '#',
+    show_file = false,
+  },
+  diagnostic_header = {'E', 'W', 'I', 'H'},
+  code_action_icon = '',
+  code_action_keys = {
+    quit = '<esc>',
+    exec = '<CR>'
+  },
+  finder_action_keys = {
+    open = "<CR>",
+    vsplit = "<c-v>",
+    split = "<c-s>",
+    quit = "<esc>",
+  },
+  definition_action_keys = {
+    edit = '<CR>',
+    vsplit = '<c-v>',
+    split = '<c-s>',
+    quit = '<esc>',
+  },
+  rename_action_quit = "<esc>",
+  finder_action_keys = {
+    quit = '<esc>',
+    open = '<CR>',
+    vsplit = '<c-v>',
+    split = '<c-s>',
+    scroll_up = '<C-k>',
+    scroll_down = '<C-j>'
+  },
+  max_preview_lines = 25,
+  finder_icons = {
+    def = '[def] ',
+    ref = '[ref] ',
+    link = '[link] ',
+  },
+  show_outline = {
+    jump_key = '<CR>'
+  }
 })
 
 local opts = { noremap=true, silent=true }
@@ -684,10 +685,10 @@ vim.keymap.set('n', '[d', "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 vim.keymap.set('n', ']d', "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 local lspsaga_diagnostics = require("lspsaga.diagnostic")
 vim.keymap.set('n', '[e', function()
-	lspsaga_diagnostics.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  lspsaga_diagnostics.goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, opts)
 vim.keymap.set('n', ']e', function()
-	lspsaga_diagnostics.goto_next({ severity = vim.diagnostic.severity.ERROR })
+  lspsaga_diagnostics.goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, opts)
 
 EOF
@@ -701,15 +702,15 @@ local lspconfig = require'lspconfig'
 -- disable inline diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
-	-- disable virtual text
-	virtual_text = false,
+  -- disable virtual text
+  virtual_text = false,
 
-	-- show signs
-	signs = true,
+  -- show signs
+  signs = true,
 
-	-- delay update diagnostics
-	update_in_insert = false,
-	}
+  -- delay update diagnostics
+  update_in_insert = false,
+  }
 )
 
 local on_attach = function(client, bufnr)
@@ -745,7 +746,7 @@ vim.keymap.set('n', '<A-b>', vim.lsp.buf.implementation, bufopts)
 if client.server_capabilities.documentFormattingProvider then
   vim.keymap.set('n', 'bf', function() vim.lsp.buf.format({async = true}) end, bufopts)
 elseif client.server_capabilities.documentRangeFormattingProvider then
-	vim.keymap.set('v', 'bf', function() vim.lsp.buf.format({async = true}) end, bufopts)
+  vim.keymap.set('v', 'bf', function() vim.lsp.buf.format({async = true}) end, bufopts)
 end
 
 -- Set autocommands conditional on server_capabilities
@@ -766,34 +767,34 @@ end
 local configs = require'lspconfig/configs'
 
 local servers = {
-	-- bash
-	"bashls",
-	-- js/ts
-	"tsserver",
-	-- python
-	"pylsp",
-	-- c/c++
-	"clangd",
-	-- css
-	"cssls",
-	-- go
-	"gopls",
-	-- rust
-	"rust_analyzer",
-	-- java
-	"jdtls",
+  -- bash
+  "bashls",
+  -- js/ts
+  "tsserver",
+  -- python
+  "pylsp",
+  -- c/c++
+  "clangd",
+  -- css
+  "cssls",
+  -- go
+  "gopls",
+  -- rust
+  "rust_analyzer",
+  -- java
+  "jdtls",
 }
 
 for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup {
-		on_attach = on_attach,
-		root_dir = function(fname)
-		return vim.fn.getcwd()
-		end,
-		flags = {
-			debounce_text_changes = 100,
-		}
-	}
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    root_dir = function(fname)
+    return vim.fn.getcwd()
+    end,
+    flags = {
+      debounce_text_changes = 100,
+    }
+  }
 end
 
 EOF
@@ -810,12 +811,12 @@ lua <<EOF
 
 local ssr = require('ssr')
 ssr.setup({
-	keymaps = {
-		close = '<esc>',
-		next_match = 'n',
-		prev_match = 'N',
-		replace_all = '<cr>',
-	},
+  keymaps = {
+    close = '<esc>',
+    next_match = 'n',
+    prev_match = 'N',
+    replace_all = '<cr>',
+  },
 })
 
 vim.keymap.set({ 'n', 'x' }, 'bs', function() ssr.open() end)
@@ -982,20 +983,20 @@ EOF
 nnoremap <C-p> :Files<CR>
 nnoremap <A-p> :Buffers<CR>
 nnoremap <Leader>/ :BLines<CR>
-nnoremap <Leader>? :Rg 
-nnoremap <A-M> :Marks<CR>
+nnoremap <Leader>? :Rg
+nnoremap <A-m> :Marks<CR>
 
 command! -bang -nargs=* Rg
-			\ call fzf#vim#grep(
-			\   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-			\   <bang>0 ? fzf#vim#with_preview('up:60%')
-			\           : fzf#vim#with_preview('right:50%:hidden', '?'),
-			\   <bang>0)
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
 
 let g:fzf_action = {
-			\ 'ctrl-s': 'split',
-			\ 'ctrl-v': 'vsplit'
-			\ }
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
 
 " -------------------------- "
 " |      NVIM-TREE         | "
@@ -1044,34 +1045,34 @@ local function on_attach(bufnr)
 end
 
 require'nvim-tree'.setup {
-	renderer = {
-		indent_markers = {
-			enable = true,
-		},
-		icons = {
-			show = {
-				folder = false,
-				file = false,
-				folder_arrow = false,
-				git = false,
-			}
-		},
-		special_files = {"TARGETS", "BUCK"},
-	},
-	filters = {
-		dotfiles = true,
-		custom = {},
-		exclude = {},
-	},
-	git = {
-		enable = false,
-		ignore = false,
-		timeout = 400,
-	},
-	update_focused_file = {
-		enable = false,
-	},
-	on_attach = on_attach,
+  renderer = {
+    indent_markers = {
+      enable = true,
+    },
+    icons = {
+      show = {
+        folder = false,
+        file = false,
+        folder_arrow = false,
+        git = false,
+      }
+    },
+    special_files = {"TARGETS", "BUCK"},
+  },
+  filters = {
+    dotfiles = true,
+    custom = {},
+    exclude = {},
+  },
+  git = {
+    enable = false,
+    ignore = false,
+    timeout = 400,
+  },
+  update_focused_file = {
+    enable = false,
+  },
+  on_attach = on_attach,
 }
 EOF
 
@@ -1127,58 +1128,58 @@ local ts_conds = require('nvim-autopairs.ts-conds')
 local utils = require('nvim-autopairs.utils')
 
 ap.setup({
-	disable_filetype = { "TelescopePrompt" },
-	disable_in_macro = false,  -- disable when recording or executing a macro
-	disable_in_visualblock = false, -- disable when insert after visual block mode
-	disable_in_replace_mode = true,
-	ignored_next_char = [=[[%w%%%'%[%"%.]]=],
-	enable_moveright = true,
-	enable_afterquote = true,  -- add bracket pairs after quote
-	enable_check_bracket_line = true,  --- check bracket in same line
-	enable_bracket_in_quote = true, --
-	enable_abbr = false, -- trigger abbreviation
-	break_undo = true, -- switch for basic rule break undo sequence
-	check_ts = true,
-	map_cr = true,
-	map_bs = true,  -- map the <BS> key
-	map_c_h = false,  -- Map the <C-h> key to delete a pair
-	map_c_w = false, -- map <c-w> to delete a pair if possible
+  disable_filetype = { "TelescopePrompt" },
+  disable_in_macro = false,  -- disable when recording or executing a macro
+  disable_in_visualblock = false, -- disable when insert after visual block mode
+  disable_in_replace_mode = true,
+  ignored_next_char = [=[[%w%%%'%[%"%.]]=],
+  enable_moveright = true,
+  enable_afterquote = true,  -- add bracket pairs after quote
+  enable_check_bracket_line = true,  --- check bracket in same line
+  enable_bracket_in_quote = true, --
+  enable_abbr = false, -- trigger abbreviation
+  break_undo = true, -- switch for basic rule break undo sequence
+  check_ts = true,
+  map_cr = true,
+  map_bs = true,  -- map the <BS> key
+  map_c_h = false,  -- Map the <C-h> key to delete a pair
+  map_c_w = false, -- map <c-w> to delete a pair if possible
 })
 
 local function move_for_angle_bracket(opts)
-	-- this is adapted from the bracket logic in the plugin
-	if opts.next_char == opts.char then
-		if opts.char == '>' then
-				return true
-		end
-		-- move right when have quote on end line or in quote
-		-- situtaion  |"  => "|
-		if utils.is_quote(opts.char) then
-			if opts.col == string.len(opts.line) then
-					return true
-			end
-			-- ("|")  => (""|)
-			--  ""       |"      "  => ""       "|      "
-			if utils.is_in_quotes(opts.line, opts.col - 1, opts.char) then
-					return true
-			end
-		end
-	end
-	return false
+  -- this is adapted from the bracket logic in the plugin
+  if opts.next_char == opts.char then
+    if opts.char == '>' then
+        return true
+    end
+    -- move right when have quote on end line or in quote
+    -- situtaion  |"  => "|
+    if utils.is_quote(opts.char) then
+      if opts.col == string.len(opts.line) then
+          return true
+      end
+      -- ("|")  => (""|)
+      --  ""       |"      "  => ""       "|      "
+      if utils.is_in_quotes(opts.line, opts.col - 1, opts.char) then
+          return true
+      end
+    end
+  end
+  return false
 end
 
 ap.add_rules({
-	rule('<', '>', {'cpp'}):with_pair(function(opts)
-		local fn1 = cond.before_regex('template%s+', -1)
-		local fn2 = cond.before_regex('%w', 1)
-		return fn1(opts) or fn2(opts)
-	end):with_move(move_for_angle_bracket),
-	rule('<', '>', {'rust'}):with_pair(function(opts)
-		local fn1 = cond.before_regex('template%s+', -1)
-		local fn2 = cond.before_regex('%w', 1)
-		local fn3 = cond.before_regex('::', 2)
-		return fn1(opts) or fn2(opts) or fn3(opts)
-	end):with_move(move_for_angle_bracket),
+  rule('<', '>', {'cpp'}):with_pair(function(opts)
+    local fn1 = cond.before_regex('template%s+', -1)
+    local fn2 = cond.before_regex('%w', 1)
+    return fn1(opts) or fn2(opts)
+  end):with_move(move_for_angle_bracket),
+  rule('<', '>', {'rust'}):with_pair(function(opts)
+    local fn1 = cond.before_regex('template%s+', -1)
+    local fn2 = cond.before_regex('%w', 1)
+    local fn3 = cond.before_regex('::', 2)
+    return fn1(opts) or fn2(opts) or fn3(opts)
+  end):with_move(move_for_angle_bracket),
 })
 
 -- integrate nvim-cmp with autopairs
@@ -1212,91 +1213,91 @@ local cmp = require('cmp')
 local luasnip = require('luasnip')
 
 cmp.setup({
-	snippet = {
+  snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
-	},
+  },
   window = {
     -- completion = cmp.config.window.bordered(),
     -- documentation = cmp.config.window.bordered(),
   },
-	mapping = cmp.mapping.preset.insert({
-		['<C-b>'] = cmp.mapping.scroll_docs(-4),
-		['<C-d>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-c>'] = cmp.mapping.abort(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-		['<Tab>'] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif has_words_before() then
-				cmp.complete()
-			else
-				fallback()
-			end
-		end, { 'i', 's' }),
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-c>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
 
-		['<S-Tab>'] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { 'i', 's' }),
-	}),
-	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
-	}, {
-		{ name = 'buffer' },
-		{ name = 'path' },
-	})
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  }, {
+    { name = 'buffer' },
+    { name = 'path' },
+  })
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
-		{ name = 'buffer' }
-	}
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({
-		{ name = 'path' }
-	}, {
-		{ name = 'cmdline' }
-	})
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
 })
 
 cmp.setup.filetype('lua', {
-	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
-	}, {
-		{ name = 'nvim_lua' },
-		{ name = 'buffer' },
-		{ name = 'path' },
-	})
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  }, {
+    { name = 'nvim_lua' },
+    { name = 'buffer' },
+    { name = 'path' },
+  })
 })
 
 -- TODO completion of lua doesn't work in embedded lua
 cmp.setup.filetype('vim', {
-	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
-	}, {
-		{ name = 'nvim_lua' },
-		{ name = 'buffer' },
-		{ name = 'path' },
-	})
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  }, {
+    { name = 'nvim_lua' },
+    { name = 'buffer' },
+    { name = 'path' },
+  })
 })
 
 EOF
@@ -1334,8 +1335,8 @@ lua <<EOF
 local spread = require('spread')
 
 local opts = {
-	silent = true,
-	noremap = true
+  silent = true,
+  noremap = true
 }
 
 vim.keymap.set('n', 'bM', spread.out, opts)
@@ -1359,12 +1360,12 @@ EOF
 " |         LIGHTLINE         | "
 " ----------------------------- "
 let g:lightline = {
-			\ 'colorscheme': 'wombat',
-			\ 'active': {
-				\   'left': [ [ 'mode', 'paste' ],
-				\             [ 'readonly', 'relativepath', 'modified'] ]
-				\ },
-				\ }
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'relativepath', 'modified'] ]
+      \ },
+      \ }
 
 " ----------------------------- "
 " |         NRPATTERN         | "
@@ -1384,7 +1385,7 @@ lua <<EOF
 local pf = require('pretty-fold')
 
 pf.setup({
-	sections = {
+  sections = {
       left = {
          '+', function() return string.rep('-', vim.v.foldlevel) end, ' ', 'content',
       },
@@ -1434,12 +1435,13 @@ lua <<EOF
 local fp = require('fold-preview')
 
 fp.setup({
-	default_keybindings = false,
-	border = 'single'
+  default_keybindings = false,
+  border = 'single'
 })
 vim.keymap.set('n', 'zs', fp.toggle_preview)
 
 EOF
+
 " -------------------------- "
 " |      no-neck-pain      | "
 " -------------------------- "
@@ -1448,17 +1450,17 @@ lua << EOF
 local nnp = require("no-neck-pain")
 
 nnp.setup({
-	-- Prints useful logs about what event are triggered, and reasons actions are executed.
+  -- Prints useful logs about what event are triggered, and reasons actions are executed.
     debug = false,
-		autocmds = {
-			-- When `true`, enables the plugin when you start Neovim.
-			enableOnVimEnter = false,
-		},
-		mappings = {
-			-- Set globally to Neovim, it allows you to toggle the enable/disable state.
-			-- When `false`, the mapping is not created.
-			toggle = "<F2>",
-		},
+    autocmds = {
+      -- When `true`, enables the plugin when you start Neovim.
+      enableOnVimEnter = false,
+    },
+    mappings = {
+      -- Set globally to Neovim, it allows you to toggle the enable/disable state.
+      -- When `false`, the mapping is not created.
+      toggle = "<F2>",
+    },
     -- The width of the focused buffer when enabling NNP.
     -- If the available window size is less than `width`, the buffer will take the whole screen.
     width = 200,
@@ -1469,7 +1471,7 @@ nnp.setup({
     --- Common options that are set to both buffers, for option scoped to the `left` and/or `right` buffer, see `buffers.left` and `buffers.right`.
     --- See |NoNeckPain.bufferOptions|.
     buffers = {
-				-- When `true`, the side buffers will be named `no-neck-pain-left` and `no-neck-pain-right` respectively.
+        -- When `true`, the side buffers will be named `no-neck-pain-left` and `no-neck-pain-right` respectively.
         setNames = false,
         -- Hexadecimal color code to override the current background color of the buffer. (e.g. #24273A)
         -- See |NoNeckPain.bufferOptions| for more details.
@@ -1482,36 +1484,36 @@ nnp.setup({
         options = {
             -- Buffer-scoped options, below are the default values, but any `vim.bo` options are valid and will be forwarded to the buffer creation.
             bo = {
-							filetype = "no-neck-pain",
-							buftype = "nofile",
-							bufhidden = "hide",
-							buflisted = false,
-							swapfile = false,
+              filetype = "no-neck-pain",
+              buftype = "nofile",
+              bufhidden = "hide",
+              buflisted = false,
+              swapfile = false,
             },
             -- Window-scoped options, below are the default values, but any `vim.wo` options are valid and will be forwarded to the buffer creation.
             wo = {
-							cursorline = false,
-							cursorcolumn = false,
-							number = false,
-							relativenumber = false,
-							foldenable = false,
-							list = false,
-							wrap = true,
-							linebreak = true,
+              cursorline = false,
+              cursorcolumn = false,
+              number = false,
+              relativenumber = false,
+              foldenable = false,
+              list = false,
+              wrap = true,
+              linebreak = true,
             },
-						colors ={
-							-- Brighten (positive) or darken (negative) the side buffers background color. Accepted values are [-1..1].
-							blend = -0.5
-						}
+            colors ={
+              -- Brighten (positive) or darken (negative) the side buffers background color. Accepted values are [-1..1].
+              blend = -0.5
+            }
         },
-				--- Options applied to the `left` buffer, the options defined here overrides the ones at the root of the `buffers` level.
+        --- Options applied to the `left` buffer, the options defined here overrides the ones at the root of the `buffers` level.
         --- See |NoNeckPain.bufferOptions|.
         left = nnp.bufferOptions,
-				--- Options applied to the `right` buffer, the options defined here overrides the ones at the root of the `buffers` level.
+        --- Options applied to the `right` buffer, the options defined here overrides the ones at the root of the `buffers` level.
         --- See |NoNeckPain.bufferOptions|.
         right = nnp.bufferOptions,
     },
-		integrations = {
+    integrations = {
         -- https://github.com/nvim-tree/nvim-tree.lua
         NvimTree = {
             -- the position of the tree, can be `left` or `right``
