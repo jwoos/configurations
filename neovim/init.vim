@@ -26,7 +26,6 @@
 " <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
 " <Leader>c
 " ,
-" Q
 
 "              __                     _
 "     ____    / /  __  __   ____ _   (_)   ____    _____
@@ -50,6 +49,7 @@ Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'kkharji/sqlite.lua'
 " TODO
 " Plug 'anuvyklack/hydra.nvim'
 
@@ -109,7 +109,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'frioux/vim-regedit'
+Plug 'ecthelionvi/NeoComposer.nvim'
 Plug 'junegunn/vim-easy-align'
 Plug 'zegervdv/nrpattern.nvim'
 Plug 'mizlan/iswap.nvim'
@@ -1252,9 +1252,30 @@ cmp.setup.filetype('vim', {
 EOF
 
 " -------------------------- "
-" |         REGEDIT        | "
+" |       NeoComposer      | "
 " -------------------------- "
-nmap <leader>q <Plug>(RegEditPostfix)
+lua <<EOF
+require("NeoComposer").setup({
+  notify = true,
+  delay_timer = 150,
+  colors = {
+    bg = "#16161e",
+    fg = "#ff9e64",
+    red = "#ec5f67",
+    blue = "#5fb3b3",
+    green = "#99c794",
+  },
+  keymaps = {
+    play_macro = "Q",
+    yank_macro = "yq",
+    stop_macro = "<c-q>",
+    toggle_record = "q",
+    cycle_next = "<a-q>",
+    cycle_prev = "<a-Q>",
+    toggle_macro_menu = "<leader>q",
+  },
+})
+EOF
 
 " -------------------------- "
 " |       SPREAD.NVIM      | "
