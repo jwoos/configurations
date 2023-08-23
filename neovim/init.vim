@@ -1004,8 +1004,6 @@ let g:fzf_action = {
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 
 lua <<EOF
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-
 local function on_attach(bufnr)
   local api = require('nvim-tree.api')
 
