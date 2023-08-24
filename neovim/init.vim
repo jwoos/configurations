@@ -297,6 +297,8 @@ nnoremap b <nop>
 vnoremap b <nop>
 nnoremap B <nop>
 vnoremap B <nop>
+norepmap s <nop>
+norepmap S <nop>
 
 " better navigation
 vnoremap <C-h> ^
@@ -1100,10 +1102,10 @@ vim.api.nvim_set_hl(0, 'LeapMatch', {
 })
 leap.opts.highlight_unlabeled_phase_one_targets = true
 
-vim.keymap.set({'n', 'v', 'o'}, '<Leader>s', '<Plug>(leap-forward-to)')
-vim.keymap.set({'n', 'v', 'o'}, '<Leader>S', '<Plug>(leap-backward-to)')
-vim.keymap.set({'n', 'v', 'o'}, '<Leader>x', '<Plug>(leap-forward-till)')
-vim.keymap.set({'n', 'v', 'o'}, '<Leader>X', '<Plug>(leap-backward-till)')
+vim.keymap.set({'n', 'v', 'o'}, 's', '<Plug>(leap-forward-to)')
+vim.keymap.set({'n', 'v', 'o'}, 'S', '<Plug>(leap-backward-to)')
+vim.keymap.set({'n', 'v', 'o'}, '<c-s>', '<Plug>(leap-forward-till)')
+vim.keymap.set({'n', 'v', 'o'}, '<c-S>', '<Plug>(leap-backward-till)')
 
 EOF
 
