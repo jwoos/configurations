@@ -297,8 +297,8 @@ nnoremap b <nop>
 vnoremap b <nop>
 nnoremap B <nop>
 vnoremap B <nop>
-norepmap s <nop>
-norepmap S <nop>
+noremap s <nop>
+noremap S <nop>
 
 " better navigation
 vnoremap <C-h> ^
