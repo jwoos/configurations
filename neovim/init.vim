@@ -110,8 +110,9 @@ Plug 'windwp/nvim-autopairs'
 Plug 'numToStr/Comment.nvim'
 Plug 'machakann/vim-sandwich'
 Plug 'wellle/targets.vim'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+" generally should be installed on system
+" Plug 'junegunn/fzf'
+Plug 'ibhagwan/fzf-lua'
 Plug 'ecthelionvi/NeoComposer.nvim'
 Plug 'junegunn/vim-easy-align'
 Plug 'zegervdv/nrpattern.nvim'
@@ -980,23 +981,29 @@ EOF
 " -------------------------- "
 " |          FZF           | "
 " -------------------------- "
-nnoremap <C-p> :Files<CR>
-nnoremap <A-p> :Buffers<CR>
-nnoremap <Leader>/ :BLines<CR>
-nnoremap <Leader>? :Rg
-nnoremap <A-m> :Marks<CR>
+lua <<EOF
 
-command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0)
+local fzf = require('fzf-lua')
 
-let g:fzf_action = {
-      \ 'ctrl-s': 'split',
-      \ 'ctrl-v': 'vsplit'
-      \ }
+fzf.setup({
+  "default",
+  winopts = {},
+  fzf_opts = {
+    ['--layout'] = 'default',
+  },
+  blines = {
+    previewer = false
+  }
+})
+
+vim.keymap.set("n", "<c-p>", fzf.files, { silent = true })
+vim.keymap.set("n", "<A-p>", fzf.buffers, { silent = true })
+vim.keymap.set("n", "<leader>/", fzf.blines, { silent = true })
+vim.keymap.set("n", "<leader>?", fzf.grep, { silent = true })
+vim.keymap.set("n", "<a-m>", fzf.marks, { silent = true })
+
+EOF
+
 
 " -------------------------- "
 " |      NVIM-TREE         | "
