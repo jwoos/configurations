@@ -939,6 +939,7 @@ nmap ga <Plug>(EasyAlign)
 lua <<EOF
 
 local grapple = require('grapple')
+local scope = require('grapple.scope')
 local path = require('plenary.path')
 
 grapple.setup({
@@ -947,9 +948,9 @@ grapple.setup({
 
     ---The scope used when creating, selecting, and deleting tags
     ---@type Grapple.Scope
-    scope = function()
-        return vim.fn.getcwd()
-    end,
+    scope = scope.resolver(function()
+      return vim.fn.getcwd()
+    end, { cache = "DirChanged" }),
 
     ---The save location for tags
     save_path = tostring(path:new(vim.fn.stdpath("data")) / "grapple"),
