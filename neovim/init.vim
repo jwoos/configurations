@@ -1093,7 +1093,8 @@ ap.add_rules({
   rule('<', '>', {'cpp'}):with_pair(function(opts)
     local fn1 = cond.before_regex('template%s+', -1)
     local fn2 = cond.before_regex('%w', 1)
-    return fn1(opts) or fn2(opts)
+    local fn3 = cond.before_regex('#include%s+', -1)
+    return fn1(opts) or fn2(opts) or fn3(opts)
   end):with_move(move_for_angle_bracket),
   rule('<', '>', {'rust'}):with_pair(function(opts)
     local fn1 = cond.before_regex('template%s+', -1)
