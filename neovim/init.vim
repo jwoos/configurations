@@ -1421,6 +1421,18 @@ other.setup({
 			return inputString:lower()
 		end
 	},
+        hooks = {
+		-- disable showing any files which don't exist
+                filePickerBeforeShow = function(files)
+                        for k, v in pairs(files) do
+                                if not v.exists then
+                                        table.remove(files, k)
+                                end
+                        end
+
+                        return files
+                end
+        },
 	style = {
 		-- How the plugin paints its window borders
 		-- Allowed values are none, single, double, rounded, solid and shadow
