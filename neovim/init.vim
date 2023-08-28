@@ -120,10 +120,9 @@ Plug 'zegervdv/nrpattern.nvim'
 Plug 'mizlan/iswap.nvim'
 
 " Color Schemes
-Plug 'shaunsingh/oxocarbon.nvim'
+Plug 'rebelot/kanagawa.nvim'
+Plug 'nyoom-engineering/oxocarbon.nvim'
 Plug 'navarasu/onedark.nvim'
-Plug 'rakr/vim-two-firewatch'
-Plug 'glepnir/zephyr-nvim'
 Plug 'sam4llis/nvim-tundra'
 
 call plug#end()
@@ -246,7 +245,7 @@ lua << EOF
 -- })
 
 vim.opt.background = 'dark'
-vim.cmd('colorscheme oxocarbon')
+vim.cmd('colorscheme kanagawa-dragon')
 
 EOF
 
