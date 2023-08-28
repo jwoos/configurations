@@ -23,7 +23,7 @@
 
 " NOT USED
 " <Space>
-" <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
+" <F2> <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
 " <Leader>c
 " ,
 " B
@@ -59,6 +59,7 @@ Plug 'kkharji/sqlite.lua'
 " meta
 " TODO
 " Plug 'folke/which-key.nvim'
+" https://github.com/FeiyouG/commander.nvim
 
 " movement within file
 Plug 'easymotion/vim-easymotion'
@@ -99,7 +100,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'anuvyklack/pretty-fold.nvim'
 Plug 'anuvyklack/fold-preview.nvim'
-Plug 'shortcuts/no-neck-pain.nvim'
 
 " utils
 Plug 'aarondiel/spread.nvim'
@@ -124,7 +124,6 @@ Plug 'mizlan/iswap.nvim'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'nyoom-engineering/oxocarbon.nvim'
 Plug 'navarasu/onedark.nvim'
-Plug 'sam4llis/nvim-tundra'
 
 call plug#end()
 
@@ -1365,88 +1364,6 @@ vim.keymap.set('n', 'zs', fp.toggle_preview)
 EOF
 
 " -------------------------- "
-" |      no-neck-pain      | "
-" -------------------------- "
-lua << EOF
-
-local nnp = require("no-neck-pain")
-
-nnp.setup({
-  -- Prints useful logs about what event are triggered, and reasons actions are executed.
-    debug = false,
-    autocmds = {
-      -- When `true`, enables the plugin when you start Neovim.
-      enableOnVimEnter = false,
-    },
-    mappings = {
-      -- Set globally to Neovim, it allows you to toggle the enable/disable state.
-      -- When `false`, the mapping is not created.
-      toggle = "<F2>",
-    },
-    -- The width of the focused buffer when enabling NNP.
-    -- If the available window size is less than `width`, the buffer will take the whole screen.
-    width = 200,
-    -- Disables NNP if the last valid buffer in the list has been closed.
-    disableOnLastBuffer = false,
-    -- When `true`, disabling NNP kills every split/vsplit buffers except the main NNP buffer.
-    killAllBuffersOnDisable = false,
-    --- Common options that are set to both buffers, for option scoped to the `left` and/or `right` buffer, see `buffers.left` and `buffers.right`.
-    --- See |NoNeckPain.bufferOptions|.
-    buffers = {
-        -- When `true`, the side buffers will be named `no-neck-pain-left` and `no-neck-pain-right` respectively.
-        setNames = false,
-        -- Hexadecimal color code to override the current background color of the buffer. (e.g. #24273A)
-        -- See |NoNeckPain.bufferOptions| for more details.
-        backgroundColor = nil,
-        -- Hexadecimal color code to override the current text color of the buffer. (e.g. #7480c2)
-        textColor = nil,
-        -- When `true`, the side buffers will be named `no-neck-pain-left` and `no-neck-pain-right` respectively.
-        showName = false,
-        -- The buffer options when creating the buffer.
-        options = {
-            -- Buffer-scoped options, below are the default values, but any `vim.bo` options are valid and will be forwarded to the buffer creation.
-            bo = {
-              filetype = "no-neck-pain",
-              buftype = "nofile",
-              bufhidden = "hide",
-              buflisted = false,
-              swapfile = false,
-            },
-            -- Window-scoped options, below are the default values, but any `vim.wo` options are valid and will be forwarded to the buffer creation.
-            wo = {
-              cursorline = false,
-              cursorcolumn = false,
-              number = false,
-              relativenumber = false,
-              foldenable = false,
-              list = false,
-              wrap = true,
-              linebreak = true,
-            },
-            colors ={
-              -- Brighten (positive) or darken (negative) the side buffers background color. Accepted values are [-1..1].
-              blend = -0.5
-            }
-        },
-        --- Options applied to the `left` buffer, the options defined here overrides the ones at the root of the `buffers` level.
-        --- See |NoNeckPain.bufferOptions|.
-        left = nnp.bufferOptions,
-        --- Options applied to the `right` buffer, the options defined here overrides the ones at the root of the `buffers` level.
-        --- See |NoNeckPain.bufferOptions|.
-        right = nnp.bufferOptions,
-    },
-    integrations = {
-        -- https://github.com/nvim-tree/nvim-tree.lua
-        NvimTree = {
-            -- the position of the tree, can be `left` or `right``
-            position = "left",
-        },
-    },
-})
-
-EOF
-
-" -------------------------- "
 " |         ISWAP          | "
 " -------------------------- "
 lua <<EOF
@@ -1474,7 +1391,9 @@ EOF
 " -------------------------- "
 lua <<EOF
 
-require("other-nvim").setup({
+local other = require('other-nvim')
+
+other.setup({
 	mappings = {
 		{
 			pattern = "./(.*)/(.*).cpp$",
@@ -1518,5 +1437,7 @@ require("other-nvim").setup({
 		minHeight = 5
 	},
 })
+
+vim.keymap.set('n', '<leader>p', '<cmd>Other<CR>')
 
 EOF
