@@ -98,8 +98,9 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " https://github.com/nvim-lualine/lualine.nvim
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
-Plug 'anuvyklack/pretty-fold.nvim'
-Plug 'anuvyklack/fold-preview.nvim'
+
+" folding
+Plug 'kevinhwang91/nvim-ufo'
 
 " utils
 Plug 'aarondiel/spread.nvim'
@@ -1452,5 +1453,75 @@ other.setup({
 })
 
 vim.keymap.set('n', '<leader>p', '<cmd>Other<CR>')
+
+EOF
+
+" -------------------------- "
+" |          UFO           | "
+" -------------------------- "
+lua << EOF
+
+vim.o.foldcolumn = '0' -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:v,foldsep: ,foldclose:>]]
+
+local ufo = require('ufo')
+
+vim.keymap.set('n', 'zR', ufo.openAllFolds)
+vim.keymap.set('n', 'zM', ufo.closeAllFolds)
+vim.keymap.set('n', 'zr', ufo.openFoldsExceptKinds)
+vim.keymap.set('n', 'zm', ufo.closeFoldsWith)
+vim.keymap.set('n', 'zs', ufo.peekFoldedLinesUnderCursor)
+
+local handler = function(virtText, lnum, endLnum, width, truncate)
+        local newVirtText = {}
+        local suffix = ('  <== %d '):format(endLnum - lnum)
+        local sufWidth = vim.fn.strdisplaywidth(suffix)
+        local targetWidth = width - sufWidth
+        local curWidth = 0
+        for _, chunk in ipairs(virtText) do
+                local chunkText = chunk[1]
+                local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+                if targetWidth > curWidth + chunkWidth then
+                        table.insert(newVirtText, chunk)
+                else
+                        chunkText = truncate(chunkText, targetWidth - curWidth)
+                        local hlGroup = chunk[2]
+                        table.insert(newVirtText, {chunkText, hlGroup})
+                        chunkWidth = vim.fn.strdisplaywidth(chunkText)
+                        -- str width returned from truncate() may less than 2nd argument, need padding
+                        if curWidth + chunkWidth < targetWidth then
+                                suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+                        end
+                        break
+                end
+
+                curWidth = curWidth + chunkWidth
+        end
+        table.insert(newVirtText, {suffix, 'MoreMsg'})
+        return newVirtText
+end
+
+ufo.setup({
+        open_fold_hl_timeout = 500,
+        close_fold_kinds = {},
+        provider_selector = function(bufnr, filetype, buftype)
+                return {'treesitter', 'indent'}
+        end,
+        fold_virt_text_handler = handler,
+        enable_get_fold_virt_text = false,
+        preview = {
+                border = 'shadow',
+                winhighlight = 'Normal:Normal',
+                winblend = 0,
+                maxheight = 30,
+                mapping = {
+                        scrollU = '<C-u>',
+                        scrollD = '<C-d>',
+                },
+        },
+})
 
 EOF
