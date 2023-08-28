@@ -575,8 +575,8 @@ lspsaga.setup({
     open = '<CR>',
     vsplit = '<c-v>',
     split = '<c-s>',
-    scroll_up = '<C-k>',
-    scroll_down = '<C-j>'
+    scroll_up = '<C-u>',
+    scroll_down = '<C-d>'
   },
   max_preview_lines = 25,
   finder_icons = {
@@ -759,8 +759,8 @@ muren.setup({
     toggle_side = '<Tab>',
     toggle_options_focus = '<S-tab>',
     toggle_option_under_cursor = '<CR>',
-    scroll_preview_up = '<Up>',
-    scroll_preview_down = '<Down>',
+    scroll_preview_up = '<c-u>',
+    scroll_preview_down = '<c-d>',
     do_replace = '<CR>',
   },
   -- ui sizes
@@ -1146,7 +1146,7 @@ cmp.setup({
     -- documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-c>'] = cmp.mapping.abort(),
