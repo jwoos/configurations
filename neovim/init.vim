@@ -164,6 +164,7 @@ vim.cmd('colorscheme kanagawa-dragon')
 EOF
 
 " override the SignColumn highlight
+highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 " lua Group.new('SignColumn', c.none, c.none, no)
 
 set noshowmode
