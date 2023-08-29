@@ -226,6 +226,10 @@ nnoremap <C-l> $
 nnoremap <C-j> <C-d>
 nnoremap <C-k> <C-u>
 
+" folding
+nnoremap [f zk
+nnoremap ]f zj
+
 " screen navigation
 nnoremap zT H
 nnoremap zZ M
