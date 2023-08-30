@@ -1030,19 +1030,53 @@ vim.keymap.set({'n', 'v', 'o'}, '<c-S>', '<Plug>(leap-backward-till)')
 EOF
 
 " -------------------------- "
-" |       EASYMOTION       | "
+" |           HOP          | "
 " -------------------------- "
-map <Leader> <Plug>(easymotion-prefix)
-map <Leader>W <Plug>(easymotion-b)
-map <Leader>E <Plug>(easymotion-ge)
+lua << EOF
+local hop = require('hop')
+local hop_hint = require('hop.hint')
 
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+hop.setup({
+  jump_on_sole_occurrence = false,
+})
 
-" keep cursor column when JK motion
-let g:EasyMotion_startofline = 0
+vim.keymap.set({'n', 'x'}, '<Leader>S', function()
+        hop.hint_words({
+                direction = hop_hint.HintDirection.BEFORE_CURSOR,
+        })
+end)
+vim.keymap.set({'n', 'x'}, '<Leader>s', function()
+        hop.hint_words({
+                direction = hop_hint.HintDirection.AFTER_CURSOR,
+        })
+end)
+
+vim.keymap.set({'n', 'x'}, '<Leader>h', function()
+        hop.hint_words({
+                direction = hop_hint.HintDirection.BEFORE_CURSOR,
+                current_line_only = true,
+        })
+end)
+vim.keymap.set({'n', 'x'}, '<Leader>l', function()
+        hop.hint_words({
+                direction = hop_hint.HintDirection.AFTER_CURSOR,
+                current_line_only = true,
+        })
+end)
+
+vim.keymap.set({'n', 'x'}, '<Leader>k', function()
+        hop.hint_lines({
+                direction = hop_hint.HintDirection.BEFORE_CURSOR,
+        })
+end)
+vim.keymap.set({'n', 'x'}, '<Leader>j', function()
+        hop.hint_lines({
+                direction = hop_hint.HintDirection.AFTER_CURSOR,
+        })
+end)
+
+EOF
+
 
 " -------------------------- "
 " |     nvim-autopairs     | "
