@@ -1141,6 +1141,15 @@ end
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
+local menu_mapping = {
+  nvim_lua = '[Nvim Lua]',
+  nvim_lsp = '[LSP]',
+  luasnip = '[snippet]',
+  buffer = '[buffer]',
+  path = '[path]',
+  cmdline = '[cmdline]',
+};
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -1179,6 +1188,13 @@ cmp.setup({
       end
     end, { 'i', 's' }),
   }),
+  formatting = {
+    fields = {"abbr", "kind", "menu"},
+    format = function(entry, vim_completion_item)
+      vim_completion_item.menu = menu_mapping[entry.source.name]
+      return vim_completion_item
+    end
+  },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
