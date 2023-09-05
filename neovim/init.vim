@@ -53,6 +53,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-repeat'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'kkharji/sqlite.lua'
+Plug 'kevinhwang91/promise-async'
 " TODO
 " Plug 'anuvyklack/hydra.nvim'
 
@@ -62,7 +63,7 @@ Plug 'kkharji/sqlite.lua'
 " https://github.com/FeiyouG/commander.nvim
 
 " movement within file
-Plug 'easymotion/vim-easymotion'
+Plug 'phaazon/hop.nvim'
 Plug 'ggandor/leap.nvim'
 
 " movement along marks
@@ -1355,71 +1356,6 @@ lua require("nrpattern").setup()
 " |         numb         | "
 " ------------------------ "
 lua require('numb').setup()
-
-" -------------------------- "
-" |       PRETTY-FOLD      | "
-" -------------------------- "
-lua <<EOF
-
-local pf = require('pretty-fold')
-
-pf.setup({
-  sections = {
-      left = {
-         '+', function() return string.rep('-', vim.v.foldlevel) end, ' ', 'content',
-      },
-      right = {
-         ' ', 'number_of_folded_lines', ' ',
-         function(config) return config.fill_char:rep(3) end
-      }
-   },
-
-   fill_char = '•',
-
-   remove_fold_markers = true,
-
-   -- Keep the indentation of the content of the fold string.
-   keep_indentation = false,
-
-   -- Possible values:
-   -- "delete" : Delete all comment signs from the fold string.
-   -- "spaces" : Replace all comment signs with equal number of spaces.
-   -- false    : Do nothing with comment signs.
-   process_comment_signs = 'delete',
-
-   -- Comment signs additional to the value of `&commentstring` option.
-   comment_signs = {},
-
-   -- List of patterns that will be removed from content foldtext section.
-   stop_words = {},
-
-   add_close_pattern = true, -- true, 'last_line' or false
-
-   matchup_patterns = {
-      {  '{', '}' },
-      { '%(', ')' }, -- % to escape lua pattern char
-      { '%[', ']' }, -- % to escape lua pattern char
-   },
-
-   ft_ignore = {},
-})
-
-EOF
-
-" -------------------------- "
-" |      FOLD-PREVIEW      | "
-" -------------------------- "
-lua <<EOF
-
-local fp = require('fold-preview')
-
-fp.setup({
-  default_keybindings = false,
-  border = 'single'
-})
-vim.keymap.set('n', 'zs', fp.toggle_preview)
-
-EOF
 
 " -------------------------- "
 " |         ISWAP          | "
