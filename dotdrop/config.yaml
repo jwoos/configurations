@@ -32,6 +32,11 @@ dotfiles:
     link: link_children
     chmod: 750
 
+  f_lldb:
+    src: lldb/.lldbinit
+    dst: ~/.lldbinit
+    link: absolute
+
 profiles:
   main:
     dotfiles:
@@ -39,3 +44,4 @@ profiles:
       - f_tmux
       - f_git
       - d_zsh
+      - f_lldb
