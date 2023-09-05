@@ -19,10 +19,12 @@ dotfiles:
   f_tmux:
     src: tmux/.tmux.conf
     dst: ~/.tmux.conf
+    link: absolute
 
   f_git:
     src: git/.gitconfig
     dst: ~/.gitconfig
+    link: absolute
 
   d_zsh:
     src: zsh
