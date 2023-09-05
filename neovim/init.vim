@@ -51,13 +51,22 @@ Plug 'tpope/vim-repeat'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'kkharji/sqlite.lua'
 Plug 'kevinhwang91/promise-async'
+
 " TODO
+" Plug 'chrisgrieser/nvim-various-textobjs'
 " Plug 'anuvyklack/hydra.nvim'
 
 " meta
 " TODO
 " Plug 'folke/which-key.nvim'
 " https://github.com/FeiyouG/commander.nvim
+
+" session
+" TODO 
+" Plug 'gennaro-tedesco/nvim-possession'
+
+" terminal
+Plug 'akinsho/toggleterm.nvim'
 
 " movement within file
 Plug 'phaazon/hop.nvim'
@@ -1359,11 +1368,13 @@ lualine.setup({
     section_separators = { left = '', right = '' },
 		globalstatus = true,
 		icons_enabled = false,
+		disabled_filetypes = {},
 	},
 	extensions = {
 		'fzf',
 		'quickfix',
 		'nvim-tree',
+		'toggleterm'
 	},
 	sections = {
 		lualine_a = {'mode'},
@@ -1657,6 +1668,22 @@ fidget.setup({
     logging = false,          -- whether to enable logging, for debugging
     strict = false,           -- whether to interpret LSP strictly
   },
+})
+
+EOF
+
+" -------------------------- "
+" |      TOGGLETERM        | "
+" -------------------------- "
+lua <<EOF
+
+local toggleterm = require("toggleterm")
+toggleterm.setup({
+	float_opts = {
+		border = 'rounded',
+	},
+	open_mapping = '`',
+	direction = 'float'
 })
 
 EOF
