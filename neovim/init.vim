@@ -41,10 +41,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" UI
-" https://github.com/folke/noice.nvim
-
-Plug 'nvim-tree/nvim-web-devicons'
+" Plug 'nvim-tree/nvim-web-devicons'
 
 " Libraries
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -96,8 +93,7 @@ Plug 'AckslD/muren.nvim'
 " visual
 Plug 'gregsexton/matchtag'
 Plug 'lukas-reineke/indent-blankline.nvim'
-" https://github.com/nvim-lualine/lualine.nvim
-Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'mhinz/vim-signify'
 Plug 'j-hui/fidget.nvim'
 
@@ -161,13 +157,22 @@ set mouse=a
 lua << EOF
 
 vim.opt.background = 'dark'
+
+require('kanagawa').setup({
+	theme = 'dragon',
+	colors = {
+		theme = {
+			all = {
+				ui = {
+					bg_gutter = "none"
+				}
+			}
+		}
+	}
+})
 vim.cmd('colorscheme kanagawa-dragon')
 
 EOF
-
-" override the SignColumn highlight
-highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
-" lua Group.new('SignColumn', c.none, c.none, no)
 
 set noshowmode
 
@@ -559,7 +564,6 @@ lspsaga.setup({
     show_file = false,
   },
   diagnostic_header = {'E', 'W', 'I', 'H'},
-  code_action_icon = '',
   code_action_keys = {
     quit = '<esc>',
     exec = '<CR>'
@@ -593,7 +597,12 @@ lspsaga.setup({
   },
   show_outline = {
     jump_key = '<CR>'
-  }
+  },
+	ui = {
+	},
+	lightbulb = {
+		sign = false,
+	}
 })
 
 local opts = { noremap=true, silent=true }
@@ -1337,15 +1346,79 @@ require("indent_blankline").setup {
 EOF
 
 " ----------------------------- "
-" |         LIGHTLINE         | "
+" |          LUALINE          | "
 " ----------------------------- "
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'relativepath', 'modified'] ]
-      \ },
-      \ }
+lua <<EOF
+
+local lualine = require('lualine')
+
+lualine.setup({
+	options = {
+		theme = 'auto',
+		component_separators = '',
+    section_separators = { left = '', right = '' },
+		globalstatus = true,
+		icons_enabled = false,
+	},
+	extensions = {
+		'fzf',
+		'quickfix',
+		'nvim-tree',
+	},
+	sections = {
+		lualine_a = {'mode'},
+		lualine_b = {
+			{
+				'filename',
+				newfile_status = true,
+				path = 1,
+			}
+		},
+		lualine_c = {'diff', 'diagnostics'},
+		lualine_x = {},
+		lualine_y = {'searchcount', 'location'},
+		lualine_z = {
+			'encoding',
+			{
+			'fileformat',
+			},
+			'filetype'
+		}
+	},
+	winbar = {},
+	inactive_winbar = {},
+	tabline = {
+		lualine_a = {
+			{
+				'tabs',
+				mode = 2,
+				use_mode_colors = true,
+			}
+		},
+		lualine_b = {},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {
+			{
+				'windows',
+				show_filename_only = true,   -- Shows shortened relative path when set to false.
+				show_modified_status = true, -- Shows indicator when the window is modified.
+				mode = 0, -- 0: Shows window name
+									-- 1: Shows window index
+									-- 2: Shows window name + window index
+				max_length = vim.o.columns * 2 / 3, -- Maximum width of windows component,
+																						-- it can also be a function that returns
+																						-- the value of `max_length` dynamically.
+				filetype_names = {}, -- Shows specific window name for that filetype ( { `filetype` = `window_name`, ... } )
+				disabled_buftypes = { 'quickfix', 'prompt'}, -- Hide a window if its buffer's type is disabled
+				use_mode_colors = true,
+			}
+		}
+	}
+})
+
+EOF
 
 " ----------------------------- "
 " |         NRPATTERN         | "
