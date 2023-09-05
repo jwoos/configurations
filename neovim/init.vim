@@ -105,6 +105,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'mhinz/vim-signify'
 Plug 'j-hui/fidget.nvim'
+Plug 'nvim-zh/colorful-winsep.nvim'
 " TODO something like the following with status signs but not scroll bar?
 " Plug 'dstein64/nvim-scrollview'
 
@@ -1687,6 +1688,21 @@ toggleterm.setup({
 	},
 	open_mapping = '`',
 	direction = 'float'
+})
+
+EOF
+
+" -------------------------- "
+" |    COLORFUL-WINSEP     | "
+" -------------------------- "
+lua << EOF
+
+require('colorful-winsep').setup({
+	no_exec_files = {'NvimTree'},
+	highlight = {
+		fg = require('kanagawa.colors').setup().palette.sumiInk4,
+		bg = vim.api.nvim_get_hl_by_name("Normal", true)["background"]
+	}
 })
 
 EOF
