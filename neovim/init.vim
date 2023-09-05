@@ -105,6 +105,8 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'mhinz/vim-signify'
 Plug 'j-hui/fidget.nvim'
+" TODO something like the following with status signs but not scroll bar?
+" Plug 'dstein64/nvim-scrollview'
 
 " folding
 Plug 'kevinhwang91/nvim-ufo'
@@ -569,7 +571,7 @@ local lspsaga = require('lspsaga')
 
 lspsaga.setup({
   symbol_in_winbar = {
-    separator = '#',
+    separator = ' › ',
     show_file = false,
   },
   diagnostic_header = {'E', 'W', 'I', 'H'},
@@ -608,6 +610,7 @@ lspsaga.setup({
     jump_key = '<CR>'
   },
 	ui = {
+		devicon = false,
 	},
 	lightbulb = {
 		sign = false,
