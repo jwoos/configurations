@@ -16,6 +16,11 @@ dotfiles:
     dst: ~/.config/nvim
     link: link_children
 
+  d_kitty:
+    src: kitty
+    dst: ~/.config/kitty
+    link: link_children
+
   f_tmux:
     src: tmux/.tmux.conf
     dst: ~/.tmux.conf
@@ -45,3 +50,4 @@ profiles:
       - f_git
       - d_zsh
       - f_lldb
+      - d_kitty
