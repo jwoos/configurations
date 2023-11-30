@@ -24,7 +24,6 @@
 " NOT USED
 " <Space>
 " <F2> <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
-" <Leader>c
 " <leader>s
 " <leader>w
 " <leader>e
@@ -213,6 +212,8 @@ set timeoutlen=500
 set updatetime=250
 
 " unmap keys
+noremap <C-d> <nop>
+noremap <C-u> <nop>
 nnoremap <C-]> <nop>
 noremap <C-t> <nop>
 noremap <C-n> <nop>
@@ -335,10 +336,11 @@ set ignorecase
 set smartcase
 
 " folding
-set foldmethod=manual
-set foldnestmax=10
-set nofoldenable
-set foldlevel=20
+" set in nvim ufo
+" set foldmethod=manual
+" set foldnestmax=10
+" set nofoldenable
+" set foldlevel=20
 
 " use ` by default instead of '
 nnoremap ' `
@@ -922,7 +924,7 @@ grapple.setup({
 })
 
 vim.keymap.set("n", "<leader>m", grapple.toggle, {})
-vim.keymap.set("n", "<A-m>", grapple.popup_tags, {})
+vim.keymap.set("n", "<leader>M", grapple.popup_tags, {})
 vim.keymap.set("n", "<A-o>", grapple.cycle_backward, {})
 vim.keymap.set("n", "<A-i>", grapple.cycle_forward, {})
 
@@ -1514,23 +1516,23 @@ local other = require('other-nvim')
 other.setup({
 	mappings = {
 		{
-			pattern = "./(.*)/(.*).cpp$",
+			pattern = "(.*)/(.*).cpp$",
 			target = {
 				{
-					target = "./%1/%2.h",
+					target = "%1/%2.h",
 				},
 				{
-					target = "./%1/%2.hpp"
+					target = "%1/%2.hpp"
 				}
 			},
 		},
 		{
-			pattern = "./(.*)/(.*).h$",
-			target = "./%1/%2.cpp",
+			pattern = "(.*)/(.*).h$",
+			target = "%1/%2.cpp",
 		},
 		{
-			pattern = "./(.*)/(.*).hpp$",
-			target = "./%1/%2.cpp",
+			pattern = "(.*)/(.*).hpp$",
+			target = "%1/%2.cpp",
 		},
 	},
 	transformers = {
