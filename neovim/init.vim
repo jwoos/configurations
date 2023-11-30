@@ -25,6 +25,12 @@
 " <Space>
 " <F2> <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
 " <Leader>c
+" <leader>s
+" <leader>w
+" <leader>e
+" <leader>t
+" <leader>f
+" <leader>r
 " ,
 " B
 
@@ -261,6 +267,9 @@ nnoremap zB L
 "nnoremap <S-j> :tabclose<CR>
 "nnoremap <S-k> :tab split <CR>
 
+nnoremap <c-t> :tabnew<CR>
+nnoremap <a-t> :tabclose<CR>
+
 " easy switching between splits
 nnoremap <A-h> <C-w>h
 nnoremap <A-l> <C-w>l
@@ -290,12 +299,6 @@ nnoremap U <C-r>
 " remap : to use enter
 nnoremap <CR> :
 vnoremap <CR> :
-
-" remap to better delimited words
-"vnoremap w W
-"nnoremap w W
-"vnoremap e E
-"nnoremap e E
 
 " remap shift to mean backwards
 nnoremap E ge
@@ -1047,10 +1050,10 @@ vim.api.nvim_set_hl(0, 'LeapMatch', {
 })
 leap.opts.highlight_unlabeled_phase_one_targets = true
 
-vim.keymap.set({'n', 'v', 'o'}, 's', '<Plug>(leap-forward-to)')
+-- s adds a delay since it's used by surround
+-- vim.keymap.set({'n', 'v', 'o'}, 's', '<Plug>(leap-forward-to)')
+vim.keymap.set({'n', 'v', 'o'}, '<c-s>', '<Plug>(leap-forward-to)')
 vim.keymap.set({'n', 'v', 'o'}, 'S', '<Plug>(leap-backward-to)')
-vim.keymap.set({'n', 'v', 'o'}, '<c-s>', '<Plug>(leap-forward-till)')
-vim.keymap.set({'n', 'v', 'o'}, '<c-S>', '<Plug>(leap-backward-till)')
 
 EOF
 
