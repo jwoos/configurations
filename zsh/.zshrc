@@ -50,6 +50,14 @@ export NNN_NOWAIT=true
 # set vim mode
 # bindkey -v
 
+# ctl-k, ctl-a, ctl-e, ctl-w should be defined already
+
+# delete from cursor to front of line
+bindkey \^U backward-kill-line
+
+# delete forward
+bindkey \^D forward-kill
+
 # reduce key timeout for mode switching
 export KEYTIMEOUT=1
 
