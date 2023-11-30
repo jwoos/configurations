@@ -5,6 +5,20 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 	source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# source Kitty
+if [[ -n "$KITTY_INSTALLATION_DIR" ]]; then
+        export KITTY_INSTALLATION_DIR="${HOME}/other/kitty"
+fi
+if [[ -n "KITTY_SHELL_INTEGRATION" ]] && [[ -d "$KITTY_INSTALLATION_DIR" ]]; then
+        export KITTY_SHELL_INTEGRATION="no-cursor"
+        autoload -Uz -- "$KITTY_INSTALLATION_DIR/shell-integration/zsh/kitty-integration"
+        kitty-integration
+        unfunction kitty-integration
+else
+        echo "Could not find Kitty integration at ${KITTY_INSTALLATION_DIR} - skipping"
+fi
+
+
 export CLICOLOR=1
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 
