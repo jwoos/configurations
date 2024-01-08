@@ -392,4 +392,4 @@ vim.cmd('source ~/.config/nvim/multiple_cursors.vim')
 require('sessions')
 
 -- load all plugins
-require('plugin_configs')
+require('plugin_config')

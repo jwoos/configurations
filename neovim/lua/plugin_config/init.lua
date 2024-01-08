@@ -6,7 +6,7 @@ local files = {
 	'comment',
 	'easy_align',
 	'fidget',
-	'fzf'
+	'fzf',
 	'grapple',
 	'hop',
 	'indent_blankline',

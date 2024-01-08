@@ -1,7 +1,7 @@
 local fidget = require('fidget')
 
 fidget.setup({
-        progress = {
+    progress = {
     poll_rate = 5,                -- How frequently to poll for progress messages
     suppress_on_insert = false,   -- Suppress new messages while in insert mode
     ignore_done_already = false,  -- Ignore new tasks that are already complete
@@ -35,7 +35,7 @@ fidget.setup({
     filter = vim.log.levels.INFO, -- Minimum notifications level
     override_vim_notify = false,  -- Automatically override vim.notify() with Fidget
     configs =                     -- How to configure notification groups when instantiated
-      { default = M.default_config },
+      { default = nil },
 
     -- Options related to how notifications are rendered as text
     view = {
