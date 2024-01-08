@@ -7,7 +7,7 @@ fi
 
 # source Kitty
 if [[ -n "$KITTY_INSTALLATION_DIR" ]]; then
-        export KITTY_INSTALLATION_DIR="${HOME}/other/kitty"
+        export KITTY_INSTALLATION_DIR="${HOME}/main/other/kitty"
 fi
 if [[ -n "KITTY_SHELL_INTEGRATION" ]] && [[ -d "$KITTY_INSTALLATION_DIR" ]]; then
         export KITTY_SHELL_INTEGRATION="no-cursor"
