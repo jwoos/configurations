@@ -70,8 +70,6 @@ local configs = require'lspconfig/configs'
 local servers = {
   -- bash
   "bashls",
-  -- js/ts
-  "tsserver",
   -- python
   "pylsp",
   -- c/c++
@@ -86,14 +84,26 @@ local servers = {
   "jdtls",
 }
 
+-- js/ts
+lspconfig.tsserver.setup({
+	cmd = {"npx", "typescript-language-server", "--stdio"},
+	on_attach = on_attach,
+	root_dir = function(fname)
+		return vim.fn.getcwd()
+	end,
+	flags = {
+		debounce_text_changes = 100,
+	}
+})
+
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  lspconfig[lsp].setup({
     on_attach = on_attach,
     root_dir = function(fname)
-    return vim.fn.getcwd()
+			return vim.fn.getcwd()
     end,
     flags = {
       debounce_text_changes = 100,
     }
-  }
+  })
 end
