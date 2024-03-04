@@ -1,5 +1,4 @@
 local grapple = require('grapple')
-local scope = require('grapple.scope')
 local path = require('plenary.path')
 
 grapple.setup({
@@ -7,10 +6,7 @@ grapple.setup({
     log_level = "warn",
 
     ---The scope used when creating, selecting, and deleting tags
-    ---@type Grapple.Scope
-    scope = scope.resolver(function()
-      return vim.fn.getcwd()
-    end, { cache = "DirChanged" }),
+    scope = "cwd",
 
     ---The save location for tags
     save_path = tostring(path:new(vim.fn.stdpath("data")) / "grapple"),
@@ -32,6 +28,6 @@ grapple.setup({
 })
 
 vim.keymap.set("n", "<leader>m", grapple.toggle, {})
-vim.keymap.set("n", "<leader>M", grapple.popup_tags, {})
+vim.keymap.set("n", "<leader>M", grapple.toggle_tags, {})
 vim.keymap.set("n", "<A-o>", grapple.cycle_backward, {})
 vim.keymap.set("n", "<A-i>", grapple.cycle_forward, {})
