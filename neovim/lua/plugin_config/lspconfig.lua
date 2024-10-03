@@ -1,4 +1,4 @@
-local lspconfig = require'lspconfig'
+local lspconfig = require('lspconfig')
 
 -- disable inline diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -65,7 +65,7 @@ end
 -- end
 end
 
-local configs = require'lspconfig/configs'
+local configs = require('lspconfig.configs')
 
 local servers = {
   -- bash
@@ -84,6 +84,8 @@ local servers = {
   "jdtls",
 }
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 -- js/ts
 lspconfig.tsserver.setup({
 	cmd = {"npx", "typescript-language-server", "--stdio"},
@@ -93,7 +95,8 @@ lspconfig.tsserver.setup({
 	end,
 	flags = {
 		debounce_text_changes = 100,
-	}
+	},
+	capabilities = capabilities,
 })
 
 for _, lsp in ipairs(servers) do
@@ -104,6 +107,7 @@ for _, lsp in ipairs(servers) do
     end,
     flags = {
       debounce_text_changes = 100,
-    }
+    },
+			capabilities = capabilities,
   })
 end
