@@ -1,6 +1,7 @@
 local files = {
 	'autopairs',
 	'betterwhitespace',
+	'bqf',
 	'cmp',
 	'colorful_winsep',
 	'comment',

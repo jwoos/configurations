@@ -14,5 +14,5 @@ fzf.setup({
 vim.keymap.set("n", "<c-p>", fzf.files, { silent = true })
 vim.keymap.set("n", "<A-p>", fzf.buffers, { silent = true })
 vim.keymap.set("n", "<leader>/", fzf.blines, { silent = true })
-vim.keymap.set("n", "<leader>?", fzf.grep, { silent = true })
 vim.keymap.set("n", "<a-m>", fzf.marks, { silent = true })
+-- vim.keymap.set({'n'}, '<leader>q', fzf.registers, {silent = true})

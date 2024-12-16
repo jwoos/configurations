@@ -24,11 +24,9 @@
 --  NOT USED
 --  <Space>
 --  <F2> <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
---  <leader>s
---  <leader>w
---  <leader>e
 --  <leader>t
 --  <leader>f
+--  <leader>?
 --  ,
 --  B
 
@@ -116,6 +114,7 @@ paq({
 	-- TODO something like the following with status signs but not scroll bar?
 	-- 'dstein64/nvim-scrollview',
 	'folke/todo-comments.nvim',
+	'kevinhwang91/nvim-bqf',
 
 	-- folding
 	'kevinhwang91/nvim-ufo',
@@ -132,8 +131,8 @@ paq({
 	'kylechui/nvim-surround',
 	'gbprod/substitute.nvim',
 	'wellle/targets.vim',
-	-- generally should be installed on system
-	-- Plug 'junegunn/fzf'
+	-- generally should be installed on system but required for bqf
+	'junegunn/fzf',
 	'ibhagwan/fzf-lua',
 	'junegunn/vim-easy-align',
 	'zegervdv/nrpattern.nvim',
