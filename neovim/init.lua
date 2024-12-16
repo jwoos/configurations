@@ -48,7 +48,7 @@ paq({
 	'savq/paq-nvim',
 	{'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
 
-	-- {'nvim-tree/nvim-web-devicons'},
+	'nvim-tree/nvim-web-devicons',
 
 	-- libraries
 	'nvim-treesitter/nvim-treesitter-textobjects',
@@ -76,8 +76,8 @@ paq({
 	'akinsho/toggleterm.nvim',
 
 	-- movement within file
-	'phaazon/hop.nvim',
-	'ggandor/leap.nvim',
+	'smoka7/hop.nvim',
+	'folke/flash.nvim',
 
 	-- movement along marks
 	'cbochs/grapple.nvim',
