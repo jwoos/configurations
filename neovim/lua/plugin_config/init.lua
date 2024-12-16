@@ -11,7 +11,6 @@ local files = {
 	'grapple',
 	'hop',
 	'indent_blankline',
-	'iswap',
 	'lspconfig',
 	'lspsaga',
 	'lspconfig',

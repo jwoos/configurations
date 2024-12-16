@@ -136,7 +136,6 @@ paq({
 	'ibhagwan/fzf-lua',
 	'junegunn/vim-easy-align',
 	'zegervdv/nrpattern.nvim',
-	'mizlan/iswap.nvim',
 
 	-- Color Schemes
 	'rebelot/kanagawa.nvim',
