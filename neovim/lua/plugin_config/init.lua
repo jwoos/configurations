@@ -19,7 +19,6 @@ local files = {
 	'luasnip',
 	'muren',
 	'neoclip',
-	'neocomposer',
 	'nrpattern',
 	'numb',
 	'nvim_tree',

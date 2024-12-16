@@ -134,8 +134,6 @@ paq({
 	-- generally should be installed on system
 	-- Plug 'junegunn/fzf'
 	'ibhagwan/fzf-lua',
-	-- TODO merge this into neoclip when macros are supported for fzf
-	'ecthelionvi/NeoComposer.nvim',
 	'junegunn/vim-easy-align',
 	'zegervdv/nrpattern.nvim',
 	'mizlan/iswap.nvim',
@@ -374,6 +372,8 @@ vim.keymap.set({'i'}, '<C-c>', '<esc>')
 
 -- get rid of highlighting after search
 vim.keymap.set({'n', 'v', 'o'}, '<F3>', ':nohl<CR>')
+
+vim.keymap.set({'n'}, '<leader>q', ':reg<CR>')
 
 -- tags
 --nnoremap <C-]> g<C-]>
