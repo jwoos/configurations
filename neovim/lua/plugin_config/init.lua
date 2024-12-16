@@ -26,6 +26,7 @@ local files = {
 	'spread',
 	'ssr',
 	'substitute',
+	'surround',
 	'targets',
 	'toggleterm',
 	'treesitter',

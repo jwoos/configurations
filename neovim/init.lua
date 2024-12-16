@@ -128,7 +128,7 @@ paq({
 	-- editing
 	'windwp/nvim-autopairs',
 	'numToStr/Comment.nvim',
-	'machakann/vim-sandwich',
+	'kylechui/nvim-surround',
 	'gbprod/substitute.nvim',
 	'wellle/targets.vim',
 	-- generally should be installed on system
