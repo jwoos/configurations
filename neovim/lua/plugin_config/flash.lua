@@ -19,5 +19,5 @@ flash.setup({
 
 })
 
-vim.keymap.set({'n', 'x', 'o'}, '<leader>S', flash.treesitter)
-vim.keymap.set({'n', 'x', 'o'}, '<leader>s', flash.jump)
+vim.keymap.set({'n', 'x', 'o'}, 'S', flash.treesitter)
+vim.keymap.set({'n', 'x', 'o'}, 's', flash.jump)
