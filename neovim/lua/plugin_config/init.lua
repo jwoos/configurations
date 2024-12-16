@@ -26,6 +26,7 @@ local files = {
 	'signify',
 	'spread',
 	'ssr',
+	'substitute',
 	'targets',
 	'toggleterm',
 	'treesitter',

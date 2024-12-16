@@ -129,6 +129,7 @@ paq({
 	'windwp/nvim-autopairs',
 	'numToStr/Comment.nvim',
 	'machakann/vim-sandwich',
+	'gbprod/substitute.nvim',
 	'wellle/targets.vim',
 	-- generally should be installed on system
 	-- Plug 'junegunn/fzf'
