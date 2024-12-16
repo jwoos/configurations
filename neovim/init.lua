@@ -29,7 +29,6 @@
 --  <leader>e
 --  <leader>t
 --  <leader>f
---  <leader>r
 --  ,
 --  B
 

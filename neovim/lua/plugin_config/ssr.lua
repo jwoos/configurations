@@ -8,4 +8,4 @@ ssr.setup({
   },
 })
 
-vim.keymap.set({ 'n', 'x' }, 'bs', function() ssr.open() end)
+vim.keymap.set({ 'n', 'x' }, '<leader>r', function() ssr.open() end)

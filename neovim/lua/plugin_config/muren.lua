@@ -39,4 +39,4 @@ muren.setup({
 })
 
 local api = require('muren.api')
-vim.keymap.set('n', 'bS', '<cmd>MurenOpen<CR>')
+vim.keymap.set('n', '<leader>R', '<cmd>MurenOpen<CR>')
