@@ -86,19 +86,6 @@ local servers = {
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- js/ts
-lspconfig.tsserver.setup({
-	cmd = {"npx", "typescript-language-server", "--stdio"},
-	on_attach = on_attach,
-	root_dir = function(fname)
-		return vim.fn.getcwd()
-	end,
-	flags = {
-		debounce_text_changes = 100,
-	},
-	capabilities = capabilities,
-})
-
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
     on_attach = on_attach,
