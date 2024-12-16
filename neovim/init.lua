@@ -115,6 +115,7 @@ paq({
 	'nvim-zh/colorful-winsep.nvim',
 	-- TODO something like the following with status signs but not scroll bar?
 	-- 'dstein64/nvim-scrollview',
+	'folke/todo-comments.nvim',
 
 	-- folding
 	'kevinhwang91/nvim-ufo',

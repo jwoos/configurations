@@ -28,6 +28,7 @@ local files = {
 	'substitute',
 	'surround',
 	'targets',
+	'todo_comments',
 	'toggleterm',
 	'treesitter',
 	'treesitter_textobject',
