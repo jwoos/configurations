@@ -88,6 +88,7 @@ fpath=(
 # Set the list of directories that Zsh searches for programs.
 path=(
   /opt/homebrew/opt/coreutils/libexec/gnubin
+	/opt/homebrew/opt/llvm/bin
   /opt/homebrew/bin
   /usr/local/{bin,sbin}
   ~/bin
