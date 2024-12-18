@@ -331,8 +331,11 @@ vim.keymap.set({'n'}, 'zB', 'L')
 --nnoremap <S-j> :tabclose<CR>
 --nnoremap <S-k> :tab split <CR>
 
-vim.keymap.set({'n'}, '<c-t>', ':tabnew<CR>')
-vim.keymap.set({'n'}, '<a-t>', ':tabnew<CR>')
+vim.keymap.set({'n'}, '<tab>l', ':tabnext<CR>')
+vim.keymap.set({'n'}, '<tab>h', ':tabprevious<CR>')
+vim.keymap.set({'n'}, '<tab>j', ':tabclose<CR>')
+vim.keymap.set({'n'}, '<tab>k', ':tabsplit<CR>')
+vim.keymap.set({'n'}, '<tab><tab>', ':tabnew<CR>')
 
 -- easy switching between splits
 vim.keymap.set({'n'}, '<A-h>', '<C-w>h')
