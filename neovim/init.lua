@@ -26,6 +26,7 @@
 --  <F2> <F4> <F5> <F6> <F7> <F8> <F9> <F10> <F11>
 --  <leader>t
 --  <leader>f
+--  <leader>r
 --  <leader>?
 --  ,
 --  B
@@ -83,7 +84,7 @@ paq({
 
 	-- lsp
 	'neovim/nvim-lspconfig',
-	'glepnir/lspsaga.nvim',
+	'nvimdev/lspsaga.nvim',
 
 	-- snippets
 	'L3MON4D3/LuaSnip',
@@ -325,12 +326,7 @@ vim.keymap.set({'n'}, 'zT', 'H')
 vim.keymap.set({'n'}, 'zZ', 'M')
 vim.keymap.set({'n'}, 'zB', 'L')
 
--- tab switching
---nnoremap <S-h> :tabprevious<CR>
---nnoremap <S-l> :tabnext<CR>
---nnoremap <S-j> :tabclose<CR>
---nnoremap <S-k> :tab split <CR>
-
+-- tabs
 vim.keymap.set({'n'}, '<tab>l', ':tabnext<CR>')
 vim.keymap.set({'n'}, '<tab>h', ':tabprevious<CR>')
 vim.keymap.set({'n'}, '<tab>j', ':tabclose<CR>')
@@ -376,6 +372,9 @@ vim.keymap.set({'i'}, '<C-c>', '<esc>')
 vim.keymap.set({'n', 'v', 'o'}, '<F3>', ':nohl<CR>')
 
 vim.keymap.set({'n'}, '<leader>q', ':reg<CR>')
+
+-- disable treesitter highlighting for a buffer. helps with large files since ts will cause nvim to crash
+vim.keymap.set({'n'}, '<F5>', ':TSBufDisable highlight<CR>')
 
 -- tags
 --nnoremap <C-]> g<C-]>
