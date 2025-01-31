@@ -88,6 +88,8 @@ paq({
 
 	-- snippets
 	'L3MON4D3/LuaSnip',
+	'rafamadriz/friendly-snippets',
+
 
 	-- completion
 	-- 'saadparwaiz1/cmp_luasnip'
