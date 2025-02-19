@@ -34,7 +34,7 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-c>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
+        if cmp.visible() && cmp.get_active_entry() then
             if luasnip.expandable() then
                 luasnip.expand()
             else
