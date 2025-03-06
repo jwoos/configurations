@@ -378,6 +378,11 @@ vim.keymap.set({'n'}, '<leader>q', ':reg<CR>')
 -- disable treesitter highlighting for a buffer. helps with large files since ts will cause nvim to crash
 vim.keymap.set({'n'}, '<F5>', ':TSBufDisable highlight<CR>')
 
+-- copy current filename to + and therefore, the clipboard
+vim.keymap.set({'n'}, '<F6>', ':let @+ = expand("%")<CR>')
+
+vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
+
 -- tags
 --nnoremap <C-]> g<C-]>
 --vnoremap <C-]> g<C-]>
