@@ -108,5 +108,5 @@ require'nvim-tree'.setup {
   on_attach = on_attach,
 }
 
-vim.keymap.set({'n'}, '<C-\\>', ':NvimTreeToggle<CR>')
-vim.keymap.set({'n'}, '|', ':NvimTreeFindFile<CR>')
+vim.keymap.set({'n'}, '<F12>', ':NvimTreeToggle<CR>')
+vim.keymap.set({'n'}, '<F12><F12>', ':NvimTreeFindFile<CR>')

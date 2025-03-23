@@ -49,7 +49,7 @@ lspsaga.setup({
 })
 
 local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<A-\\>', "<cmd>Lspsaga outline<CR>", opts)
+-- vim.keymap.set('n', '<A-\\>', "<cmd>Lspsaga outline<CR>", opts)
 vim.keymap.set('n', 'bb', "<cmd>Lspsaga hover_doc<CR>", opts)
 vim.keymap.set('n', 'bB', "<cmd>Lspsaga peek_definition<CR>", opts)
 vim.keymap.set('n', 'bv', "<cmd>Lspsaga lsp_finder<CR>", opts)

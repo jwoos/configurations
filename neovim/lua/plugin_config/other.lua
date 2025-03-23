@@ -57,4 +57,4 @@ other.setup({
 	},
 })
 
-vim.keymap.set('n', '<leader>p', '<cmd>Other<CR>')
+vim.keymap.set('n', '|', '<cmd>Other<CR>')
