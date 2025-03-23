@@ -29,7 +29,7 @@ function make_session()
 
   vim.cmd('mks! ' .. session_path)
 end
-vim.keymap.set('n', '<F12><F12>', make_session)
+vim.keymap.set('n', '<F11><F11>', make_session)
 
 function load_session()
   local session_path = get_session_path()
@@ -37,7 +37,7 @@ function load_session()
   local cmd = 'source ' .. session_path
   vim.cmd(cmd)
 end
-vim.keymap.set('n', '<F12>', load_session)
+vim.keymap.set('n', '<F11>', load_session)
 
 --[[
 function delete_session()
