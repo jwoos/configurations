@@ -28,6 +28,17 @@
 --  <leader>f
 --  <leader>r
 --  <leader>?
+--  <leader>d
+--  <c-d>
+--  <a-d>
+--  <leader>y
+--  <c-y>
+--  <a-y>
+--  <leader>x
+--  <leader>a
+--  <a-a>
+--  <leader>x
+--  <a-x>
 --  ,
 --  B
 
@@ -381,8 +392,25 @@ vim.keymap.set({'n'}, '<F5>', ':TSBufDisable highlight<CR>')
 -- copy current filename to + and therefore, the clipboard
 vim.keymap.set({'n'}, '<F6>', ':let @+ = expand("%")<CR>')
 
+vim.keymap.set({ 'n', 'x' }, '<leader>p', '"+p', { desc = 'Paste from system clipboard after' })
+vim.keymap.set({ 'n', 'x' }, '<leader>P', '"+P', { desc = 'Paste from system clipboard before' })
+
 vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
-vim.keymap.set({ 'n', 'x' }, '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
+vim.keymap.set({ 'n', 'x' }, '<leader>yy', '"+yy', { desc = 'Yank to system clipboard linewise' })
+vim.keymap.set({ 'n', 'x' }, '<leader>Y', '"+y$', { desc = 'Yank to system clipboard from cursor to end' })
+vim.keymap.set({ 'n', 'x' }, '<leader>YY', '"+y^', { desc = 'Yank to system clipboard from cursor to start' })
+vim.keymap.set({ 'n', 'x' }, 'Y', 'y$', { desc = 'Yank from cursor to end' })
+vim.keymap.set({ 'n', 'x' }, 'YY', 'y^', { desc = 'Yank from cursor to start' })
+
+vim.keymap.set({ 'n', 'x' }, '<leader>d', '"+d', { desc = 'Delete into system clipboard' })
+vim.keymap.set({ 'n', 'x' }, '<leader>dd', '"+dd', { desc = 'Delete into system clipboard linewise' })
+vim.keymap.set({ 'n', 'x' }, '<leader>D', '"+d$', { desc = 'Delete into system clipboard from cursor to end' })
+vim.keymap.set({ 'n', 'x' }, '<leader>DD', '"+d^', { desc = 'Delete into system clipboard from cursor to start' })
+vim.keymap.set({ 'n', 'x' }, 'D', 'd^', { desc = 'Delete to from cursor to start' })
+vim.keymap.set({ 'n', 'x' }, 'DD', 'd$', { desc = 'Delete to system clipboard from cursor to end' })
+
+vim.keymap.set({ 'n', 'x' }, 'C', 'c$', { desc = 'Change from cursor to end' })
+vim.keymap.set({ 'n', 'x' }, 'CC', 'c^', { desc = 'Change from cursor to start' })
 
 -- tags
 --nnoremap <C-]> g<C-]>

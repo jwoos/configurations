@@ -18,4 +18,5 @@ local register_specific_handler = function()
   end)
 end
 
-vim.keymap.set('n', '<Leader>Q', register_specific_handler, {noremap = true})
+vim.keymap.set('n', '<c-p>', fzf_handler, {noremap = true})
+vim.keymap.set('n', '<a-p>', register_specific_handler, {noremap = true})
