@@ -7,12 +7,10 @@ require('neoclip').setup({
 })
 
 local fzf_handler = require('neoclip.fzf')
-vim.keymap.set('n', '<Leader>y', fzf_handler, {noremap = true})
-
 local register_specific_handler = function()
   vim.ui.input({prompt = "Register to yank into: "}, function(input)
 		if input == nil then
-			vim.print("Did not get any registers, aborting...")
+			fzf_handler()
 			return
 		end
 
@@ -20,4 +18,4 @@ local register_specific_handler = function()
   end)
 end
 
-vim.keymap.set('n', '<c-y>', register_specific_handler, {noremap = true})
+vim.keymap.set('n', '<Leader>Q', register_specific_handler, {noremap = true})

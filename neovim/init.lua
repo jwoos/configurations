@@ -381,7 +381,8 @@ vim.keymap.set({'n'}, '<F5>', ':TSBufDisable highlight<CR>')
 -- copy current filename to + and therefore, the clipboard
 vim.keymap.set({'n'}, '<F6>', ':let @+ = expand("%")<CR>')
 
-vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
+vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Yank to system clipboard' })
+vim.keymap.set({ 'n', 'x' }, '<leader>p', '"+p', { desc = 'Paste from system clipboard' })
 
 -- tags
 --nnoremap <C-]> g<C-]>
