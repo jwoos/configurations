@@ -214,10 +214,13 @@ vim.opt.shiftwidth = 2
 
 -- set key combination timeouts
 vim.opt.timeout = true
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 250
+
+-- undofile
+vim.opt.undofile = false
 
 -- update time
-vim.opt.updatetime = 250
+vim.opt.updatetime = 2000
 
 -- split to the right and below
 vim.opt.splitbelow = true
@@ -406,8 +409,8 @@ vim.keymap.set({ 'n', 'x' }, '<leader>d', '"+d', { desc = 'Delete into system cl
 vim.keymap.set({ 'n', 'x' }, '<leader>dd', '"+dd', { desc = 'Delete into system clipboard linewise' })
 vim.keymap.set({ 'n', 'x' }, '<leader>D', '"+d$', { desc = 'Delete into system clipboard from cursor to end' })
 vim.keymap.set({ 'n', 'x' }, '<leader>DD', '"+d^', { desc = 'Delete into system clipboard from cursor to start' })
-vim.keymap.set({ 'n', 'x' }, 'D', 'd^', { desc = 'Delete to from cursor to start' })
-vim.keymap.set({ 'n', 'x' }, 'DD', 'd$', { desc = 'Delete to system clipboard from cursor to end' })
+vim.keymap.set({ 'n', 'x' }, 'D', 'd$', { desc = 'Delete to from cursor to start' })
+vim.keymap.set({ 'n', 'x' }, 'DD', 'd^', { desc = 'Delete to system clipboard from cursor to end' })
 
 vim.keymap.set({ 'n', 'x' }, 'C', 'c$', { desc = 'Change from cursor to end' })
 vim.keymap.set({ 'n', 'x' }, 'CC', 'c^', { desc = 'Change from cursor to start' })
