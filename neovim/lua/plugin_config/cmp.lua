@@ -1,5 +1,3 @@
-vim.opt.completeopt = 'menu,menuone,noselect'
-
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
@@ -28,23 +26,37 @@ cmp.setup({
     -- completion = cmp.config.window.bordered(),
     -- documentation = cmp.config.window.bordered(),
   },
+  view = {
+    entries = {name = 'custom', selection_order = 'near_cursor' }
+  },
+  completion = { completeopt = 'menu,menuone,noinsert,noselect' },
+  preselect = cmp.PreselectMode.None,
   mapping = cmp.mapping.preset.insert({
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-Space>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.mapping.complete()
+      else
+        fallback()
+      end
+    end),
+    ['<A-Space>'] = cmp.mapping(function(fallback)
+        fallback()
+    end),
     ['<C-c>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping(function(fallback)
-        if cmp.visible() and cmp.get_active_entry() then
-            if luasnip.expandable() then
-                luasnip.expand()
-            else
-                cmp.confirm({
-                    select = true,
-                })
-            end
+      if cmp.visible() and cmp.get_active_entry() then
+        if luasnip.expandable() then
+          luasnip.expand()
         else
-            fallback()
+          cmp.confirm({
+            select = true,
+          })
         end
+      else
+        fallback()
+      end
     end),
 
     ['<Tab>'] = cmp.mapping(function(fallback)
@@ -57,7 +69,7 @@ cmp.setup({
       elseif luasnip.locally_jumpable(1) then
         luasnip.jump(1)
       else
-        fallback()
+          fallback()
       end
     end, { "i", "s" }),
 
@@ -85,18 +97,18 @@ cmp.setup({
     { name = 'buffer' },
     { name = 'path' },
   }),
-	sorting = {
-		comparators = {
-			cmp.config.compare.recently_used,
-			cmp.config.compare.offset,
-			cmp.config.compare.exact,
-			cmp.config.compare.locality,
-			cmp.config.compare.kind,
-			cmp.config.compare.score,
-			cmp.config.compare.length,
-			cmp.config.compare.order,
-		},
-	}
+  sorting = {
+    comparators = {
+      cmp.config.compare.recently_used,
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.locality,
+      cmp.config.compare.kind,
+      cmp.config.compare.score,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  }
 })
 
 
@@ -140,3 +152,10 @@ cmp.setup.filetype('vim', {
     { name = 'path' },
   })
 })
+
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
