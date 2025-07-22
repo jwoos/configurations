@@ -44,7 +44,8 @@ fzf.myles = function(opts)
     ['--ansi'] = ''
   }
 
-  return fzf.fzf_live(function(q)
+  return fzf.fzf_live(function(args)
+    q = args[1]
     base = nil
 
     if opts.cwd then
