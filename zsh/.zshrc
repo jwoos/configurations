@@ -110,3 +110,6 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+
+# fzf integration
+source <(fzf --zsh)
