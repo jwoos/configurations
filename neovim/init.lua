@@ -70,6 +70,7 @@ paq({
 	'kkharji/sqlite.lua',
 	'kevinhwang91/promise-async',
 	'AckslD/nvim-neoclip.lua',
+	'mason-org/mason.nvim',
 	-- TODO
 	-- 'chrisgrieser/nvim-various-textobjs',
 	-- 'anuvyklack/hydra.nvim',
@@ -97,6 +98,7 @@ paq({
 	-- lsp
 	'neovim/nvim-lspconfig',
 	'nvimdev/lspsaga.nvim',
+	'mason-org/mason-lspconfig.nvim',
 
 	-- snippets
 	'L3MON4D3/LuaSnip',
@@ -502,24 +504,9 @@ local on_attach = function(client, bufnr)
 	-- end
 end
 
-local servers = {
-	-- bash
-	"bashls",
-	-- python
-	"pylsp",
-	-- c/c++
-	"clangd",
-	-- css
-	"cssls",
-	-- go
-	"gopls",
-	-- rust
-	"rust_analyzer",
-	-- java
-	"jdtls",
-	-- typescript
-	"ts_ls",
-}
+local servers = require('lsp_servers')
+
+print(servers)
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 

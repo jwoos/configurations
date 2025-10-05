@@ -15,6 +15,7 @@ local files = {
 	'lspsaga',
 	'lualine',
 	'luasnip',
+	'mason_lspconfig',
 	'muren',
 	'neoclip',
 	'nrpattern',
