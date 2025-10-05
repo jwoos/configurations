@@ -56,7 +56,8 @@ local paq = require('paq')
 
 paq({
 	'savq/paq-nvim',
-	{'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+	-- TODO move to main branch later
+	{'nvim-treesitter/nvim-treesitter', branch = 'master', build = ':TSUpdate'},
 
 	'nvim-tree/nvim-web-devicons',
 
