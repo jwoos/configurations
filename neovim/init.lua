@@ -75,6 +75,9 @@ paq({
 	-- 'chrisgrieser/nvim-various-textobjs',
 	-- 'anuvyklack/hydra.nvim',
 
+	-- 'stevearc/conform.nvim',
+	-- 'jake-stewart/multicursor.nvim'
+
 	-- meta
 	-- TODO
 	-- 'folke/which-key.nvim',
