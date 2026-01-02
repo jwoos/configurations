@@ -41,6 +41,7 @@
 --  <a-x>
 --  ,
 --  B
+-- bm bM
 
 
 --              __                     _
@@ -140,7 +141,6 @@ paq({
 	'kevinhwang91/nvim-ufo',
 
 	-- utils
-	'aarondiel/spread.nvim',
 	'ntpeters/vim-better-whitespace',
 	'nelstrom/vim-visual-star-search',
 	'nacro90/numb.nvim',
