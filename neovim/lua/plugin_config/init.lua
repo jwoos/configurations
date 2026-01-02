@@ -24,7 +24,6 @@ local files = {
 	'nvim_tree',
 	'other',
 	'signify',
-	'spread',
 	'ssr',
 	'substitute',
 	'surround',
