@@ -57,12 +57,12 @@ local paq = require('paq')
 paq({
 	'savq/paq-nvim',
 	-- TODO move to main branch later
-	{'nvim-treesitter/nvim-treesitter', branch = 'master', build = ':TSUpdate'},
+	{'nvim-treesitter/nvim-treesitter', branch = 'main', build = ':TSUpdate'},
 
 	'nvim-tree/nvim-web-devicons',
 
 	-- libraries
-	'nvim-treesitter/nvim-treesitter-textobjects',
+	{'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main'},
 	'kana/vim-operator-user',
 	'kana/vim-textobj-user',
 	'tpope/vim-repeat',
