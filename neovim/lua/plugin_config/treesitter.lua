@@ -65,6 +65,7 @@ local supported_languages = {
 local ignored_filetypes = {
 	'checkhealth',
 	'fidget',
+	'fzf',
 	'mason',
 }
 
