@@ -32,7 +32,8 @@ local files = {
 	'toggleterm',
 	'treesitter',
 	'treesitter_textobject',
-	'ufo'
+	'ufo',
+	'wildfire',
 }
 
 for _, file in ipairs(files) do

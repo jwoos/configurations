@@ -23,7 +23,7 @@
 --
 --  NOT USED
 --  <Space>
---  <F2> <F4> <F5> <F6> <F7> <F8> <F9> <F10>
+--  <F2> <F4> <F5> <F6> <F7> <F8> <F9>
 --  <leader>t
 --  <leader>f
 --  <leader>r
@@ -156,6 +156,7 @@ paq({
 	'ibhagwan/fzf-lua',
 	'junegunn/vim-easy-align',
 	'zegervdv/nrpattern.nvim',
+	'sustech-data/wildfire.nvim',
 
 	-- Color Schemes
 	'rebelot/kanagawa.nvim',

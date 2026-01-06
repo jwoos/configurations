@@ -67,6 +67,7 @@ local ignored_filetypes = {
 	'fidget',
 	'fzf',
 	'mason',
+	'qf,'
 }
 
 ts.install(supported_languages)
