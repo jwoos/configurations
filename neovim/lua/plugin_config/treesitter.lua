@@ -62,12 +62,18 @@ local supported_languages = {
 	'zsh',
 }
 
+local language_alias = {
+	configerator = {
+		'python', {'cconf', 'cinc', 'configerator', 'conf'}
+	}
+}
+
 local ignored_filetypes = {
 	'checkhealth',
 	'fidget',
 	'fzf',
 	'mason',
-	'qf,'
+	'qf',
 }
 
 ts.install(supported_languages)
@@ -79,11 +85,17 @@ vim.api.nvim_create_autocmd('FileType', {
 		end
 
 		local lang = vim.treesitter.language.get_lang(event.match) or event.match
+		local aliased_lang_info = language_alias[lang]
 
 		local already_installed = ts.get_installed()
-		if not vim.tbl_contains(already_installed, lang) then
-			print(lang .. " couldn't be loaded in treesitter - ensure it is specified in the config")
+		if not vim.tbl_contains(already_installed, lang) and (not aliased_lang_info or (not vim.tbl_contains(already_installed, aliased_lang_info[1]))) then
+			print(lang .. " couldn't be loaded in treesitter - ensure it is specified in the config directly or via aliasing")
 			return
+		end
+
+		if aliased_lang_info then
+			print('Registering alias '..aliased_lang_info[1]..' -> '..lang)
+			vim.treesitter.language.register(aliased_lang_info[1], aliased_lang_info[2])
 		end
 
 		vim.treesitter.start()
