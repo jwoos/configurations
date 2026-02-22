@@ -24,7 +24,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 export CLICOLOR=1
-export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+alias ls='ls --color=auto'
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
