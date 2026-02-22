@@ -1,6 +1,5 @@
 return {
 	'savq/paq-nvim',
-	-- TODO move to main branch later
 	{'nvim-treesitter/nvim-treesitter', branch = 'main', build = ':TSUpdate'},
 
 	'nvim-tree/nvim-web-devicons',
@@ -18,6 +17,8 @@ return {
 	-- TODO
 	-- 'chrisgrieser/nvim-various-textobjs',
 	-- 'anuvyklack/hydra.nvim',
+
+	-- 'Dronakurl/injectme.nvim'
 
 	-- formatting
 	'stevearc/conform.nvim',
