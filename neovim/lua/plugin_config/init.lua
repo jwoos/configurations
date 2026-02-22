@@ -5,6 +5,7 @@ local files = {
 	'cmp',
 	'colorful_winsep',
 	'comment',
+	'conform',
 	'easy_align',
 	'fidget',
 	'flash',

@@ -354,6 +354,8 @@ local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+	-- vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+	vim.api.nvim_buf_set_option(bufnr, 'formatexpr', "v:lua.require'conform'.formatexpr()")
 
 	-- Mappings.
 	-- everything commented out is using lspsaga
@@ -381,9 +383,17 @@ local on_attach = function(client, bufnr)
 
 	-- Set some keybinds conditional on server capabilities
 	if client.server_capabilities.documentFormattingProvider then
-		vim.keymap.set('n', 'bf', function() vim.lsp.buf.format({async = true}) end, bufopts)
-	elseif client.server_capabilities.documentRangeFormattingProvider then
-		vim.keymap.set('v', 'bf', function() vim.lsp.buf.format({async = true}) end, bufopts)
+		-- vim.keymap.set('n', 'bf', function() vim.lsp.buf.format({async = true}) end, bufopts)
+		vim.keymap.set('n', 'bf', function()
+			require('conform').format({async = true})
+		end, bufopts)
+	end
+
+	if client.server_capabilities.documentRangeFormattingProvider then
+		-- vim.keymap.set('v', 'bf', function() vim.lsp.buf.format({async = true}) end, bufopts)
+		vim.keymap.set('v', 'bf', function()
+			require('conform').format({async = true})
+		end, bufopts)
 	end
 
 	-- Set autocommands conditional on server_capabilities

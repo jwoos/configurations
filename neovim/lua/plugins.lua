@@ -19,7 +19,8 @@ return {
 	-- 'chrisgrieser/nvim-various-textobjs',
 	-- 'anuvyklack/hydra.nvim',
 
-	-- 'stevearc/conform.nvim',
+	-- formatting
+	'stevearc/conform.nvim',
 	-- 'jake-stewart/multicursor.nvim'
 
 	-- meta
