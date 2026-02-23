@@ -108,4 +108,4 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 # fzf integration
 source <(fzf --zsh)
 
-export PATH="~/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
