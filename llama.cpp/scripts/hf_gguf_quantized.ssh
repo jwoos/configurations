@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+source "$(dirname "${BASH_SOURCE[0]}")/venv.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/utils.sh"
+
+echo 'This script transforms hf directory to gguf file'
+
+LLAMA_CPP_PATH=$1
+REPO=$2
+OUT_DIR=$3
+QUANTIZATION=$4
+
+NAME=$(echo $REPO | cut -d '/' -f 2)
+
+check_directory $LLAMA_CPP_PATH
+
+check_commands python3 hf llama-quantize
+
+# download first
+hf download "$REPO" --local-dir "$OUT_DIR/$NAME"
+
+# setup venv, required for the gguf conversion
+venv_setup()
+
+# to gguf
+python3 "$LLAMA_CPP_PATH/convert_hf_to_gguf.py" --outfile "$OUT_DIR/$NAME.gguf" "$OUT_DIR/$NAME"
+
+# quantize
+llama-quantize "$OUT_DIR/$NAME.gguf" "$OUT_DIR/$NAME-$QUANTIZATION.gguf" $QUANTIZATION
