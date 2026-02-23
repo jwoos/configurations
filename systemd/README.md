@@ -1,5 +1,15 @@
 # Systemd
 
+## Services
+
+### sleep
+`/lib/systemd/system-sleep/`
+
+### service
+`/etc/systemd/system/`
+
+To enable services `systemctl enable <SERVICE_NAME>.service`
+
 ## Paths
 ### system
 `/etc/systemd/system/`
