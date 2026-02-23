@@ -7,21 +7,16 @@ fi
 
 # source Kitty
 if [[ -n "$KITTY_INSTALLATION_DIR" ]]; then
-        export KITTY_INSTALLATION_DIR="${HOME}/main/other/kitty"
+	export KITTY_INSTALLATION_DIR="${HOME}/main/other/kitty"
 fi
 if [[ -n "KITTY_SHELL_INTEGRATION" ]] && [[ -d "$KITTY_INSTALLATION_DIR" ]]; then
-        export KITTY_SHELL_INTEGRATION="no-cursor"
-        autoload -Uz -- "$KITTY_INSTALLATION_DIR/shell-integration/zsh/kitty-integration"
-        kitty-integration
-        unfunction kitty-integration
+	export KITTY_SHELL_INTEGRATION="no-cursor"
+	autoload -Uz -- "$KITTY_INSTALLATION_DIR/shell-integration/zsh/kitty-integration"
+	kitty-integration
+	unfunction kitty-integration
 else
-        echo "Could not find Kitty integration at ${KITTY_INSTALLATION_DIR} - skipping"
+	echo "Could not find Kitty integration at ${KITTY_INSTALLATION_DIR} - skipping"
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 
 export CLICOLOR=1
 alias ls='ls --color=auto'
@@ -71,7 +66,6 @@ alias pip=pip3
 alias tmux='tmux -2'
 alias vim='nvim'
 alias vimdiff='nvim -d'
-alias n='nnn'
 
 # clobber files during redirection
 setopt clobber
@@ -91,13 +85,13 @@ fpath=(
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /opt/homebrew/opt/coreutils/libexec/gnubin
+	/opt/homebrew/opt/coreutils/libexec/gnubin
 	/opt/homebrew/opt/llvm/bin
-  /opt/homebrew/bin
-  /usr/local/{bin,sbin}
-  ~/bin
-  ~/.cargo/bin
-  $path
+	/opt/homebrew/bin
+	/usr/local/{bin,sbin}
+	~/bin
+	~/.cargo/bin
+	$path
 )
 
 #
@@ -105,11 +99,13 @@ path=(
 #
 
 if [[ ! -d "$TMPDIR" ]]; then
-  export TMPDIR="/tmp/${LOGNAME}"
-  mkdir -p -m 700 "${TMPDIR}"
+	export TMPDIR="/tmp/${LOGNAME}"
+	mkdir -p -m 700 "${TMPDIR}"
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
 
 # fzf integration
 source <(fzf --zsh)
+
+export PATH="~/.local/bin:$PATH"
