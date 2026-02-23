@@ -45,6 +45,12 @@ dotfiles:
   f_llama_cpp:
     src: llama.cpp/macbook_pro_m1max_32gb.ini
     dst: ~/llm/models.ini
+    link: absolute
+
+  d_llama_cpp_scripts:
+    src: llama.cpp/scripts
+    dst: ~/llm/scripts
+    link: absolute
 
 profiles:
   main:
@@ -56,3 +62,4 @@ profiles:
       - f_lldb
       - d_kitty
       - f_llama_cpp
+      - d_llama_cpp_scripts
