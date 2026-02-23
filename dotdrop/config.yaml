@@ -42,6 +42,10 @@ dotfiles:
     dst: ~/.lldbinit
     link: absolute
 
+  f_llama_cpp:
+    src: llama.cpp/macbook_pro_m1max_32gb.ini
+    dst: ~/llm/models.ini
+
 profiles:
   main:
     dotfiles:
@@ -51,3 +55,4 @@ profiles:
       - d_zsh
       - f_lldb
       - d_kitty
+      - f_llama_cpp
