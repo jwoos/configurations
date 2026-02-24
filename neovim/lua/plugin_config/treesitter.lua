@@ -74,6 +74,8 @@ local ignored_filetypes = {
 	'fzf',
 	'mason',
 	'qf',
+	'text',
+	'toggleterm',
 }
 
 ts.install(supported_languages)
