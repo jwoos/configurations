@@ -426,3 +426,14 @@ for _, lsp in ipairs(servers) do
 end
 
 vim.lsp.enable(servers)
+
+--
+-- builtin packages
+--
+
+-- undotree
+vim.cmd("packadd nvim.undotree")
+vim.keymap.set("n", "<leader>u", require("undotree").open)
+
+-- cfilter
+vim.cmd("packadd cfilter")
