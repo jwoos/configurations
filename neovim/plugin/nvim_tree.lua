@@ -1,5 +1,7 @@
-vim.pack.add('https://github.com/nvim-tree/nvim-tree.lua')
-vim.pack.add('https://github.com/nvim-tree/nvim-web-devicons')
+vim.pack.add({
+	'https://github.com/nvim-tree/nvim-tree.lua',
+	'https://github.com/nvim-tree/nvim-web-devicons',
+})
 
 -- https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#make-q-and-bd-work-as-if-tree-was-not-visible
 -- Make :bd and :q behave as usual when tree is visible
