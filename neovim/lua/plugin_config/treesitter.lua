@@ -43,7 +43,6 @@ local supported_languages = {
 	'readline',
 	'regex',
 	'requirements',
-	'robot_txt',
 	'rust',
 	'sql',
 	'ssh_config',
@@ -76,6 +75,7 @@ local ignored_filetypes = {
 	'qf',
 	'text',
 	'toggleterm',
+	'robot_txt'
 }
 
 ts.install(supported_languages)
