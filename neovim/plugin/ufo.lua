@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/kevinhwang91/nvim-ufo')
+vim.pack.add({'https://github.com/kevinhwang91/nvim-ufo'})
 
 vim.o.foldcolumn = '0' -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value

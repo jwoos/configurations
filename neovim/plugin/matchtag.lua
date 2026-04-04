@@ -1,1 +1,1 @@
-vim.pack.add('https://github.com/gregsexton/matchtag')
+vim.pack.add({'https://github.com/gregsexton/matchtag'})

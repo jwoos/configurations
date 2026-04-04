@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/windwp/nvim-autopairs')
+vim.pack.add({'https://github.com/windwp/nvim-autopairs'})
 
 local ap = require('nvim-autopairs')
 local rule = require('nvim-autopairs.rule')

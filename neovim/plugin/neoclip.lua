@@ -1,4 +1,9 @@
-vim.pack.add('https://github.com/AckslD/nvim-neoclip.lua')
+vim.pack.add({
+	'https://github.com/AckslD/nvim-neoclip.lua',
+
+	-- deps
+	'https://github.com/ibhagwan/fzf-lua',
+})
 
 require('neoclip').setup({
 	history = 1000,

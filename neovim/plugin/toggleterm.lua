@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/akinsho/toggleterm.nvim')
+vim.pack.add({'https://github.com/akinsho/toggleterm.nvim'})
 
 local toggleterm = require("toggleterm")
 toggleterm.setup({

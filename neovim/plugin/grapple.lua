@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/cbochs/grapple.nvim')
+vim.pack.add({'https://github.com/cbochs/grapple.nvim'})
 
 local grapple = require('grapple')
 local path = require('plenary.path')

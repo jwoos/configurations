@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/mhinz/vim-signify')
+vim.pack.add({'https://github.com/mhinz/vim-signify'})
 
 vim.cmd([[
 let g:signify_line_highlight = 0

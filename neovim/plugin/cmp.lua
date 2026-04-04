@@ -1,7 +1,12 @@
-vim.pack.add('https://github.com/hrsh7th/cmp-nvim-lsp')
-vim.pack.add('https://github.com/hrsh7th/cmp-buffer')
-vim.pack.add('https://github.com/hrsh7th/cmp-path')
-vim.pack.add('https://github.com/hrsh7th/nvim-cmp')
+vim.pack.add({
+	'https://github.com/hrsh7th/cmp-nvim-lsp',
+	'https://github.com/hrsh7th/cmp-buffer',
+	'https://github.com/hrsh7th/cmp-path',
+	'https://github.com/hrsh7th/nvim-cmp',
+
+	-- deps
+	'https://github.com/L3MON4D3/LuaSnip',
+})
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))

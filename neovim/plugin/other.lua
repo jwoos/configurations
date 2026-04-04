@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/rgroli/other.nvim')
+vim.pack.add({'https://github.com/rgroli/other.nvim'})
 
 local other = require('other-nvim')
 

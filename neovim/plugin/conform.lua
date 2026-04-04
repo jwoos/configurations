@@ -1,4 +1,5 @@
-vim.pack.add('https://github.com/stevearc/conform.nvim')
+vim.pack.add({'https://github.com/stevearc/conform.nvim'})
+
 local conform = require('conform')
 
 conform.setup({

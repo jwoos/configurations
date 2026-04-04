@@ -69,23 +69,7 @@ vim.opt.termguicolors = true
 -- enable mouse
 vim.opt.mouse = 'a'
 
--- colorscheme
 vim.opt.background = 'dark'
-
-require('kanagawa').setup({
-	theme = 'dragon',
-	colors = {
-		theme = {
-			all = {
-				ui = {
-					bg_gutter = "none"
-				}
-			}
-		}
-	}
-})
-
-vim.cmd('colorscheme kanagawa-dragon')
 
 vim.opt.showmode = false
 

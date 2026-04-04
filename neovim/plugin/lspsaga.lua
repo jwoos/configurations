@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/nvimdev/lspsaga.nvim')
+vim.pack.add({'https://github.com/nvimdev/lspsaga.nvim'})
 
 local lspsaga = require('lspsaga')
 

@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/sustech-data/wildfire.nvim')
+vim.pack.add({'https://github.com/sustech-data/wildfire.nvim'})
 
 local wildfire = require('wildfire')
 

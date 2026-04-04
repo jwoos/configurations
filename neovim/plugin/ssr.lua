@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/cshuaimin/ssr.nvim')
+vim.pack.add({'https://github.com/cshuaimin/ssr.nvim'})
 
 local ssr = require('ssr')
 ssr.setup({

@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/junegunn/vim-easy-align')
+vim.pack.add({'https://github.com/junegunn/vim-easy-align'})
 
 -- Start interactive EasyAlign in visual mode (e.g. vipga)
 -- Start interactive EasyAlign for a motion/text object (e.g. gaip)

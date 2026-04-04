@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/gbprod/substitute.nvim')
+vim.pack.add({'https://github.com/gbprod/substitute.nvim'})
 
 local sub = require('substitute')
 

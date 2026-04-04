@@ -1,4 +1,4 @@
-vim.pack.add('https://github.com/AckslD/muren.nvim')
+vim.pack.add({'https://github.com/AckslD/muren.nvim'})
 
 local muren = require('muren')
 muren.setup({

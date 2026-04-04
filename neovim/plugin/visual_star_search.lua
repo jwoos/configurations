@@ -1,1 +1,1 @@
-vim.pack.add('https://github.com/nelstrom/vim-visual-star-search')
+vim.pack.add({'https://github.com/nelstrom/vim-visual-star-search'})

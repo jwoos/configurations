@@ -1,5 +1,7 @@
-vim.pack.add('https://github.com/junegunn/fzf')
-vim.pack.add('https://github.com/junegunn/fzf-lua')
+vim.pack.add({
+	'https://github.com/junegunn/fzf',
+	'https://github.com/ibhagwan/fzf-lua'
+})
 
 local fzf = require('fzf-lua')
 local defaults = require('fzf-lua.defaults').defaults
