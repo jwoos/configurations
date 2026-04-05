@@ -1,18 +1,15 @@
 vim.pack.add({'https://github.com/neovim/nvim-lspconfig'})
 
--- disable inline diagnostics
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-	vim.lsp.diagnostic.on_publish_diagnostics, {
-		-- disable virtual text
-		virtual_text = false,
+vim.diagnostic.config({
+	-- disable virtual text
+	virtual_text = false,
 
-		-- show signs
-		signs = true,
+	-- show signs
+	signs = true,
 
-		-- delay update diagnostics
-		update_in_insert = false,
-	}
-)
+	-- delay update diagnostics
+	update_in_insert = false,
+})
 
 local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
