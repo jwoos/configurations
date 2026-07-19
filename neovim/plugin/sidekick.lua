@@ -1,0 +1,1 @@
+-- https://github.com/folke/sidekick.nvim
